@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deepan Mills | Authentic Heritage Millets, Traditional Rice & Cold-Pressed Oils</title>
+  <title>Deepan Mills | Authentic Heritage Millets, Traditional Rice & Wood-Pressed Oils</title>
   <meta name="description" content="Direct from Theni, Tamil Nadu. MSME & Grameena Award-winning organic millets, heritage rice, and wood-pressed oils.">
   
   <!-- Tailwind CSS CDN -->
@@ -50,13 +50,13 @@
 <body class="bg-[#FAF7F2] text-[#1C241F] antialiased selection:bg-amber-100 selection:text-amber-900">
 
   <!-- TOP ANNOUNCEMENT BAR WITH LANGUAGE SELECTOR -->
-  <div class="bg-[#19382B] text-white text-xs py-2 px-4 border-b border-emerald-900/40">
+  <div class="bg-[#19382B] text-white text-xs py-2 px-4 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center gap-2 font-medium">
         <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span id="announcement-text">🌾 Direct from Theni Soil • 100% Unpolished & Chemical-Free</span>
         <span class="hidden md:inline text-emerald-300/60">|</span>
-        <span id="announcement-sub" class="hidden md:inline">Free Express Shipping on Orders Above ₹799</span>
+        <span id="announcement-sub" class="hidden md:inline">Tamil Nadu MSME & Grameena Award Winner</span>
       </div>
       
       <div class="flex items-center gap-4 text-xs">
@@ -96,7 +96,7 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- BRAND LOGO -->
-        <a href="#home" class="flex items-center gap-3 group">
+        <a href="index.html" class="flex items-center gap-3 group">
           <div class="w-12 h-12 rounded-2xl bg-[#19382B] flex items-center justify-center text-amber-400 shadow-md group-hover:scale-105 transition-transform">
             <i data-lucide="sprout" class="w-7 h-7"></i>
           </div>
@@ -109,52 +109,63 @@
           </div>
         </a>
 
-        <!-- DESKTOP NAVIGATION -->
-        <nav class="hidden xl:flex items-center gap-7 text-sm font-semibold text-stone-700">
-          <a href="#home" id="nav-home" class="hover:text-[#19382B] transition-colors">Home</a>
+        <!-- DESKTOP NAVIGATION (Visible when logged in) -->
+        <nav id="header-main-nav" class="hidden xl:flex items-center gap-7 text-sm font-semibold text-stone-700">
+          <a href="#about-mill" id="nav-home" class="hover:text-[#19382B] transition-colors">About Mill</a>
           <a href="#products" id="nav-shop" class="hover:text-[#19382B] transition-colors">Shop Grains</a>
-          <a href="#nutrition-guide" id="nav-guide" class="hover:text-[#19382B] transition-colors">Health & Cooking</a>
+          <a href="#nutrition-guide" id="nav-guide" class="hover:text-[#19382B] transition-colors">Cooking & Health</a>
           <a href="#heritage" id="nav-awards" class="hover:text-[#19382B] transition-colors">MSME Award</a>
           <a href="#reviews" id="nav-reviews" class="hover:text-[#19382B] transition-colors">Reviews</a>
           <a href="#contact" id="nav-contact" class="hover:text-[#19382B] transition-colors">Contact</a>
         </nav>
 
-        <!-- ACTION BUTTONS -->
+        <!-- ACTION BUTTONS: DYNAMICALLY SWAPPED BY AUTH -->
         <div class="flex items-center gap-2.5">
-          <!-- Customer Portal Link -->
-          <a href="customer-dashboard.html" 
-             title="Customer Orders & Tracking" 
-             class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-bold text-xs transition-all shadow-sm">
-            <i data-lucide="user" class="w-3.5 h-3.5 text-amber-700"></i>
-            <span class="hidden sm:inline">My Account</span>
-          </a>
+          
+          <!-- STATE A: GUEST (Not Logged In) -->
+          <div id="header-guest-actions" class="flex items-center gap-2">
+            <a href="#portal-login" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow-sm transition-all">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-300"></i>
+              <span>Login to Access Store</span>
+            </a>
+          </div>
 
-          <!-- Mill Manager Link -->
-          <a href="dashboard.html" 
-             title="Mill Manager Operations Portal" 
-             class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200 font-bold text-xs transition-all shadow-sm">
-            <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-emerald-700"></i>
-            <span>Manager</span>
-          </a>
+          <!-- STATE B: LOGGED IN USER ACTIONS (Customer or Manager) -->
+          <div id="header-auth-actions" class="hidden flex items-center gap-2">
+            
+            <!-- Customer Portal Button -->
+            <a href="customer-dashboard.html" 
+               id="header-btn-customer"
+               class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-bold text-xs transition-all shadow-sm">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span id="header-user-name">My Account</span>
+            </a>
 
-          <!-- WhatsApp Quick Order Button -->
-          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20traditional%20rice%20and%20millets" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             class="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 transition-all shadow-sm">
-            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-700"></i>
-            <span id="btn-wa-header">WhatsApp</span>
-          </a>
+            <!-- Manager Portal Button -->
+            <a href="dashboard.html" 
+               id="header-btn-manager"
+               class="hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200 font-bold text-xs transition-all shadow-sm">
+              <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-emerald-700"></i>
+              <span>Manager Portal</span>
+            </a>
 
-          <!-- Cart Trigger Button -->
-          <button id="cart-toggle-btn" 
-                  class="relative flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#19382B] text-white hover:bg-[#132C22] shadow-md hover:shadow-lg transition-all"
-                  aria-label="View shopping cart">
-            <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-300"></i>
-            <span id="btn-cart-header" class="font-bold text-xs hidden sm:inline">Cart</span>
-            <span id="cart-count-badge" class="bg-amber-500 text-stone-900 text-xs font-black px-1.5 py-0.2 rounded-full min-w-[18px] text-center">0</span>
-            <span id="header-cart-total" class="text-xs font-semibold text-emerald-200 hidden lg:inline">• ₹0</span>
-          </button>
+            <!-- Cart Trigger Button (Customer only) -->
+            <button id="cart-toggle-btn" 
+                    class="relative flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#19382B] text-white hover:bg-[#132C22] shadow-md hover:shadow-lg transition-all"
+                    aria-label="View shopping cart">
+              <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-300"></i>
+              <span id="btn-cart-header" class="font-bold text-xs hidden sm:inline">Cart</span>
+              <span id="cart-count-badge" class="bg-amber-500 text-stone-900 text-xs font-black px-1.5 py-0.2 rounded-full min-w-[18px] text-center">0</span>
+              <span id="header-cart-total" class="text-xs font-semibold text-emerald-200 hidden lg:inline">• ₹0</span>
+            </button>
+
+            <!-- Logout Button -->
+            <button onclick="handleLogout()" 
+                    title="Sign Out"
+                    class="p-2 rounded-xl border border-stone-200 hover:bg-rose-50 hover:text-rose-700 text-stone-500 text-xs transition-colors">
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+            </button>
+          </div>
 
           <!-- Mobile menu toggle -->
           <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200" aria-label="Toggle navigation">
@@ -166,50 +177,37 @@
 
     <!-- Mobile Nav Dropdown -->
     <div id="mobile-nav-panel" class="hidden xl:hidden border-t border-stone-200 bg-[#FAF7F2] px-4 pt-3 pb-5 space-y-2 text-sm font-semibold text-stone-800">
-      <a href="#home" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Home</a>
+      <a href="#about-mill" class="block py-2 px-3 rounded-lg hover:bg-stone-100">About Deepan Mills</a>
       <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Shop Grains</a>
       <a href="#nutrition-guide" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Cooking & Health Guide</a>
-      <a href="#heritage" class="block py-2 px-3 rounded-lg hover:bg-stone-100">About Deepan & MSME Award</a>
-      <a href="#reviews" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Customer Reviews</a>
+      <a href="#heritage" class="block py-2 px-3 rounded-lg hover:bg-stone-100">MSME Award & Heritage</a>
       <a href="#contact" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Contact Us</a>
       
-      <!-- Two Dashboards Row on Mobile -->
-      <div class="grid grid-cols-2 gap-2 pt-2">
-        <a href="customer-dashboard.html" class="p-2.5 rounded-xl bg-amber-50 text-amber-900 font-bold text-xs border border-amber-200 flex items-center justify-center gap-1.5">
-          <i data-lucide="user" class="w-4 h-4 text-amber-700"></i>
-          <span>My Account</span>
-        </a>
-        <a href="dashboard.html" class="p-2.5 rounded-xl bg-emerald-50 text-emerald-900 font-bold text-xs border border-emerald-200 flex items-center justify-center gap-1.5">
-          <i data-lucide="layout-dashboard" class="w-4 h-4 text-emerald-700"></i>
-          <span>Manager Portal</span>
-        </a>
-      </div>
-      
+      <!-- Quick Mobile Auth Switch -->
+      <div id="mobile-auth-links" class="pt-2"></div>
+
       <!-- Mobile Language Row -->
       <div class="pt-2 flex items-center gap-2">
         <button onclick="changeLanguage('en')" class="flex-1 py-1.5 rounded-lg border border-stone-300 text-xs font-bold text-center bg-white">English</button>
         <button onclick="changeLanguage('ta')" class="flex-1 py-1.5 rounded-lg border border-stone-300 text-xs font-bold text-center bg-white">தமிழ்</button>
         <button onclick="changeLanguage('hi')" class="flex-1 py-1.5 rounded-lg border border-stone-300 text-xs font-bold text-center bg-white">हिन्दी</button>
       </div>
-
-      <div class="pt-2">
-        <a href="https://wa.me/916379790035" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-sm">
-          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
-        </a>
-      </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section id="home" class="relative overflow-hidden pattern-bg pt-10 pb-16 lg:pt-16 lg:pb-20 border-b border-[#EADBCC]">
+    <!-- ========================================================================= -->
+    <!-- INITIAL ENTRY GATEWAY: ABOUT DEEPAN MILLS & ROLE-BASED LOGIN PORTAL       -->
+    <!-- (Always seen first; access gatekeeper)                                    -->
+    <!-- ========================================================================= -->
+    <section id="about-mill" class="relative overflow-hidden pattern-bg pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-[#EADBCC]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- LEFT HERO CONTENT -->
+          <!-- LEFT: ABOUT DEEPAN MILLS & AWARDS -->
           <div class="lg:col-span-7 space-y-6">
             
-            <!-- Badges -->
+            <!-- Credentials Badges -->
             <div class="flex flex-wrap items-center gap-2.5">
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
                 <i data-lucide="award" class="w-4 h-4 text-amber-700"></i>
@@ -221,459 +219,511 @@
               </span>
             </div>
 
-            <!-- Main Headline -->
+            <!-- Headline -->
             <h1 id="hero-headline" class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#19382B] tracking-tight leading-[1.12]">
-              Pure. Unpolished. <br>
-              <span class="font-serif italic text-amber-700">Direct from Theni’s</span> Fertile Soil.
+              About Deepan Mills <br>
+              <span class="font-serif italic text-amber-700">Theni District</span> Agricultural Heritage.
             </h1>
 
-            <!-- Subtitle -->
+            <!-- Narrative / Story -->
             <p id="hero-subtitle" class="text-stone-600 text-base sm:text-lg max-w-2xl leading-relaxed">
-              Award-winning unpolished millets, heritage Karuppu Kavuni & Mappillai Samba rice, slow stone-ground flours, and traditional wood-pressed oils. Milled fresh every week without chemicals or polish.
+              Situated in the agricultural heartlands of <strong>Theni, Tamil Nadu</strong>, Deepan Mills specializes in reviving traditional native crops. We provide authentic unpolished millets, heritage Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and wood-pressed Vaagai oils.
             </p>
 
-            <!-- Key Feature Points -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-700">
-                <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i data-lucide="check" class="w-3.5 h-3.5"></i></div>
-                <span id="feat-1">Zero Polish & Bleach</span>
+            <!-- 3 Core Principles -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-3.5 rounded-2xl bg-white border border-stone-200 shadow-sm space-y-1">
+                <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+                  <i data-lucide="wheat" class="w-4 h-4"></i>
+                </div>
+                <h4 class="font-bold text-xs text-stone-900">Zero Chemical Polish</h4>
+                <p class="text-[11px] text-stone-500">Live bran layer & essential dietary fiber 100% intact.</p>
               </div>
-              <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-700">
-                <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i data-lucide="check" class="w-3.5 h-3.5"></i></div>
-                <span id="feat-2">Wood-Pressed Vaagai</span>
+
+              <div class="p-3.5 rounded-2xl bg-white border border-stone-200 shadow-sm space-y-1">
+                <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                  <i data-lucide="droplet" class="w-4 h-4"></i>
+                </div>
+                <h4 class="font-bold text-xs text-stone-900">Vaagai Wood-Pressed</h4>
+                <p class="text-[11px] text-stone-500">Cold-extracted with pure palm jaggery, unheated & unrefined.</p>
               </div>
-              <div class="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-700">
-                <div class="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i data-lucide="check" class="w-3.5 h-3.5"></i></div>
-                <span id="feat-3">Direct Farmer Fair-Pay</span>
+
+              <div class="p-3.5 rounded-2xl bg-white border border-stone-200 shadow-sm space-y-1">
+                <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold">
+                  <i data-lucide="heart" class="w-4 h-4"></i>
+                </div>
+                <h4 class="font-bold text-xs text-stone-900">Theni Farmer Direct</h4>
+                <p class="text-[11px] text-stone-500">Fair compensation to local Western Ghats agricultural growers.</p>
               </div>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
-              <a href="#products" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#19382B] text-white hover:bg-[#132C22] font-bold text-sm shadow-md hover:shadow-xl transition-all">
-                <span id="btn-hero-shop">Shop Fresh Harvest</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-amber-300"></i>
-              </a>
-
-              <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20please%20send%20the%20price%20catalog" target="_blank" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 font-bold text-sm border border-stone-300 shadow-sm transition-all">
-                <i data-lucide="message-square" class="w-4 h-4 text-emerald-600"></i>
-                <span id="btn-hero-wa">Quick WhatsApp Catalog</span>
-              </a>
-            </div>
-
-            <!-- Trust metric counter -->
+            <!-- Stats strip -->
             <div class="pt-4 border-t border-stone-200 flex items-center gap-8 text-xs text-stone-600">
               <div>
                 <span class="block text-xl font-extrabold text-[#19382B]">12,000+</span>
-                <span id="metric-1">Happy Households</span>
+                <span>Happy Families</span>
               </div>
               <div class="w-px h-8 bg-stone-300"></div>
               <div>
                 <span class="block text-xl font-extrabold text-[#19382B]">100%</span>
-                <span id="metric-2">Natural & Pure</span>
+                <span>Native Non-GMO Seeds</span>
               </div>
               <div class="w-px h-8 bg-stone-300"></div>
               <div>
                 <span class="block text-xl font-extrabold text-[#19382B]">4.9 / 5</span>
-                <span>Customer Rating ⭐</span>
+                <span>Patron Trust Rating ⭐</span>
               </div>
             </div>
 
           </div>
 
-          <!-- RIGHT HERO VISUAL (Feature Showcase) -->
-          <div class="lg:col-span-5 relative">
-            <div class="relative mx-auto max-w-md lg:max-w-none">
-              <!-- Background organic glow -->
-              <div class="absolute -inset-2 bg-gradient-to-r from-amber-200 to-emerald-200 rounded-3xl blur-xl opacity-50"></div>
+          <!-- RIGHT: ROLE-BASED LOGIN CARD (MANAGER & CUSTOMER) -->
+          <div id="portal-login" class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-[#19382B]/20 space-y-5">
               
-              <!-- Main Card -->
-              <div class="relative bg-white rounded-3xl p-5 shadow-2xl border border-stone-200">
-                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-stone-100">
-                  <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" 
-                       alt="Karuppu Kavuni Traditional Rice" 
-                       class="w-full h-full object-cover">
-                  <div class="absolute top-3 left-3 bg-[#19382B]/90 backdrop-blur-sm text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
-                    Theni Single-Origin
-                  </div>
-                  <div class="absolute bottom-3 right-3 bg-amber-500 text-stone-950 font-black text-xs px-2.5 py-1 rounded-lg shadow">
-                    Speciality Grain
-                  </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <span class="text-xs font-bold text-stone-400 uppercase tracking-wider">Access Gateway</span>
                 </div>
-
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <div>
-                      <h3 class="font-heading font-bold text-lg text-stone-900">Emperor's Black Rice (Karuppu Kavuni)</h3>
-                      <p class="text-xs text-amber-800 font-medium">பாரம்பரிய கருப்பு கவுனி அரிசி</p>
-                    </div>
-                    <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-2.5 py-1 rounded-full border border-emerald-200">Anti-Diabetic</span>
-                  </div>
-
-                  <p class="text-xs text-stone-600">
-                    Highest natural anthocyanin antioxidant profile of all grains. Gently stone de-husked in Theni.
-                  </p>
-
-                  <div class="flex items-center justify-between pt-2 border-t border-stone-100">
-                    <div>
-                      <span class="text-xs text-stone-500">Starts from</span>
-                      <div class="text-lg font-extrabold text-[#19382B]">₹110 <span class="text-xs text-stone-400 font-normal">/ 500g</span></div>
-                    </div>
-                    <button onclick="quickAdd('prod-1')" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow flex items-center gap-1.5 transition-all">
-                      <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                      <span>Add to Cart</span>
-                    </button>
-                  </div>
-                </div>
+                <h3 class="font-heading font-extrabold text-2xl text-[#19382B]">Deepan Mills Portal</h3>
+                <p class="text-xs text-stone-500 mt-1">Please select your login type to access prices, orders, or mill management.</p>
               </div>
 
-              <!-- Floating Micro Card -->
-              <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-stone-200 hidden sm:flex items-center gap-3 max-w-xs">
-                <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 shrink-0">
-                  <i data-lucide="shield-check" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs font-bold text-stone-900">Lab Tested Chemical-Free</h4>
-                  <p class="text-[11px] text-stone-500">Zero artificial gloss, polish or aroma</p>
-                </div>
+              <!-- Role Switcher Tabs -->
+              <div class="grid grid-cols-2 gap-2 bg-stone-100 p-1.5 rounded-2xl">
+                <button type="button" 
+                        onclick="switchLoginRole('customer')" 
+                        id="role-tab-customer" 
+                        class="py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-[#19382B] shadow-sm">
+                  <i data-lucide="user" class="w-3.5 h-3.5 text-amber-600"></i>
+                  <span>Customer / Buyer</span>
+                </button>
+                <button type="button" 
+                        onclick="switchLoginRole('manager')" 
+                        id="role-tab-manager" 
+                        class="py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-stone-600 hover:text-stone-900">
+                  <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-700"></i>
+                  <span>Mill Manager</span>
+                </button>
               </div>
 
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCT CATALOG SECTION (Direct Transition - E-Commerce First) -->
-    <section id="products" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-        <div>
-          <span id="catalog-eyebrow" class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Direct From Our Mill</span>
-          <h2 id="catalog-title" class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] mt-1">
-            Choose Your Heritage Grains & Oils
-          </h2>
-          <p id="catalog-sub" class="text-sm text-stone-600 max-w-xl mt-1.5">
-            Select pack size (500g, 1kg, 5kg), explore nutritional benefits, or order instantly via WhatsApp.
-          </p>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="relative w-full md:w-72">
-          <input type="text" 
-                 id="product-search-input" 
-                 placeholder="Search rice, millet, oil..." 
-                 class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#19382B] focus:border-transparent transition-all shadow-sm">
-          <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5"></i>
-          <button id="clear-search-btn" class="hidden absolute right-3 top-3 text-stone-400 hover:text-stone-600">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- CATEGORY TABS -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
-        <button class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-[#19382B] text-white transition-all shadow-sm" data-category="all">
-          <span id="cat-all">All Products (12)</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="rice">
-          <span id="cat-rice">🍚 Heritage Rice (பாரம்பரிய அரிசி)</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="millet">
-          <span id="cat-millet">🌾 Millets (சிறுதானியங்கள்)</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="oil">
-          <span id="cat-oil">🫒 Cold-Pressed Oils (மரச்செக்கு)</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="flour">
-          <span id="cat-flour">🥣 Stone Flours (பாரம்பரிய மாவு)</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="combos">
-          <span id="cat-combos">🎁 Value Combos</span>
-        </button>
-      </div>
-
-      <!-- DIETARY HEALTH FILTER TAGS -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs">
-        <span class="text-stone-500 font-semibold flex items-center gap-1 shrink-0">
-          <i data-lucide="filter" class="w-3.5 h-3.5"></i> <span id="label-filter-by">Filter by Health Need:</span>
-        </span>
-        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Diabetic Friendly">
-          Diabetic Friendly (Low GI)
-        </button>
-        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="High Fiber">
-          High Fiber
-        </button>
-        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Gluten Free">
-          Gluten Free
-        </button>
-        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Cold Pressed">
-          Cold Pressed Oils
-        </button>
-        <button id="reset-filters-btn" class="hidden text-amber-700 underline font-semibold ml-2">
-          Clear Filter
-        </button>
-      </div>
-
-      <!-- PRODUCTS GRID CONTAINER -->
-      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-
-      <!-- Empty State -->
-      <div id="no-products-view" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
-        <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-700 mx-auto flex items-center justify-center mb-4">
-          <i data-lucide="search-x" class="w-8 h-8"></i>
-        </div>
-        <h3 class="font-heading font-bold text-xl text-stone-900">No grains matched your search</h3>
-        <p class="text-sm text-stone-500 mt-1 max-w-sm mx-auto">Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset the category filters.</p>
-        <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#19382B] text-white text-xs font-bold">
-          View All Products
-        </button>
-      </div>
-
-    </section>
-
-    <!-- NUTRITION & COOKING COMPARISON SECTION -->
-    <section id="nutrition-guide" class="py-16 bg-stone-100/70 border-y border-stone-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Health Science & Wisdom</span>
-          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] mt-1">
-            Why Switch to Traditional Theni Grains?
-          </h2>
-          <p class="text-sm text-stone-600 mt-2">
-            See the scientific comparison between polished white supermarket rice and Deepan Mills unpolished heritage grains.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-3xl shadow-md border border-stone-200 overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs sm:text-sm">
-              <thead class="bg-[#19382B] text-white font-heading font-bold uppercase text-[11px] tracking-wider">
-                <tr>
-                  <th class="py-4 px-6">Grain Variety</th>
-                  <th class="py-4 px-4">Tamil Name</th>
-                  <th class="py-4 px-4">Fiber Content</th>
-                  <th class="py-4 px-4">Glycemic Index (GI)</th>
-                  <th class="py-4 px-4">Cooking Ratio (Rice:Water)</th>
-                  <th class="py-4 px-6">Primary Health Benefit</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-stone-100 text-stone-700 font-medium">
-                <tr class="hover:bg-amber-50/40 transition-colors">
-                  <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-stone-900"></span> Karuppu Kavuni
-                  </td>
-                  <td class="py-4 px-4 text-stone-500">கருப்பு கவுனி</td>
-                  <td class="py-4 px-4 font-bold text-emerald-700">4.8g (4x White Rice)</td>
-                  <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Low (45)</span></td>
-                  <td class="py-4 px-4">1 : 3.5 (Soak 4-6 hrs)</td>
-                  <td class="py-4 px-6 text-xs text-stone-600">Highest Anthocyanin antioxidants, prevents sugar spikes, cleanses arteries</td>
-                </tr>
-
-                <tr class="hover:bg-amber-50/40 transition-colors">
-                  <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-red-700"></span> Mappillai Samba
-                  </td>
-                  <td class="py-4 px-4 text-stone-500">மாப்பிள்ளை சம்பா</td>
-                  <td class="py-4 px-4 font-bold text-emerald-700">4.2g</td>
-                  <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Low (50)</span></td>
-                  <td class="py-4 px-4">1 : 3.0 (Soak 3 hrs)</td>
-                  <td class="py-4 px-6 text-xs text-stone-600">Boosts hemoglobin, natural stamina, relieves stomach ulcers & acidity</td>
-                </tr>
-
-                <tr class="hover:bg-amber-50/40 transition-colors">
-                  <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-amber-400"></span> Kuthiraivali (Barnyard)
-                  </td>
-                  <td class="py-4 px-4 text-stone-500">குதிரைவாலி</td>
-                  <td class="py-4 px-4 font-bold text-emerald-700">10.1g (10x White Rice!)</td>
-                  <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Very Low (38)</span></td>
-                  <td class="py-4 px-4">1 : 2.5 (Soak 20 mins)</td>
-                  <td class="py-4 px-6 text-xs text-stone-600">Top choice for weight loss & diabetic reversal. Super light digestion</td>
-                </tr>
-
-                <tr class="hover:bg-amber-50/40 transition-colors">
-                  <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-rose-400"></span> Poongar Rice
-                  </td>
-                  <td class="py-4 px-4 text-stone-500">பூங்கார் அரிசி</td>
-                  <td class="py-4 px-4 font-bold text-emerald-700">3.9g</td>
-                  <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Moderate (52)</span></td>
-                  <td class="py-4 px-4">1 : 3.0 (Soak 2 hrs)</td>
-                  <td class="py-4 px-6 text-xs text-stone-600">Cherished for women's hormonal balance, postnatal wellness, soft idlis</td>
-                </tr>
-
-                <tr class="bg-red-50/50 text-stone-500">
-                  <td class="py-4 px-6 font-semibold line-through">Polished White Rice (Supermarket)</td>
-                  <td class="py-4 px-4">வெள்ளை அரிசி</td>
-                  <td class="py-4 px-4 text-rose-700 font-semibold">0.4g (Stripped of Bran)</td>
-                  <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[11px]">High (73)</span></td>
-                  <td class="py-4 px-4">1 : 2.0</td>
-                  <td class="py-4 px-6 text-xs text-rose-600">Rapid glucose spikes, low nutrient retention due to multi-stage polishing</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- HERITAGE, MSME AWARD & THENI STORY -->
-    <section id="heritage" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left: Image grid showcasing mill & awards -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200 aspect-[4/3]">
-            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" 
-                 alt="Farming Fields in Theni, Tamil Nadu" 
-                 class="w-full h-full object-cover">
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-amber-50 rounded-2xl p-4 border border-amber-200">
-              <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-2">
-                <i data-lucide="award" class="w-5 h-5"></i>
-              </div>
-              <h4 class="font-heading font-bold text-stone-900 text-sm">MSME Award</h4>
-              <p class="text-xs text-stone-600 mt-1">Recognized for Best Entrepreneurship in agricultural processing.</p>
-            </div>
-            <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-200">
-              <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-2">
-                <i data-lucide="leaf" class="w-5 h-5"></i>
-              </div>
-              <h4 class="font-heading font-bold text-stone-900 text-sm">Grameena Award</h4>
-              <p class="text-xs text-stone-600 mt-1">Awarded for sustainable farming and farmer community empowerment.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Story copy -->
-        <div class="lg:col-span-7 space-y-6">
-          <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Our Roots In Theni</span>
-          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] leading-tight">
-            We Don't Just Mill Grains. We Revive Ancient Tamil Nadu Nutrition.
-          </h2>
-          
-          <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
-            Nestled in the lush agricultural heart of <strong>Theni, Tamil Nadu</strong>, Deepan Mills was established with a singular mission: to liberate Indian kitchens from polished, nutritionally void grains and bring back the vigor of our ancestors.
-          </p>
-
-          <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
-            Unlike commercial mega-mills that employ high-friction chemical polishing to make grains look unnaturally white and shiny, we adhere strictly to <strong>slow, low-temperature stone de-husking</strong> and <strong>Vaagai wood-pressing (மரச்செக்கு)</strong>. This guarantees that every grain retains its complete germ oil, natural vitamins, and medicinal fiber.
-          </p>
-
-          <!-- Quote Box -->
-          <div class="p-5 rounded-2xl bg-[#FAF7F2] border-l-4 border-amber-600 text-stone-800 text-sm italic">
-            "We care about our nation’s agricultural self-reliance through environmentally conscious management. Real health begins with real, uncorrupted food."
-          </div>
-
-          <div class="flex items-center gap-6 pt-2">
-            <div>
-              <span class="text-xs text-stone-500 uppercase tracking-wider font-bold">Mill Location</span>
-              <p class="text-sm font-extrabold text-stone-900">Theni District, Tamil Nadu</p>
-            </div>
-            <div class="w-px h-8 bg-stone-300"></div>
-            <div>
-              <span class="text-xs text-stone-500 uppercase tracking-wider font-bold">Direct Hotline</span>
-              <p class="text-sm font-extrabold text-stone-900">+91 63797 90035</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section id="reviews" class="py-16 bg-white border-t border-stone-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-12">
-          <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Trusted Across South India</span>
-          <h2 class="font-heading font-extrabold text-3xl text-[#19382B] mt-1">
-            What Our Regular Customers Say
-          </h2>
-          <p class="text-xs sm:text-sm text-stone-500 mt-2">Real feedback from families and health practitioners who made the switch.</p>
-        </div>
-
-        <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Populated from products.js/TESTIMONIALS -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT & BULK INQUIRY SECTION -->
-    <section id="contact" class="py-16 bg-[#FAF7F2] border-t border-stone-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-[#19382B] text-white rounded-3xl p-8 sm:p-12 shadow-xl">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            
-            <div class="space-y-4">
-              <span class="text-xs uppercase font-bold tracking-wider text-amber-300">Wholesale, Retail & Domestic Supply</span>
-              <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">
-                Need Bulk Orders for Your Store or Home?
-              </h2>
-              <p class="text-emerald-100 text-sm leading-relaxed">
-                We supply directly to residential apartments, organic retail outlets, hospitals, and catering services across Tamil Nadu, Bangalore, and Kerala at wholesale mill rates.
-              </p>
-
-              <div class="space-y-3 pt-2 text-sm text-emerald-200">
-                <div class="flex items-center gap-3">
-                  <i data-lucide="phone" class="w-5 h-5 text-amber-300"></i>
-                  <span><strong>Hotline:</strong> 063797 90035 / +91 91599 90812</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <i data-lucide="mail" class="w-5 h-5 text-amber-300"></i>
-                  <span><strong>Email:</strong> deepanmills@gmail.com</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <i data-lucide="clock" class="w-5 h-5 text-amber-300"></i>
-                  <span><strong>Working Hours:</strong> Mon - Sat: 10:00 AM - 6:00 PM (Sunday Closed)</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <i data-lucide="map-pin" class="w-5 h-5 text-amber-300"></i>
-                  <span>Theni, Tamil Nadu, India</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Quick Inquiry Form -->
-            <div class="bg-white rounded-2xl p-6 sm:p-8 text-stone-900 shadow-lg">
-              <h3 class="font-heading font-bold text-xl text-stone-900 mb-1">Direct Mill Inquiry</h3>
-              <p class="text-xs text-stone-500 mb-4">Send us your requirement, we reply within 30 minutes on WhatsApp.</p>
-              
-              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-3">
+              <!-- CUSTOMER LOGIN FORM -->
+              <form id="customer-login-form" onsubmit="handleCustomerLogin(event)" class="space-y-3.5">
                 <div>
                   <label class="block text-xs font-bold text-stone-700 mb-1">Your Full Name</label>
-                  <input type="text" id="contact-name" required placeholder="e.g. Ramesh Kumar" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
+                  <input type="text" id="cust-login-name" required placeholder="e.g. Anitha Kannan" value="Anitha Kannan" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
                 </div>
+
                 <div>
-                  <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp / Phone Number</label>
-                  <input type="tel" id="contact-phone" required placeholder="e.g. 9876543210" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Mobile / WhatsApp Number</label>
+                  <input type="tel" id="cust-login-phone" required placeholder="e.g. 98401 23456" value="9840123456" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
                 </div>
-                <div>
-                  <label class="block text-xs font-bold text-stone-700 mb-1">Requirement (Grains / Quantity)</label>
-                  <textarea id="contact-message" rows="3" required placeholder="e.g. Need 25kg Karuppu Kavuni and 10L Wood-pressed Sesame Oil" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]"></textarea>
-                </div>
-                <button type="submit" class="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow transition-all flex items-center justify-center gap-2">
-                  <i data-lucide="send" class="w-4 h-4"></i>
-                  <span>Submit Inquiry to Deepan Mills</span>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="unlock" class="w-4 h-4 text-amber-300"></i>
+                  <span>Login & Enter Store</span>
+                </button>
+
+                <!-- 1-Click Demo Customer Button -->
+                <button type="button" onclick="loginDemoCustomer()" class="w-full py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-600"></i>
+                  <span>⚡ 1-Click Instant Customer Login</span>
                 </button>
               </form>
-            </div>
 
+              <!-- MANAGER LOGIN FORM -->
+              <form id="manager-login-form" onsubmit="handleManagerLogin(event)" class="hidden space-y-3.5">
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Manager Access PIN / Staff Key</label>
+                  <input type="password" id="mgr-login-pin" required placeholder="Enter PIN (Demo: 2026)" value="2026" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
+                  <span class="text-[10px] text-stone-400 mt-1 block">Default Mill Staff Access Key: <strong>2026</strong></span>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="layout-dashboard" class="w-4 h-4 text-emerald-300"></i>
+                  <span>Login to Manager Operations</span>
+                </button>
+
+                <!-- 1-Click Demo Manager Button -->
+                <button type="button" onclick="loginDemoManager()" class="w-full py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-700"></i>
+                  <span>⚡ 1-Click Instant Manager Login</span>
+                </button>
+              </form>
+
+              <div class="pt-2 text-center border-t border-stone-100">
+                <span class="text-[11px] text-stone-400 flex items-center justify-center gap-1">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  Private access protected • Deepan Mills, Theni
+                </span>
+              </div>
+
+            </div>
           </div>
+
         </div>
       </div>
     </section>
+
+    <!-- ========================================================================= -->
+    <!-- PROTECTED INFORMATION CONTAINER: SHOWN ONLY AFTER AUTHENTICATION          -->
+    <!-- (Gated e-commerce catalog, shopping cart, health guide, reviews)          -->
+    <!-- ========================================================================= -->
+    <div id="protected-store-section" class="hidden">
+      
+      <!-- Welcome Session Banner -->
+      <div class="bg-white border-b border-stone-200 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span class="text-xs font-bold text-stone-900">Authenticated Session Active:</span>
+            <span id="auth-status-badge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-100 text-amber-900">
+              Customer: Anitha Kannan
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3 text-xs">
+            <a href="customer-dashboard.html" class="font-bold text-emerald-800 hover:underline flex items-center gap-1">
+              <i data-lucide="package" class="w-3.5 h-3.5"></i> View Order History
+            </a>
+            <span>•</span>
+            <button onclick="handleLogout()" class="font-bold text-rose-600 hover:underline flex items-center gap-1">
+              <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Sign Out
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCT CATALOG SECTION -->
+      <section id="products" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <span id="catalog-eyebrow" class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Direct From Our Mill</span>
+            <h2 id="catalog-title" class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] mt-1">
+              Choose Your Heritage Grains & Oils
+            </h2>
+            <p id="catalog-sub" class="text-sm text-stone-600 max-w-xl mt-1.5">
+              Select pack size (500g, 1kg, 5kg), explore nutritional benefits, or order instantly via WhatsApp.
+            </p>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="relative w-full md:w-72">
+            <input type="text" 
+                   id="product-search-input" 
+                   placeholder="Search rice, millet, oil..." 
+                   class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#19382B] focus:border-transparent transition-all shadow-sm">
+            <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5"></i>
+            <button id="clear-search-btn" class="hidden absolute right-3 top-3 text-stone-400 hover:text-stone-600">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+          <button class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-[#19382B] text-white transition-all shadow-sm" data-category="all">
+            <span id="cat-all">All Products (12)</span>
+          </button>
+          <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="rice">
+            <span id="cat-rice">🍚 Heritage Rice (பாரம்பரிய அரிசி)</span>
+          </button>
+          <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="millet">
+            <span id="cat-millet">🌾 Millets (சிறுதானியங்கள்)</span>
+          </button>
+          <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="oil">
+            <span id="cat-oil">🫒 Cold-Pressed Oils (மரச்செக்கு)</span>
+          </button>
+          <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="flour">
+            <span id="cat-flour">🥣 Stone Flours (பாரம்பரிய மாவு)</span>
+          </button>
+          <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="combos">
+            <span id="cat-combos">🎁 Value Combos</span>
+          </button>
+        </div>
+
+        <!-- DIETARY HEALTH FILTER TAGS -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs">
+          <span class="text-stone-500 font-semibold flex items-center gap-1 shrink-0">
+            <i data-lucide="filter" class="w-3.5 h-3.5"></i> <span id="label-filter-by">Filter by Health Need:</span>
+          </span>
+          <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Diabetic Friendly">
+            Diabetic Friendly (Low GI)
+          </button>
+          <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="High Fiber">
+            High Fiber
+          </button>
+          <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Gluten Free">
+            Gluten Free
+          </button>
+          <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Cold Pressed">
+            Cold Pressed Oils
+          </button>
+          <button id="reset-filters-btn" class="hidden text-amber-700 underline font-semibold ml-2">
+            Clear Filter
+          </button>
+        </div>
+
+        <!-- PRODUCTS GRID CONTAINER -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-products-view" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
+          <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-700 mx-auto flex items-center justify-center mb-4">
+            <i data-lucide="search-x" class="w-8 h-8"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-stone-900">No grains matched your search</h3>
+          <p class="text-sm text-stone-500 mt-1 max-w-sm mx-auto">Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset filters.</p>
+          <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#19382B] text-white text-xs font-bold">
+            View All Products
+          </button>
+        </div>
+
+      </section>
+
+      <!-- NUTRITION & COOKING COMPARISON SECTION -->
+      <section id="nutrition-guide" class="py-16 bg-stone-100/70 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Health Science & Wisdom</span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] mt-1">
+              Why Switch to Traditional Theni Grains?
+            </h2>
+            <p class="text-sm text-stone-600 mt-2">
+              See the scientific comparison between polished white supermarket rice and Deepan Mills unpolished heritage grains.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl shadow-md border border-stone-200 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs sm:text-sm">
+                <thead class="bg-[#19382B] text-white font-heading font-bold uppercase text-[11px] tracking-wider">
+                  <tr>
+                    <th class="py-4 px-6">Grain Variety</th>
+                    <th class="py-4 px-4">Tamil Name</th>
+                    <th class="py-4 px-4">Fiber Content</th>
+                    <th class="py-4 px-4">Glycemic Index (GI)</th>
+                    <th class="py-4 px-4">Cooking Ratio (Rice:Water)</th>
+                    <th class="py-4 px-6">Primary Health Benefit</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-100 text-stone-700 font-medium">
+                  <tr class="hover:bg-amber-50/40 transition-colors">
+                    <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
+                      <span class="w-3 h-3 rounded-full bg-stone-900"></span> Karuppu Kavuni
+                    </td>
+                    <td class="py-4 px-4 text-stone-500">கருப்பு கவுனி</td>
+                    <td class="py-4 px-4 font-bold text-emerald-700">4.8g (4x White Rice)</td>
+                    <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Low (45)</span></td>
+                    <td class="py-4 px-4">1 : 3.5 (Soak 4-6 hrs)</td>
+                    <td class="py-4 px-6 text-xs text-stone-600">Highest Anthocyanin antioxidants, prevents sugar spikes, cleanses arteries</td>
+                  </tr>
+
+                  <tr class="hover:bg-amber-50/40 transition-colors">
+                    <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
+                      <span class="w-3 h-3 rounded-full bg-red-700"></span> Mappillai Samba
+                    </td>
+                    <td class="py-4 px-4 text-stone-500">மாப்பிள்ளை சம்பா</td>
+                    <td class="py-4 px-4 font-bold text-emerald-700">4.2g</td>
+                    <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Low (50)</span></td>
+                    <td class="py-4 px-4">1 : 3.0 (Soak 3 hrs)</td>
+                    <td class="py-4 px-6 text-xs text-stone-600">Boosts hemoglobin, natural stamina, relieves stomach ulcers & acidity</td>
+                  </tr>
+
+                  <tr class="hover:bg-amber-50/40 transition-colors">
+                    <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
+                      <span class="w-3 h-3 rounded-full bg-amber-400"></span> Kuthiraivali (Barnyard)
+                    </td>
+                    <td class="py-4 px-4 text-stone-500">குதிரைவாலி</td>
+                    <td class="py-4 px-4 font-bold text-emerald-700">10.1g (10x White Rice!)</td>
+                    <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Very Low (38)</span></td>
+                    <td class="py-4 px-4">1 : 2.5 (Soak 20 mins)</td>
+                    <td class="py-4 px-6 text-xs text-stone-600">Top choice for weight loss & diabetic reversal. Super light digestion</td>
+                  </tr>
+
+                  <tr class="hover:bg-amber-50/40 transition-colors">
+                    <td class="py-4 px-6 font-bold text-stone-900 flex items-center gap-2">
+                      <span class="w-3 h-3 rounded-full bg-rose-400"></span> Poongar Rice
+                    </td>
+                    <td class="py-4 px-4 text-stone-500">பூங்கார் அரிசி</td>
+                    <td class="py-4 px-4 font-bold text-emerald-700">3.9g</td>
+                    <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[11px]">Moderate (52)</span></td>
+                    <td class="py-4 px-4">1 : 3.0 (Soak 2 hrs)</td>
+                    <td class="py-4 px-6 text-xs text-stone-600">Cherished for women's hormonal balance, postnatal wellness, soft idlis</td>
+                  </tr>
+
+                  <tr class="bg-red-50/50 text-stone-500">
+                    <td class="py-4 px-6 font-semibold line-through">Polished White Rice (Supermarket)</td>
+                    <td class="py-4 px-4">வெள்ளை அரிசி</td>
+                    <td class="py-4 px-4 text-rose-700 font-semibold">0.4g (Stripped of Bran)</td>
+                    <td class="py-4 px-4"><span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[11px]">High (73)</span></td>
+                    <td class="py-4 px-4">1 : 2.0</td>
+                    <td class="py-4 px-6 text-xs text-rose-600">Rapid glucose spikes, low nutrient retention due to multi-stage polishing</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HERITAGE, MSME AWARD & THENI STORY -->
+      <section id="heritage" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left: Image grid showcasing mill & awards -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200 aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80" 
+                   alt="Farming Fields in Theni, Tamil Nadu" 
+                   class="w-full h-full object-cover">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-amber-50 rounded-2xl p-4 border border-amber-200">
+                <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-2">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-heading font-bold text-stone-900 text-sm">MSME Award</h4>
+                <p class="text-xs text-stone-600 mt-1">Recognized for Best Entrepreneurship in agricultural processing.</p>
+              </div>
+              <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-200">
+                <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-2">
+                  <i data-lucide="leaf" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-heading font-bold text-stone-900 text-sm">Grameena Award</h4>
+                <p class="text-xs text-stone-600 mt-1">Awarded for sustainable farming and farmer community empowerment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Story copy -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Our Roots In Theni</span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-[#19382B] leading-tight">
+              We Don't Just Mill Grains. We Revive Ancient Tamil Nadu Nutrition.
+            </h2>
+            
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+              Nestled in the lush agricultural heart of <strong>Theni, Tamil Nadu</strong>, Deepan Mills was established with a singular mission: to liberate Indian kitchens from polished, nutritionally void grains and bring back the vigor of our ancestors.
+            </p>
+
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+              Unlike commercial mega-mills that employ high-friction chemical polishing to make grains look unnaturally white and shiny, we adhere strictly to <strong>slow, low-temperature stone de-husking</strong> and <strong>Vaagai wood-pressing (மரச்செக்கு)</strong>. This guarantees that every grain retains its complete germ oil, natural vitamins, and medicinal fiber.
+            </p>
+
+            <div class="p-5 rounded-2xl bg-[#FAF7F2] border-l-4 border-amber-600 text-stone-800 text-sm italic">
+              "We care about our nation’s agricultural self-reliance through environmentally conscious management. Real health begins with real, uncorrupted food."
+            </div>
+
+            <div class="flex items-center gap-6 pt-2">
+              <div>
+                <span class="text-xs text-stone-500 uppercase tracking-wider font-bold">Mill Location</span>
+                <p class="text-sm font-extrabold text-stone-900">Theni District, Tamil Nadu</p>
+              </div>
+              <div class="w-px h-8 bg-stone-300"></div>
+              <div>
+                <span class="text-xs text-stone-500 uppercase tracking-wider font-bold">Direct Hotline</span>
+                <p class="text-sm font-extrabold text-stone-900">+91 63797 90035</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS SECTION -->
+      <section id="reviews" class="py-16 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-xl mx-auto mb-12">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-amber-700">Trusted Across South India</span>
+            <h2 class="font-heading font-extrabold text-3xl text-[#19382B] mt-1">
+              What Our Regular Customers Say
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500 mt-2">Real feedback from families and health practitioners who made the switch.</p>
+          </div>
+
+          <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Populated from products.js/TESTIMONIALS -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT & BULK INQUIRY SECTION -->
+      <section id="contact" class="py-16 bg-[#FAF7F2] border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-[#19382B] text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              
+              <div class="space-y-4">
+                <span class="text-xs uppercase font-bold tracking-wider text-amber-300">Wholesale, Retail & Domestic Supply</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+                  Need Bulk Orders for Your Store or Home?
+                </h2>
+                <p class="text-emerald-100 text-sm leading-relaxed">
+                  We supply directly to residential apartments, organic retail outlets, hospitals, and catering services across Tamil Nadu, Bangalore, and Kerala at wholesale mill rates.
+                </p>
+
+                <div class="space-y-3 pt-2 text-sm text-emerald-200">
+                  <div class="flex items-center gap-3">
+                    <i data-lucide="phone" class="w-5 h-5 text-amber-300"></i>
+                    <span><strong>Hotline:</strong> 063797 90035 / +91 91599 90812</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i data-lucide="mail" class="w-5 h-5 text-amber-300"></i>
+                    <span><strong>Email:</strong> deepanmills@gmail.com</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i data-lucide="clock" class="w-5 h-5 text-amber-300"></i>
+                    <span><strong>Working Hours:</strong> Mon - Sat: 10:00 AM - 6:00 PM (Sunday Closed)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-amber-300"></i>
+                    <span>Theni, Tamil Nadu, India</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Inquiry Form -->
+              <div class="bg-white rounded-2xl p-6 sm:p-8 text-stone-900 shadow-lg">
+                <h3 class="font-heading font-bold text-xl text-stone-900 mb-1">Direct Mill Inquiry</h3>
+                <p class="text-xs text-stone-500 mb-4">Send us your requirement, we reply within 30 minutes on WhatsApp.</p>
+                
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-3">
+                  <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1">Your Full Name</label>
+                    <input type="text" id="contact-name" required placeholder="e.g. Ramesh Kumar" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp / Phone Number</label>
+                    <input type="tel" id="contact-phone" required placeholder="e.g. 9876543210" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1">Requirement (Grains / Quantity)</label>
+                    <textarea id="contact-message" rows="3" required placeholder="e.g. Need 25kg Karuppu Kavuni and 10L Wood-pressed Sesame Oil" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#19382B]"></textarea>
+                  </div>
+                  <button type="submit" class="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm shadow transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Submit Inquiry to Deepan Mills</span>
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -716,12 +766,12 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-sm mb-3">Quick Links</h4>
+          <h4 class="text-white font-heading font-bold text-sm mb-3">Quick Portals</h4>
           <ul class="space-y-2">
-            <li><a href="#heritage" class="hover:text-white transition-colors">About Our Mill</a></li>
+            <li><a href="customer-dashboard.html" class="hover:text-white transition-colors">Customer Portal (My Account)</a></li>
+            <li><a href="dashboard.html" class="hover:text-white transition-colors">Mill Operations Portal (Manager)</a></li>
             <li><a href="#nutrition-guide" class="hover:text-white transition-colors">Millet Cooking Ratios</a></li>
             <li><a href="#heritage" class="hover:text-white transition-colors">MSME & Grameena Awards</a></li>
-            <li><a href="#reviews" class="hover:text-white transition-colors">Customer Testimonials</a></li>
             <li><a href="#contact" class="hover:text-white transition-colors">Wholesale Supply</a></li>
           </ul>
         </div>
@@ -748,14 +798,14 @@
           <span>•</span>
           <a href="#" class="hover:text-stone-300">Terms of Service</a>
           <span>•</span>
-          <a href="#" class="hover:text-stone-300">Shipping & Return Policy</a>
+          <a href="#" class="hover:text-stone-300">Shipping Policy</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- FLOATING MOBILE BOTTOM ACTION BAR -->
-  <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-stone-200 px-4 py-2.5 flex items-center justify-between gap-3 shadow-2xl">
+  <!-- FLOATING MOBILE BOTTOM ACTION BAR (VISIBLE AFTER LOGIN) -->
+  <div id="mobile-bottom-bar" class="hidden lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-stone-200 px-4 py-2.5 flex items-center justify-between gap-3 shadow-2xl">
     <a href="tel:+916379790035" class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-stone-100 text-stone-800 font-bold text-xs border border-stone-300">
       <i data-lucide="phone" class="w-4 h-4 text-[#19382B]"></i> Call Mill
     </a>
@@ -932,7 +982,6 @@
           <!-- UPI Dynamic Box -->
           <div id="pay-box-upi" class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-3">
             <div class="flex items-center gap-3">
-              <!-- Dummy QR code simulation -->
               <div class="w-24 h-24 bg-white p-1.5 rounded-xl border border-stone-300 shadow-sm flex items-center justify-center shrink-0">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=deepanmills@okaxis&pn=DeepanMills&cu=INR" alt="UPI QR" class="w-full h-full object-contain">
               </div>

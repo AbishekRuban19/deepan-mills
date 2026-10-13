@@ -1,32 +1,25 @@
 // Deepan Mills - Interactive Application Logic with Multilingual Support (EN, TA, HI)
-// Handles catalog browsing, variant pricing, slide-over cart, checkout & WhatsApp ordering
+// & Role-Based Access Control (Customer & Manager Gatekeeper)
 
 // --- MULTILINGUAL DICTIONARY (English, Tamil, Hindi) ---
 const TRANSLATIONS = {
   en: {
     langName: 'English',
     announcement: '🌾 Direct from Theni Soil • 100% Unpolished & Chemical-Free',
-    announcementSub: 'Free Express Shipping on Orders Above ₹799',
+    announcementSub: 'Tamil Nadu MSME & Grameena Award Winner',
     brandTagline: 'Tradition • Purity • Health',
-    navHome: 'Home',
+    navHome: 'About Mill',
     navShop: 'Shop Grains',
-    navGuide: 'Health & Cooking',
+    navGuide: 'Cooking & Health',
     navAwards: 'MSME Award',
     navReviews: 'Reviews',
     navContact: 'Contact',
-    btnWaHeader: 'Order on WhatsApp',
+    btnWaHeader: 'WhatsApp',
     btnCartHeader: 'Cart',
     heroBadge1: 'MSME Best Entrepreneur Award Winner',
     heroBadge2: 'Grameena Award',
-    heroHeadline: 'Pure. Unpolished. <br><span class="font-serif italic text-amber-700">Direct from Theni’s</span> Fertile Soil.',
-    heroSubtitle: 'Award-winning unpolished millets, heritage Karuppu Kavuni & Mappillai Samba rice, slow stone-ground flours, and traditional wood-pressed oils. Milled fresh every week without chemicals or polish.',
-    feat1: 'Zero Polish & Bleach',
-    feat2: 'Wood-Pressed Vaagai',
-    feat3: 'Direct Farmer Fair-Pay',
-    btnHeroShop: 'Shop Fresh Harvest',
-    btnHeroWa: 'Quick WhatsApp Catalog',
-    metric1: 'Happy Households',
-    metric2: 'Natural & Pure',
+    heroHeadline: 'About Deepan Mills <br><span class="font-serif italic text-amber-700">Theni District</span> Agricultural Heritage.',
+    heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving traditional native crops. We provide authentic unpolished millets, heritage Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and wood-pressed Vaagai oils.',
     catalogEyebrow: 'Direct From Our Mill',
     catalogTitle: 'Choose Your Heritage Grains & Oils',
     catalogSub: 'Select pack size (500g, 1kg, 5kg), explore nutritional benefits, or order instantly via WhatsApp.',
@@ -48,27 +41,20 @@ const TRANSLATIONS = {
   ta: {
     langName: 'தமிழ்',
     announcement: '🌾 தேனி மண்ணிலிருந்து நேரடியாக • 100% தீட்டப்படாத நவதானியங்கள்',
-    announcementSub: '₹799க்கு மேல் இலவச விரைவு டெலிவரி',
+    announcementSub: 'தமிழ்நாடு MSME மற்றும் கிராமீனா விருது பெற்ற நிறுவனம்',
     brandTagline: 'பாரம்பரியம் • தூய்மை • நல்வாழ்வு',
-    navHome: 'முகப்பு',
+    navHome: 'ஆலை அறிமுகம்',
     navShop: 'தானியங்கள்',
     navGuide: 'சமையல் வழிகாட்டி',
     navAwards: 'MSME விருது',
     navReviews: 'கருத்துகள்',
     navContact: 'தொடர்பு',
-    btnWaHeader: 'வாட்ஸ்அப் ஆர்டர்',
+    btnWaHeader: 'வாட்ஸ்அப்',
     btnCartHeader: 'கூடை',
     heroBadge1: 'MSME சிறந்த தொழில்முனைவோர் விருது',
     heroBadge2: 'கிராமீனா விருது பெற்ற நிறுவனம்',
-    heroHeadline: 'தூயது. தீட்டப்படாதது. <br><span class="font-serif italic text-amber-700">தேனியின் வளமான மண்ணில்</span> விளைந்தது.',
-    heroSubtitle: 'விருது பெற்ற பாரம்பரிய சிறுதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, மரச்செக்கு நல்லெண்ணெய் & கடலை எண்ணெய். ரசாயனங்கள் இன்றி வாரந்தோறும் அரைத்து வழங்கப்படுகிறது.',
-    feat1: 'தீட்டப்படாத நவதானியங்கள்',
-    feat2: 'வாகை மரச்செக்கு எண்ணெய்',
-    feat3: 'விவசாயிகளிடமிருந்து நேரடி',
-    btnHeroShop: 'தானியங்களை வாங்க',
-    btnHeroWa: 'வாட்ஸ்அப் பட்டியல் பெறுக',
-    metric1: 'மகிழ்ச்சியான குடும்பங்கள்',
-    metric2: '100% இயற்கை & தூய்மை',
+    heroHeadline: 'தீபன் மில்ஸ் ஆலை அறிமுகம் <br><span class="font-serif italic text-amber-700">தேனி மாவட்டத்தின்</span> உன்னத விவசாய பாரம்பரியம்.',
+    heroSubtitle: 'தேனியின் வளமான மண்ணில் விளைந்த பாரம்பரிய நவதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, கல் செக்கு மற்றும் மரச்செக்கு எண்ணெய்கள். ரசாயனங்கள் அற்ற ஆரோக்கியமான உணவை உங்கள் இல்லத்திற்கு சேர்க்கிறோம்.',
     catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
     catalogTitle: 'பாரம்பரிய தானியங்கள் & மரச்செக்கு எண்ணெய்கள்',
     catalogSub: 'தேவையான எடையைத் தேர்ந்தெடுத்து (500g, 1kg, 5kg) எளிதாக ஆர்டர் செய்யுங்கள்.',
@@ -90,27 +76,20 @@ const TRANSLATIONS = {
   hi: {
     langName: 'हिन्दी',
     announcement: '🌾 थेनी की मिट्टी से सीधे • 100% बिना पॉलिश व प्राकृतिक अनाज',
-    announcementSub: '₹799 से अधिक के ऑर्डर पर मुफ्त एक्सप्रेस डिलीवरी',
+    announcementSub: 'तमिलनाडु MSME और ग्रामीण पुरस्कार विजेता मिल',
     brandTagline: 'परंपरा • शुद्धता • स्वास्थ्य',
-    navHome: 'होम',
+    navHome: 'मिल के बारे में',
     navShop: 'अनाज खरीदें',
     navGuide: 'स्वास्थ्य और गाइड',
     navAwards: 'MSME पुरस्कार',
     navReviews: 'समीक्षाएं',
     navContact: 'संपर्क',
-    btnWaHeader: 'व्हाट्सएप ऑर्डर',
+    btnWaHeader: 'व्हाट्सएप',
     btnCartHeader: 'कार्ट',
     heroBadge1: 'MSME सर्वश्रेष्ठ उद्यमी पुरस्कार विजेता',
     heroBadge2: 'ग्रामीण पुरस्कार प्राप्त',
-    heroHeadline: 'शुद्ध. बिना पॉलिश. <br><span class="font-serif italic text-amber-700">थेनी की उपजाऊ मिट्टी से</span> सीधे आपके घर।',
-    heroSubtitle: 'पुरस्कार विजेता प्राकृतिक मिलेट्स, काला व लाल चावल, पत्थर की चक्की का आटा और पारंपरिक लकड़ी से निकाला शुद्ध तेल। रसायन मुक्त और साप्ताहिक रूप से ताजा पीसा हुआ।',
-    feat1: 'बिना पॉलिश व शुद्ध',
-    feat2: 'पारंपरिक लकड़ी कोल्हू',
-    feat3: 'किसानों से सीधा स्रोत',
-    btnHeroShop: 'ताजा अनाज खरीदें',
-    btnHeroWa: 'व्हाट्सएप सूची पाएं',
-    metric1: 'संतुष्ट परिवार',
-    metric2: '100% शुद्ध व प्राकृतिक',
+    heroHeadline: 'दीपन मिल्स का परिचय <br><span class="font-serif italic text-amber-700">थेनी जिले की</span> समृद्ध कृषि धरोहर।',
+    heroSubtitle: 'थेनी, तमिलनाडु की उपजाऊ भूमि से सीधे प्राप्त पारंपरिक बाजरा, काला व लाल चावल, पत्थर की चक्की का आटा और लकड़ी कोल्हू का शुद्ध तेल। बिना किसी पॉलिश या रसायन के।',
     catalogEyebrow: 'सीधे हमारी मिल से',
     catalogTitle: 'पारंपरिक अनाज और शुद्ध तेल चुनें',
     catalogSub: 'पैकेट का वजन चुनें (500g, 1kg, 5kg) और आसानी से ऑर्डर करें।',
@@ -133,11 +112,12 @@ const TRANSLATIONS = {
 
 // --- STATE MANAGEMENT ---
 let currentLang = 'en';
+let currentUser = null;
 let cart = [];
 let currentCategory = 'all';
 let currentDietTag = null;
 let searchQuery = '';
-const selectedVariantMap = {}; // Maps productId -> variant index
+const selectedVariantMap = {};
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -151,6 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
     currentLang = 'en';
   }
 
+  // Load auth state
+  try {
+    const savedUser = localStorage.getItem('deepan_auth_user');
+    if (savedUser) {
+      currentUser = JSON.parse(savedUser);
+    }
+  } catch (e) {
+    currentUser = null;
+  }
+
   // Load saved cart from localStorage
   try {
     const savedCart = localStorage.getItem('deepan_mills_cart');
@@ -158,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cart = JSON.parse(savedCart);
     }
   } catch (e) {
-    console.error('Error loading cart from storage', e);
     cart = [];
   }
 
@@ -167,14 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedVariantMap[p.id] = 0;
   });
 
-  // Apply Language & Render initial elements
+  // Apply Auth State, Language & Render
+  updateAuthUI();
   applyLanguage(currentLang);
   renderProducts();
   renderTestimonials();
   updateCartUI();
   setupEventListeners();
 
-  // Initialize Lucide icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -184,9 +173,145 @@ document.addEventListener('DOMContentLoaded', () => {
 function saveCart() {
   try {
     localStorage.setItem('deepan_mills_cart', JSON.stringify(cart));
-  } catch (e) {
-    console.error('Error saving cart', e);
+  } catch (e) {}
+}
+
+// --- AUTHENTICATION & ACCESS CONTROL LOGIC ---
+function switchLoginRole(role) {
+  const custTab = document.getElementById('role-tab-customer');
+  const mgrTab = document.getElementById('role-tab-manager');
+  const custForm = document.getElementById('customer-login-form');
+  const mgrForm = document.getElementById('manager-login-form');
+
+  if (role === 'customer') {
+    custTab.className = 'py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-[#19382B] shadow-sm';
+    mgrTab.className = 'py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-stone-600 hover:text-stone-900';
+    custForm.classList.remove('hidden');
+    mgrForm.classList.add('hidden');
+  } else {
+    mgrTab.className = 'py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-[#19382B] shadow-sm';
+    custTab.className = 'py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-stone-600 hover:text-stone-900';
+    mgrForm.classList.remove('hidden');
+    custForm.classList.add('hidden');
   }
+}
+
+function handleCustomerLogin(e) {
+  e.preventDefault();
+  const name = document.getElementById('cust-login-name').value || 'Anitha Kannan';
+  const phone = document.getElementById('cust-login-phone').value || '9840123456';
+  setAuthSession({ role: 'customer', name, phone });
+}
+
+function loginDemoCustomer() {
+  setAuthSession({ role: 'customer', name: 'Anitha Kannan', phone: '9840123456' });
+}
+
+function handleManagerLogin(e) {
+  e.preventDefault();
+  setAuthSession({ role: 'manager', name: 'Mill Manager', pin: '2026' }, true);
+}
+
+function loginDemoManager() {
+  setAuthSession({ role: 'manager', name: 'Mill Manager', pin: '2026' }, true);
+}
+
+function setAuthSession(user, redirectManager = false) {
+  currentUser = user;
+  try {
+    localStorage.setItem('deepan_auth_user', JSON.stringify(currentUser));
+  } catch (e) {}
+
+  showToast(`Welcome ${user.name}! Access granted.`, 'success');
+
+  if (redirectManager) {
+    setTimeout(() => {
+      window.location.href = 'dashboard.html';
+    }, 700);
+  } else {
+    updateAuthUI();
+    // Smooth scroll down to products
+    setTimeout(() => {
+      const prodSec = document.getElementById('protected-store-section');
+      if (prodSec) {
+        prodSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 200);
+  }
+}
+
+function handleLogout() {
+  currentUser = null;
+  try {
+    localStorage.removeItem('deepan_auth_user');
+  } catch (e) {}
+
+  showToast('Logged out successfully. Information locked.', 'info');
+  updateAuthUI();
+
+  // Scroll back to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateAuthUI() {
+  const guestActions = document.getElementById('header-guest-actions');
+  const authActions = document.getElementById('header-auth-actions');
+  const protectedStore = document.getElementById('protected-store-section');
+  const mobileBar = document.getElementById('mobile-bottom-bar');
+  const mobileAuth = document.getElementById('mobile-auth-links');
+  const userNameEl = document.getElementById('header-user-name');
+  const statusBadge = document.getElementById('auth-status-badge');
+  const btnCust = document.getElementById('header-btn-customer');
+  const btnMgr = document.getElementById('header-btn-manager');
+
+  if (!currentUser) {
+    // STATE: GUEST (Not Logged In)
+    if (guestActions) guestActions.classList.remove('hidden');
+    if (authActions) authActions.classList.add('hidden');
+    if (protectedStore) protectedStore.classList.add('hidden');
+    if (mobileBar) mobileBar.classList.add('hidden');
+    
+    if (mobileAuth) {
+      mobileAuth.innerHTML = `
+        <a href="#portal-login" class="w-full py-2.5 rounded-xl bg-[#19382B] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+          <i data-lucide="lock" class="w-4 h-4 text-amber-300"></i>
+          <span>Login to View Store</span>
+        </a>
+      `;
+    }
+  } else {
+    // STATE: LOGGED IN
+    if (guestActions) guestActions.classList.add('hidden');
+    if (authActions) authActions.classList.remove('hidden');
+    if (protectedStore) protectedStore.classList.remove('hidden');
+    if (mobileBar) mobileBar.classList.remove('hidden');
+
+    if (userNameEl) userNameEl.innerText = currentUser.name;
+    if (statusBadge) statusBadge.innerText = `${currentUser.role.toUpperCase()}: ${currentUser.name}`;
+
+    if (currentUser.role === 'customer') {
+      if (btnCust) btnCust.classList.remove('hidden');
+      if (btnMgr) btnMgr.classList.add('hidden');
+    } else {
+      if (btnCust) btnCust.classList.add('hidden');
+      if (btnMgr) btnMgr.classList.remove('hidden');
+    }
+
+    if (mobileAuth) {
+      mobileAuth.innerHTML = `
+        <div class="grid grid-cols-2 gap-2">
+          <a href="${currentUser.role === 'customer' ? 'customer-dashboard.html' : 'dashboard.html'}" class="p-2 rounded-xl bg-amber-50 text-amber-900 border border-amber-200 text-center font-bold text-xs">
+            ${currentUser.role === 'customer' ? 'My Account' : 'Manager Portal'}
+          </a>
+          <button onclick="handleLogout()" class="p-2 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-center font-bold text-xs">
+            Sign Out
+          </button>
+        </div>
+      `;
+    }
+  }
+
+  if (window.lucide) window.lucide.createIcons();
 }
 
 // --- LANGUAGE SWITCHER LOGIC ---
@@ -200,7 +325,6 @@ function changeLanguage(langKey) {
   applyLanguage(langKey);
   renderProducts();
 
-  // Close dropdown menu if open
   const dropdown = document.getElementById('lang-dropdown');
   if (dropdown) dropdown.classList.add('hidden');
 
@@ -230,13 +354,6 @@ function applyLanguage(langKey) {
     'hero-badge-2': t.heroBadge2,
     'hero-headline': t.heroHeadline,
     'hero-subtitle': t.heroSubtitle,
-    'feat-1': t.feat1,
-    'feat-2': t.feat2,
-    'feat-3': t.feat3,
-    'btn-hero-shop': t.btnHeroShop,
-    'btn-hero-wa': t.btnHeroWa,
-    'metric-1': t.metric1,
-    'metric-2': t.metric2,
     'catalog-eyebrow': t.catalogEyebrow,
     'catalog-title': t.catalogTitle,
     'catalog-sub': t.catalogSub,
@@ -275,12 +392,8 @@ function renderProducts() {
 
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
 
-  // Filter products
   const filtered = PRODUCTS.filter(prod => {
-    // Category match
     const catMatch = currentCategory === 'all' || prod.category === currentCategory;
-
-    // Search query match
     const q = searchQuery.toLowerCase().trim();
     const searchMatch = !q || 
       prod.name.toLowerCase().includes(q) || 
@@ -289,7 +402,6 @@ function renderProducts() {
       prod.shortDesc.toLowerCase().includes(q) ||
       prod.tags.some(t => t.toLowerCase().includes(q));
 
-    // Dietary filter tag match
     const tagMatch = !currentDietTag || 
       prod.tags.some(tag => tag.toLowerCase().includes(currentDietTag.toLowerCase()));
 
@@ -309,23 +421,19 @@ function renderProducts() {
     const currentVariant = prod.variants[activeVarIdx] || prod.variants[0];
     const discountPercent = Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100);
 
-    // Dynamic localized name
     const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                            currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
     const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
 
     return `
       <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group" data-product-id="${prod.id}">
-        
         <div>
-          <!-- Image and Badges -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
             <img src="${prod.image}" 
                  alt="${prod.name}" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
-            <!-- Category/Special Badge -->
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                 prod.badge === 'Bestseller' ? 'bg-amber-500 text-stone-950' :
@@ -336,14 +444,12 @@ function renderProducts() {
               </span>
             </div>
 
-            <!-- Quick View Icon Button -->
             <button onclick="openQuickView('${prod.id}')" 
                     title="Quick Details & Nutrition"
                     class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm text-stone-700 flex items-center justify-center hover:bg-white hover:text-stone-900 shadow transition-all">
               <i data-lucide="eye" class="w-4 h-4"></i>
             </button>
             
-            <!-- Savings Badge -->
             ${discountPercent > 0 ? `
               <div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded-md bg-rose-600 text-white text-[10px] font-black tracking-wider shadow">
                 SAVE ${discountPercent}%
@@ -351,7 +457,6 @@ function renderProducts() {
             ` : ''}
           </div>
 
-          <!-- Title & Subtitle -->
           <div class="space-y-1 mb-2">
             ${subTitle ? `
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-700">
@@ -367,7 +472,6 @@ function renderProducts() {
             </p>
           </div>
 
-          <!-- Health Tags -->
           <div class="flex flex-wrap gap-1.5 mb-3">
             ${prod.tags.slice(0, 2).map(tag => `
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
@@ -378,7 +482,6 @@ function renderProducts() {
         </div>
 
         <div>
-          <!-- Weight Selection Pills -->
           <div class="mb-3.5">
             <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
             <div class="grid grid-cols-${prod.variants.length} gap-1.5">
@@ -396,7 +499,6 @@ function renderProducts() {
             </div>
           </div>
 
-          <!-- Price & Action Button -->
           <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
             <div>
               <div class="flex items-baseline gap-1.5">
@@ -432,7 +534,6 @@ function renderProducts() {
   }
 }
 
-// Select weight variant for a product
 function selectProductVariant(productId, variantIdx) {
   selectedVariantMap[productId] = variantIdx;
   renderProducts();
@@ -445,7 +546,6 @@ function addToCart(productId, variantIdx, quantity = 1) {
 
   const variant = product.variants[variantIdx] || product.variants[0];
 
-  // Check if item with same productId and same weight already exists
   const existingIdx = cart.findIndex(
     item => item.productId === productId && item.weight === variant.weight
   );
@@ -468,10 +568,8 @@ function addToCart(productId, variantIdx, quantity = 1) {
   saveCart();
   updateCartUI();
 
-  // Show Toast
   showToast(`Added ${product.name} (${variant.weight}) to your basket!`, 'success');
 
-  // Trigger Bump Animation
   const cartBtn = document.getElementById('cart-toggle-btn');
   if (cartBtn) {
     cartBtn.classList.remove('animate-cart-bump');
@@ -480,29 +578,24 @@ function addToCart(productId, variantIdx, quantity = 1) {
   }
 }
 
-// Quick Add helper
 function quickAdd(productId) {
   addToCart(productId, 0, 1);
   toggleCartDrawer(true);
 }
 
-// Buy Now helper
 function buyNow(productId, variantIdx) {
   addToCart(productId, variantIdx, 1);
   openCheckoutModal();
 }
 
-// Update Cart UI everywhere
 function updateCartUI() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
-  // Delivery rule: Free if subtotal >= 799, otherwise ₹60 (unless subtotal is 0)
   const isFreeDelivery = subtotal >= 799 || subtotal === 0;
   const deliveryFee = subtotal === 0 ? 0 : (subtotal >= 799 ? 0 : 60);
   const totalAmount = subtotal + deliveryFee;
 
-  // Header badges
   const badge = document.getElementById('cart-count-badge');
   const headerTotal = document.getElementById('header-cart-total');
   const mobileCount = document.getElementById('mobile-cart-count');
@@ -513,7 +606,6 @@ function updateCartUI() {
   if (mobileCount) mobileCount.innerText = totalItems;
   if (drawerCount) drawerCount.innerText = totalItems;
 
-  // Cart summary amounts
   const subtotalElem = document.getElementById('cart-subtotal');
   const deliveryElem = document.getElementById('cart-delivery-fee');
   const totalElem = document.getElementById('cart-total-amount');
@@ -522,7 +614,6 @@ function updateCartUI() {
   if (deliveryElem) deliveryElem.innerText = isFreeDelivery ? 'FREE (Special Offer)' : `₹${deliveryFee}`;
   if (totalElem) totalElem.innerText = `₹${totalAmount}`;
 
-  // Shipping Progress Tracker (Threshold ₹799)
   const progressElem = document.getElementById('shipping-progress-bar');
   const trackerText = document.getElementById('shipping-tracker-text');
   const freeBadge = document.getElementById('shipping-free-badge');
@@ -539,7 +630,6 @@ function updateCartUI() {
     if (freeBadge) freeBadge.classList.add('hidden');
   }
 
-  // Render items in Drawer list
   const itemsContainer = document.getElementById('cart-items-container');
   const emptyMsg = document.getElementById('cart-empty-message');
   const cartFooter = document.getElementById('cart-footer');
@@ -568,7 +658,6 @@ function updateCartUI() {
       </div>
 
       <div class="flex items-center gap-3">
-        <!-- Quantity controls -->
         <div class="flex items-center border border-stone-200 rounded-lg bg-stone-50 overflow-hidden">
           <button onclick="updateCartQuantity(${idx}, -1)" class="px-2 py-1 text-stone-600 hover:bg-stone-200 text-xs font-bold">-</button>
           <span class="px-2.5 py-1 text-xs font-bold text-stone-800">${item.quantity}</span>
@@ -587,7 +676,6 @@ function updateCartUI() {
   }
 }
 
-// Quantity change handler
 function updateCartQuantity(index, delta) {
   if (cart[index]) {
     cart[index].quantity += delta;
@@ -599,7 +687,6 @@ function updateCartQuantity(index, delta) {
   }
 }
 
-// Remove single cart item
 function removeCartItem(index) {
   if (cart[index]) {
     cart.splice(index, 1);
@@ -608,7 +695,6 @@ function removeCartItem(index) {
   }
 }
 
-// Slide-Over Drawer Toggle
 function toggleCartDrawer(open) {
   const overlay = document.getElementById('cart-drawer-overlay');
   const content = document.getElementById('cart-drawer-content');
@@ -640,7 +726,10 @@ function checkoutViaWhatsApp() {
   const delivery = subtotal >= 799 ? 'FREE Delivery' : '₹60 Delivery Fee';
   const total = subtotal >= 799 ? subtotal : subtotal + 60;
 
-  let msg = `*🌾 Deepan Mills - New Customer Order Request*\n`;
+  let msg = `*🌾 Deepan Mills - Customer Order Request*\n`;
+  if (currentUser) {
+    msg += `Customer: ${currentUser.name} (Ph: ${currentUser.phone || ''})\n`;
+  }
   msg += `--------------------------------------\n`;
   cart.forEach((item, i) => {
     msg += `${i + 1}. *${item.name}* (${item.weight})\n`;
@@ -672,6 +761,14 @@ function openCheckoutModal() {
   const total = subtotal >= 799 ? subtotal : subtotal + 60;
 
   if (totalElem) totalElem.innerText = `₹${total}`;
+
+  // Pre-fill user details if logged in
+  if (currentUser) {
+    const nameInput = document.getElementById('cust-name');
+    const phoneInput = document.getElementById('cust-phone');
+    if (nameInput && currentUser.name) nameInput.value = currentUser.name;
+    if (phoneInput && currentUser.phone) phoneInput.value = currentUser.phone;
+  }
 
   if (modal) {
     modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -931,7 +1028,6 @@ function handleContactSubmit(e) {
 
 // --- SETUP EVENT LISTENERS & FILTERS ---
 function setupEventListeners() {
-  // Language menu dropdown toggle
   const langBtn = document.getElementById('lang-menu-btn');
   const langDropdown = document.getElementById('lang-dropdown');
   if (langBtn && langDropdown) {
@@ -947,13 +1043,11 @@ function setupEventListeners() {
     });
   }
 
-  // Cart toggle
   const cartToggleBtn = document.getElementById('cart-toggle-btn');
   if (cartToggleBtn) {
     cartToggleBtn.addEventListener('click', () => toggleCartDrawer(true));
   }
 
-  // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavPanel = document.getElementById('mobile-nav-panel');
   if (mobileMenuBtn && mobileNavPanel) {
@@ -962,7 +1056,6 @@ function setupEventListeners() {
     });
   }
 
-  // Close drawers when clicking outside
   const cartOverlay = document.getElementById('cart-drawer-overlay');
   if (cartOverlay) {
     cartOverlay.addEventListener('click', (e) => {
@@ -972,7 +1065,6 @@ function setupEventListeners() {
     });
   }
 
-  // Category filter tabs
   document.querySelectorAll('.cat-pill').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cat-pill').forEach(b => {
@@ -987,7 +1079,6 @@ function setupEventListeners() {
     });
   });
 
-  // Dietary tags
   document.querySelectorAll('.diet-tag').forEach(tagBtn => {
     tagBtn.addEventListener('click', () => {
       const tag = tagBtn.dataset.tag;
@@ -1015,7 +1106,6 @@ function setupEventListeners() {
     resetFiltersBtn.addEventListener('click', resetAllFilters);
   }
 
-  // Live Search
   const searchInput = document.getElementById('product-search-input');
   const clearSearchBtn = document.getElementById('clear-search-btn');
 

@@ -69,16 +69,25 @@
         </div>
 
         <!-- Quick Nav & Exit to Store -->
-        <div class="flex items-center gap-3 text-xs">
+        <div class="flex items-center gap-2.5 text-xs">
           <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-900/60 border border-emerald-800 text-emerald-200">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>Live Sync Active</span>
           </div>
 
+          <a href="customer-dashboard.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 font-semibold transition-all">
+            <i data-lucide="user" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>Customer View</span>
+          </a>
+
           <a href="index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-bold transition-all shadow-sm">
             <i data-lucide="external-link" class="w-3.5 h-3.5 text-emerald-700"></i>
-            <span>View Live Store</span>
+            <span>Live Store</span>
           </a>
+
+          <button onclick="localStorage.removeItem('deepan_auth_user'); window.location.href='index.html';" class="p-2 rounded-xl border border-emerald-800 hover:bg-rose-900/40 text-emerald-200 hover:text-white transition-colors" title="Sign Out">
+            <i data-lucide="log-out" class="w-4 h-4"></i>
+          </button>
         </div>
 
       </div>
