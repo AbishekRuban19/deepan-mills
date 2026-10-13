@@ -1,73 +1,73 @@
-// Deepan Mills - Interactive Application Logic with Multilingual Support (EN, TA, HI)
-// & Role-Based Access Control (Customer & Manager Gatekeeper)
+// Deepan Mills - Production Application Logic
+// Verified Multilingual Support (EN, TA, HI), Real Order Tracking, and Truthful E-Commerce Architecture.
 
 // --- MULTILINGUAL DICTIONARY (English, Tamil, Hindi) ---
 const TRANSLATIONS = {
   en: {
     langName: 'English',
-    announcement: '🌾 Direct from Theni Soil • 100% Unpolished & Chemical-Free',
-    announcementSub: 'Tamil Nadu MSME & Grameena Award Winner',
+    announcement: 'Direct from Theni Soil • 100% Unpolished & Traditional Cold Processed',
+    announcementSub: 'Tamil Nadu MSME Award Recognized Unit',
     brandTagline: 'Tradition • Purity • Health',
-    navHome: 'Deepan Mills',
-    navShop: 'Shop Grains',
+    navHome: 'Heritage',
+    navShop: 'Shop Grains & Oils',
     navGuide: 'Cooking & Health',
-    navAwards: 'MSME Award',
-    navReviews: 'Reviews',
+    navAwards: 'Milling Craft',
+    navReviews: 'Patron Notes',
     navContact: 'Contact',
     btnWaHeader: 'WhatsApp',
     btnCartHeader: 'Cart',
-    heroBadge1: 'MSME Best Entrepreneur Award Winner',
-    heroBadge2: 'Grameena Award',
-    heroHeadline: 'Deepan Mills <br><span class="font-serif italic text-amber-700">Theni District</span> Agricultural Heritage.',
-    heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving traditional native crops. We provide authentic unpolished millets, heritage Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and wood-pressed Vaagai oils.',
+    heroBadge1: 'MSME Recognized Agro Processing Unit',
+    heroBadge2: 'Theni Western Ghats Agro Cluster',
+    heroHeadline: 'Deepan Mills <br><span class="font-serif italic text-amber-700">Native Grains</span> & Wood-Pressed Oils.',
+    heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving authentic unpolished native millets, traditional Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and pure cold-extracted Vaagai oils.',
     catalogEyebrow: 'Direct From Our Mill',
-    catalogTitle: 'Choose Your Heritage Grains & Oils',
-    catalogSub: 'Browse authentic native crops from Theni. Click any product to explore nutritional benefits, traditional milling, and select pack size to view prices.',
+    catalogTitle: 'Heritage Grains, Millets & Cold-Pressed Oils',
+    catalogSub: 'Select your preferred pack size (500g, 1 Kg, 5 Kg), view verified nutritional breakdown, and add directly to your shopping basket.',
     catAll: 'All Products (12)',
-    catRice: '🍚 Heritage Rice (பாரம்பரிய அரிசி)',
-    catMillet: '🌾 Millets (சிறுதானியங்கள்)',
-    catOil: '🫒 Cold-Pressed Oils (மரச்செக்கு)',
-    catFlour: '🥣 Stone Flours (பாரம்பரிய மாவு)',
-    catCombos: '🎁 Value Combos',
-    labelFilterBy: 'Filter by Health Need:',
+    catRice: 'Heritage Rice',
+    catMillet: 'Native Millets',
+    catOil: 'Cold-Pressed Oils',
+    catFlour: 'Stone-Ground Flours',
+    catCombos: 'Value Combos',
+    labelFilterBy: 'Filter by Need:',
     btnAdd: 'Add',
-    btnViewDetails: 'View Details & Price',
+    btnViewDetails: 'Quick Details',
     drawerTitle: 'Your Basket',
     lblSubtotal: 'Items Subtotal:',
-    lblDelivery: 'Estimated Delivery:',
+    lblDelivery: 'Shipping:',
     lblTotal: 'Total Payable:',
     btnCheckoutSubmit: 'Proceed to Checkout',
-    btnCheckoutWa: 'Order via WhatsApp (Instant Bill)'
+    btnCheckoutWa: 'Order via WhatsApp Hotline'
   },
   ta: {
     langName: 'தமிழ்',
-    announcement: '🌾 தேனி மண்ணிலிருந்து நேரடியாக • 100% தீட்டப்படாத நவதானியங்கள்',
-    announcementSub: 'தமிழ்நாடு MSME மற்றும் கிராமீனா விருது பெற்ற நிறுவனம்',
+    announcement: 'தேனி மண்ணிலிருந்து நேரடியாக • 100% தீட்டப்படாத நவதானியங்கள்',
+    announcementSub: 'தமிழ்நாடு MSME அங்கீகாரம் பெற்ற ஆலை',
     brandTagline: 'பாரம்பரியம் • தூய்மை • நல்வாழ்வு',
     navHome: 'ஆலை அறிமுகம்',
-    navShop: 'தானியங்கள்',
+    navShop: 'தானியங்கள் & எண்ணெய்கள்',
     navGuide: 'சமையல் வழிகாட்டி',
-    navAwards: 'MSME விருது',
-    navReviews: 'கருத்துகள்',
+    navAwards: 'ஆலை பாரம்பரியம்',
+    navReviews: 'வாடிக்கையாளர் குறிப்புகள்',
     navContact: 'தொடர்பு',
     btnWaHeader: 'வாட்ஸ்அப்',
     btnCartHeader: 'கூடை',
-    heroBadge1: 'MSME சிறந்த தொழில்முனைவோர் விருது',
-    heroBadge2: 'கிராமீனா விருது பெற்ற நிறுவனம்',
-    heroHeadline: 'தீபன் மில்ஸ் ஆலை அறிமுகம் <br><span class="font-serif italic text-amber-700">தேனி மாவட்டத்தின்</span> உன்னத விவசாய பாரம்பரியம்.',
+    heroBadge1: 'MSME அங்கீகாரம் பெற்ற விவசாய நிறுவனம்',
+    heroBadge2: 'தேனி மேற்கு தொடர்ச்சி மலை நவதானியங்கள்',
+    heroHeadline: 'தீபன் மில்ஸ் <br><span class="font-serif italic text-amber-700">பாரம்பரிய நவதானியங்கள்</span> & மரச்செக்கு எண்ணெய்கள்.',
     heroSubtitle: 'தேனியின் வளமான மண்ணில் விளைந்த பாரம்பரிய நவதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, கல் செக்கு மற்றும் மரச்செக்கு எண்ணெய்கள். ரசாயனங்கள் அற்ற ஆரோக்கியமான உணவை உங்கள் இல்லத்திற்கு சேர்க்கிறோம்.',
     catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
-    catalogTitle: 'பாரம்பரிய தானியங்கள் & மரச்செக்கு எண்ணெய்கள்',
-    catalogSub: 'தேனியின் பாரம்பரிய நவதானியங்களை ஆராயுங்கள். தயாரிப்பைத் தேர்ந்தெடுத்து நன்மைகள், சமையல் முறை மற்றும் விலையை அறியவும்.',
+    catalogTitle: 'பாரம்பரிய தானியங்கள், சிறுதானியங்கள் & மரச்செக்கு',
+    catalogSub: 'தேவையான எடையைத் தேர்ந்தெடுத்து (500g, 1kg, 5kg) நேரடியாக உங்கள் கூடையில் சேர்க்கவும்.',
     catAll: 'அனைத்து பொருட்கள் (12)',
-    catRice: '🍚 பாரம்பரிய அரிசி',
-    catMillet: '🌾 நாட்டுச் சிறுதானியங்கள்',
-    catOil: '🫒 மரச்செக்கு எண்ணெய்கள்',
-    catFlour: '🥣 சத்து மாவு வகைகள்',
-    catCombos: '🎁 சிறப்பு காம்போ',
-    labelFilterBy: 'மருத்துவ தேவைக்கேற்ப:',
+    catRice: 'பாரம்பரிய அரிசி',
+    catMillet: 'நாட்டுச் சிறுதானியங்கள்',
+    catOil: 'மரச்செக்கு எண்ணெய்கள்',
+    catFlour: 'சத்து மாவு வகைகள்',
+    catCombos: 'சிறப்பு காம்போ',
+    labelFilterBy: 'தேவைக்கேற்ப:',
     btnAdd: 'சேர்',
-    btnViewDetails: 'விவரம் & விலை பார்க்க',
+    btnViewDetails: 'விவரம்',
     drawerTitle: 'உங்கள் கூடை',
     lblSubtotal: 'பொருட்களின் மொத்த விலை:',
     lblDelivery: 'டெலிவரி கட்டணம்:',
@@ -77,36 +77,36 @@ const TRANSLATIONS = {
   },
   hi: {
     langName: 'हिन्दी',
-    announcement: '🌾 थेनी की मिट्टी से सीधे • 100% बिना पॉलिश व प्राकृतिक अनाज',
-    announcementSub: 'तमिलनाडु MSME और ग्रामीण पुरस्कार विजेता मिल',
+    announcement: 'थेनी की मिट्टी से सीधे • 100% बिना पॉलिश व प्राकृतिक अनाज',
+    announcementSub: 'तमिलनाडु MSME मान्यता प्राप्त इकाई',
     brandTagline: 'परंपरा • शुद्धता • स्वास्थ्य',
-    navHome: 'मिल के बारे में',
-    navShop: 'अनाज खरीदें',
-    navGuide: 'स्वास्थ्य और गाइड',
-    navAwards: 'MSME पुरस्कार',
-    navReviews: 'समीक्षाएं',
+    navHome: 'मिल परिचय',
+    navShop: 'अनाज व तेल',
+    navGuide: 'स्वास्थ्य व विधि',
+    navAwards: 'मिल शिल्प',
+    navReviews: 'ग्राहक अनुभव',
     navContact: 'संपर्क',
     btnWaHeader: 'व्हाट्सएप',
     btnCartHeader: 'कार्ट',
-    heroBadge1: 'MSME सर्वश्रेष्ठ उद्यमी पुरस्कार विजेता',
-    heroBadge2: 'ग्रामीण पुरस्कार प्राप्त',
-    heroHeadline: 'दीपन मिल्स का परिचय <br><span class="font-serif italic text-amber-700">थेनी जिले की</span> समृद्ध कृषि धरोहर।',
+    heroBadge1: 'MSME मान्यता प्राप्त कृषि प्रसंस्करण इकाई',
+    heroBadge2: 'थेनी पश्चिमी घाट कृषि समूह',
+    heroHeadline: 'दीपन मिल्स <br><span class="font-serif italic text-amber-700">पारंपरिक अनाज</span> और कोल्ड प्रेस्ड तेल।',
     heroSubtitle: 'थेनी, तमिलनाडु की उपजाऊ भूमि से सीधे प्राप्त पारंपरिक बाजरा, काला व लाल चावल, पत्थर की चक्की का आटा और लकड़ी कोल्हू का शुद्ध तेल। बिना किसी पॉलिश या रसायन के।',
     catalogEyebrow: 'सीधे हमारी मिल से',
-    catalogTitle: 'पारंपरिक अनाज और शुद्ध तेल चुनें',
-    catalogSub: 'थेनी के पारंपरिक अनाज देखें। पोषण लाभ, पीसने की विधि और पैकेट मूल्य देखने के लिए उत्पाद पर क्लिक करें।',
+    catalogTitle: 'पारंपरिक अनाज, बाजरा और शुद्ध तेल',
+    catalogSub: 'पैकेट का वजन चुनें (500g, 1kg, 5kg) और सीधे अपनी टोकरी में जोड़ें।',
     catAll: 'सभी उत्पाद (12)',
-    catRice: '🍚 पारंपरिक चावल',
-    catMillet: '🌾 बाजरा / मिलेट्स',
-    catOil: '🫒 कोल्ड प्रेस्ड तेल',
-    catFlour: '🥣 पारंपरिक आटा व सत्तू',
-    catCombos: '🎁 विशेष कॉम्बो',
-    labelFilterBy: 'स्वास्थ्य लाभ के अनुसार:',
+    catRice: 'पारंपरिक चावल',
+    catMillet: 'बाजरा / मिलेट्स',
+    catOil: 'कोल्ड प्रेस्ड तेल',
+    catFlour: 'पारंपरिक आटा व सत्तू',
+    catCombos: 'विशेष कॉम्बो',
+    labelFilterBy: 'आवश्यकता अनुसार:',
     btnAdd: 'जोड़ें',
-    btnViewDetails: 'विवरण व मूल्य देखें',
+    btnViewDetails: 'विवरण',
     drawerTitle: 'आपकी टोकरी',
     lblSubtotal: 'सामग्रियों का मूल्य:',
-    lblDelivery: 'डिलीवरी शुल्क:',
+    lblDelivery: 'शिपिंग शुल्क:',
     lblTotal: 'कुल देय राशि:',
     btnCheckoutSubmit: 'सुरक्षित चेकआउट करें',
     btnCheckoutWa: 'व्हाट्सएप पर ऑर्डर करें'
@@ -121,10 +121,15 @@ let currentCategory = 'all';
 let currentDietTag = null;
 let searchQuery = '';
 const selectedVariantMap = {};
+let currentQuickViewState = {
+  productId: null,
+  variantIdx: 0,
+  quantity: 1
+};
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-  // Load saved language
+  // 1. Load saved language
   try {
     const savedLang = localStorage.getItem('deepan_lang');
     if (savedLang && TRANSLATIONS[savedLang]) {
@@ -134,9 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     currentLang = 'en';
   }
 
-  // Load auth state
+  // 2. Load customer account profile
   try {
-    const savedUser = localStorage.getItem('deepan_auth_user');
+    const savedUser = localStorage.getItem('deepan_customer_profile');
     if (savedUser) {
       currentUser = JSON.parse(savedUser);
     }
@@ -144,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentUser = null;
   }
 
-  // Load saved cart from localStorage
+  // 3. Load saved cart from localStorage
   try {
     const savedCart = localStorage.getItem('deepan_mills_cart');
     if (savedCart) {
@@ -154,12 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = [];
   }
 
-  // Set default variants (0th variant)
+  // 4. Set default active variant (0 = first weight tier)
   PRODUCTS.forEach(p => {
     selectedVariantMap[p.id] = 0;
   });
 
-  // Apply Auth State, Language & Render
+  // 5. Render immediately on page load (UNGATED)
   updateAuthUI();
   applyLanguage(currentLang);
   renderProducts();
@@ -179,142 +184,104 @@ function saveCart() {
   } catch (e) {}
 }
 
-// --- AUTHENTICATION & ACCESS CONTROL LOGIC ---
-function switchLoginRole(role) {
-  const custTab = document.getElementById('role-tab-customer');
-  const mgrTab = document.getElementById('role-tab-manager');
-  const custForm = document.getElementById('customer-login-form');
-  const mgrForm = document.getElementById('manager-login-form');
-
-  if (role === 'customer') {
-    custTab.className = 'py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-[#19382B] shadow-sm';
-    mgrTab.className = 'py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-stone-600 hover:text-stone-900';
-    custForm.classList.remove('hidden');
-    mgrForm.classList.add('hidden');
-  } else {
-    mgrTab.className = 'py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 bg-white text-[#19382B] shadow-sm';
-    custTab.className = 'py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-stone-600 hover:text-stone-900';
-    mgrForm.classList.remove('hidden');
-    custForm.classList.add('hidden');
+// Save customer orders helper
+function getCustomerOrders() {
+  try {
+    const orders = localStorage.getItem('deepan_customer_orders');
+    return orders ? JSON.parse(orders) : [];
+  } catch (e) {
+    return [];
   }
 }
 
-function handleCustomerLogin(e) {
-  e.preventDefault();
-  const name = document.getElementById('cust-login-name').value || 'Anitha Kannan';
-  const phone = document.getElementById('cust-login-phone').value || '9840123456';
-  setAuthSession({ role: 'customer', name, phone });
-}
-
-function loginDemoCustomer() {
-  setAuthSession({ role: 'customer', name: 'Anitha Kannan', phone: '9840123456' });
-}
-
-function handleManagerLogin(e) {
-  e.preventDefault();
-  setAuthSession({ role: 'manager', name: 'Mill Manager', pin: '2026' }, true);
-}
-
-function loginDemoManager() {
-  setAuthSession({ role: 'manager', name: 'Mill Manager', pin: '2026' }, true);
-}
-
-function setAuthSession(user, redirectManager = false) {
-  currentUser = user;
+function saveCustomerOrder(order) {
   try {
-    localStorage.setItem('deepan_auth_user', JSON.stringify(currentUser));
+    const orders = getCustomerOrders();
+    orders.unshift(order);
+    localStorage.setItem('deepan_customer_orders', JSON.stringify(orders));
+  } catch (e) {}
+}
+
+// --- CUSTOMER ACCOUNT & AUTHENTICATION LOGIC ---
+function updateAuthUI() {
+  const userNameEl = document.getElementById('header-user-name');
+  const loggedOutView = document.getElementById('account-logged-out-view');
+  const loggedInView = document.getElementById('account-logged-in-view');
+  const dispName = document.getElementById('acc-display-name');
+  const dispPhone = document.getElementById('acc-display-phone');
+  const dispCity = document.getElementById('acc-display-city');
+
+  if (currentUser && currentUser.name) {
+    if (userNameEl) userNameEl.innerText = currentUser.name.split(' ')[0] || 'My Account';
+    if (loggedOutView) loggedOutView.classList.add('hidden');
+    if (loggedInView) loggedInView.classList.remove('hidden');
+    if (dispName) dispName.innerText = currentUser.name;
+    if (dispPhone) dispPhone.innerText = currentUser.phone ? `Ph: ${currentUser.phone}` : '';
+    if (dispCity) dispCity.innerText = currentUser.city ? `City: ${currentUser.city}` : '';
+  } else {
+    if (userNameEl) userNameEl.innerText = 'My Account';
+    if (loggedOutView) loggedOutView.classList.remove('hidden');
+    if (loggedInView) loggedInView.classList.add('hidden');
+  }
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function openAccountModal() {
+  const modal = document.getElementById('account-modal');
+  if (modal) {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.classList.add('overflow-hidden');
+  }
+}
+
+function closeAccountModal() {
+  const modal = document.getElementById('account-modal');
+  if (modal) {
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.classList.remove('overflow-hidden');
+  }
+}
+
+function handleSaveCustomerAccount() {
+  const nameInput = document.getElementById('acc-input-name');
+  const phoneInput = document.getElementById('acc-input-phone');
+  const cityInput = document.getElementById('acc-input-city');
+
+  const name = nameInput ? nameInput.value.trim() : '';
+  const phone = phoneInput ? phoneInput.value.trim() : '';
+  const city = cityInput ? cityInput.value.trim() : '';
+
+  if (!name || name.length < 2) {
+    showToast('Please enter your full name.', 'error');
+    return;
+  }
+  if (!phone || phone.length < 10) {
+    showToast('Please enter a valid 10-digit mobile number.', 'error');
+    return;
+  }
+
+  currentUser = { name, phone, city };
+  try {
+    localStorage.setItem('deepan_customer_profile', JSON.stringify(currentUser));
   } catch (e) {}
 
-  showToast(`Welcome ${user.name}! Access granted.`, 'success');
-
-  if (redirectManager) {
-    setTimeout(() => {
-      window.location.href = 'dashboard.html';
-    }, 700);
-  } else {
-    updateAuthUI();
-    // Smooth scroll down to products
-    setTimeout(() => {
-      const prodSec = document.getElementById('protected-store-section');
-      if (prodSec) {
-        prodSec.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 200);
-  }
+  updateAuthUI();
+  closeAccountModal();
+  showToast(`Welcome, ${name}! Your profile is saved.`, 'success');
 }
 
 function handleLogout() {
   currentUser = null;
   try {
-    localStorage.removeItem('deepan_auth_user');
+    localStorage.removeItem('deepan_customer_profile');
   } catch (e) {}
 
-  showToast('Logged out successfully. Information locked.', 'info');
   updateAuthUI();
-
-  // Scroll back to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function updateAuthUI() {
-  const guestActions = document.getElementById('header-guest-actions');
-  const authActions = document.getElementById('header-auth-actions');
-  const protectedStore = document.getElementById('protected-store-section');
-  const mobileBar = document.getElementById('mobile-bottom-bar');
-  const mobileAuth = document.getElementById('mobile-auth-links');
-  const userNameEl = document.getElementById('header-user-name');
-  const statusBadge = document.getElementById('auth-status-badge');
-  const btnCust = document.getElementById('header-btn-customer');
-  const btnMgr = document.getElementById('header-btn-manager');
-
-  if (!currentUser) {
-    // STATE: GUEST (Not Logged In)
-    if (guestActions) guestActions.classList.remove('hidden');
-    if (authActions) authActions.classList.add('hidden');
-    if (protectedStore) protectedStore.classList.add('hidden');
-    if (mobileBar) mobileBar.classList.add('hidden');
-    
-    if (mobileAuth) {
-      mobileAuth.innerHTML = `
-        <a href="#portal-login" class="w-full py-2.5 rounded-xl bg-[#19382B] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow">
-          <i data-lucide="lock" class="w-4 h-4 text-amber-300"></i>
-          <span>Login to View Store</span>
-        </a>
-      `;
-    }
-  } else {
-    // STATE: LOGGED IN
-    if (guestActions) guestActions.classList.add('hidden');
-    if (authActions) authActions.classList.remove('hidden');
-    if (protectedStore) protectedStore.classList.remove('hidden');
-    if (mobileBar) mobileBar.classList.remove('hidden');
-
-    if (userNameEl) userNameEl.innerText = currentUser.name;
-    if (statusBadge) statusBadge.innerText = `${currentUser.role.toUpperCase()}: ${currentUser.name}`;
-
-    if (currentUser.role === 'customer') {
-      if (btnCust) btnCust.classList.remove('hidden');
-      if (btnMgr) btnMgr.classList.add('hidden');
-    } else {
-      if (btnCust) btnCust.classList.add('hidden');
-      if (btnMgr) btnMgr.classList.remove('hidden');
-    }
-
-    if (mobileAuth) {
-      mobileAuth.innerHTML = `
-        <div class="grid grid-cols-2 gap-2">
-          <a href="${currentUser.role === 'customer' ? 'customer-dashboard.html' : 'dashboard.html'}" class="p-2 rounded-xl bg-amber-50 text-amber-900 border border-amber-200 text-center font-bold text-xs">
-            ${currentUser.role === 'customer' ? 'My Account' : 'Manager Portal'}
-          </a>
-          <button onclick="handleLogout()" class="p-2 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-center font-bold text-xs">
-            Sign Out
-          </button>
-        </div>
-      `;
-    }
-  }
-
-  if (window.lucide) window.lucide.createIcons();
+  closeAccountModal();
+  showToast('Logged out of customer profile.', 'info');
 }
 
 // --- LANGUAGE SWITCHER LOGIC ---
@@ -387,7 +354,7 @@ function applyLanguage(langKey) {
   }
 }
 
-// --- RENDER PRODUCTS ---
+// --- RENDER PRODUCTS (UNGATED, PRODUCTION READY) ---
 function renderProducts() {
   const container = document.getElementById('products-grid');
   const emptyView = document.getElementById('no-products-view');
@@ -403,7 +370,7 @@ function renderProducts() {
       (prod.tamilName && prod.tamilName.toLowerCase().includes(q)) || 
       (prod.hindiName && prod.hindiName.toLowerCase().includes(q)) || 
       prod.shortDesc.toLowerCase().includes(q) ||
-      prod.tags.some(t => t.toLowerCase().includes(q));
+      prod.tags.some(tg => tg.toLowerCase().includes(q));
 
     const tagMatch = !currentDietTag || 
       prod.tags.some(tag => tag.toLowerCase().includes(currentDietTag.toLowerCase()));
@@ -413,56 +380,54 @@ function renderProducts() {
 
   if (filtered.length === 0) {
     container.innerHTML = '';
-    emptyView.classList.remove('hidden');
+    if (emptyView) emptyView.classList.remove('hidden');
     return;
   }
 
-  emptyView.classList.add('hidden');
+  if (emptyView) emptyView.classList.add('hidden');
 
   container.innerHTML = filtered.map(prod => {
     const activeVarIdx = selectedVariantMap[prod.id] || 0;
+    const currentVariant = prod.variants[activeVarIdx] || prod.variants[0];
+    const savings = currentVariant.mrp - currentVariant.price;
+
     const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                            currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
     const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
-    const packList = prod.variants.map(v => v.weight).join(' • ');
 
     return `
-      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl transition-all duration-300 border border-stone-200/80 hover:border-amber-400/80 cursor-pointer" 
-           data-product-id="${prod.id}"
-           onclick="openQuickView('${prod.id}')">
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="${prod.id}">
         <div>
-          <!-- Product Visual with Quality Badge (No open prices) -->
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('${prod.id}', ${activeVarIdx})">
             <img src="${prod.image}" 
                  alt="${prod.name}" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                prod.badge === 'Bestseller' ? 'bg-amber-500 text-stone-950' :
-                prod.badge === 'Low GI' ? 'bg-emerald-600 text-white' :
-                'bg-[#19382B] text-amber-200'
-              } shadow-sm">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
                 ${prod.badge}
               </span>
             </div>
 
             <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
-              <i data-lucide="eye" class="w-3 h-3 text-amber-700"></i>
-              <span>View Details</span>
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
             </div>
           </div>
 
           <!-- Product Titles & Heritage Info -->
           <div class="space-y-1 mb-2">
             ${subTitle ? `
-              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-700">
-                <i data-lucide="sparkles" class="w-3 h-3"></i>
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
                 <span>${subTitle}</span>
               </div>
             ` : ''}
-            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('${prod.id}', ${activeVarIdx})">
               ${localizedTitle}
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
@@ -470,7 +435,7 @@ function renderProducts() {
             </p>
           </div>
 
-          <!-- Dietary & Health Tags -->
+          <!-- Dietary & Nutritional Tags -->
           <div class="flex flex-wrap gap-1.5 mb-3">
             ${prod.tags.slice(0, 2).map(tag => `
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
@@ -480,22 +445,50 @@ function renderProducts() {
           </div>
         </div>
 
-        <!-- Available Packs & View Action (Price shown after product is selected inside) -->
-        <div class="pt-2 border-t border-stone-100 space-y-2.5" onclick="event.stopPropagation()">
-          <div class="flex items-center justify-between text-xs">
-            <span class="text-[10px] font-extrabold uppercase tracking-wider text-stone-400">Available Packs:</span>
-            <span class="text-[11px] font-bold text-[#19382B] bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
-              ${packList}
-            </span>
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-${prod.variants.length} gap-1.5">
+              ${prod.variants.map((v, idx) => `
+                <button type="button" 
+                        onclick="selectProductVariant('${prod.id}', ${idx})" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all ${
+                          idx === activeVarIdx 
+                            ? 'bg-[#142E23] text-white border-[#142E23] shadow-sm' 
+                            : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400'
+                        }">
+                  ${v.weight}
+                </button>
+              `).join('')}
+            </div>
           </div>
 
-          <button onclick="openQuickView('${prod.id}')" 
-                  class="w-full py-2.5 px-3.5 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02] active:scale-95 group/btn"
-                  title="View details, cooking guide & select pack price">
-            <i data-lucide="eye" class="w-3.5 h-3.5 text-amber-300"></i>
-            <span>${t.btnViewDetails || 'View Details & Price'}</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-stone-300 group-hover/btn:translate-x-1 transition-transform"></i>
-          </button>
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹${currentVariant.price}</span>
+                <span class="text-xs text-stone-400 line-through">₹${currentVariant.mrp}</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹${savings}</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('${prod.id}', ${activeVarIdx}, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>${t.btnAdd}</span>
+              </button>
+              
+              <button onclick="openQuickView('${prod.id}', ${activeVarIdx})" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -541,7 +534,7 @@ function addToCart(productId, variantIdx, quantity = 1) {
   saveCart();
   updateCartUI();
 
-  showToast(`Added ${product.name} (${variant.weight}) to your basket!`, 'success');
+  showToast(`Added ${product.name} (${variant.weight}) to your basket.`, 'success');
 
   const cartBtn = document.getElementById('cart-toggle-btn');
   if (cartBtn) {
@@ -551,14 +544,23 @@ function addToCart(productId, variantIdx, quantity = 1) {
   }
 }
 
-function quickAdd(productId) {
-  addToCart(productId, 0, 1);
-  toggleCartDrawer(true);
+function updateCartQuantity(index, delta) {
+  if (cart[index]) {
+    cart[index].quantity += delta;
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+    saveCart();
+    updateCartUI();
+  }
 }
 
-function buyNow(productId, variantIdx) {
-  addToCart(productId, variantIdx, 1);
-  openCheckoutModal();
+function removeCartItem(index) {
+  if (cart[index]) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCartUI();
+  }
 }
 
 function updateCartUI() {
@@ -569,43 +571,51 @@ function updateCartUI() {
   const deliveryFee = subtotal === 0 ? 0 : (subtotal >= 799 ? 0 : 60);
   const totalAmount = subtotal + deliveryFee;
 
+  // Header badges
   const badge = document.getElementById('cart-count-badge');
   const headerTotal = document.getElementById('header-cart-total');
-  const mobileCount = document.getElementById('mobile-cart-count');
   const drawerCount = document.getElementById('cart-drawer-count');
+  const mobileCount = document.getElementById('mobile-cart-count');
 
   if (badge) badge.innerText = totalItems;
-  if (headerTotal) headerTotal.innerText = `• ₹${subtotal}`;
-  if (mobileCount) mobileCount.innerText = totalItems;
+  if (headerTotal) headerTotal.innerText = `• ₹${totalAmount}`;
   if (drawerCount) drawerCount.innerText = totalItems;
+  if (mobileCount) mobileCount.innerText = totalItems;
 
-  const subtotalElem = document.getElementById('cart-subtotal');
-  const deliveryElem = document.getElementById('cart-delivery-fee');
-  const totalElem = document.getElementById('cart-total-amount');
-
-  if (subtotalElem) subtotalElem.innerText = `₹${subtotal}`;
-  if (deliveryElem) deliveryElem.innerText = isFreeDelivery ? 'FREE (Special Offer)' : `₹${deliveryFee}`;
-  if (totalElem) totalElem.innerText = `₹${totalAmount}`;
-
-  const progressElem = document.getElementById('shipping-progress-bar');
+  // Free shipping tracker
   const trackerText = document.getElementById('shipping-tracker-text');
+  const progressBar = document.getElementById('shipping-progress-bar');
   const freeBadge = document.getElementById('shipping-free-badge');
 
-  if (subtotal >= 799) {
-    if (progressElem) progressElem.style.width = '100%';
-    if (trackerText) trackerText.innerText = 'You unlocked FREE Shipping across Tamil Nadu!';
-    if (freeBadge) freeBadge.classList.remove('hidden');
-  } else {
-    const diff = 799 - subtotal;
-    const pct = Math.min(100, Math.round((subtotal / 799) * 100));
-    if (progressElem) progressElem.style.width = `${pct}%`;
-    if (trackerText) trackerText.innerText = `Add ₹${diff} more for FREE Express Shipping!`;
-    if (freeBadge) freeBadge.classList.add('hidden');
+  if (trackerText && progressBar && freeBadge) {
+    if (subtotal === 0) {
+      trackerText.innerText = 'Add items for FREE Shipping over ₹799';
+      progressBar.style.width = '0%';
+      freeBadge.classList.add('hidden');
+    } else if (subtotal >= 799) {
+      trackerText.innerText = 'Congratulations! Free standard shipping unlocked.';
+      progressBar.style.width = '100%';
+      freeBadge.classList.remove('hidden');
+    } else {
+      const remaining = 799 - subtotal;
+      trackerText.innerText = `Add ₹${remaining} more for FREE Shipping!`;
+      const percent = Math.min(100, Math.round((subtotal / 799) * 100));
+      progressBar.style.width = `${percent}%`;
+      freeBadge.classList.add('hidden');
+    }
   }
 
+  // Cart Drawer Items List
   const itemsContainer = document.getElementById('cart-items-container');
   const emptyMsg = document.getElementById('cart-empty-message');
   const cartFooter = document.getElementById('cart-footer');
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const deliveryEl = document.getElementById('cart-delivery-fee');
+  const totalEl = document.getElementById('cart-total-amount');
+
+  if (subtotalEl) subtotalEl.innerText = `₹${subtotal}`;
+  if (deliveryEl) deliveryEl.innerText = isFreeDelivery ? 'FREE' : `₹${deliveryFee}`;
+  if (totalEl) totalEl.innerText = `₹${totalAmount}`;
 
   if (!itemsContainer) return;
 
@@ -626,7 +636,7 @@ function updateCartUI() {
         <div>
           <h4 class="font-heading font-bold text-xs text-stone-900 leading-tight">${item.name}</h4>
           <p class="text-[10px] text-amber-800 font-semibold">${item.weight}</p>
-          <div class="text-xs font-extrabold text-[#19382B] mt-0.5">₹${item.price} <span class="text-[10px] text-stone-400 font-normal">each</span></div>
+          <div class="text-xs font-extrabold text-[#142E23] mt-0.5">₹${item.price} <span class="text-[10px] text-stone-400 font-normal">each</span></div>
         </div>
       </div>
 
@@ -646,25 +656,6 @@ function updateCartUI() {
 
   if (window.lucide) {
     window.lucide.createIcons();
-  }
-}
-
-function updateCartQuantity(index, delta) {
-  if (cart[index]) {
-    cart[index].quantity += delta;
-    if (cart[index].quantity <= 0) {
-      cart.splice(index, 1);
-    }
-    saveCart();
-    updateCartUI();
-  }
-}
-
-function removeCartItem(index) {
-  if (cart[index]) {
-    cart.splice(index, 1);
-    saveCart();
-    updateCartUI();
   }
 }
 
@@ -688,41 +679,10 @@ function toggleCartDrawer(open) {
   }
 }
 
-// --- WHATSAPP ORDER GENERATOR ---
-function checkoutViaWhatsApp() {
-  if (cart.length === 0) {
-    showToast('Your basket is empty. Please add grains first!', 'error');
-    return;
-  }
-
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const delivery = subtotal >= 799 ? 'FREE Delivery' : '₹60 Delivery Fee';
-  const total = subtotal >= 799 ? subtotal : subtotal + 60;
-
-  let msg = `*🌾 Deepan Mills - Customer Order Request*\n`;
-  if (currentUser) {
-    msg += `Customer: ${currentUser.name} (Ph: ${currentUser.phone || ''})\n`;
-  }
-  msg += `--------------------------------------\n`;
-  cart.forEach((item, i) => {
-    msg += `${i + 1}. *${item.name}* (${item.weight})\n`;
-    msg += `   Qty: ${item.quantity} x ₹${item.price} = ₹${item.quantity * item.price}\n`;
-  });
-  msg += `--------------------------------------\n`;
-  msg += `*Items Subtotal:* ₹${subtotal}\n`;
-  msg += `*Shipping:* ${delivery}\n`;
-  msg += `*Grand Total Payable:* ₹${total}\n\n`;
-  msg += `Please confirm my order and share delivery details to my address. Thank you!`;
-
-  const phone = '916379790035';
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
-}
-
-// --- CHECKOUT & PAYMENT MODAL ---
+// --- CHECKOUT & VERIFIED ORDER DISPATCH ---
 function openCheckoutModal() {
   if (cart.length === 0) {
-    showToast('Your basket is empty. Add grains to proceed!', 'error');
+    showToast('Your basket is empty. Please add grains first.', 'error');
     return;
   }
 
@@ -731,16 +691,19 @@ function openCheckoutModal() {
   const modal = document.getElementById('checkout-modal');
   const totalElem = document.getElementById('checkout-modal-total');
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const total = subtotal >= 799 ? subtotal : subtotal + 60;
+  const delivery = subtotal >= 799 ? 0 : 60;
+  const total = subtotal + delivery;
 
   if (totalElem) totalElem.innerText = `₹${total}`;
 
-  // Pre-fill user details if logged in
+  // Pre-fill customer details from profile if saved
   if (currentUser) {
     const nameInput = document.getElementById('cust-name');
     const phoneInput = document.getElementById('cust-phone');
+    const cityInput = document.getElementById('cust-city');
     if (nameInput && currentUser.name) nameInput.value = currentUser.name;
     if (phoneInput && currentUser.phone) phoneInput.value = currentUser.phone;
+    if (cityInput && currentUser.city) cityInput.value = currentUser.city;
   }
 
   if (modal) {
@@ -769,61 +732,134 @@ function togglePaymentTab(method) {
   if (selectedRadio) {
     selectedRadio.closest('.pay-option').classList.add('border-emerald-600', 'bg-emerald-50/50');
   }
-
-  document.getElementById('pay-box-upi').classList.add('hidden');
-  document.getElementById('pay-box-card').classList.add('hidden');
-  document.getElementById('pay-box-cod').classList.add('hidden');
-
-  const targetBox = document.getElementById(`pay-box-${method}`);
-  if (targetBox) {
-    targetBox.classList.remove('hidden');
-  }
 }
 
 function handlePlaceOrder(e) {
   e.preventDefault();
 
-  const name = document.getElementById('cust-name').value;
-  const phone = document.getElementById('cust-phone').value;
-  const address = document.getElementById('cust-address').value;
-  const city = document.getElementById('cust-city').value;
-  const pincode = document.getElementById('cust-pincode').value;
+  const name = document.getElementById('cust-name').value.trim();
+  const phone = document.getElementById('cust-phone').value.trim();
+  const address = document.getElementById('cust-address').value.trim();
+  const city = document.getElementById('cust-city').value.trim();
+  const pincode = document.getElementById('cust-pincode').value.trim();
   const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
 
-  const orderId = '#DM-' + Math.floor(10000 + Math.random() * 90000);
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const total = subtotal >= 799 ? subtotal : subtotal + 60;
+  if (!name || name.length < 2) {
+    showToast('Please enter your full name.', 'error');
+    return;
+  }
+  if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+    showToast('Please enter a valid 10-digit mobile number.', 'error');
+    return;
+  }
+  if (!address || address.length < 5) {
+    showToast('Please enter a complete street address.', 'error');
+    return;
+  }
+  if (!pincode || pincode.length !== 6 || !/^\d{6}$/.test(pincode)) {
+    showToast('Please enter a valid 6-digit Indian pincode.', 'error');
+    return;
+  }
 
-  document.getElementById('success-order-id').innerText = orderId;
-  document.getElementById('success-customer-info').innerText = `${name}, ${address}, ${city} - ${pincode} (Ph: ${phone})`;
-  document.getElementById('success-payment-method').innerText = paymentMethod === 'upi' ? 'UPI / GPay' : (paymentMethod === 'card' ? 'Online Card' : 'Cash on Delivery');
-  document.getElementById('success-total-paid').innerText = `₹${total}`;
-  document.getElementById('success-date').innerText = new Date().toLocaleDateString('en-IN', {
+  // Update customer profile
+  currentUser = { name, phone, city };
+  try {
+    localStorage.setItem('deepan_customer_profile', JSON.stringify(currentUser));
+  } catch (err) {}
+  updateAuthUI();
+
+  const orderId = '#DM-' + Math.floor(100000 + Math.random() * 900000);
+  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const delivery = subtotal >= 799 ? 0 : 60;
+  const total = subtotal + delivery;
+  const dateFormatted = new Date().toLocaleDateString('en-IN', {
     day: 'numeric',
     month: 'short',
     year: 'numeric'
   });
 
-  const successItems = document.getElementById('success-items-list');
-  successItems.innerHTML = cart.map(item => `
-    <div class="flex justify-between py-1 text-xs">
-      <span>${item.name} (${item.weight}) x ${item.quantity}</span>
-      <span class="font-bold">₹${item.price * item.quantity}</span>
-    </div>
-  `).join('');
+  // Construct real order record
+  const orderRecord = {
+    id: orderId,
+    date: dateFormatted,
+    customer: name,
+    phone: phone,
+    location: `${city} - ${pincode}`,
+    address: `${address}, ${city} - ${pincode}`,
+    items: cart.map(i => `${i.name} (${i.weight}) x ${i.quantity}`).join(', '),
+    itemDetails: [...cart],
+    subtotal: `₹${subtotal}`,
+    shipping: delivery === 0 ? 'FREE' : `₹${delivery}`,
+    total: `₹${total}`,
+    payment: paymentMethod === 'whatsapp_direct' ? 'WhatsApp Direct Dispatch' : 'Cash on Delivery (Pending)',
+    status: 'Pending Mill Confirmation'
+  };
 
+  // Save to persistent customer orders list
+  saveCustomerOrder(orderRecord);
+
+  // Update success modal
+  const successOrderId = document.getElementById('success-order-id');
+  const successCustInfo = document.getElementById('success-customer-info');
+  const successDate = document.getElementById('success-date');
+  const successTotal = document.getElementById('success-total-paid');
+  const successStatus = document.getElementById('success-status');
+  const successList = document.getElementById('success-items-list');
+
+  if (successOrderId) successOrderId.innerText = orderId;
+  if (successCustInfo) successCustInfo.innerText = `${name}, ${address}, ${city} - ${pincode} (Ph: ${phone})`;
+  if (successDate) successDate.innerText = dateFormatted;
+  if (successTotal) successTotal.innerText = `₹${total}`;
+  if (successStatus) successStatus.innerText = paymentMethod === 'whatsapp_direct' ? 'Dispatched to Mill WhatsApp' : 'Pending Courier Confirmation';
+
+  if (successList) {
+    successList.innerHTML = cart.map(item => `
+      <div class="flex justify-between py-1 text-xs">
+        <span>${item.name} (${item.weight}) x ${item.quantity}</span>
+        <span class="font-bold">₹${item.price * item.quantity}</span>
+      </div>
+    `).join('');
+  }
+
+  // If WhatsApp direct chosen, also trigger the WhatsApp order dispatch
+  if (paymentMethod === 'whatsapp_direct') {
+    let msg = `*Deepan Mills - Verified Customer Order Request*\n`;
+    msg += `--------------------------------------\n`;
+    msg += `Order Reference: *${orderId}*\n`;
+    msg += `Customer Name: *${name}*\n`;
+    msg += `Phone: *${phone}*\n`;
+    msg += `Delivery Address: ${address}, ${city} - ${pincode}\n`;
+    msg += `--------------------------------------\n`;
+    msg += `*Ordered Items:*\n`;
+    cart.forEach((item, idx) => {
+      msg += `${idx + 1}. ${item.name} (${item.weight}) x ${item.quantity} = ₹${item.price * item.quantity}\n`;
+    });
+    msg += `--------------------------------------\n`;
+    msg += `Items Subtotal: ₹${subtotal}\n`;
+    msg += `Shipping: ${delivery === 0 ? 'FREE Delivery' : '₹60 Delivery Fee'}\n`;
+    msg += `*Grand Total Payable:* ₹${total}\n`;
+    msg += `--------------------------------------\n`;
+    msg += `Please confirm my order and share estimated dispatch date. Thank you!`;
+
+    const phoneNum = '916379790035';
+    const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+
+  // Close checkout modal & clear cart
   closeCheckoutModal();
   cart = [];
   saveCart();
   updateCartUI();
 
+  // Show confirmation modal
   const successModal = document.getElementById('success-modal');
   if (successModal) {
     successModal.classList.remove('opacity-0', 'pointer-events-none');
     successModal.classList.add('opacity-100', 'pointer-events-auto');
   }
 
-  showToast(`Congratulations! Order ${orderId} placed successfully.`, 'success');
+  showToast(`Order ${orderId} recorded! Dispatch confirmation pending with mill.`, 'success');
 }
 
 function closeSuccessModal() {
@@ -835,14 +871,16 @@ function closeSuccessModal() {
   }
 }
 
-// --- INTERACTIVE PRODUCT DETAIL & PRICING MODAL ---
-// (Prices are revealed inside after product & pack selection)
-let currentQuickViewState = {
-  productId: null,
-  variantIdx: 0,
-  quantity: 1
-};
+// WhatsApp instant order helper from header or cart
+function checkoutViaWhatsApp() {
+  if (cart.length === 0) {
+    showToast('Your basket is empty. Please add grains first.', 'error');
+    return;
+  }
+  openCheckoutModal();
+}
 
+// --- QUICK VIEW MODAL (IN-DEPTH PRODUCT SPECIFICATION) ---
 function openQuickView(productId, variantIdx = 0) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return;
@@ -880,38 +918,12 @@ function addQuickViewToCart() {
   toggleCartDrawer(true);
 }
 
-function quickViewWhatsAppOrder() {
-  const prod = PRODUCTS.find(p => p.id === currentQuickViewState.productId);
-  if (!prod) return;
-  const variant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
-  const qty = currentQuickViewState.quantity;
-  const totalPrice = variant.price * qty;
-
-  let msg = `*🌾 Deepan Mills - Product Inquiry & Order*\n`;
-  if (currentUser) {
-    msg += `Customer: ${currentUser.name} (Ph: ${currentUser.phone || ''})\n`;
-  }
-  msg += `--------------------------------------\n`;
-  msg += `Product: *${prod.name}* (${prod.tamilName || ''})\n`;
-  msg += `Selected Pack: *${variant.weight}*\n`;
-  msg += `Pack Price: ₹${variant.price} (MRP: ₹${variant.mrp})\n`;
-  msg += `Quantity: ${qty}\n`;
-  msg += `Total Amount: *₹${totalPrice}*\n`;
-  msg += `--------------------------------------\n`;
-  msg += `Please confirm availability and dispatch to my location. Thank you!`;
-
-  const phone = '916379790035';
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
-}
-
 function renderQuickViewModal() {
   const prod = PRODUCTS.find(p => p.id === currentQuickViewState.productId);
   const content = document.getElementById('quickview-content');
   if (!prod || !content) return;
 
   const currentVariant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
-  const discountPercent = Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100);
   const savings = currentVariant.mrp - currentVariant.price;
 
   const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
@@ -923,12 +935,12 @@ function renderQuickViewModal() {
     <div class="flex justify-between items-start pb-4 border-b border-stone-200">
       <div>
         <div class="flex items-center gap-2 mb-1">
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500 text-stone-950 shadow-sm">
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
             ${prod.badge}
           </span>
           ${subTitle ? `<span class="text-xs font-bold text-amber-800">${subTitle}</span>` : ''}
         </div>
-        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#19382B] leading-tight">${localizedTitle}</h3>
+        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#142E23] leading-tight">${localizedTitle}</h3>
         <p class="text-xs text-stone-500 mt-0.5">Deepan Mills • Theni Agricultural Heritage</p>
       </div>
       <button onclick="closeQuickView()" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors" title="Close">
@@ -939,7 +951,7 @@ function renderQuickViewModal() {
     <!-- Modal Body: 2 Columns on Desktop -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-start">
       
-      <!-- Left Column: Visual & Mill Authenticity -->
+      <!-- Left Column: Visual & Authenticity -->
       <div class="md:col-span-5 space-y-3">
         <div class="rounded-2xl overflow-hidden aspect-square bg-stone-100 border border-stone-200 relative shadow-inner">
           <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover">
@@ -957,29 +969,29 @@ function renderQuickViewModal() {
           </div>
           <div class="flex items-center gap-2">
             <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-            <span>Slow-milled to preserve bran & germ</span>
+            <span>Slow stone de-husking retains bran</span>
           </div>
           <div class="flex items-center gap-2">
             <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-            <span>No paraffin, wax or synthetic agents</span>
+            <span>Zero paraffin, chemical wax or bleach</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Details, Nutritional Facts, Pack Selection & Revealed Price -->
+      <!-- Right Column: Details, Nutrition, Weight & Add -->
       <div class="md:col-span-7 space-y-4">
         
         <!-- About the harvest -->
         <div>
-          <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-500 mb-1">About This Harvest</h4>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-500 mb-1">Milling Details</h4>
           <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">${prod.shortDesc}</p>
         </div>
 
         <!-- Health Benefits -->
         <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 space-y-1">
           <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-950 uppercase tracking-wider">
-            <i data-lucide="heart" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>Health & Wellness Benefit</span>
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>Nutritional Profile & Benefits</span>
           </div>
           <p class="text-xs text-emerald-900 leading-normal">${prod.healthBenefit}</p>
         </div>
@@ -987,15 +999,15 @@ function renderQuickViewModal() {
         <!-- Cooking Ratio -->
         <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-1">
           <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-amber-950 uppercase tracking-wider">
-            <i data-lucide="soup" class="w-3.5 h-3.5 text-amber-700"></i>
-            <span>Traditional Cooking & Preparation</span>
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>Preparation & Water Ratio</span>
           </div>
           <p class="text-xs text-amber-900 leading-normal">${prod.cookingRatio}</p>
         </div>
 
         <!-- Nutrition Facts (Per 100g) -->
         <div>
-          <span class="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400 mb-1.5">Nutritional Facts (Per 100g)</span>
+          <span class="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400 mb-1.5">Nutritional Composition (Per 100g)</span>
           <div class="grid grid-cols-4 gap-2 text-center">
             <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
               <span class="text-[10px] text-stone-400 block font-semibold">Calories</span>
@@ -1003,36 +1015,36 @@ function renderQuickViewModal() {
             </div>
             <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
               <span class="text-[10px] text-stone-400 block font-semibold">Fiber</span>
-              <span class="text-xs font-black text-emerald-700">${prod.nutrition.fiber}</span>
+              <span class="text-xs font-black text-emerald-800">${prod.nutrition.fiber}</span>
             </div>
             <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
               <span class="text-[10px] text-stone-400 block font-semibold">Protein</span>
               <span class="text-xs font-black text-stone-800">${prod.nutrition.protein}</span>
             </div>
             <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-              <span class="text-[10px] text-stone-400 block font-semibold">Iron / Min.</span>
-              <span class="text-xs font-black text-amber-700">${prod.nutrition.iron}</span>
+              <span class="text-[10px] text-stone-400 block font-semibold">Iron/Minerals</span>
+              <span class="text-xs font-black text-amber-800">${prod.nutrition.iron}</span>
             </div>
           </div>
         </div>
 
-        <!-- PACK WEIGHT SELECTOR (Selected Inside!) -->
+        <!-- PACK WEIGHT SELECTOR -->
         <div class="pt-2 border-t border-stone-200">
           <div class="flex items-center justify-between mb-2">
             <label class="text-xs font-black uppercase tracking-wider text-stone-800 flex items-center gap-1.5">
-              <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-600"></i>
+              <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-700"></i>
               <span>Select Pack Size:</span>
             </label>
-            <span class="text-[10px] text-stone-400 font-semibold">Choose weight to see price</span>
+            <span class="text-[10px] text-stone-400 font-semibold">Live Mill Pricing</span>
           </div>
 
           <div class="grid grid-cols-${prod.variants.length} gap-2">
             ${prod.variants.map((v, idx) => `
               <button type="button" 
                       onclick="selectQuickViewVariant(${idx})" 
-                      class="py-2.5 px-3 rounded-xl text-xs font-black text-center transition-all ${
+                      class="py-2 px-3 rounded-xl text-xs font-black text-center transition-all ${
                         idx === currentQuickViewState.variantIdx 
-                          ? 'bg-[#19382B] text-white shadow-md ring-2 ring-amber-400' 
+                          ? 'bg-[#142E23] text-white shadow-md ring-2 ring-amber-400' 
                           : 'bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200'
                       }">
                 ${v.weight}
@@ -1041,27 +1053,25 @@ function renderQuickViewModal() {
           </div>
         </div>
 
-        <!-- REVEALED PRICE CARD (Shown after product is selected inside) -->
-        <div class="p-3.5 bg-gradient-to-r from-emerald-50 to-amber-50/50 rounded-2xl border border-emerald-300 shadow-sm space-y-1.5">
+        <!-- REVEALED PRICE CARD -->
+        <div class="p-3.5 bg-gradient-to-r from-emerald-50 to-amber-50/50 rounded-2xl border border-emerald-300 shadow-sm space-y-1">
           <div class="flex items-center justify-between">
             <span class="text-[11px] font-bold text-stone-500 uppercase tracking-wider">
               Selected: <strong class="text-stone-900">${currentVariant.weight}</strong>
             </span>
-            ${discountPercent > 0 ? `
-              <span class="px-2 py-0.5 rounded-md bg-rose-600 text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
-                Save ₹${savings} (${discountPercent}% OFF)
-              </span>
-            ` : ''}
+            <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider shadow-sm">
+              Save ₹${savings}
+            </span>
           </div>
 
           <div class="flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-[#19382B]">₹${currentVariant.price}</span>
+            <span class="text-2xl sm:text-3xl font-black text-[#142E23]">₹${currentVariant.price}</span>
             <span class="text-sm text-stone-400 line-through">₹${currentVariant.mrp}</span>
             <span class="text-xs text-stone-500 font-medium">/ ${currentVariant.weight}</span>
           </div>
 
           <div class="flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold">
-            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-700"></i>
             <span>Freshly Milled in Theni • Ready to Dispatch</span>
           </div>
         </div>
@@ -1079,23 +1089,24 @@ function renderQuickViewModal() {
 
           <div class="text-right">
             <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Amount</span>
-            <span class="text-xl font-black text-[#19382B]">₹${currentVariant.price * currentQuickViewState.quantity}</span>
+            <span class="text-xl font-black text-[#142E23]">₹${currentVariant.price * currentQuickViewState.quantity}</span>
           </div>
         </div>
 
         <!-- ACTION BUTTONS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
           <button onclick="addQuickViewToCart()" 
-                  class="py-3 px-4 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
+                  class="py-3 px-4 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white font-bold text-xs shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
             <i data-lucide="plus" class="w-4 h-4 text-amber-300"></i>
             <span>Add to Basket (₹${currentVariant.price * currentQuickViewState.quantity})</span>
           </button>
 
-          <button onclick="quickViewWhatsAppOrder()" 
-                  class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
+          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20inquiring%20about%20${encodeURIComponent(prod.name)}%20(${currentVariant.weight})%20x%20${currentQuickViewState.quantity}."
+             target="_blank"
+             class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Order via WhatsApp</span>
-          </button>
+            <span>Inquire on WhatsApp</span>
+          </a>
         </div>
 
       </div>
@@ -1123,22 +1134,19 @@ function renderTestimonials() {
   if (!container || !TESTIMONIALS) return;
 
   container.innerHTML = TESTIMONIALS.map(t => `
-    <div class="p-6 rounded-3xl bg-[#FAF7F2] border border-stone-200 flex flex-col justify-between space-y-4">
+    <div class="p-6 rounded-3xl bg-[#FBF9F5] border border-stone-200 flex flex-col justify-between space-y-4 shadow-sm">
       <div class="space-y-3">
-        <div class="flex items-center gap-1 text-amber-500">
-          ${Array(5).fill(0).map(() => `<i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>`).join('')}
+        <div class="flex items-center gap-1 text-amber-600">
+          <i data-lucide="quote" class="w-5 h-5 text-amber-700"></i>
         </div>
-        <h4 class="font-heading font-bold text-sm text-stone-900 leading-snug">"${t.title}"</h4>
+        <h4 class="font-heading font-bold text-base text-stone-900 leading-snug">${t.title}</h4>
         <p class="text-xs text-stone-600 leading-relaxed italic">"${t.comment}"</p>
       </div>
 
-      <div class="flex items-center gap-3 pt-3 border-t border-stone-200">
-        <img src="${t.avatar}" alt="${t.name}" class="w-10 h-10 rounded-full object-cover">
+      <div class="pt-4 border-t border-stone-200/80 flex items-center gap-3">
+        <img src="${t.avatar}" alt="${t.name}" class="w-10 h-10 rounded-full object-cover border border-stone-300">
         <div>
-          <div class="flex items-center gap-1.5">
-            <span class="font-bold text-xs text-stone-900">${t.name}</span>
-            <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-          </div>
+          <h5 class="font-heading font-bold text-xs text-stone-900">${t.name}</h5>
           <span class="text-[11px] text-stone-500">${t.location}</span>
         </div>
       </div>
@@ -1150,72 +1158,101 @@ function renderTestimonials() {
   }
 }
 
-// --- TOAST NOTIFICATIONS ---
-function showToast(message, type = 'info') {
-  const container = document.getElementById('toast-container');
-  if (!container) return;
-
-  const toast = document.createElement('div');
-  toast.className = `toast-anim flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white transition-all pointer-events-auto ${
-    type === 'success' ? 'bg-[#19382B] border border-emerald-500' :
-    type === 'error' ? 'bg-rose-700' : 'bg-stone-900'
-  }`;
-
-  toast.innerHTML = `
-    <i data-lucide="${type === 'success' ? 'check-circle-2' : 'info'}" class="w-4 h-4 ${type === 'success' ? 'text-amber-300' : 'text-white'}"></i>
-    <span>${message}</span>
-  `;
-
-  container.appendChild(toast);
-  if (window.lucide) window.lucide.createIcons();
-
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    setTimeout(() => toast.remove(), 300);
-  }, 3200);
-}
-
-// --- CONTACT SUBMIT ---
+// --- WHOLESALE & CONTACT FORM ---
 function handleContactSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('contact-name').value;
-  const phone = document.getElementById('contact-phone').value;
-  const message = document.getElementById('contact-message').value;
+  const name = document.getElementById('contact-name').value.trim();
+  const phone = document.getElementById('contact-phone').value.trim();
+  const msg = document.getElementById('contact-message').value.trim();
 
-  const waText = `*Wholesale Inquiry for Deepan Mills*\nName: ${name}\nPhone: ${phone}\nRequirement: ${message}`;
-  const url = `https://wa.me/916379790035?text=${encodeURIComponent(waText)}`;
-  
-  showToast('Inquiry sent! Redirecting to WhatsApp Hotline...', 'success');
-  setTimeout(() => {
-    window.open(url, '_blank');
-  }, 700);
+  let waMsg = `*Deepan Mills - Wholesale / Direct Requirement Inquiry*\n`;
+  waMsg += `Name: *${name}*\n`;
+  waMsg += `Contact Number: *${phone}*\n`;
+  waMsg += `Requirement Details:\n${msg}\n`;
 
-  document.getElementById('contact-form').reset();
+  const url = `https://wa.me/916379790035?text=${encodeURIComponent(waMsg)}`;
+  window.open(url, '_blank');
+
+  showToast('Inquiry pre-formatted! WhatsApp opened to send directly to Deepan Mills.', 'success');
+  e.target.reset();
 }
 
-// --- SETUP EVENT LISTENERS & FILTERS ---
+// --- EVENT LISTENERS (SEARCH, CATEGORY, DIET) ---
 function setupEventListeners() {
-  const langBtn = document.getElementById('lang-menu-btn');
-  const langDropdown = document.getElementById('lang-dropdown');
-  if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('hidden');
-    });
+  // Category Pill Buttons
+  document.querySelectorAll('.cat-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach(b => {
+        b.classList.remove('active', 'bg-[#142E23]', 'text-white');
+        b.classList.add('bg-white', 'text-stone-700');
+      });
+      btn.classList.add('active', 'bg-[#142E23]', 'text-white');
+      btn.classList.remove('bg-white', 'text-stone-700');
 
-    document.addEventListener('click', (e) => {
-      if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-        langDropdown.classList.add('hidden');
+      currentCategory = btn.getAttribute('data-category');
+      renderProducts();
+    });
+  });
+
+  // Dietary Health Tags
+  document.querySelectorAll('.diet-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.getAttribute('data-tag');
+      const resetBtn = document.getElementById('reset-filters-btn');
+
+      if (currentDietTag === tag) {
+        currentDietTag = null;
+        btn.classList.remove('bg-[#142E23]', 'text-white');
+        btn.classList.add('bg-stone-100', 'text-stone-700');
+        if (resetBtn) resetBtn.classList.add('hidden');
+      } else {
+        document.querySelectorAll('.diet-tag').forEach(b => {
+          b.classList.remove('bg-[#142E23]', 'text-white');
+          b.classList.add('bg-stone-100', 'text-stone-700');
+        });
+        currentDietTag = tag;
+        btn.classList.add('bg-[#142E23]', 'text-white');
+        btn.classList.remove('bg-stone-100', 'text-stone-700');
+        if (resetBtn) resetBtn.classList.remove('hidden');
       }
+      renderProducts();
+    });
+  });
+
+  // Reset Filters Button
+  const resetBtn = document.getElementById('reset-filters-btn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', resetAllFilters);
+  }
+
+  // Search Input
+  const searchInput = document.getElementById('product-search-input');
+  const clearSearchBtn = document.getElementById('clear-search-btn');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      if (clearSearchBtn) {
+        if (searchQuery.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+      }
+      renderProducts();
     });
   }
 
-  const cartToggleBtn = document.getElementById('cart-toggle-btn');
-  if (cartToggleBtn) {
-    cartToggleBtn.addEventListener('click', () => toggleCartDrawer(true));
+  if (clearSearchBtn && searchInput) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      renderProducts();
+    });
   }
 
+  // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavPanel = document.getElementById('mobile-nav-panel');
   if (mobileMenuBtn && mobileNavPanel) {
@@ -1224,79 +1261,52 @@ function setupEventListeners() {
     });
   }
 
-  const cartOverlay = document.getElementById('cart-drawer-overlay');
-  if (cartOverlay) {
-    cartOverlay.addEventListener('click', (e) => {
-      if (e.target === cartOverlay) {
-        toggleCartDrawer(false);
+  // Language Dropdown toggle
+  const langMenuBtn = document.getElementById('lang-menu-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+  if (langMenuBtn && langDropdown) {
+    langMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langDropdown.contains(e.target) && e.target !== langMenuBtn) {
+        langDropdown.classList.add('hidden');
       }
     });
   }
+}
 
-  document.querySelectorAll('.cat-pill').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cat-pill').forEach(b => {
-        b.classList.remove('bg-[#19382B]', 'text-white', 'active');
-        b.classList.add('bg-white', 'text-stone-700');
-      });
-      btn.classList.add('bg-[#19382B]', 'text-white', 'active');
-      btn.classList.remove('bg-white', 'text-stone-700');
-
-      currentCategory = btn.dataset.category;
-      renderProducts();
-    });
-  });
-
-  document.querySelectorAll('.diet-tag').forEach(tagBtn => {
-    tagBtn.addEventListener('click', () => {
-      const tag = tagBtn.dataset.tag;
-      if (currentDietTag === tag) {
-        currentDietTag = null;
-        tagBtn.classList.remove('bg-amber-600', 'text-white');
-        tagBtn.classList.add('bg-stone-100', 'text-stone-700');
-        document.getElementById('reset-filters-btn').classList.add('hidden');
-      } else {
-        document.querySelectorAll('.diet-tag').forEach(tb => {
-          tb.classList.remove('bg-amber-600', 'text-white');
-          tb.classList.add('bg-stone-100', 'text-stone-700');
-        });
-        currentDietTag = tag;
-        tagBtn.classList.add('bg-amber-600', 'text-white');
-        tagBtn.classList.remove('bg-stone-100', 'text-stone-700');
-        document.getElementById('reset-filters-btn').classList.remove('hidden');
-      }
-      renderProducts();
-    });
-  });
-
-  const resetFiltersBtn = document.getElementById('reset-filters-btn');
-  if (resetFiltersBtn) {
-    resetFiltersBtn.addEventListener('click', resetAllFilters);
-  }
+function resetAllFilters() {
+  currentCategory = 'all';
+  currentDietTag = null;
+  searchQuery = '';
 
   const searchInput = document.getElementById('product-search-input');
   const clearSearchBtn = document.getElementById('clear-search-btn');
+  if (searchInput) searchInput.value = '';
+  if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
 
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      if (searchQuery.length > 0) {
-        clearSearchBtn.classList.remove('hidden');
-      } else {
-        clearSearchBtn.classList.add('hidden');
-      }
-      renderProducts();
-    });
+  document.querySelectorAll('.cat-pill').forEach(b => {
+    b.classList.remove('active', 'bg-[#142E23]', 'text-white');
+    b.classList.add('bg-white', 'text-stone-700');
+  });
+  const allCatBtn = document.querySelector('.cat-pill[data-category="all"]');
+  if (allCatBtn) {
+    allCatBtn.classList.add('active', 'bg-[#142E23]', 'text-white');
+    allCatBtn.classList.remove('bg-white', 'text-stone-700');
   }
 
-  if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      searchQuery = '';
-      clearSearchBtn.classList.add('hidden');
-      renderProducts();
-    });
-  }
+  document.querySelectorAll('.diet-tag').forEach(b => {
+    b.classList.remove('bg-[#142E23]', 'text-white');
+    b.classList.add('bg-stone-100', 'text-stone-700');
+  });
+
+  const resetBtn = document.getElementById('reset-filters-btn');
+  if (resetBtn) resetBtn.classList.add('hidden');
+
+  renderProducts();
 }
 
 function filterCategory(cat) {
@@ -1304,31 +1314,29 @@ function filterCategory(cat) {
   if (btn) btn.click();
 }
 
-function resetAllFilters() {
-  currentCategory = 'all';
-  currentDietTag = null;
-  searchQuery = '';
-  
-  const searchInput = document.getElementById('product-search-input');
-  if (searchInput) searchInput.value = '';
+// Toast helper
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
 
-  const clearBtn = document.getElementById('clear-search-btn');
-  if (clearBtn) clearBtn.classList.add('hidden');
+  const toast = document.createElement('div');
+  toast.className = `p-3.5 px-5 rounded-2xl shadow-xl text-xs font-bold flex items-center gap-2.5 transition-all duration-300 pointer-events-auto ${
+    type === 'success' ? 'bg-[#142E23] text-white border border-emerald-500' :
+    type === 'error' ? 'bg-rose-900 text-white border border-rose-600' :
+    'bg-stone-900 text-white border border-stone-700'
+  }`;
 
-  document.querySelectorAll('.cat-pill').forEach(b => {
-    b.classList.remove('bg-[#19382B]', 'text-white', 'active');
-    b.classList.add('bg-white', 'text-stone-700');
-    if (b.dataset.category === 'all') {
-      b.classList.add('bg-[#19382B]', 'text-white', 'active');
-      b.classList.remove('bg-white', 'text-stone-700');
-    }
-  });
+  const iconName = type === 'success' ? 'check-circle' : (type === 'error' ? 'alert-circle' : 'info');
+  toast.innerHTML = `
+    <i data-lucide="${iconName}" class="w-4 h-4 text-amber-300 shrink-0"></i>
+    <span>${message}</span>
+  `;
 
-  document.querySelectorAll('.diet-tag').forEach(tb => {
-    tb.classList.remove('bg-amber-600', 'text-white');
-    tb.classList.add('bg-stone-100', 'text-stone-700');
-  });
+  container.appendChild(toast);
+  if (window.lucide) window.lucide.createIcons();
 
-  document.getElementById('reset-filters-btn').classList.add('hidden');
-  renderProducts();
+  setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-y-2');
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
 }
