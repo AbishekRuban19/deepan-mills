@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepan Mills | Customer Account & Order Tracker</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              700: '#19382B',
+              800: '#132C22',
+              900: '#0C1C16',
+            },
+            amberAccent: {
+              500: '#F59E0B',
+              600: '#D97706',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAF7F2;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-stone-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- TOP APP BAR -->
+  <header class="bg-[#19382B] text-white sticky top-0 z-40 border-b border-emerald-950 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand & Customer Portal -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500 text-stone-950 flex items-center justify-center font-black shadow-sm">
+            <i data-lucide="user" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-heading font-extrabold text-lg text-white">DEEPAN MILLS</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-900/80 text-emerald-200 border border-emerald-700/60">Customer Portal</span>
+            </div>
+            <p class="text-[11px] text-emerald-300/80">Welcome, Anitha Kannan • Chennai</p>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="flex items-center gap-3 text-xs">
+          <a href="dashboard.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 font-semibold transition-all">
+            <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>Switch to Manager View</span>
+          </a>
+
+          <a href="index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-bold transition-all shadow-sm">
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>Back to Store</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- CUSTOMER DASHBOARD CONTAINER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- WELCOME BANNER -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Verified Mill Patron</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+          <span class="text-xs text-stone-500">Member since 2024</span>
+        </div>
+        <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-stone-900">Vanakkam, Anitha Kannan! 🌾</h1>
+        <p class="text-xs sm:text-sm text-stone-500">Track your freshly milled grain dispatches, reorder monthly staples, and download invoices.</p>
+      </div>
+
+      <!-- Quick Loyalty & Savings Badge -->
+      <div class="flex items-center gap-4 bg-[#FAF7F2] p-4 rounded-2xl border border-stone-200 shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+          <i data-lucide="heart" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-stone-500 block uppercase">Pure Grain Savings</span>
+          <div class="text-lg font-extrabold text-[#19382B]">₹1,240 Saved</div>
+          <span class="text-[10px] text-emerald-700 font-semibold">100% Unpolished Health Diet</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVIGATION TABS -->
+    <div class="flex items-center gap-2 border-b border-stone-200 pb-2 overflow-x-auto">
+      <button onclick="switchCustomerTab('tracking')" id="cust-tab-btn-tracking" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#19382B] text-white shadow-sm whitespace-nowrap transition-all">
+        🚚 Live Order Tracking (1 Active)
+      </button>
+      <button onclick="switchCustomerTab('history')" id="cust-tab-btn-history" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 whitespace-nowrap transition-all">
+        📦 Past Orders & Invoices (4)
+      </button>
+      <button onclick="switchCustomerTab('reorder')" id="cust-tab-btn-reorder" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 whitespace-nowrap transition-all">
+        ⚡ 1-Click Monthly Re-Order
+      </button>
+      <button onclick="switchCustomerTab('addresses')" id="cust-tab-btn-addresses" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 whitespace-nowrap transition-all">
+        📍 Saved Addresses (2)
+      </button>
+      <button onclick="switchCustomerTab('nutrition')" id="cust-tab-btn-nutrition" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 whitespace-nowrap transition-all">
+        🩺 Family Health Recommendations
+      </button>
+    </div>
+
+    <!-- TAB PANEL 1: LIVE ORDER TRACKING -->
+    <div id="cust-panel-tracking" class="space-y-6">
+      
+      <!-- Active Order Card -->
+      <div class="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-100">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-mono font-extrabold text-base text-amber-700">Order #DM-84920</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">In Transit from Theni</span>
+            </div>
+            <p class="text-xs text-stone-500 mt-0.5">Placed on Oct 14, 2026 • Paid via UPI (₹840)</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a href="https://wa.me/916379790035?text=Hi%20Deepan%20Mills,%20checking%20status%20for%20my%20Order%20DM-84920" 
+               target="_blank" 
+               class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              <span>WhatsApp Mill Support</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Tracking Stepper -->
+        <div class="py-4">
+          <div class="grid grid-cols-4 gap-2 text-center relative">
+            
+            <!-- Step 1: Placed -->
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-sm">
+                <i data-lucide="check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">Order Placed</span>
+                <span class="text-[10px] text-stone-400">Oct 14, 10:45 AM</span>
+              </div>
+            </div>
+
+            <!-- Step 2: Freshly Milled -->
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-sm">
+                <i data-lucide="check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">Stone Milled in Theni</span>
+                <span class="text-[10px] text-stone-400">Oct 14, 02:15 PM</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Dispatched (Active) -->
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center mx-auto shadow-sm ring-4 ring-amber-100 animate-pulse">
+                <i data-lucide="truck" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-amber-700">Dispatched via ST Courier</span>
+                <span class="text-[10px] text-stone-500">Tracking: ST84920TN</span>
+              </div>
+            </div>
+
+            <!-- Step 4: Delivery -->
+            <div class="space-y-2 opacity-40">
+              <div class="w-10 h-10 rounded-full bg-stone-200 text-stone-500 flex items-center justify-center mx-auto">
+                <i data-lucide="home" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-stone-600">Expected Delivery</span>
+                <span class="text-[10px] text-stone-400">Tomorrow by 4 PM</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Package Details -->
+        <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-2">
+          <span class="text-xs font-bold text-stone-800 uppercase tracking-wider block">Items in this Package:</span>
+          <div class="divide-y divide-stone-200 text-xs text-stone-700">
+            <div class="py-2 flex justify-between">
+              <span>🌾 <strong>Karuppu Kavuni Black Rice</strong> (1 Kg Pack) × 2</span>
+              <span class="font-bold">₹420</span>
+            </div>
+            <div class="py-2 flex justify-between">
+              <span>🫒 <strong>Wood-Pressed Vaagai Sesame Oil</strong> (1 Litre Bottle) × 1</span>
+              <span class="font-bold">₹420</span>
+            </div>
+          </div>
+          <div class="pt-2 flex justify-between text-xs font-extrabold text-[#19382B] border-t border-stone-200">
+            <span>Total Value:</span>
+            <span>₹840 (Free Express Shipping)</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB PANEL 2: PAST ORDERS & INVOICES -->
+    <div id="cust-panel-history" class="hidden bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-4">
+      <h3 class="font-heading font-bold text-lg text-stone-900">Your Past Purchases</h3>
+      <p class="text-xs text-stone-500">View order details or download official invoices for past grain purchases.</p>
+
+      <div class="divide-y divide-stone-100">
+        
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="font-mono font-bold text-sm text-stone-900">#DM-83104</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">Delivered</span>
+            </div>
+            <p class="text-xs text-stone-600">Mappillai Samba Rice (1 Kg) × 2, Sprouted Ragi Flour (1 Kg) × 1</p>
+            <div class="text-[11px] text-stone-400">Delivered on Sep 18, 2026 • ₹490</div>
+          </div>
+          <button onclick="downloadSampleInvoice('#DM-83104')" class="px-3.5 py-2 rounded-xl border border-stone-300 hover:bg-stone-50 font-bold text-xs text-stone-700 flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Download Invoice PDF</span>
+          </button>
+        </div>
+
+        <div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="font-mono font-bold text-sm text-stone-900">#DM-82019</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">Delivered</span>
+            </div>
+            <p class="text-xs text-stone-600">Pancharatna 5-Millet Sampler Pack (2.5 Kg) × 1, Groundnut Oil (1L) × 1</p>
+            <div class="text-[11px] text-stone-400">Delivered on Aug 12, 2026 • ₹670</div>
+          </div>
+          <button onclick="downloadSampleInvoice('#DM-82019')" class="px-3.5 py-2 rounded-xl border border-stone-300 hover:bg-stone-50 font-bold text-xs text-stone-700 flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Download Invoice PDF</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB PANEL 3: 1-CLICK MONTHLY RE-ORDER -->
+    <div id="cust-panel-reorder" class="hidden bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-6">
+      
+      <div>
+        <h3 class="font-heading font-bold text-lg text-stone-900">Quick Monthly Staple Refill</h3>
+        <p class="text-xs text-stone-500">Reorder your household's staple positive millets & heritage rice in one tap.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div class="p-5 rounded-2xl bg-[#FAF7F2] border border-stone-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-700 uppercase">Monthly Family Box</span>
+              <span class="text-xs font-extrabold text-[#19382B]">₹790</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-stone-900">Theni Diabetic & Wellness Duo</h4>
+            <p class="text-xs text-stone-600">2kg Karuppu Kavuni Rice + 2kg Kuthiraivali Barnyard Millet. Keeps blood sugar spikes zero for the entire month.</p>
+          </div>
+          <button onclick="reorderBox('Diabetic Duo', 790)" class="w-full py-2.5 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2">
+            <i data-lucide="repeat" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>Re-Order This Box (₹790)</span>
+          </button>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-[#FAF7F2] border border-stone-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700 uppercase">Kitchen Oil & Grain Pack</span>
+              <span class="text-xs font-extrabold text-[#19382B]">₹860</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-stone-900">Authentic Wood-Pressed Kitchen Staple</h4>
+            <p class="text-xs text-stone-600">1L Vaagai Sesame Oil + 1L Cold-Pressed Groundnut Oil + 1kg Sprouted Ragi Flour.</p>
+          </div>
+          <button onclick="reorderBox('Kitchen Staple', 860)" class="w-full py-2.5 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2">
+            <i data-lucide="repeat" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>Re-Order This Box (₹860)</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB PANEL 4: SAVED ADDRESSES -->
+    <div id="cust-panel-addresses" class="hidden bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-100">
+        <div>
+          <h3 class="font-heading font-bold text-lg text-stone-900">Your Delivery Addresses</h3>
+          <p class="text-xs text-stone-500">Fast checkout addresses saved on your account.</p>
+        </div>
+        <button onclick="alert('Add address modal simulated')" class="px-3 py-1.5 rounded-xl bg-[#19382B] text-white font-bold text-xs">+ Add New</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div class="p-4 rounded-2xl bg-stone-50 border-2 border-emerald-600 space-y-2 relative">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Primary Home</span>
+          <h4 class="font-bold text-sm text-stone-900">Anitha Kannan</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Flat 4B, Lotus Apartments, 12th Main Road, Anna Nagar West,<br>
+            Chennai, Tamil Nadu - 600040<br>
+            Phone: +91 98401 23456
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-stone-200 text-stone-700">Parents' Home (Madurai)</span>
+          <h4 class="font-bold text-sm text-stone-900">Kannan S. (Father)</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            18, West Perumal Maistry Street,<br>
+            Madurai, Tamil Nadu - 625001<br>
+            Phone: +91 94431 88722
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB PANEL 5: NUTRITION RECOMMENDATIONS -->
+    <div id="cust-panel-nutrition" class="hidden bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-4">
+      <div>
+        <h3 class="font-heading font-bold text-lg text-stone-900">Your Health Profile & Grain Advisory</h3>
+        <p class="text-xs text-stone-500">Based on your family's staple intake, here are nutrition tips from Theni agro-scientists.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        
+        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+          </div>
+          <h4 class="font-bold text-sm text-emerald-950">Blood Sugar Stabilization</h4>
+          <p class="text-xs text-emerald-800">Rotating <strong>Kuthiraivali (Barnyard)</strong> with <strong>Karuppu Kavuni</strong> gives a steady Glycemic Index under 45, eliminating post-lunch tiredness.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+          </div>
+          <h4 class="font-bold text-sm text-amber-950">Natural Gut & Ulcer Repair</h4>
+          <p class="text-xs text-amber-800">Fermenting <strong>Mappillai Samba</strong> cooked rice overnight in clay pot water (Pazhankanji) generates billions of natural probiotics.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-blue-50 border border-blue-200 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center">
+            <i data-lucide="bone" class="w-4 h-4"></i>
+          </div>
+          <h4 class="font-bold text-sm text-blue-950">Bioavailable Calcium for Kids</h4>
+          <p class="text-xs text-blue-800"><strong>Sprouted Ragi Flour</strong> provides 344mg calcium per 100g, 3x higher than non-sprouted flours, strengthening bone density in growing children.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) window.lucide.createIcons();
+    });
+
+    function switchCustomerTab(tab) {
+      ['tracking', 'history', 'reorder', 'addresses', 'nutrition'].forEach(t => {
+        const p = document.getElementById(`cust-panel-${t}`);
+        const b = document.getElementById(`cust-tab-btn-${t}`);
+        if (p) p.classList.add('hidden');
+        if (b) {
+          b.classList.remove('bg-[#19382B]', 'text-white');
+          b.classList.add('bg-white', 'text-stone-700');
+        }
+      });
+
+      const activeP = document.getElementById(`cust-panel-${tab}`);
+      const activeB = document.getElementById(`cust-tab-btn-${tab}`);
+      if (activeP) activeP.classList.remove('hidden');
+      if (activeB) {
+        activeB.classList.add('bg-[#19382B]', 'text-white');
+        activeB.classList.remove('bg-white', 'text-stone-700');
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function reorderBox(name, price) {
+      alert(`Re-order request created for ${name} (₹${price})! Redirecting to WhatsApp Hotline to confirm instant dispatch.`);
+      const url = `https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20want%20to%20re-order%20my%20monthly%20${encodeURIComponent(name)}%20(₹${price}).%20Please%20dispatch%20to%20my%20Anna%20Nagar%20address.`;
+      window.open(url, '_blank');
+    }
+
+    function downloadSampleInvoice(orderId) {
+      window.print();
+    }
+  </script>
+</body>
+</html>
