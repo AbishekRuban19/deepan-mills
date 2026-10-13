@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepan Mills | Professional Business & Order Dashboard</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              700: '#19382B',
+              800: '#132C22',
+              900: '#0C1C16',
+            },
+            amberAccent: {
+              500: '#F59E0B',
+              600: '#D97706',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAF9;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-stone-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- TOP APP BAR -->
+  <header class="bg-[#19382B] text-white border-b border-emerald-950 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand & Portal Name -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-amber-400 shadow-sm">
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-heading font-extrabold text-lg text-white">DEEPAN MILLS</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-900/80 text-emerald-200 border border-emerald-700/60">Manager Portal</span>
+            </div>
+            <p class="text-[11px] text-emerald-300/80">Theni Facility Operations & E-Commerce Control</p>
+          </div>
+        </div>
+
+        <!-- Quick Nav & Exit to Store -->
+        <div class="flex items-center gap-3 text-xs">
+          <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-900/60 border border-emerald-800 text-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Live Sync Active</span>
+          </div>
+
+          <a href="index.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-900 font-bold transition-all shadow-sm">
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>View Live Store</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD WRAPPER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- HEADER BAR -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-stone-900">Mill Operations & Orders Overview</h1>
+        <p class="text-xs sm:text-sm text-stone-500 mt-1">Real-time orders, inventory status, and incoming customer inquiries.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="refreshDashboardData()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-xs font-bold text-stone-700 shadow-sm transition-all">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-stone-500"></i>
+          <span>Refresh Data</span>
+        </button>
+        <button onclick="exportOrdersCSV()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white text-xs font-bold shadow-sm transition-all">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-amber-300"></i>
+          <span>Export Orders (CSV)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 ENTERPRISE STAT CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      <!-- Stat 1: Revenue -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Total Store Sales</span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <i data-lucide="indian-rupee" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-stone-900" id="stat-revenue">₹18,450</div>
+        <div class="flex items-center gap-1 text-[11px] text-emerald-700 font-semibold">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+          <span>+24.5% from last week</span>
+        </div>
+      </div>
+
+      <!-- Stat 2: Orders Count -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Active Orders</span>
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+            <i data-lucide="package" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-stone-900" id="stat-orders">14 Orders</div>
+        <div class="flex items-center gap-1 text-[11px] text-stone-500">
+          <span>4 Pending Dispatch</span>
+        </div>
+      </div>
+
+      <!-- Stat 3: Top Grain -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Top Selling Variety</span>
+          <div class="w-8 h-8 rounded-lg bg-stone-100 text-stone-700 flex items-center justify-center">
+            <i data-lucide="wheat" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-lg font-extrabold text-stone-900 truncate">Karuppu Kavuni Rice</div>
+        <div class="text-[11px] text-amber-700 font-semibold">
+          <span>82 Kgs Sold This Month</span>
+        </div>
+      </div>
+
+      <!-- Stat 4: Inventory Health -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Inventory Status</span>
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-stone-900">12 / 12 In Stock</div>
+        <div class="text-[11px] text-emerald-700 font-semibold">
+          <span>All batches fresh & ready</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT TABS -->
+    <div class="space-y-6">
+      
+      <!-- TABS BAR -->
+      <div class="flex items-center gap-2 border-b border-stone-200 pb-2">
+        <button onclick="switchTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-[#19382B] text-white shadow-sm transition-all">
+          📦 Recent Orders (<span id="orders-count-badge">4</span>)
+        </button>
+        <button onclick="switchTab('inventory')" id="tab-btn-inventory" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all">
+          🌾 Product Catalog & Price Editor
+        </button>
+        <button onclick="switchTab('inquiries')" id="tab-btn-inquiries" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all">
+          💬 Wholesale Inquiries (3)
+        </button>
+      </div>
+
+      <!-- TAB PANEL 1: ORDERS TABLE -->
+      <div id="tab-panel-orders" class="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
+        
+        <div class="p-5 border-b border-stone-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="font-heading font-bold text-lg text-stone-900">Customer E-Commerce Orders</h3>
+            <p class="text-xs text-stone-500">Live incoming customer purchases from the store checkout.</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <input type="text" id="order-search" oninput="filterOrdersTable()" placeholder="Search order ID or name..." class="px-3 py-1.5 rounded-xl border border-stone-300 text-xs w-48 focus:outline-none focus:ring-1 focus:ring-emerald-700">
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-stone-50 text-stone-500 font-bold uppercase text-[10px] tracking-wider border-b border-stone-100">
+              <tr>
+                <th class="py-3.5 px-5">Order ID</th>
+                <th class="py-3.5 px-4">Date</th>
+                <th class="py-3.5 px-5">Customer & Location</th>
+                <th class="py-3.5 px-5">Items Ordered</th>
+                <th class="py-3.5 px-4">Total</th>
+                <th class="py-3.5 px-4">Payment</th>
+                <th class="py-3.5 px-4">Status</th>
+                <th class="py-3.5 px-5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body" class="divide-y divide-stone-100 text-stone-700 font-medium">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- TAB PANEL 2: PRODUCT INVENTORY & PRICE EDITOR -->
+      <div id="tab-panel-inventory" class="hidden bg-white rounded-3xl border border-stone-200 shadow-sm p-6 space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-100">
+          <div>
+            <h3 class="font-heading font-bold text-lg text-stone-900">Product Inventory & Price Control</h3>
+            <p class="text-xs text-stone-500">Update base prices or toggle stock status directly for the live store.</p>
+          </div>
+          <button onclick="saveInventoryChanges()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>Save Price Updates</span>
+          </button>
+        </div>
+
+        <div id="inventory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Dynamically populated from PRODUCTS array -->
+        </div>
+
+      </div>
+
+      <!-- TAB PANEL 3: WHOLESALE INQUIRIES -->
+      <div id="tab-panel-inquiries" class="hidden bg-white rounded-3xl border border-stone-200 shadow-sm p-6 space-y-4">
+        
+        <div>
+          <h3 class="font-heading font-bold text-lg text-stone-900">Direct Mill Wholesale Inquiries</h3>
+          <p class="text-xs text-stone-500">Inquiries submitted by organic stores and catering services.</p>
+        </div>
+
+        <div class="space-y-3">
+          
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-sm text-stone-900">Kannan Organics (Retail Chain)</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">Bulk Rice</span>
+              </div>
+              <p class="text-xs text-stone-600">"Need 250kg Karuppu Kavuni & 100kg Mappillai Samba monthly delivery to Madurai."</p>
+              <div class="text-[11px] text-stone-400">Phone: +91 98421 55678 • Submitted Today, 11:20 AM</div>
+            </div>
+            <a href="https://wa.me/919842155678?text=Hello%20Kannan%20Organics,%20Deepan%20Mills%20Theni%20here%20regarding%20your%20wholesale%20requirement." target="_blank" class="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              <span>Reply on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-sm text-stone-900">Sri Ram Catering Services</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">Wood Pressed Oils</span>
+              </div>
+              <p class="text-xs text-stone-600">"Looking for 50 Litres Wood Pressed Sesame Oil for wedding catering in Theni district."</p>
+              <div class="text-[11px] text-stone-400">Phone: +91 94432 99810 • Submitted Yesterday</div>
+            </div>
+            <a href="https://wa.me/919443299810?text=Hello%20Sri%20Ram%20Catering,%20Deepan%20Mills%20Theni%20here%20regarding%20your%20oil%20inquiry." target="_blank" class="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              <span>Reply on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-sm text-stone-900">Dr. Radhika Wellness Clinic</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800">Millet Health Mix</span>
+              </div>
+              <p class="text-xs text-stone-600">"Interested in prescribing 24-ingredient health mix and sprouted ragi to prenatal patients."</p>
+              <div class="text-[11px] text-stone-400">Phone: +91 97890 12345 • Submitted 2 days ago</div>
+            </div>
+            <a href="https://wa.me/919789012345?text=Hello%20Dr.%20Radhika,%20Deepan%20Mills%20here%20with%20our%20health%20mix%20details." target="_blank" class="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              <span>Reply on WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="dashboard-toast" class="fixed bottom-6 right-6 z-50 pointer-events-none"></div>
+
+  <!-- Include products data -->
+  <script src="products.js"></script>
+
+  <script>
+    // --- DASHBOARD DATA & LOGIC ---
+    let sampleOrders = [
+      {
+        id: '#DM-84920',
+        date: 'Today, 10:45 AM',
+        customer: 'Anitha Kannan',
+        location: 'Anna Nagar, Chennai',
+        phone: '9840123456',
+        items: 'Karuppu Kavuni Rice (1 Kg) x 2, Sesame Oil (1L) x 1',
+        total: '₹840',
+        payment: 'UPI (GPay)',
+        status: 'Processing'
+      },
+      {
+        id: '#DM-84918',
+        date: 'Today, 09:12 AM',
+        customer: 'Muruganandham S.',
+        location: 'RS Puram, Coimbatore',
+        phone: '9443312345',
+        items: 'Barnyard Millet (1 Kg) x 3, Poongar Rice (1 Kg) x 1',
+        total: '₹600',
+        payment: 'COD',
+        status: 'Ready to Dispatch'
+      },
+      {
+        id: '#DM-84905',
+        date: 'Yesterday, 04:30 PM',
+        customer: 'Priya Rajendran',
+        location: 'KK Nagar, Madurai',
+        phone: '9789456123',
+        items: 'Sprouted Ragi Flour (1 Kg) x 2, Health Mix (1 Kg) x 1',
+        total: '₹590',
+        payment: 'UPI (PhonePe)',
+        status: 'Dispatched'
+      },
+      {
+        id: '#DM-84882',
+        date: 'Oct 12, 2026',
+        customer: 'Venkatesh Babu',
+        location: 'Indiranagar, Bangalore',
+        phone: '9880198765',
+        items: 'Heritage Rice Starter Box (3 Kg) x 1',
+        total: '₹540',
+        payment: 'Cards',
+        status: 'Delivered'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderOrdersTable();
+      renderInventoryGrid();
+      if (window.lucide) window.lucide.createIcons();
+    });
+
+    // Render Orders Table
+    function renderOrdersTable() {
+      const tbody = document.getElementById('orders-table-body');
+      if (!tbody) return;
+
+      tbody.innerHTML = sampleOrders.map((ord, idx) => `
+        <tr class="hover:bg-stone-50 transition-colors">
+          <td class="py-4 px-5 font-mono font-bold text-amber-700">${ord.id}</td>
+          <td class="py-4 px-4 text-[11px] text-stone-500">${ord.date}</td>
+          <td class="py-4 px-5">
+            <div class="font-bold text-stone-900">${ord.customer}</div>
+            <div class="text-[11px] text-stone-500">${ord.location}</div>
+          </td>
+          <td class="py-4 px-5 text-xs text-stone-600 max-w-xs truncate">${ord.items}</td>
+          <td class="py-4 px-4 font-extrabold text-stone-900">${ord.total}</td>
+          <td class="py-4 px-4">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${
+              ord.payment.includes('UPI') ? 'bg-emerald-100 text-emerald-800' :
+              ord.payment.includes('COD') ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'
+            }">${ord.payment}</span>
+          </td>
+          <td class="py-4 px-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${
+              ord.status === 'Processing' ? 'bg-amber-100 text-amber-800' :
+              ord.status === 'Ready to Dispatch' ? 'bg-blue-100 text-blue-800' :
+              ord.status === 'Dispatched' ? 'bg-purple-100 text-purple-800' : 'bg-emerald-100 text-emerald-800'
+            }">
+              ${ord.status}
+            </span>
+          </td>
+          <td class="py-4 px-5 text-right space-x-1">
+            <a href="https://wa.me/91${ord.phone}?text=Hello%20${encodeURIComponent(ord.customer)},%20Deepan%20Mills%20regarding%20your%20order%20${ord.id}." 
+               target="_blank" 
+               class="p-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 inline-block" 
+               title="WhatsApp Customer">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+            </a>
+            <button onclick="updateOrderStatus(${idx})" class="p-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 inline-block" title="Advance Status">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function updateOrderStatus(idx) {
+      const statuses = ['Processing', 'Ready to Dispatch', 'Dispatched', 'Delivered'];
+      const currentIdx = statuses.indexOf(sampleOrders[idx].status);
+      const nextIdx = (currentIdx + 1) % statuses.length;
+      sampleOrders[idx].status = statuses[nextIdx];
+      renderOrdersTable();
+      showToast(`Order ${sampleOrders[idx].id} updated to ${statuses[nextIdx]}`);
+    }
+
+    // Render Product Inventory Grid
+    function renderInventoryGrid() {
+      const container = document.getElementById('inventory-grid');
+      if (!container || !PRODUCTS) return;
+
+      container.innerHTML = PRODUCTS.map((prod, idx) => `
+        <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <img src="${prod.image}" alt="${prod.name}" class="w-12 h-12 rounded-xl object-cover border border-stone-200">
+            <div>
+              <h4 class="font-bold text-xs text-stone-900">${prod.name}</h4>
+              <p class="text-[10px] text-amber-800 font-semibold">${prod.tamilName || ''}</p>
+              <div class="text-xs font-bold text-emerald-800 mt-0.5">₹${prod.variants[0].price} / ${prod.variants[0].weight}</div>
+            </div>
+          </div>
+
+          <div class="text-right space-y-1">
+            <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+              In Stock
+            </span>
+            <div class="text-[10px] text-stone-400">Batches Active</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Switch Tabs
+    function switchTab(tab) {
+      ['orders', 'inventory', 'inquiries'].forEach(t => {
+        const panel = document.getElementById(`tab-panel-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (panel) panel.classList.add('hidden');
+        if (btn) {
+          btn.classList.remove('bg-[#19382B]', 'text-white');
+          btn.classList.add('bg-white', 'text-stone-700');
+        }
+      });
+
+      const activePanel = document.getElementById(`tab-panel-${tab}`);
+      const activeBtn = document.getElementById(`tab-btn-${tab}`);
+      if (activePanel) activePanel.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#19382B]', 'text-white');
+        activeBtn.classList.remove('bg-white', 'text-stone-700');
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function refreshDashboardData() {
+      showToast('Dashboard refreshed with latest store data');
+      renderOrdersTable();
+    }
+
+    function exportOrdersCSV() {
+      let csv = "Order ID,Date,Customer,Location,Items,Total,Payment,Status\n";
+      sampleOrders.forEach(o => {
+        csv += `"${o.id}","${o.date}","${o.customer}","${o.location}","${o.items}","${o.total}","${o.payment}","${o.status}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.setAttribute('href', url);
+      a.setAttribute('download', `deepan-mills-orders-${new Date().toISOString().slice(0,10)}.csv`);
+      a.click();
+      showToast('Orders exported to CSV file');
+    }
+
+    function saveInventoryChanges() {
+      showToast('Product prices & stock updated successfully!');
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById('dashboard-toast');
+      if (!container) return;
+      const el = document.createElement('div');
+      el.className = 'bg-[#19382B] text-white px-4 py-2.5 rounded-xl shadow-xl text-xs font-bold border border-emerald-500 mb-2 transition-all';
+      el.innerText = msg;
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+  </script>
+</body>
+</html>
