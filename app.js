@@ -1,7 +1,138 @@
-// Deepan Mills - Interactive Application Logic
+// Deepan Mills - Interactive Application Logic with Multilingual Support (EN, TA, HI)
 // Handles catalog browsing, variant pricing, slide-over cart, checkout & WhatsApp ordering
 
+// --- MULTILINGUAL DICTIONARY (English, Tamil, Hindi) ---
+const TRANSLATIONS = {
+  en: {
+    langName: 'English',
+    announcement: '🌾 Direct from Theni Soil • 100% Unpolished & Chemical-Free',
+    announcementSub: 'Free Express Shipping on Orders Above ₹799',
+    brandTagline: 'Tradition • Purity • Health',
+    navHome: 'Home',
+    navShop: 'Shop Grains',
+    navGuide: 'Health & Cooking',
+    navAwards: 'MSME Award',
+    navReviews: 'Reviews',
+    navContact: 'Contact',
+    btnWaHeader: 'Order on WhatsApp',
+    btnCartHeader: 'Cart',
+    heroBadge1: 'MSME Best Entrepreneur Award Winner',
+    heroBadge2: 'Grameena Award',
+    heroHeadline: 'Pure. Unpolished. <br><span class="font-serif italic text-amber-700">Direct from Theni’s</span> Fertile Soil.',
+    heroSubtitle: 'Award-winning unpolished millets, heritage Karuppu Kavuni & Mappillai Samba rice, slow stone-ground flours, and traditional wood-pressed oils. Milled fresh every week without chemicals or polish.',
+    feat1: 'Zero Polish & Bleach',
+    feat2: 'Wood-Pressed Vaagai',
+    feat3: 'Direct Farmer Fair-Pay',
+    btnHeroShop: 'Shop Fresh Harvest',
+    btnHeroWa: 'Quick WhatsApp Catalog',
+    metric1: 'Happy Households',
+    metric2: 'Natural & Pure',
+    catalogEyebrow: 'Direct From Our Mill',
+    catalogTitle: 'Choose Your Heritage Grains & Oils',
+    catalogSub: 'Select pack size (500g, 1kg, 5kg), explore nutritional benefits, or order instantly via WhatsApp.',
+    catAll: 'All Products (12)',
+    catRice: '🍚 Heritage Rice (பாரம்பரிய அரிசி)',
+    catMillet: '🌾 Millets (சிறுதானியங்கள்)',
+    catOil: '🫒 Cold-Pressed Oils (மரச்செக்கு)',
+    catFlour: '🥣 Stone Flours (பாரம்பரிய மாவு)',
+    catCombos: '🎁 Value Combos',
+    labelFilterBy: 'Filter by Health Need:',
+    btnAdd: 'Add',
+    drawerTitle: 'Your Basket',
+    lblSubtotal: 'Items Subtotal:',
+    lblDelivery: 'Estimated Delivery:',
+    lblTotal: 'Total Payable:',
+    btnCheckoutSubmit: 'Proceed to Checkout',
+    btnCheckoutWa: 'Order via WhatsApp (Instant Bill)'
+  },
+  ta: {
+    langName: 'தமிழ்',
+    announcement: '🌾 தேனி மண்ணிலிருந்து நேரடியாக • 100% தீட்டப்படாத நவதானியங்கள்',
+    announcementSub: '₹799க்கு மேல் இலவச விரைவு டெலிவரி',
+    brandTagline: 'பாரம்பரியம் • தூய்மை • நல்வாழ்வு',
+    navHome: 'முகப்பு',
+    navShop: 'தானியங்கள்',
+    navGuide: 'சமையல் வழிகாட்டி',
+    navAwards: 'MSME விருது',
+    navReviews: 'கருத்துகள்',
+    navContact: 'தொடர்பு',
+    btnWaHeader: 'வாட்ஸ்அப் ஆர்டர்',
+    btnCartHeader: 'கூடை',
+    heroBadge1: 'MSME சிறந்த தொழில்முனைவோர் விருது',
+    heroBadge2: 'கிராமீனா விருது பெற்ற நிறுவனம்',
+    heroHeadline: 'தூயது. தீட்டப்படாதது. <br><span class="font-serif italic text-amber-700">தேனியின் வளமான மண்ணில்</span> விளைந்தது.',
+    heroSubtitle: 'விருது பெற்ற பாரம்பரிய சிறுதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, மரச்செக்கு நல்லெண்ணெய் & கடலை எண்ணெய். ரசாயனங்கள் இன்றி வாரந்தோறும் அரைத்து வழங்கப்படுகிறது.',
+    feat1: 'தீட்டப்படாத நவதானியங்கள்',
+    feat2: 'வாகை மரச்செக்கு எண்ணெய்',
+    feat3: 'விவசாயிகளிடமிருந்து நேரடி',
+    btnHeroShop: 'தானியங்களை வாங்க',
+    btnHeroWa: 'வாட்ஸ்அப் பட்டியல் பெறுக',
+    metric1: 'மகிழ்ச்சியான குடும்பங்கள்',
+    metric2: '100% இயற்கை & தூய்மை',
+    catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
+    catalogTitle: 'பாரம்பரிய தானியங்கள் & மரச்செக்கு எண்ணெய்கள்',
+    catalogSub: 'தேவையான எடையைத் தேர்ந்தெடுத்து (500g, 1kg, 5kg) எளிதாக ஆர்டர் செய்யுங்கள்.',
+    catAll: 'அனைத்து பொருட்கள் (12)',
+    catRice: '🍚 பாரம்பரிய அரிசி',
+    catMillet: '🌾 நாட்டுச் சிறுதானியங்கள்',
+    catOil: '🫒 மரச்செக்கு எண்ணெய்கள்',
+    catFlour: '🥣 சத்து மாவு வகைகள்',
+    catCombos: '🎁 சிறப்பு காம்போ',
+    labelFilterBy: 'மருத்துவ தேவைக்கேற்ப:',
+    btnAdd: 'சேர்',
+    drawerTitle: 'உங்கள் கூடை',
+    lblSubtotal: 'பொருட்களின் மொத்த விலை:',
+    lblDelivery: 'டெலிவரி கட்டணம்:',
+    lblTotal: 'செலுத்த வேண்டிய தொகை:',
+    btnCheckoutSubmit: 'ஆர்டர் செய்ய தொடர்க',
+    btnCheckoutWa: 'வாட்ஸ்அப் மூலம் உடனடி ஆர்டர்'
+  },
+  hi: {
+    langName: 'हिन्दी',
+    announcement: '🌾 थेनी की मिट्टी से सीधे • 100% बिना पॉलिश व प्राकृतिक अनाज',
+    announcementSub: '₹799 से अधिक के ऑर्डर पर मुफ्त एक्सप्रेस डिलीवरी',
+    brandTagline: 'परंपरा • शुद्धता • स्वास्थ्य',
+    navHome: 'होम',
+    navShop: 'अनाज खरीदें',
+    navGuide: 'स्वास्थ्य और गाइड',
+    navAwards: 'MSME पुरस्कार',
+    navReviews: 'समीक्षाएं',
+    navContact: 'संपर्क',
+    btnWaHeader: 'व्हाट्सएप ऑर्डर',
+    btnCartHeader: 'कार्ट',
+    heroBadge1: 'MSME सर्वश्रेष्ठ उद्यमी पुरस्कार विजेता',
+    heroBadge2: 'ग्रामीण पुरस्कार प्राप्त',
+    heroHeadline: 'शुद्ध. बिना पॉलिश. <br><span class="font-serif italic text-amber-700">थेनी की उपजाऊ मिट्टी से</span> सीधे आपके घर।',
+    heroSubtitle: 'पुरस्कार विजेता प्राकृतिक मिलेट्स, काला व लाल चावल, पत्थर की चक्की का आटा और पारंपरिक लकड़ी से निकाला शुद्ध तेल। रसायन मुक्त और साप्ताहिक रूप से ताजा पीसा हुआ।',
+    feat1: 'बिना पॉलिश व शुद्ध',
+    feat2: 'पारंपरिक लकड़ी कोल्हू',
+    feat3: 'किसानों से सीधा स्रोत',
+    btnHeroShop: 'ताजा अनाज खरीदें',
+    btnHeroWa: 'व्हाट्सएप सूची पाएं',
+    metric1: 'संतुष्ट परिवार',
+    metric2: '100% शुद्ध व प्राकृतिक',
+    catalogEyebrow: 'सीधे हमारी मिल से',
+    catalogTitle: 'पारंपरिक अनाज और शुद्ध तेल चुनें',
+    catalogSub: 'पैकेट का वजन चुनें (500g, 1kg, 5kg) और आसानी से ऑर्डर करें।',
+    catAll: 'सभी उत्पाद (12)',
+    catRice: '🍚 पारंपरिक चावल',
+    catMillet: '🌾 बाजरा / मिलेट्स',
+    catOil: '🫒 कोल्ड प्रेस्ड तेल',
+    catFlour: '🥣 पारंपरिक आटा व सत्तू',
+    catCombos: '🎁 विशेष कॉम्बो',
+    labelFilterBy: 'स्वास्थ्य लाभ के अनुसार:',
+    btnAdd: 'जोड़ें',
+    drawerTitle: 'आपकी टोकरी',
+    lblSubtotal: 'सामग्रियों का मूल्य:',
+    lblDelivery: 'डिलीवरी शुल्क:',
+    lblTotal: 'कुल देय राशि:',
+    btnCheckoutSubmit: 'सुरक्षित चेकआउट करें',
+    btnCheckoutWa: 'व्हाट्सएप पर ऑर्डर करें'
+  }
+};
+
 // --- STATE MANAGEMENT ---
+let currentLang = 'en';
 let cart = [];
 let currentCategory = 'all';
 let currentDietTag = null;
@@ -10,6 +141,16 @@ const selectedVariantMap = {}; // Maps productId -> variant index
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+  // Load saved language
+  try {
+    const savedLang = localStorage.getItem('deepan_lang');
+    if (savedLang && TRANSLATIONS[savedLang]) {
+      currentLang = savedLang;
+    }
+  } catch (e) {
+    currentLang = 'en';
+  }
+
   // Load saved cart from localStorage
   try {
     const savedCart = localStorage.getItem('deepan_mills_cart');
@@ -21,12 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = [];
   }
 
-  // Set default variants (default to 0th variant)
+  // Set default variants (0th variant)
   PRODUCTS.forEach(p => {
     selectedVariantMap[p.id] = 0;
   });
 
-  // Render initial elements
+  // Apply Language & Render initial elements
+  applyLanguage(currentLang);
   renderProducts();
   renderTestimonials();
   updateCartUI();
@@ -47,28 +189,109 @@ function saveCart() {
   }
 }
 
+// --- LANGUAGE SWITCHER LOGIC ---
+function changeLanguage(langKey) {
+  if (!TRANSLATIONS[langKey]) return;
+  currentLang = langKey;
+  try {
+    localStorage.setItem('deepan_lang', langKey);
+  } catch (e) {}
+
+  applyLanguage(langKey);
+  renderProducts();
+
+  // Close dropdown menu if open
+  const dropdown = document.getElementById('lang-dropdown');
+  if (dropdown) dropdown.classList.add('hidden');
+
+  showToast(`Language switched to ${TRANSLATIONS[langKey].langName}`, 'info');
+}
+
+function applyLanguage(langKey) {
+  const t = TRANSLATIONS[langKey];
+  if (!t) return;
+
+  const currentLangLabel = document.getElementById('current-lang-name');
+  if (currentLangLabel) currentLangLabel.innerText = t.langName;
+
+  const textMap = {
+    'announcement-text': t.announcement,
+    'announcement-sub': t.announcementSub,
+    'brand-tagline': t.brandTagline,
+    'nav-home': t.navHome,
+    'nav-shop': t.navShop,
+    'nav-guide': t.navGuide,
+    'nav-awards': t.navAwards,
+    'nav-reviews': t.navReviews,
+    'nav-contact': t.navContact,
+    'btn-wa-header': t.btnWaHeader,
+    'btn-cart-header': t.btnCartHeader,
+    'hero-badge-1': t.heroBadge1,
+    'hero-badge-2': t.heroBadge2,
+    'hero-headline': t.heroHeadline,
+    'hero-subtitle': t.heroSubtitle,
+    'feat-1': t.feat1,
+    'feat-2': t.feat2,
+    'feat-3': t.feat3,
+    'btn-hero-shop': t.btnHeroShop,
+    'btn-hero-wa': t.btnHeroWa,
+    'metric-1': t.metric1,
+    'metric-2': t.metric2,
+    'catalog-eyebrow': t.catalogEyebrow,
+    'catalog-title': t.catalogTitle,
+    'catalog-sub': t.catalogSub,
+    'cat-all': t.catAll,
+    'cat-rice': t.catRice,
+    'cat-millet': t.catMillet,
+    'cat-oil': t.catOil,
+    'cat-flour': t.catFlour,
+    'cat-combos': t.catCombos,
+    'label-filter-by': t.labelFilterBy,
+    'drawer-title': t.drawerTitle,
+    'lbl-subtotal': t.lblSubtotal,
+    'lbl-delivery': t.lblDelivery,
+    'lbl-total': t.lblTotal,
+    'btn-checkout-submit': t.btnCheckoutSubmit,
+    'btn-checkout-wa': t.btnCheckoutWa
+  };
+
+  for (const [id, value] of Object.entries(textMap)) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.innerHTML = value;
+    }
+  }
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
 // --- RENDER PRODUCTS ---
 function renderProducts() {
   const container = document.getElementById('products-grid');
   const emptyView = document.getElementById('no-products-view');
   if (!container) return;
 
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+
   // Filter products
   const filtered = PRODUCTS.filter(prod => {
     // Category match
     const catMatch = currentCategory === 'all' || prod.category === currentCategory;
 
-    // Search query match (search name, tamilName, shortDesc, tags)
+    // Search query match
     const q = searchQuery.toLowerCase().trim();
     const searchMatch = !q || 
       prod.name.toLowerCase().includes(q) || 
-      prod.tamilName.toLowerCase().includes(q) || 
+      (prod.tamilName && prod.tamilName.toLowerCase().includes(q)) || 
+      (prod.hindiName && prod.hindiName.toLowerCase().includes(q)) || 
       prod.shortDesc.toLowerCase().includes(q) ||
       prod.tags.some(t => t.toLowerCase().includes(q));
 
     // Dietary filter tag match
     const tagMatch = !currentDietTag || 
-      prod.tags.some(t => t.toLowerCase().includes(currentDietTag.toLowerCase()));
+      prod.tags.some(tag => tag.toLowerCase().includes(currentDietTag.toLowerCase()));
 
     return catMatch && searchMatch && tagMatch;
   });
@@ -85,6 +308,11 @@ function renderProducts() {
     const activeVarIdx = selectedVariantMap[prod.id] || 0;
     const currentVariant = prod.variants[activeVarIdx] || prod.variants[0];
     const discountPercent = Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100);
+
+    // Dynamic localized name
+    const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
+                           currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
+    const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
 
     return `
       <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group" data-product-id="${prod.id}">
@@ -123,14 +351,16 @@ function renderProducts() {
             ` : ''}
           </div>
 
-          <!-- Title & Tamil Name -->
+          <!-- Title & Subtitle -->
           <div class="space-y-1 mb-2">
-            <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-700">
-              <i data-lucide="sparkles" class="w-3 h-3"></i>
-              <span>${prod.tamilName}</span>
-            </div>
+            ${subTitle ? `
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-700">
+                <i data-lucide="sparkles" class="w-3 h-3"></i>
+                <span>${subTitle}</span>
+              </div>
+            ` : ''}
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug">
-              ${prod.name}
+              ${localizedTitle}
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
               ${prod.shortDesc}
@@ -150,7 +380,7 @@ function renderProducts() {
         <div>
           <!-- Weight Selection Pills -->
           <div class="mb-3.5">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Select Pack Weight:</span>
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
             <div class="grid grid-cols-${prod.variants.length} gap-1.5">
               ${prod.variants.map((v, idx) => `
                 <button type="button" 
@@ -181,7 +411,7 @@ function renderProducts() {
                       class="px-3.5 py-2 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
                       title="Add to shopping basket">
                 <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
-                <span>Add</span>
+                <span>${t.btnAdd}</span>
               </button>
               
               <button onclick="buyNow('${prod.id}', ${activeVarIdx})" 
@@ -245,7 +475,7 @@ function addToCart(productId, variantIdx, quantity = 1) {
   const cartBtn = document.getElementById('cart-toggle-btn');
   if (cartBtn) {
     cartBtn.classList.remove('animate-cart-bump');
-    void cartBtn.offsetWidth; // Trigger reflow
+    void cartBtn.offsetWidth;
     cartBtn.classList.add('animate-cart-bump');
   }
 }
@@ -256,7 +486,7 @@ function quickAdd(productId) {
   toggleCartDrawer(true);
 }
 
-// Buy Now helper (Adds to cart and immediately opens checkout)
+// Buy Now helper
 function buyNow(productId, variantIdx) {
   addToCart(productId, variantIdx, 1);
   openCheckoutModal();
@@ -434,7 +664,6 @@ function openCheckoutModal() {
     return;
   }
 
-  // Close drawer if open
   toggleCartDrawer(false);
 
   const modal = document.getElementById('checkout-modal');
@@ -461,7 +690,6 @@ function closeCheckoutModal() {
 }
 
 function togglePaymentTab(method) {
-  // Toggle active radio pill borders
   document.querySelectorAll('.pay-option').forEach(el => {
     el.classList.remove('border-emerald-600', 'bg-emerald-50/50');
     el.classList.add('border-stone-200');
@@ -472,12 +700,10 @@ function togglePaymentTab(method) {
     selectedRadio.closest('.pay-option').classList.add('border-emerald-600', 'bg-emerald-50/50');
   }
 
-  // Hide all dynamic boxes
   document.getElementById('pay-box-upi').classList.add('hidden');
   document.getElementById('pay-box-card').classList.add('hidden');
   document.getElementById('pay-box-cod').classList.add('hidden');
 
-  // Show targeted
   const targetBox = document.getElementById(`pay-box-${method}`);
   if (targetBox) {
     targetBox.classList.remove('hidden');
@@ -498,7 +724,6 @@ function handlePlaceOrder(e) {
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const total = subtotal >= 799 ? subtotal : subtotal + 60;
 
-  // Prepare invoice modal data
   document.getElementById('success-order-id').innerText = orderId;
   document.getElementById('success-customer-info').innerText = `${name}, ${address}, ${city} - ${pincode} (Ph: ${phone})`;
   document.getElementById('success-payment-method').innerText = paymentMethod === 'upi' ? 'UPI / GPay' : (paymentMethod === 'card' ? 'Online Card' : 'Cash on Delivery');
@@ -517,13 +742,11 @@ function handlePlaceOrder(e) {
     </div>
   `).join('');
 
-  // Close checkout modal & clear cart
   closeCheckoutModal();
   cart = [];
   saveCart();
   updateCartUI();
 
-  // Show success modal
   const successModal = document.getElementById('success-modal');
   if (successModal) {
     successModal.classList.remove('opacity-0', 'pointer-events-none');
@@ -550,11 +773,14 @@ function openQuickView(productId) {
   const content = document.getElementById('quickview-content');
   const modal = document.getElementById('quickview-modal');
 
+  const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
+                         currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
+
   content.innerHTML = `
     <div class="flex justify-between items-start pb-4 border-b border-stone-200">
       <div>
-        <span class="text-xs font-bold text-amber-700">${prod.tamilName}</span>
-        <h3 class="font-heading font-extrabold text-2xl text-[#19382B]">${prod.name}</h3>
+        <span class="text-xs font-bold text-amber-700">${prod.tamilName || ''}</span>
+        <h3 class="font-heading font-extrabold text-2xl text-[#19382B]">${localizedTitle}</h3>
       </div>
       <button onclick="closeQuickView()" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100">
         <i data-lucide="x" class="w-5 h-5"></i>
@@ -579,7 +805,6 @@ function openQuickView(productId) {
           <p class="text-xs text-amber-800 mt-0.5">${prod.cookingRatio}</p>
         </div>
 
-        <!-- Nutrition Highlights -->
         <div class="grid grid-cols-4 gap-2 text-center pt-1">
           <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
             <span class="text-[10px] text-stone-400 block">Calories</span>
@@ -635,7 +860,6 @@ function renderTestimonials() {
   container.innerHTML = TESTIMONIALS.map(t => `
     <div class="p-6 rounded-3xl bg-[#FAF7F2] border border-stone-200 flex flex-col justify-between space-y-4">
       <div class="space-y-3">
-        <!-- 5 Stars -->
         <div class="flex items-center gap-1 text-amber-500">
           ${Array(5).fill(0).map(() => `<i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>`).join('')}
         </div>
@@ -707,6 +931,22 @@ function handleContactSubmit(e) {
 
 // --- SETUP EVENT LISTENERS & FILTERS ---
 function setupEventListeners() {
+  // Language menu dropdown toggle
+  const langBtn = document.getElementById('lang-menu-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+        langDropdown.classList.add('hidden');
+      }
+    });
+  }
+
   // Cart toggle
   const cartToggleBtn = document.getElementById('cart-toggle-btn');
   if (cartToggleBtn) {
