@@ -1,0 +1,20 @@
+{
+  "name": "deepan-mills-ecommerce",
+  "version": "1.0.0",
+  "description": "Modern, premium e-commerce store for Deepan Mills - Heritage millets, traditional rice & cold-pressed oils",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "deepan-mills",
+    "ecommerce",
+    "millets",
+    "organic-food",
+    "tamil-nadu",
+    "traditional-rice"
+  ],
+  "author": "Antigravity Team",
+  "license": "MIT"
+}
