@@ -47,7 +47,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.2">
 </head>
 <body class="bg-[#FBF9F5] text-[#18221D] antialiased selection:bg-amber-100 selection:text-amber-900">
 
@@ -410,7 +410,1314 @@
 
       <!-- PRODUCTS GRID CONTAINER -->
       <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Rendered dynamically by app.js immediately on page load -->
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-1">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-1', 0)">
+            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" 
+                 alt="Karuppu Kavuni Black Rice" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Heritage Harvest
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பாரம்பரிய கருப்பு கவுனி அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-1', 0)">
+              Karuppu Kavuni Black Rice
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Traditional unpolished black rice, slow-dehusked in Theni to preserve the intact dark purple-black bran layer.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Antioxidant Rich
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Low Glycemic Index
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-1', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-1', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-1', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹110</span>
+                <span class="text-xs text-stone-400 line-through">₹135</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹25</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-1', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-1', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-2">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-2', 0)">
+            <img src="https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80" 
+                 alt="Mappillai Samba Red Rice" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Heritage Classic
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>மாப்பிள்ளை சம்பா அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-2', 0)">
+              Mappillai Samba Red Rice
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Traditional unpolished red rice rich in zinc and dietary iron, traditionally enjoyed for sustained physical vitality.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Iron & Zinc
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Native Red Grain
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-2', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-2', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-2', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹95</span>
+                <span class="text-xs text-stone-400 line-through">₹120</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹25</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-2', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-2', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-3">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-3', 0)">
+            <img src="https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Kuthiraivali (Barnyard Millet)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                High Fiber
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு குதிரைவாலி அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-3', 0)">
+              Kuthiraivali (Barnyard Millet)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Unpolished Barnyard Millet. Light and easily digestible with over 10g of natural dietary fiber per 100g.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                High Dietary Fiber
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Low Glycemic Load
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-3', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-3', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-3', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹75</span>
+                <span class="text-xs text-stone-400 line-through">₹95</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹20</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-3', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-3', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-4">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-4', 0)">
+            <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80" 
+                 alt="Thinai (Foxtail Millet)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Native Millet
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பாரம்பரிய தினை அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-4', 0)">
+              Thinai (Foxtail Millet)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Golden unpolished Foxtail millet. Ancient grain rich in dietary magnesium and natural plant proteins.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Magnesium Rich
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Plant Protein
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-4', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-4', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-4', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹75</span>
+                <span class="text-xs text-stone-400 line-through">₹95</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹20</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-4', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-4', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-5">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-5', 0)">
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Varagu (Kodo Millet)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Pure & Unpolished
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>செறிவூட்டப்படாத வரகு அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-5', 0)">
+              Varagu (Kodo Millet)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Wholesome grain with high polyphenols and fiber. A balanced traditional replacement for polished white rice.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Complex Carbs
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                High Fiber
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-5', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-5', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-5', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹75</span>
+                <span class="text-xs text-stone-400 line-through">₹95</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹20</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-5', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-5', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-6">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-6', 0)">
+            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=800&q=80" 
+                 alt="Poongar Traditional Rice" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Traditional Grain
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பெண்கள் நல பூங்கார் அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-6', 0)">
+              Poongar Traditional Rice
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Cherished regional red rice variety traditionally prepared for nourishing maternal kanji and soft idlis.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Traditional Grain
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Mineral Rich
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-6', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-6', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-6', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹95</span>
+                <span class="text-xs text-stone-400 line-through">₹125</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹30</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-6', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-6', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-7">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-7', 0)">
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80" 
+                 alt="Wood-Pressed Sesame Oil (Gingelly)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Vaagai Chekku
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>மரச்செக்கு நாட்டு நல்லெண்ணெய்</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-7', 0)">
+              Wood-Pressed Sesame Oil (Gingelly)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Slow-extracted in traditional Vaagai wooden chekkus using native black sesame seeds and pure palm jaggery.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Cold Pressed
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Palm Jaggery Mixed
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-7', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500ml
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-7', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Litre
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-7', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Litre Can
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹220</span>
+                <span class="text-xs text-stone-400 line-through">₹260</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹40</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-7', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-7', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-8">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-8', 0)">
+            <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Wood-Pressed Groundnut Oil" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Cold Pressed
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>மரச்செக்கு சுத்தமான கடலை எண்ணெய்</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-8', 0)">
+              Wood-Pressed Groundnut Oil
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Cold-pressed from sun-dried native Theni groundnuts. Characteristic nutty aroma with a high smoke point.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Heart Healthy
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Zero Cholesterol
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-8', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500ml
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-8', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Litre
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-8', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Litre Can
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹160</span>
+                <span class="text-xs text-stone-400 line-through">₹195</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹35</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-8', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-8', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-9">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-9', 0)">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" 
+                 alt="Sprouted Ragi Flour (Stone Ground)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Stone Milled
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>முளைகட்டிய கேழ்வரகு மாவு</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-9', 0)">
+              Sprouted Ragi Flour (Stone Ground)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Sprouted native finger millets, sun-dried and stone ground at low RPM to preserve dietary calcium and vitamins.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Bioavailable Calcium
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Family Friendly
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-9', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-9', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-9', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹70</span>
+                <span class="text-xs text-stone-400 line-through">₹90</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹20</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-9', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-9', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-10">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-10', 0)">
+            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80" 
+                 alt="Traditional 24-Ingredient Health Mix" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Whole Grain Blend
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பாரம்பரிய சத்து மாவு (24 தானியங்கள்)</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-10', 0)">
+              Traditional 24-Ingredient Health Mix
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Nourishing blend of 24 slow-roasted millets, pulses, almonds, cashews, cardamoms, and native grains.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Balanced Nutrition
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Zero Sugar Added
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-3 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-10', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  500g
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-10', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  1 Kg
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-10', 2)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  2 Kg Pack
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹175</span>
+                <span class="text-xs text-stone-400 line-through">₹220</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹45</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-10', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-10', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-11">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-11', 0)">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" 
+                 alt="Theni Heritage Rice Starter Box" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Curated Bundle
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பாரம்பரிய அரிசி சிறப்பு காம்போ</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-11', 0)">
+              Theni Heritage Rice Starter Box
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Curated 1kg pack each of Karuppu Kavuni, Mappillai Samba, and Poongar Rice. Complete kitchen grain introduction.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                3 Grains in 1
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Heritage Rotation
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-2 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-11', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  3 Kg Box (1kg x 3)
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-11', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  6 Kg Family Box (2kg x 3)
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹540</span>
+                <span class="text-xs text-stone-400 line-through">₹670</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹130</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-11', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-11', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
+           data-product-id="prod-12">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
+               onclick="openQuickView('prod-12', 0)">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" 
+                 alt="Pancharatna 5-Millet Sampler Pack" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Millet Sampler
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
+              <span>Details</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பஞ்சரத்ன 5 சிறுதானிய தொகுப்பு</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
+                onclick="openQuickView('prod-12', 0)">
+              Pancharatna 5-Millet Sampler Pack
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              500g each of Barnyard (Kuthiraivali), Foxtail (Thinai), Kodo (Varagu), Little (Samai), and Finger Millet (Ragi).
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                5 Millets in 1
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Pure Theni Harvest
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Interactive Weight Selector on Card -->
+          <div class="mb-3">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
+            <div class="grid grid-cols-2 gap-1.5">
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-12', 0)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-[#142E23] text-white border-[#142E23] shadow-sm">
+                  2.5 Kg Pack (500g x 5)
+                </button>
+              
+                <button type="button" 
+                        onclick="selectProductVariant('prod-12', 1)" 
+                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400">
+                  5 Kg Pack (1kg x 5)
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Accurate Transparent Price & Add Actions -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <div>
+              <div class="flex items-baseline gap-1.5">
+                <span class="text-lg font-black text-[#142E23]">₹360</span>
+                <span class="text-xs text-stone-400 line-through">₹450</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹90</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <button onclick="addToCart('prod-12', 0, 1)" 
+                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
+                      title="Add to shopping basket">
+                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
+                <span>Add</span>
+              </button>
+              
+              <button onclick="openQuickView('prod-12', 0)" 
+                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
+                      title="View Full Nutritional Details & Preparation Guide">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
       </div>
 
       <!-- Empty State -->
@@ -1078,7 +2385,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="products.js"></script>
-  <script src="app.js"></script>
+  <script src="products.js?v=2.2"></script>
+  <script src="app.js?v=2.2"></script>
 </body>
 </html>

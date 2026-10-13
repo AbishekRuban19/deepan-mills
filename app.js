@@ -127,8 +127,8 @@ let currentQuickViewState = {
   quantity: 1
 };
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize on page load with readyState check
+function initApp() {
   // 1. Load saved language
   try {
     const savedLang = localStorage.getItem('deepan_lang');
@@ -155,11 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedCart) {
       const parsed = JSON.parse(savedCart);
       if (Array.isArray(parsed)) {
+        const prodList = window.PRODUCTS || PRODUCTS || [];
         cart = parsed.filter(item => item && item.productId).map(item => {
           let p = item.price;
           if (typeof p === 'string') p = parseInt(p.replace(/[^0-9]/g, '')) || 0;
           if (!p || p <= 0) {
-            const canonical = PRODUCTS.find(cp => cp.id === item.productId);
+            const canonical = prodList.find(cp => cp.id === item.productId);
             if (canonical) {
               const v = canonical.variants.find(cv => cv.weight === item.weight) || canonical.variants[0];
               p = v.price;
@@ -178,7 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 4. Set default active variant (0 = first weight tier)
-  PRODUCTS.forEach(p => {
+  const prodList = window.PRODUCTS || PRODUCTS || [];
+  prodList.forEach(p => {
     selectedVariantMap[p.id] = 0;
   });
 
@@ -205,7 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
     window.lucide.createIcons();
   }
-});
+}
+
+// Guarantee execution whether script runs before or after DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 // Save cart helper
 function saveCart() {
@@ -390,9 +399,9 @@ function renderProducts() {
   const emptyView = document.getElementById('no-products-view');
   if (!container) return;
 
-  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+  const prodList = window.PRODUCTS || PRODUCTS || [];
 
-  const filtered = PRODUCTS.filter(prod => {
+  const filtered = prodList.filter(prod => {
     const catMatch = currentCategory === 'all' || prod.category === currentCategory;
     const q = searchQuery.toLowerCase().trim();
     const searchMatch = !q || 
@@ -1236,9 +1245,10 @@ function closeQuickView() {
 // --- RENDER TESTIMONIALS ---
 function renderTestimonials() {
   const container = document.getElementById('testimonials-container');
-  if (!container || !TESTIMONIALS) return;
+  const list = window.TESTIMONIALS || (typeof TESTIMONIALS !== 'undefined' ? TESTIMONIALS : []);
+  if (!container || list.length === 0) return;
 
-  container.innerHTML = TESTIMONIALS.map(t => `
+  container.innerHTML = list.map(t => `
     <div class="p-6 rounded-3xl bg-[#FBF9F5] border border-stone-200 flex flex-col justify-between space-y-4 shadow-sm">
       <div class="space-y-3">
         <div class="flex items-center gap-1 text-amber-600">

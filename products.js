@@ -2,7 +2,11 @@
 // Sourced from authentic heritage grain fields and agro-processing in Theni, Tamil Nadu.
 // All nutritional values and milling descriptions are verified against standard Indian food composition tables.
 
-const PRODUCTS = [
+if (typeof window === 'undefined') {
+  global.window = global;
+}
+
+window.PRODUCTS = [
   {
     id: 'prod-1',
     name: 'Karuppu Kavuni Black Rice',
@@ -316,7 +320,7 @@ const PRODUCTS = [
 ];
 
 // Community Notes & Patron Feedback
-const TESTIMONIALS = [
+window.TESTIMONIALS = [
   {
     name: 'Meenakshi Sundaram',
     location: 'Coimbatore, Tamil Nadu',
@@ -345,3 +349,8 @@ const TESTIMONIALS = [
     verified: true
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PRODUCTS: window.PRODUCTS, TESTIMONIALS: window.TESTIMONIALS };
+}
+
