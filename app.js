@@ -22,7 +22,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving traditional native crops. We provide authentic unpolished millets, heritage Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and wood-pressed Vaagai oils.',
     catalogEyebrow: 'Direct From Our Mill',
     catalogTitle: 'Choose Your Heritage Grains & Oils',
-    catalogSub: 'Select pack size (500g, 1kg, 5kg), explore nutritional benefits, or order instantly via WhatsApp.',
+    catalogSub: 'Browse authentic native crops from Theni. Click any product to explore nutritional benefits, traditional milling, and select pack size to view prices.',
     catAll: 'All Products (12)',
     catRice: '🍚 Heritage Rice (பாரம்பரிய அரிசி)',
     catMillet: '🌾 Millets (சிறுதானியங்கள்)',
@@ -31,6 +31,7 @@ const TRANSLATIONS = {
     catCombos: '🎁 Value Combos',
     labelFilterBy: 'Filter by Health Need:',
     btnAdd: 'Add',
+    btnViewDetails: 'View Details & Price',
     drawerTitle: 'Your Basket',
     lblSubtotal: 'Items Subtotal:',
     lblDelivery: 'Estimated Delivery:',
@@ -57,7 +58,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'தேனியின் வளமான மண்ணில் விளைந்த பாரம்பரிய நவதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, கல் செக்கு மற்றும் மரச்செக்கு எண்ணெய்கள். ரசாயனங்கள் அற்ற ஆரோக்கியமான உணவை உங்கள் இல்லத்திற்கு சேர்க்கிறோம்.',
     catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
     catalogTitle: 'பாரம்பரிய தானியங்கள் & மரச்செக்கு எண்ணெய்கள்',
-    catalogSub: 'தேவையான எடையைத் தேர்ந்தெடுத்து (500g, 1kg, 5kg) எளிதாக ஆர்டர் செய்யுங்கள்.',
+    catalogSub: 'தேனியின் பாரம்பரிய நவதானியங்களை ஆராயுங்கள். தயாரிப்பைத் தேர்ந்தெடுத்து நன்மைகள், சமையல் முறை மற்றும் விலையை அறியவும்.',
     catAll: 'அனைத்து பொருட்கள் (12)',
     catRice: '🍚 பாரம்பரிய அரிசி',
     catMillet: '🌾 நாட்டுச் சிறுதானியங்கள்',
@@ -66,6 +67,7 @@ const TRANSLATIONS = {
     catCombos: '🎁 சிறப்பு காம்போ',
     labelFilterBy: 'மருத்துவ தேவைக்கேற்ப:',
     btnAdd: 'சேர்',
+    btnViewDetails: 'விவரம் & விலை பார்க்க',
     drawerTitle: 'உங்கள் கூடை',
     lblSubtotal: 'பொருட்களின் மொத்த விலை:',
     lblDelivery: 'டெலிவரி கட்டணம்:',
@@ -92,7 +94,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'थेनी, तमिलनाडु की उपजाऊ भूमि से सीधे प्राप्त पारंपरिक बाजरा, काला व लाल चावल, पत्थर की चक्की का आटा और लकड़ी कोल्हू का शुद्ध तेल। बिना किसी पॉलिश या रसायन के।',
     catalogEyebrow: 'सीधे हमारी मिल से',
     catalogTitle: 'पारंपरिक अनाज और शुद्ध तेल चुनें',
-    catalogSub: 'पैकेट का वजन चुनें (500g, 1kg, 5kg) और आसानी से ऑर्डर करें।',
+    catalogSub: 'थेनी के पारंपरिक अनाज देखें। पोषण लाभ, पीसने की विधि और पैकेट मूल्य देखने के लिए उत्पाद पर क्लिक करें।',
     catAll: 'सभी उत्पाद (12)',
     catRice: '🍚 पारंपरिक चावल',
     catMillet: '🌾 बाजरा / मिलेट्स',
@@ -101,6 +103,7 @@ const TRANSLATIONS = {
     catCombos: '🎁 विशेष कॉम्बो',
     labelFilterBy: 'स्वास्थ्य लाभ के अनुसार:',
     btnAdd: 'जोड़ें',
+    btnViewDetails: 'विवरण व मूल्य देखें',
     drawerTitle: 'आपकी टोकरी',
     lblSubtotal: 'सामग्रियों का मूल्य:',
     lblDelivery: 'डिलीवरी शुल्क:',
@@ -418,16 +421,17 @@ function renderProducts() {
 
   container.innerHTML = filtered.map(prod => {
     const activeVarIdx = selectedVariantMap[prod.id] || 0;
-    const currentVariant = prod.variants[activeVarIdx] || prod.variants[0];
-    const discountPercent = Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100);
-
     const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                            currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
     const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
+    const packList = prod.variants.map(v => v.weight).join(' • ');
 
     return `
-      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group" data-product-id="${prod.id}">
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl transition-all duration-300 border border-stone-200/80 hover:border-amber-400/80 cursor-pointer" 
+           data-product-id="${prod.id}"
+           onclick="openQuickView('${prod.id}')">
         <div>
+          <!-- Product Visual with Quality Badge (No open prices) -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
             <img src="${prod.image}" 
                  alt="${prod.name}" 
@@ -444,19 +448,13 @@ function renderProducts() {
               </span>
             </div>
 
-            <button onclick="openQuickView('${prod.id}')" 
-                    title="Quick Details & Nutrition"
-                    class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm text-stone-700 flex items-center justify-center hover:bg-white hover:text-stone-900 shadow transition-all">
-              <i data-lucide="eye" class="w-4 h-4"></i>
-            </button>
-            
-            ${discountPercent > 0 ? `
-              <div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded-md bg-rose-600 text-white text-[10px] font-black tracking-wider shadow">
-                SAVE ${discountPercent}%
-              </div>
-            ` : ''}
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="eye" class="w-3 h-3 text-amber-700"></i>
+              <span>View Details</span>
+            </div>
           </div>
 
+          <!-- Product Titles & Heritage Info -->
           <div class="space-y-1 mb-2">
             ${subTitle ? `
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-700">
@@ -464,7 +462,7 @@ function renderProducts() {
                 <span>${subTitle}</span>
               </div>
             ` : ''}
-            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug">
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
               ${localizedTitle}
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
@@ -472,6 +470,7 @@ function renderProducts() {
             </p>
           </div>
 
+          <!-- Dietary & Health Tags -->
           <div class="flex flex-wrap gap-1.5 mb-3">
             ${prod.tags.slice(0, 2).map(tag => `
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
@@ -481,48 +480,22 @@ function renderProducts() {
           </div>
         </div>
 
-        <div>
-          <div class="mb-3.5">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
-            <div class="grid grid-cols-${prod.variants.length} gap-1.5">
-              ${prod.variants.map((v, idx) => `
-                <button type="button" 
-                        onclick="selectProductVariant('${prod.id}', ${idx})" 
-                        class="weight-pill text-xs font-semibold py-1.5 px-2 rounded-xl border text-center transition-all ${
-                          idx === activeVarIdx 
-                            ? 'bg-[#19382B] text-white border-[#19382B] shadow-sm' 
-                            : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400'
-                        }">
-                  ${v.weight}
-                </button>
-              `).join('')}
-            </div>
+        <!-- Available Packs & View Action (Price shown after product is selected inside) -->
+        <div class="pt-2 border-t border-stone-100 space-y-2.5" onclick="event.stopPropagation()">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-stone-400">Available Packs:</span>
+            <span class="text-[11px] font-bold text-[#19382B] bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
+              ${packList}
+            </span>
           </div>
 
-          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
-            <div>
-              <div class="flex items-baseline gap-1.5">
-                <span class="text-lg font-black text-[#19382B]">₹${currentVariant.price}</span>
-                <span class="text-xs text-stone-400 line-through">₹${currentVariant.mrp}</span>
-              </div>
-              <span class="text-[10px] text-stone-400 font-medium">Milled Fresh</span>
-            </div>
-
-            <div class="flex items-center gap-1.5">
-              <button onclick="addToCart('${prod.id}', ${activeVarIdx}, 1)" 
-                      class="px-3.5 py-2 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
-                      title="Add to shopping basket">
-                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
-                <span>${t.btnAdd}</span>
-              </button>
-              
-              <button onclick="buyNow('${prod.id}', ${activeVarIdx})" 
-                      class="px-2.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-stone-950 text-xs font-extrabold shadow-sm transition-all hover:scale-105 active:scale-95"
-                      title="Instant Buy Now">
-                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
+          <button onclick="openQuickView('${prod.id}')" 
+                  class="w-full py-2.5 px-3.5 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all hover:scale-[1.02] active:scale-95 group/btn"
+                  title="View details, cooking guide & select pack price">
+            <i data-lucide="eye" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>${t.btnViewDetails || 'View Details & Price'}</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-stone-300 group-hover/btn:translate-x-1 transition-transform"></i>
+          </button>
         </div>
 
       </div>
@@ -862,82 +835,277 @@ function closeSuccessModal() {
   }
 }
 
-// --- QUICK VIEW MODAL ---
-function openQuickView(productId) {
+// --- INTERACTIVE PRODUCT DETAIL & PRICING MODAL ---
+// (Prices are revealed inside after product & pack selection)
+let currentQuickViewState = {
+  productId: null,
+  variantIdx: 0,
+  quantity: 1
+};
+
+function openQuickView(productId, variantIdx = 0) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return;
 
-  const content = document.getElementById('quickview-content');
+  currentQuickViewState = {
+    productId: productId,
+    variantIdx: variantIdx,
+    quantity: 1
+  };
+
+  renderQuickViewModal();
+
   const modal = document.getElementById('quickview-modal');
+  if (modal) {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.classList.add('overflow-hidden');
+  }
+}
+
+function selectQuickViewVariant(variantIdx) {
+  currentQuickViewState.variantIdx = variantIdx;
+  renderQuickViewModal();
+}
+
+function changeQuickViewQty(delta) {
+  currentQuickViewState.quantity = Math.max(1, currentQuickViewState.quantity + delta);
+  renderQuickViewModal();
+}
+
+function addQuickViewToCart() {
+  if (!currentQuickViewState.productId) return;
+  addToCart(currentQuickViewState.productId, currentQuickViewState.variantIdx, currentQuickViewState.quantity);
+  closeQuickView();
+  toggleCartDrawer(true);
+}
+
+function quickViewWhatsAppOrder() {
+  const prod = PRODUCTS.find(p => p.id === currentQuickViewState.productId);
+  if (!prod) return;
+  const variant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
+  const qty = currentQuickViewState.quantity;
+  const totalPrice = variant.price * qty;
+
+  let msg = `*🌾 Deepan Mills - Product Inquiry & Order*\n`;
+  if (currentUser) {
+    msg += `Customer: ${currentUser.name} (Ph: ${currentUser.phone || ''})\n`;
+  }
+  msg += `--------------------------------------\n`;
+  msg += `Product: *${prod.name}* (${prod.tamilName || ''})\n`;
+  msg += `Selected Pack: *${variant.weight}*\n`;
+  msg += `Pack Price: ₹${variant.price} (MRP: ₹${variant.mrp})\n`;
+  msg += `Quantity: ${qty}\n`;
+  msg += `Total Amount: *₹${totalPrice}*\n`;
+  msg += `--------------------------------------\n`;
+  msg += `Please confirm availability and dispatch to my location. Thank you!`;
+
+  const phone = '916379790035';
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+function renderQuickViewModal() {
+  const prod = PRODUCTS.find(p => p.id === currentQuickViewState.productId);
+  const content = document.getElementById('quickview-content');
+  if (!prod || !content) return;
+
+  const currentVariant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
+  const discountPercent = Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100);
+  const savings = currentVariant.mrp - currentVariant.price;
 
   const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                          currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
+  const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
 
   content.innerHTML = `
+    <!-- Modal Header -->
     <div class="flex justify-between items-start pb-4 border-b border-stone-200">
       <div>
-        <span class="text-xs font-bold text-amber-700">${prod.tamilName || ''}</span>
-        <h3 class="font-heading font-extrabold text-2xl text-[#19382B]">${localizedTitle}</h3>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500 text-stone-950 shadow-sm">
+            ${prod.badge}
+          </span>
+          ${subTitle ? `<span class="text-xs font-bold text-amber-800">${subTitle}</span>` : ''}
+        </div>
+        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-[#19382B] leading-tight">${localizedTitle}</h3>
+        <p class="text-xs text-stone-500 mt-0.5">Deepan Mills • Theni Agricultural Heritage</p>
       </div>
-      <button onclick="closeQuickView()" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100">
+      <button onclick="closeQuickView()" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors" title="Close">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 items-center">
-      <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 border border-stone-200">
-        <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover">
+    <!-- Modal Body: 2 Columns on Desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-start">
+      
+      <!-- Left Column: Visual & Mill Authenticity -->
+      <div class="md:col-span-5 space-y-3">
+        <div class="rounded-2xl overflow-hidden aspect-square bg-stone-100 border border-stone-200 relative shadow-inner">
+          <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover">
+          <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold flex items-center justify-between">
+            <span>Direct Mill Sourced</span>
+            <span class="text-amber-300 font-bold">100% Unpolished</span>
+          </div>
+        </div>
+
+        <!-- Mill Trust Checklist -->
+        <div class="bg-stone-50 rounded-2xl p-3.5 border border-stone-200 space-y-2 text-xs text-stone-700">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+            <span>Naturally grown in Theni soil</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+            <span>Slow-milled to preserve bran & germ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+            <span>No paraffin, wax or synthetic agents</span>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-4">
-        <p class="text-xs text-stone-600 leading-relaxed">${prod.shortDesc}</p>
+      <!-- Right Column: Details, Nutritional Facts, Pack Selection & Revealed Price -->
+      <div class="md:col-span-7 space-y-4">
         
-        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
-          <span class="block text-[11px] font-bold text-emerald-950 uppercase tracking-wider">Health Advantage</span>
-          <p class="text-xs text-emerald-800 mt-0.5">${prod.healthBenefit}</p>
+        <!-- About the harvest -->
+        <div>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-500 mb-1">About This Harvest</h4>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">${prod.shortDesc}</p>
         </div>
 
-        <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
-          <span class="block text-[11px] font-bold text-amber-950 uppercase tracking-wider">Recommended Cooking Ratio</span>
-          <p class="text-xs text-amber-800 mt-0.5">${prod.cookingRatio}</p>
+        <!-- Health Benefits -->
+        <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 space-y-1">
+          <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-950 uppercase tracking-wider">
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Health & Wellness Benefit</span>
+          </div>
+          <p class="text-xs text-emerald-900 leading-normal">${prod.healthBenefit}</p>
         </div>
 
-        <div class="grid grid-cols-4 gap-2 text-center pt-1">
-          <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-            <span class="text-[10px] text-stone-400 block">Calories</span>
-            <span class="text-xs font-extrabold text-stone-800">${prod.nutrition.calories}</span>
+        <!-- Cooking Ratio -->
+        <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-1">
+          <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-amber-950 uppercase tracking-wider">
+            <i data-lucide="soup" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>Traditional Cooking & Preparation</span>
           </div>
-          <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-            <span class="text-[10px] text-stone-400 block">Fiber</span>
-            <span class="text-xs font-extrabold text-stone-800">${prod.nutrition.fiber}</span>
-          </div>
-          <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-            <span class="text-[10px] text-stone-400 block">Protein</span>
-            <span class="text-xs font-extrabold text-stone-800">${prod.nutrition.protein}</span>
-          </div>
-          <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-            <span class="text-[10px] text-stone-400 block">Iron/Minerals</span>
-            <span class="text-xs font-extrabold text-stone-800">${prod.nutrition.iron}</span>
+          <p class="text-xs text-amber-900 leading-normal">${prod.cookingRatio}</p>
+        </div>
+
+        <!-- Nutrition Facts (Per 100g) -->
+        <div>
+          <span class="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400 mb-1.5">Nutritional Facts (Per 100g)</span>
+          <div class="grid grid-cols-4 gap-2 text-center">
+            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
+              <span class="text-[10px] text-stone-400 block font-semibold">Calories</span>
+              <span class="text-xs font-black text-stone-800">${prod.nutrition.calories}</span>
+            </div>
+            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
+              <span class="text-[10px] text-stone-400 block font-semibold">Fiber</span>
+              <span class="text-xs font-black text-emerald-700">${prod.nutrition.fiber}</span>
+            </div>
+            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
+              <span class="text-[10px] text-stone-400 block font-semibold">Protein</span>
+              <span class="text-xs font-black text-stone-800">${prod.nutrition.protein}</span>
+            </div>
+            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
+              <span class="text-[10px] text-stone-400 block font-semibold">Iron / Min.</span>
+              <span class="text-xs font-black text-amber-700">${prod.nutrition.iron}</span>
+            </div>
           </div>
         </div>
 
-        <div class="pt-2 flex items-center gap-3">
-          <button onclick="addToCart('${prod.id}', 0, 1); closeQuickView(); toggleCartDrawer(true);" class="flex-1 py-3 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow flex items-center justify-center gap-2">
+        <!-- PACK WEIGHT SELECTOR (Selected Inside!) -->
+        <div class="pt-2 border-t border-stone-200">
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-black uppercase tracking-wider text-stone-800 flex items-center gap-1.5">
+              <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-600"></i>
+              <span>Select Pack Size:</span>
+            </label>
+            <span class="text-[10px] text-stone-400 font-semibold">Choose weight to see price</span>
+          </div>
+
+          <div class="grid grid-cols-${prod.variants.length} gap-2">
+            ${prod.variants.map((v, idx) => `
+              <button type="button" 
+                      onclick="selectQuickViewVariant(${idx})" 
+                      class="py-2.5 px-3 rounded-xl text-xs font-black text-center transition-all ${
+                        idx === currentQuickViewState.variantIdx 
+                          ? 'bg-[#19382B] text-white shadow-md ring-2 ring-amber-400' 
+                          : 'bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200'
+                      }">
+                ${v.weight}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- REVEALED PRICE CARD (Shown after product is selected inside) -->
+        <div class="p-3.5 bg-gradient-to-r from-emerald-50 to-amber-50/50 rounded-2xl border border-emerald-300 shadow-sm space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-stone-500 uppercase tracking-wider">
+              Selected: <strong class="text-stone-900">${currentVariant.weight}</strong>
+            </span>
+            ${discountPercent > 0 ? `
+              <span class="px-2 py-0.5 rounded-md bg-rose-600 text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
+                Save ₹${savings} (${discountPercent}% OFF)
+              </span>
+            ` : ''}
+          </div>
+
+          <div class="flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-black text-[#19382B]">₹${currentVariant.price}</span>
+            <span class="text-sm text-stone-400 line-through">₹${currentVariant.mrp}</span>
+            <span class="text-xs text-stone-500 font-medium">/ ${currentVariant.weight}</span>
+          </div>
+
+          <div class="flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Freshly Milled in Theni • Ready to Dispatch</span>
+          </div>
+        </div>
+
+        <!-- QUANTITY & TOTAL CALCULATION -->
+        <div class="flex items-center justify-between pt-1">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-stone-700">Quantity:</span>
+            <div class="flex items-center border border-stone-300 rounded-xl bg-white overflow-hidden shadow-sm">
+              <button onclick="changeQuickViewQty(-1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">-</button>
+              <span class="px-3 py-1 text-xs font-black text-stone-900">${currentQuickViewState.quantity}</span>
+              <button onclick="changeQuickViewQty(1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">+</button>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Amount</span>
+            <span class="text-xl font-black text-[#19382B]">₹${currentVariant.price * currentQuickViewState.quantity}</span>
+          </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+          <button onclick="addQuickViewToCart()" 
+                  class="py-3 px-4 rounded-xl bg-[#19382B] hover:bg-[#132C22] text-white font-bold text-xs shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
             <i data-lucide="plus" class="w-4 h-4 text-amber-300"></i>
-            <span>Add 500g to Cart (₹${prod.variants[0].price})</span>
+            <span>Add to Basket (₹${currentVariant.price * currentQuickViewState.quantity})</span>
+          </button>
+
+          <button onclick="quickViewWhatsAppOrder()" 
+                  class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Order via WhatsApp</span>
           </button>
         </div>
+
       </div>
+
     </div>
   `;
 
   if (window.lucide) {
     window.lucide.createIcons();
   }
-
-  modal.classList.remove('opacity-0', 'pointer-events-none');
-  modal.classList.add('opacity-100', 'pointer-events-auto');
-  document.body.classList.add('overflow-hidden');
 }
 
 function closeQuickView() {
