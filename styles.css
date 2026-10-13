@@ -127,6 +127,11 @@ h1, h2, h3, h4, .font-heading {
   animation: slideDownFade 0.3s ease-out forwards;
 }
 
+/* Explicit display control */
+.hidden {
+  display: none !important;
+}
+
 /* Custom weight selector radio-pill */
 .weight-pill {
   transition: all 0.15s ease;
@@ -135,6 +140,14 @@ h1, h2, h3, h4, .font-heading {
   background-color: var(--color-forest);
   color: #FFFFFF;
   border-color: var(--color-forest);
+}
+
+/* Micro-interaction polish */
+.smooth-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.smooth-hover:hover {
+  transform: translateY(-2px);
 }
 
 /* Print Invoice Styles */
@@ -158,3 +171,4 @@ h1, h2, h3, h4, .font-heading {
     display: none !important;
   }
 }
+

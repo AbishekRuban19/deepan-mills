@@ -46,6 +46,9 @@
     h1, h2, h3, h4, .font-heading {
       font-family: 'Outfit', sans-serif;
     }
+    .hidden {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="text-stone-800 antialiased selection:bg-amber-100 selection:text-amber-900">
@@ -119,7 +122,7 @@
       </div>
 
       <!-- Empty State -->
-      <div id="no-orders-view" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
+      <div id="no-orders-view" style="display: none;" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
         <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-800 mx-auto flex items-center justify-center mb-4">
           <i data-lucide="shopping-bag" class="w-8 h-8"></i>
         </div>
@@ -176,11 +179,17 @@
 
       if (orders.length === 0) {
         if (container) container.innerHTML = '';
-        if (emptyView) emptyView.classList.remove('hidden');
+        if (emptyView) {
+          emptyView.style.display = 'block';
+          emptyView.classList.remove('hidden');
+        }
         return;
       }
 
-      if (emptyView) emptyView.classList.add('hidden');
+      if (emptyView) {
+        emptyView.style.display = 'none';
+        emptyView.classList.add('hidden');
+      }
 
       container.innerHTML = orders.map((ord, idx) => `
         <div class="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm space-y-5">

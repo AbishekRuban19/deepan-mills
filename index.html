@@ -354,6 +354,7 @@
         <div class="relative w-full md:w-72">
           <input type="text" 
                  id="product-search-input" 
+                 autocomplete="off"
                  placeholder="Search rice, millet, oil..." 
                  class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#142E23] focus:border-transparent transition-all shadow-sm">
           <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5"></i>
@@ -413,13 +414,13 @@
       </div>
 
       <!-- Empty State -->
-      <div id="no-products-view" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
+      <div id="no-products-view" style="display: none;" class="hidden text-center py-16 bg-white rounded-3xl border border-stone-200 p-8">
         <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-700 mx-auto flex items-center justify-center mb-4">
           <i data-lucide="search-x" class="w-8 h-8"></i>
         </div>
         <h3 class="font-heading font-bold text-xl text-stone-900">No grains matched your search</h3>
         <p class="text-sm text-stone-500 mt-1 max-w-sm mx-auto">Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset filters.</p>
-        <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#142E23] text-white text-xs font-bold">
+        <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#142E23] text-white text-xs font-bold shadow hover:bg-[#0E2218] transition-all">
           View All Products
         </button>
       </div>
@@ -653,7 +654,7 @@
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp / Phone *</label>
-                  <input type="tel" id="contact-phone" required placeholder="e.g. 98765 43210" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#142E23]">
+                  <input type="tel" id="contact-phone" required placeholder="10-digit mobile number" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#142E23]">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-stone-700 mb-1">Requirement (Grains / Quantity) *</label>
@@ -916,6 +917,29 @@
           </div>
         </div>
 
+        <!-- Order Summary & Item Breakdown in Checkout Modal -->
+        <div class="space-y-2 pt-3 border-t border-stone-200">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-700">3. Review Order Items</h4>
+            <span id="checkout-items-count-badge" class="text-[10px] font-bold text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">0 Items</span>
+          </div>
+          
+          <div id="checkout-items-summary-list" class="max-h-40 overflow-y-auto divide-y divide-stone-100 bg-stone-50 p-3 rounded-2xl border border-stone-200 text-xs">
+            <!-- Populated dynamically by app.js on modal open -->
+          </div>
+
+          <div class="space-y-1 text-xs text-stone-600 px-1 pt-1">
+            <div class="flex justify-between">
+              <span>Items Subtotal:</span>
+              <span id="checkout-subtotal-display" class="font-bold text-stone-900">₹0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Delivery Fee:</span>
+              <span id="checkout-shipping-display" class="font-bold text-stone-900">₹60</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Total Breakdown & Action -->
         <div class="pt-3 border-t border-stone-200 flex items-center justify-between">
           <div>
@@ -948,7 +972,7 @@
       <div id="account-logged-out-view" class="space-y-3.5">
         <div>
           <label class="block text-xs font-bold text-stone-700 mb-1">Your Full Name *</label>
-          <input type="text" id="acc-input-name" required placeholder="e.g. Anitha Kannan" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#142E23]">
+          <input type="text" id="acc-input-name" required placeholder="Enter your full name" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#142E23]">
         </div>
         <div>
           <label class="block text-xs font-bold text-stone-700 mb-1">Mobile / WhatsApp Number *</label>

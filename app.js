@@ -149,11 +149,29 @@ document.addEventListener('DOMContentLoaded', () => {
     currentUser = null;
   }
 
-  // 3. Load saved cart from localStorage
+  // 3. Load saved cart from localStorage & sanitize numeric values
   try {
     const savedCart = localStorage.getItem('deepan_mills_cart');
     if (savedCart) {
-      cart = JSON.parse(savedCart);
+      const parsed = JSON.parse(savedCart);
+      if (Array.isArray(parsed)) {
+        cart = parsed.filter(item => item && item.productId).map(item => {
+          let p = item.price;
+          if (typeof p === 'string') p = parseInt(p.replace(/[^0-9]/g, '')) || 0;
+          if (!p || p <= 0) {
+            const canonical = PRODUCTS.find(cp => cp.id === item.productId);
+            if (canonical) {
+              const v = canonical.variants.find(cv => cv.weight === item.weight) || canonical.variants[0];
+              p = v.price;
+            }
+          }
+          return {
+            ...item,
+            price: Number(p) || 100,
+            quantity: Math.max(1, parseInt(item.quantity) || 1)
+          };
+        });
+      }
     }
   } catch (e) {
     cart = [];
@@ -164,7 +182,19 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedVariantMap[p.id] = 0;
   });
 
-  // 5. Render immediately on page load (UNGATED)
+  // 5. Clean search and filter initial states (prevent stale browser autofill)
+  searchQuery = '';
+  currentCategory = 'all';
+  currentDietTag = null;
+  const searchInput = document.getElementById('product-search-input');
+  if (searchInput) searchInput.value = '';
+  const emptyView = document.getElementById('no-products-view');
+  if (emptyView) {
+    emptyView.style.display = 'none';
+    emptyView.classList.add('hidden');
+  }
+
+  // 6. Render immediately on page load (UNGATED)
   updateAuthUI();
   applyLanguage(currentLang);
   renderProducts();
@@ -380,11 +410,17 @@ function renderProducts() {
 
   if (filtered.length === 0) {
     container.innerHTML = '';
-    if (emptyView) emptyView.classList.remove('hidden');
+    if (emptyView) {
+      emptyView.style.display = 'block';
+      emptyView.classList.remove('hidden');
+    }
     return;
   }
 
-  if (emptyView) emptyView.classList.add('hidden');
+  if (emptyView) {
+    emptyView.style.display = 'none';
+    emptyView.classList.add('hidden');
+  }
 
   container.innerHTML = filtered.map(prod => {
     const activeVarIdx = selectedVariantMap[prod.id] || 0;
@@ -564,12 +600,28 @@ function removeCartItem(index) {
 }
 
 function updateCartUI() {
+  // Sanitize cart items to ensure prices and quantities are strictly valid numbers
+  cart.forEach(item => {
+    if (typeof item.price === 'string') {
+      item.price = parseInt(item.price.replace(/[^0-9]/g, '')) || 0;
+    }
+    if (!item.price || item.price <= 0) {
+      const canonical = PRODUCTS.find(p => p.id === item.productId);
+      if (canonical) {
+        const v = canonical.variants.find(cv => cv.weight === item.weight) || canonical.variants[0];
+        item.price = v.price;
+        item.mrp = v.mrp;
+      }
+    }
+    item.quantity = Math.max(1, parseInt(item.quantity) || 1);
+  });
+
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
-  const isFreeDelivery = subtotal >= 799 || subtotal === 0;
-  const deliveryFee = subtotal === 0 ? 0 : (subtotal >= 799 ? 0 : 60);
-  const totalAmount = subtotal + deliveryFee;
+  const isFreeDelivery = subtotal >= 799;
+  const deliveryFee = subtotal === 0 ? 0 : (isFreeDelivery ? 0 : 60);
+  const totalAmount = subtotal === 0 ? 0 : (subtotal + deliveryFee);
 
   // Header badges
   const badge = document.getElementById('cart-count-badge');
@@ -578,7 +630,7 @@ function updateCartUI() {
   const mobileCount = document.getElementById('mobile-cart-count');
 
   if (badge) badge.innerText = totalItems;
-  if (headerTotal) headerTotal.innerText = `• ₹${totalAmount}`;
+  if (headerTotal) headerTotal.innerText = subtotal > 0 ? `• ₹${totalAmount}` : '• Empty';
   if (drawerCount) drawerCount.innerText = totalItems;
   if (mobileCount) mobileCount.innerText = totalItems;
 
@@ -630,7 +682,7 @@ function updateCartUI() {
   if (cartFooter) cartFooter.classList.remove('hidden');
 
   itemsContainer.innerHTML = cart.map((item, idx) => `
-    <div class="py-3 flex items-center justify-between gap-3">
+    <div class="py-3 flex items-center justify-between gap-3 border-b border-stone-100 last:border-b-0">
       <div class="flex items-center gap-3">
         <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover border border-stone-200">
         <div>
@@ -640,14 +692,14 @@ function updateCartUI() {
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
         <div class="flex items-center border border-stone-200 rounded-lg bg-stone-50 overflow-hidden">
-          <button onclick="updateCartQuantity(${idx}, -1)" class="px-2 py-1 text-stone-600 hover:bg-stone-200 text-xs font-bold">-</button>
+          <button onclick="updateCartQuantity(${idx}, -1)" class="px-2 py-1 text-stone-600 hover:bg-stone-200 text-xs font-bold transition-colors">-</button>
           <span class="px-2.5 py-1 text-xs font-bold text-stone-800">${item.quantity}</span>
-          <button onclick="updateCartQuantity(${idx}, 1)" class="px-2 py-1 text-stone-600 hover:bg-stone-200 text-xs font-bold">+</button>
+          <button onclick="updateCartQuantity(${idx}, 1)" class="px-2 py-1 text-stone-600 hover:bg-stone-200 text-xs font-bold transition-colors">+</button>
         </div>
 
-        <button onclick="removeCartItem(${idx})" class="text-stone-400 hover:text-rose-600 p-1" title="Remove item">
+        <button onclick="removeCartItem(${idx})" class="text-stone-400 hover:text-rose-600 p-1 transition-colors" title="Remove item">
           <i data-lucide="trash-2" class="w-4 h-4"></i>
         </button>
       </div>
@@ -690,11 +742,34 @@ function openCheckoutModal() {
 
   const modal = document.getElementById('checkout-modal');
   const totalElem = document.getElementById('checkout-modal-total');
+  const summaryList = document.getElementById('checkout-items-summary-list');
+  const countBadge = document.getElementById('checkout-items-count-badge');
+  const subtotalDisp = document.getElementById('checkout-subtotal-display');
+  const shippingDisp = document.getElementById('checkout-shipping-display');
+
+  // Authoritative calculations
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const delivery = subtotal >= 799 ? 0 : 60;
+  const isFreeDelivery = subtotal >= 799;
+  const delivery = isFreeDelivery ? 0 : 60;
   const total = subtotal + delivery;
 
   if (totalElem) totalElem.innerText = `₹${total}`;
+  if (countBadge) countBadge.innerText = `${totalItems} Item${totalItems > 1 ? 's' : ''}`;
+  if (subtotalDisp) subtotalDisp.innerText = `₹${subtotal}`;
+  if (shippingDisp) shippingDisp.innerText = isFreeDelivery ? 'FREE Delivery' : `₹${delivery}`;
+
+  if (summaryList) {
+    summaryList.innerHTML = cart.map(item => `
+      <div class="py-2 flex items-center justify-between text-xs">
+        <div>
+          <span class="font-bold text-stone-900">${item.name}</span>
+          <span class="text-stone-500 text-[11px] block">${item.weight} × ${item.quantity}</span>
+        </div>
+        <span class="font-black text-[#142E23]">₹${item.price * item.quantity}</span>
+      </div>
+    `).join('');
+  }
 
   // Pre-fill customer details from profile if saved
   if (currentUser) {
@@ -737,29 +812,62 @@ function togglePaymentTab(method) {
 function handlePlaceOrder(e) {
   e.preventDefault();
 
+  if (cart.length === 0) {
+    showToast('Your shopping basket is empty. Please select products first.', 'error');
+    return;
+  }
+
   const name = document.getElementById('cust-name').value.trim();
   const phone = document.getElementById('cust-phone').value.trim();
   const address = document.getElementById('cust-address').value.trim();
   const city = document.getElementById('cust-city').value.trim();
   const pincode = document.getElementById('cust-pincode').value.trim();
-  const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+  const paymentMethod = document.querySelector('input[name="payment_method"]:checked')?.value || 'whatsapp_direct';
 
   if (!name || name.length < 2) {
     showToast('Please enter your full name.', 'error');
     return;
   }
-  if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
-    showToast('Please enter a valid 10-digit mobile number.', 'error');
+  // Indian 10-digit mobile number validation (starts with 6, 7, 8, or 9)
+  if (!phone || !/^[6-9]\d{9}$/.test(phone)) {
+    showToast('Please enter a valid 10-digit Indian mobile number.', 'error');
     return;
   }
-  if (!address || address.length < 5) {
-    showToast('Please enter a complete street address.', 'error');
+  if (!address || address.length < 6) {
+    showToast('Please enter a complete delivery address with door/street details.', 'error');
     return;
   }
-  if (!pincode || pincode.length !== 6 || !/^\d{6}$/.test(pincode)) {
-    showToast('Please enter a valid 6-digit Indian pincode.', 'error');
+  if (!city || city.length < 2) {
+    showToast('Please enter your city or town.', 'error');
     return;
   }
+  if (!pincode || !/^\d{6}$/.test(pincode)) {
+    showToast('Please enter a valid 6-digit Indian postal pincode.', 'error');
+    return;
+  }
+
+  // Authoritative server-like price recalculation from PRODUCTS
+  let authoritativeSubtotal = 0;
+  const verifiedItems = cart.map(item => {
+    const canonical = PRODUCTS.find(p => p.id === item.productId);
+    let unitPrice = item.price;
+    if (canonical) {
+      const v = canonical.variants.find(varItem => varItem.weight === item.weight) || canonical.variants[0];
+      unitPrice = v.price;
+    }
+    const lineTotal = unitPrice * item.quantity;
+    authoritativeSubtotal += lineTotal;
+    return {
+      ...item,
+      price: unitPrice,
+      lineTotal: lineTotal
+    };
+  });
+
+  const subtotal = authoritativeSubtotal;
+  const isFreeDelivery = subtotal >= 799;
+  const delivery = isFreeDelivery ? 0 : 60;
+  const total = subtotal + delivery;
 
   // Update customer profile
   currentUser = { name, phone, city };
@@ -769,9 +877,6 @@ function handlePlaceOrder(e) {
   updateAuthUI();
 
   const orderId = '#DM-' + Math.floor(100000 + Math.random() * 900000);
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const delivery = subtotal >= 799 ? 0 : 60;
-  const total = subtotal + delivery;
   const dateFormatted = new Date().toLocaleDateString('en-IN', {
     day: 'numeric',
     month: 'short',
@@ -786,8 +891,8 @@ function handlePlaceOrder(e) {
     phone: phone,
     location: `${city} - ${pincode}`,
     address: `${address}, ${city} - ${pincode}`,
-    items: cart.map(i => `${i.name} (${i.weight}) x ${i.quantity}`).join(', '),
-    itemDetails: [...cart],
+    items: verifiedItems.map(i => `${i.name} (${i.weight}) x ${i.quantity}`).join(', '),
+    itemDetails: [...verifiedItems],
     subtotal: `₹${subtotal}`,
     shipping: delivery === 0 ? 'FREE' : `₹${delivery}`,
     total: `₹${total}`,
@@ -813,10 +918,10 @@ function handlePlaceOrder(e) {
   if (successStatus) successStatus.innerText = paymentMethod === 'whatsapp_direct' ? 'Dispatched to Mill WhatsApp' : 'Pending Courier Confirmation';
 
   if (successList) {
-    successList.innerHTML = cart.map(item => `
+    successList.innerHTML = verifiedItems.map(item => `
       <div class="flex justify-between py-1 text-xs">
-        <span>${item.name} (${item.weight}) x ${item.quantity}</span>
-        <span class="font-bold">₹${item.price * item.quantity}</span>
+        <span>${item.name} (${item.weight}) × ${item.quantity}</span>
+        <span class="font-bold text-[#142E23]">₹${item.lineTotal}</span>
       </div>
     `).join('');
   }
@@ -831,8 +936,8 @@ function handlePlaceOrder(e) {
     msg += `Delivery Address: ${address}, ${city} - ${pincode}\n`;
     msg += `--------------------------------------\n`;
     msg += `*Ordered Items:*\n`;
-    cart.forEach((item, idx) => {
-      msg += `${idx + 1}. ${item.name} (${item.weight}) x ${item.quantity} = ₹${item.price * item.quantity}\n`;
+    verifiedItems.forEach((item, idx) => {
+      msg += `${idx + 1}. ${item.name} (${item.weight}) × ${item.quantity} = ₹${item.lineTotal}\n`;
     });
     msg += `--------------------------------------\n`;
     msg += `Items Subtotal: ₹${subtotal}\n`;
