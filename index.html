@@ -71,12 +71,11 @@
         </a>
 
         <!-- DESKTOP NAVIGATION (CENTERED) -->
-        <nav id="header-main-nav" class="hidden md:flex items-center gap-0.5 lg:gap-1.5 xl:gap-2 text-xs lg:text-sm font-semibold">
-          <a href="#hero" id="nav-home">Home</a>
-          <a href="#products" id="nav-shop" onclick="filterCategory('all')">Catalogue</a>
-          <a href="#about-us" id="nav-about">About Us</a>
-          <a href="#policies" id="nav-policies" onclick="openPoliciesModal('shipping'); return false;">Policy</a>
-          <a href="#contact" id="nav-contact">Contact</a>
+        <nav id="header-main-nav" class="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-3.5 text-xs lg:text-sm font-semibold">
+          <a href="about.html" id="nav-about">About Us</a>
+          <a href="privacy-policy.html" id="nav-privacy">Privacy Policy</a>
+          <a href="shipping-policy.html" id="nav-shipping">Shipping Policy</a>
+          <a href="contact.html" id="nav-contact">Contact</a>
         </nav>
 
         <!-- RIGHT ACTIONS: LANGUAGE + PHONE + SEARCH + CART -->
@@ -163,23 +162,23 @@
         </a>
       </div>
 
-      <a href="#hero" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
-        <i data-lucide="home" class="w-4 h-4 text-emerald-400"></i>
-        <span>Home</span>
-      </a>
-      <a href="#products" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <a href="index.html#products" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-400"></i>
-        <span>Catalogue</span>
+        <span>Home / Catalogue</span>
       </a>
-      <a href="#about-us" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <a href="about.html" id="mobile-nav-about" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
         <span>About Us</span>
       </a>
-      <a href="#policies" onclick="openPoliciesModal('shipping'); document.getElementById('mobile-nav-panel').classList.add('hidden'); return false;" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
-        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
-        <span>Policy</span>
+      <a href="privacy-policy.html" id="mobile-nav-privacy" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
+        <span>Privacy Policy</span>
       </a>
-      <a href="#contact" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <a href="shipping-policy.html" id="mobile-nav-shipping" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="truck" class="w-4 h-4 text-emerald-400"></i>
+        <span>Shipping Policy</span>
+      </a>
+      <a href="contact.html" id="mobile-nav-contact" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
         <span>Contact</span>
       </a>
@@ -3488,12 +3487,12 @@
         <div>
           <h4 class="text-white font-heading font-bold text-sm mb-3">Quick Navigation</h4>
           <ul class="space-y-2">
-            <li><a href="#products" class="hover:text-white transition-colors">Heritage Catalogue</a></li>
-            <li><a href="#about-mill" class="hover:text-white transition-colors">About Our Theni Mill</a></li>
-            <li><a href="#nutrition-guide" class="hover:text-white transition-colors">Grain Cooking Ratios</a></li>
-            <li><a href="#policies" class="hover:text-white transition-colors">Policies & Quality Guarantees</a></li>
-            <li><a href="#heritage" class="hover:text-white transition-colors">Milling Heritage</a></li>
-            <li><a href="#contact" class="hover:text-white transition-colors">Contact & WhatsApp Orders</a></li>
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Heritage Catalogue</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors">About Our Theni Mill</a></li>
+            <li><a href="index.html#nutrition-guide" class="hover:text-white transition-colors">Grain Cooking Ratios</a></li>
+            <li><a href="shipping-policy.html" class="hover:text-white transition-colors">Shipping Policy & Dispatch</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy & Protection</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact & Direct Inquiries</a></li>
           </ul>
         </div>
 
@@ -3515,13 +3514,13 @@
       <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-stone-500">
         <p>© 2026 Deepan Mills. All Rights Reserved. Pure Theni Agro Processing.</p>
         <div class="flex items-center gap-4">
-          <button onclick="openPoliciesModal('privacy')" class="hover:text-stone-300 transition-colors">Privacy Policy</button>
+          <a href="privacy-policy.html" class="hover:text-stone-300 transition-colors">Privacy Policy</a>
           <span>•</span>
-          <button onclick="openPoliciesModal('terms')" class="hover:text-stone-300 transition-colors">Terms of Service</button>
+          <a href="shipping-policy.html" class="hover:text-stone-300 transition-colors">Shipping Policy</a>
           <span>•</span>
-          <button onclick="openPoliciesModal('shipping')" class="hover:text-stone-300 transition-colors">Shipping Policy</button>
+          <a href="about.html" class="hover:text-stone-300 transition-colors">About Us</a>
           <span>•</span>
-          <button onclick="openPoliciesModal('returns')" class="hover:text-stone-300 transition-colors">Quality Guarantee</button>
+          <a href="contact.html" class="hover:text-stone-300 transition-colors">Contact</a>
         </div>
       </div>
     </div>

@@ -105,9 +105,10 @@ h1, h2, h3, h4, .font-heading {
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-#header-main-nav a:hover {
+#header-main-nav a:hover,
+#header-main-nav a.nav-active {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
 }
 #header-main-nav a::after {
   content: '';
@@ -121,8 +122,9 @@ h1, h2, h3, h4, .font-heading {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
 }
-#header-main-nav a:hover::after {
-  width: 55%;
+#header-main-nav a:hover::after,
+#header-main-nav a.nav-active::after {
+  width: 60%;
 }
 
 /* Frosted Glass Search Input */

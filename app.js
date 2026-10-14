@@ -11,7 +11,8 @@ const TRANSLATIONS = {
     navHome: 'Home',
     navShop: 'Catalogue',
     navAbout: 'About Us',
-    navPolicies: 'Policy',
+    navPrivacy: 'Privacy Policy',
+    navShipping: 'Shipping Policy',
     navContact: 'Contact',
     btnWaHeader: 'WhatsApp',
     btnCartHeader: 'Order List',
@@ -44,7 +45,8 @@ const TRANSLATIONS = {
     navHome: 'முகப்பு',
     navShop: 'தானியங்கள்',
     navAbout: 'எங்களைப் பற்றி',
-    navPolicies: 'கொள்கை',
+    navPrivacy: 'தனியுரிமைக் கொள்கை',
+    navShipping: 'டெலிவரி கொள்கை',
     navContact: 'தொடர்பு',
     btnWaHeader: 'வாட்ஸ்அப்',
     btnCartHeader: 'ஆர்டர் பட்டியல்',
@@ -77,7 +79,8 @@ const TRANSLATIONS = {
     navHome: 'होम',
     navShop: 'उत्पाद सूची',
     navAbout: 'हमारे बारे में',
-    navPolicies: 'नीति व नियम',
+    navPrivacy: 'गोपनीयता नीति',
+    navShipping: 'शिपिंग नीति',
     navContact: 'संपर्क',
     btnWaHeader: 'व्हाट्सएप',
     btnCartHeader: 'ऑर्डर सूची',
@@ -471,8 +474,13 @@ function applyLanguage(langKey) {
     'nav-home': t.navHome,
     'nav-shop': t.navShop,
     'nav-about': t.navAbout,
-    'nav-policies': t.navPolicies,
+    'nav-privacy': t.navPrivacy,
+    'nav-shipping': t.navShipping,
     'nav-contact': t.navContact,
+    'mobile-nav-about': t.navAbout,
+    'mobile-nav-privacy': t.navPrivacy,
+    'mobile-nav-shipping': t.navShipping,
+    'mobile-nav-contact': t.navContact,
     'btn-wa-header': t.btnWaHeader,
     'btn-cart-header': t.btnCartHeader,
     'hero-badge-1': t.heroBadge1,
@@ -1697,6 +1705,8 @@ function focusSearch() {
       input.focus();
       input.select();
     }, 350);
+  } else {
+    window.location.href = 'index.html#products';
   }
 }
 window.focusSearch = focusSearch;

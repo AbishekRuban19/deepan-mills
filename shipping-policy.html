@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Policy | Deepan Mills - Pan-India Delivery & Transit Terms</title>
+  <meta name="description" content="Review Deepan Mills' shipping policy. Learn about pan-India delivery coverage, dispatch timelines from our Theni facility, courier tracking, and our free replacement guarantee for transit damage.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              700: '#142E23',
+              800: '#0E2218',
+              900: '#08140E',
+            },
+            amberAccent: {
+              400: '#FBBF24',
+              500: '#C59B27',
+              600: '#B8860B',
+              700: '#996515',
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css?v=3.9">
+</head>
+<body class="bg-[#F0F6F2] text-[#18221D] antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- TOP STICKY NAVIGATION BAR (DARK FROSTED GLASS) -->
+  <header class="sticky top-0 z-40 glass-header transition-all duration-200">
+    <div class="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 sm:h-20 gap-3">
+        
+        <!-- BRAND LOGO (LEFT) -->
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0" title="Return to Deepan Mills Home">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-emerald-800/80 border border-emerald-400/30 flex items-center justify-center text-amber-300 shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="sprout" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="font-heading font-extrabold text-lg sm:text-xl xl:text-2xl tracking-tight text-white group-hover:text-emerald-300 transition-colors">DEEPAN MILLS</span>
+              <span class="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30">Theni</span>
+            </div>
+            <p id="brand-tagline" class="text-[10px] sm:text-[11px] text-emerald-200/80 font-medium tracking-wide">100% Unpolished Traditional Grains</p>
+          </div>
+        </a>
+
+        <!-- DESKTOP NAVIGATION (CENTERED - 4 SPECIFIED LINKS) -->
+        <nav id="header-main-nav" class="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-3.5 text-xs lg:text-sm font-semibold">
+          <a href="about.html" id="nav-about">About Us</a>
+          <a href="privacy-policy.html" id="nav-privacy">Privacy Policy</a>
+          <a href="shipping-policy.html" id="nav-shipping" class="nav-active">Shipping Policy</a>
+          <a href="contact.html" id="nav-contact">Contact</a>
+        </nav>
+
+        <!-- RIGHT ACTIONS: LANGUAGE + PHONE + SEARCH + CART -->
+        <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          
+          <!-- Language Selector Dropdown -->
+          <div class="relative" id="lang-menu-wrapper">
+            <button id="lang-menu-btn" 
+                    type="button"
+                    class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white/15 text-white font-semibold text-xs transition-all shadow-xs"
+                    title="Change language">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-300"></i>
+              <span id="current-lang-name">English</span>
+              <i data-lucide="chevron-down" class="w-3 h-3 text-emerald-300"></i>
+            </button>
+            
+            <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-36 bg-[#0E2219]/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-white/15 py-1.5 z-50 text-xs font-semibold">
+              <button onclick="changeLanguage('en')" class="w-full text-left px-3.5 py-2 hover:bg-white/10 flex items-center justify-between transition-colors">
+                <span>English</span> <span class="text-[10px] text-emerald-300">EN</span>
+              </button>
+              <button onclick="changeLanguage('ta')" class="w-full text-left px-3.5 py-2 hover:bg-white/10 flex items-center justify-between transition-colors">
+                <span>தமிழ்</span> <span class="text-[10px] text-amber-300">TA</span>
+              </button>
+              <button onclick="changeLanguage('hi')" class="w-full text-left px-3.5 py-2 hover:bg-white/10 flex items-center justify-between transition-colors">
+                <span>हिन्दी</span> <span class="text-[10px] text-emerald-300">HI</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct Phone Hotline -->
+          <a href="tel:+916379790035" 
+             class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/20 bg-white/5 hover:bg-white/15 transition-all shadow-xs"
+             title="Direct Mill Hotline">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span class="hidden xl:inline">+91 63797 90035</span>
+            <span class="xl:hidden">Hotline</span>
+          </a>
+
+          <!-- Quick Search Button -->
+          <button onclick="focusSearch()" 
+                  class="p-2 rounded-xl text-white/80 hover:text-white hover:bg-white/10 border border-transparent hover:border-white/15 text-xs font-semibold transition-all"
+                  title="Search grains & millets">
+            <i data-lucide="search" class="w-4 h-4 text-emerald-300"></i>
+          </button>
+
+          <!-- Cart Trigger CTA Button -->
+          <button id="cart-toggle-btn" 
+                  onclick="toggleCartDrawer(true)"
+                  class="relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm border border-emerald-400/40 shadow-lg shadow-emerald-950/40 hover:shadow-emerald-900/60 transition-all"
+                  aria-label="View shopping cart">
+            <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-300"></i>
+            <span id="btn-cart-header" class="hidden md:inline">Order List</span>
+            <span id="cart-count-badge" class="bg-amber-400 text-stone-950 text-xs font-black px-1.5 py-0.2 rounded-full min-w-[18px] text-center shadow-xs">0</span>
+            <span id="header-cart-total" class="text-xs font-semibold text-emerald-200 hidden 2xl:inline"></span>
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors" aria-label="Toggle navigation">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown with Dark Frosted Glass -->
+    <div id="mobile-nav-panel" class="hidden md:hidden border-t border-white/10 bg-[#0E2219]/95 backdrop-blur-2xl px-4 pt-3 pb-5 space-y-2 text-sm font-semibold text-white shadow-2xl">
+      <button onclick="focusSearch(); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 text-left font-bold text-xs text-white border border-white/15 transition-colors">
+        <i data-lucide="search" class="w-4 h-4 text-amber-300"></i>
+        <span>Search Grains & Millets</span>
+      </button>
+
+      <a href="index.html#products" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-400"></i>
+        <span>Home / Catalogue</span>
+      </a>
+      <a href="about.html" id="mobile-nav-about" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
+        <span>About Us</span>
+      </a>
+      <a href="privacy-policy.html" id="mobile-nav-privacy" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
+        <span>Privacy Policy</span>
+      </a>
+      <a href="shipping-policy.html" id="mobile-nav-shipping" class="block py-2 px-3 rounded-lg bg-white/15 text-white font-bold flex items-center gap-2">
+        <i data-lucide="truck" class="w-4 h-4 text-emerald-400"></i>
+        <span>Shipping Policy</span>
+      </a>
+      <a href="contact.html" id="mobile-nav-contact" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+        <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+        <span>Contact</span>
+      </a>
+
+      <div class="pt-2 border-t border-white/10 space-y-2">
+        <a href="tel:+916379790035" 
+           class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-bold text-center flex items-center justify-center gap-2">
+          <i data-lucide="phone" class="w-4 h-4 text-amber-300"></i>
+          <span>Call Mill Hotline: +91 63797 90035</span>
+        </a>
+        <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20traditional%20rice%20and%20millets." 
+           target="_blank" 
+           class="w-full py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-black text-center flex items-center justify-center gap-2 shadow-sm">
+          <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+          <span>Order via WhatsApp (+91 63797 90035)</span>
+        </a>
+      </div>
+
+      <!-- Mobile Language Row -->
+      <div class="pt-2 flex items-center gap-2">
+        <button onclick="changeLanguage('en')" class="flex-1 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-center bg-white/10 text-white">English</button>
+        <button onclick="changeLanguage('ta')" class="flex-1 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-center bg-white/10 text-white">தமிழ்</button>
+        <button onclick="changeLanguage('hi')" class="flex-1 py-1.5 rounded-lg border border-white/20 text-xs font-bold text-center bg-white/10 text-white">हिन्दी</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO HEADER WITH BREADCRUMB -->
+    <section class="bg-gradient-to-b from-[#142E23] via-[#1B3B2E] to-[#142E23] text-white pt-12 pb-16 border-b border-emerald-950 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#34D399_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+      
+      <div class="w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs font-semibold text-emerald-200/80 mb-6" aria-label="Breadcrumb">
+          <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1">
+            <i data-lucide="home" class="w-3.5 h-3.5"></i>
+            <span>Home</span>
+          </a>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-400/60"></i>
+          <span class="text-white font-bold">Shipping Policy</span>
+        </nav>
+
+        <div class="max-w-4xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-800/80 text-amber-300 text-xs font-bold border border-emerald-400/30 shadow-xs">
+            <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+            <span>Direct Mill-to-Doorstep Pan-India Courier Service</span>
+          </div>
+
+          <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
+            Shipping & Delivery Policy
+          </h1>
+
+          <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed max-w-3xl">
+            We pack and dispatch freshly stone-de-husked heritage rice, native millets, and golden corn grains directly from our Theni milling facility to your doorstep across India.
+          </p>
+          <p class="text-xs text-stone-400">Effective: October 2026 • Deepan Mills Logistics Desk</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY CONTENT SECTIONS -->
+    <section class="py-16 sm:py-20 w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="max-w-4xl mx-auto space-y-10">
+        
+        <!-- Section 1: Delivery Coverage -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">1. Delivery Coverage</h2>
+              <p class="text-xs text-stone-500">Pan-India Doorstep Courier Coverage</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            Deepan Mills provides pan-India shipping across all serviceable postal codes in India. We partner with established logistics and surface courier operators including <strong>ST Courier</strong>, <strong>The Professional Couriers</strong>, <strong>Delhivery</strong>, and <strong>India Post Speed Post</strong> to ensure safe and dependable transit to major metropolitan cities, tier-2/tier-3 towns, and rural taluks alike.
+          </p>
+        </div>
+
+        <!-- Section 2: Order Processing & Dispatch Timelines -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">2. Order Processing & Dispatch Timelines</h2>
+              <p class="text-xs text-stone-500">Fresh Packing Straight From Theni Facility</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            To guarantee maximum freshness, grains are packed in small batches upon receiving your order.
+          </p>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-700 pl-4 list-disc">
+            <li><strong>Cut-Off Time:</strong> Orders verified on WhatsApp before 2:00 PM are queued for same-day weighing and packaging.</li>
+            <li><strong>Dispatch Window:</strong> Consignments are handed over to the courier partner within <strong>24 to 48 business hours</strong> from our Theni facility.</li>
+            <li><strong>Operating Days:</strong> Dispatches take place Monday through Saturday. Orders confirmed on Sundays or public holidays are dispatched on the next working day.</li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Transit Timelines Table -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">3. Estimated Delivery Times</h2>
+              <p class="text-xs text-stone-500">Region-wise transit estimates following mill dispatch</p>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs sm:text-sm border border-stone-200 rounded-2xl overflow-hidden">
+              <thead class="bg-stone-100 text-stone-800 font-bold border-b border-stone-200">
+                <tr>
+                  <th class="p-3.5">Destination Region</th>
+                  <th class="p-3.5">Key States & Cities</th>
+                  <th class="p-3.5">Estimated Transit Time</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100 text-stone-700">
+                <tr class="hover:bg-stone-50">
+                  <td class="p-3.5 font-semibold text-emerald-950">Tamil Nadu & Pondicherry</td>
+                  <td class="p-3.5">Chennai, Madurai, Coimbatore, Trichy, Salem, Theni</td>
+                  <td class="p-3.5 font-bold text-emerald-800">2 – 3 Business Days</td>
+                </tr>
+                <tr class="hover:bg-stone-50">
+                  <td class="p-3.5 font-semibold text-emerald-950">Kerala & Karnataka</td>
+                  <td class="p-3.5">Bengaluru, Kochi, Thiruvananthapuram, Mysuru</td>
+                  <td class="p-3.5 font-bold text-emerald-800">3 – 4 Business Days</td>
+                </tr>
+                <tr class="hover:bg-stone-50">
+                  <td class="p-3.5 font-semibold text-emerald-950">Andhra Pradesh & Telangana</td>
+                  <td class="p-3.5">Hyderabad, Vijayawada, Visakhapatnam, Tirupati</td>
+                  <td class="p-3.5 font-bold text-emerald-800">3 – 5 Business Days</td>
+                </tr>
+                <tr class="hover:bg-stone-50">
+                  <td class="p-3.5 font-semibold text-stone-900">Western & Northern India</td>
+                  <td class="p-3.5">Mumbai, Pune, Delhi NCR, Ahmedabad, Jaipur</td>
+                  <td class="p-3.5 font-bold text-stone-800">5 – 7 Business Days</td>
+                </tr>
+                <tr class="hover:bg-stone-50">
+                  <td class="p-3.5 font-semibold text-stone-900">Eastern & Remote Regions</td>
+                  <td class="p-3.5">Kolkata, Patna, North-East, Island territories</td>
+                  <td class="p-3.5 font-bold text-stone-800">7 – 10 Business Days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Shipping Charges Structure -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-stone-100 text-stone-800 flex items-center justify-center">
+              <i data-lucide="receipt" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">4. Shipping Charges & Rate Calculation</h2>
+              <p class="text-xs text-stone-500">Transparent Courier Weight Billing</p>
+            </div>
+          </div>
+          <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-950 space-y-2 text-xs sm:text-sm">
+            <div class="font-bold flex items-center gap-2">
+              <i data-lucide="info" class="w-4 h-4 text-amber-700"></i>
+              <span>Configurable Shipping Policy Notice:</span>
+            </div>
+            <p class="leading-relaxed">
+              Shipping charges are billed strictly on <strong>actual parcel weight and delivery pin code rates</strong> as determined by the chosen courier partner. Before you make any payment, our mill team will calculate and confirm the exact courier charges with you on WhatsApp. We charge zero packing charges or hidden handling markups.
+            </p>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            <strong>Bulk Sacks (25kg, 50kg, 100kg+):</strong> For restaurants, organic food stores, and community buyers requiring bulk gunny bags, we arrange transport parcel services (e.g., Rathimeena, ARC, VRL) with economical regional freight rates.
+          </p>
+        </div>
+
+        <!-- Section 5: Order Tracking -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="locate-fixed" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">5. Consignment Tracking via WhatsApp</h2>
+              <p class="text-xs text-stone-500">Real-Time Delivery Visibility</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            Immediately upon handing your parcel to the courier, our team sends the <strong>courier name</strong>, <strong>docket / AWB tracking number</strong>, and a <strong>direct live tracking link</strong> straight to your WhatsApp mobile number. You can track your parcel's movement from our Theni sorting hub to your address at any moment.
+          </p>
+        </div>
+
+        <!-- Section 6: Transit Delays -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
+              <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">6. Unforeseen Delays</h2>
+              <p class="text-xs text-stone-500">Proactive Logistics Monitoring</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            While over 95% of our consignments arrive within estimated windows, occasional transit delays may occur due to severe monsoon weather, transport bandhs, state border inspections, or regional festival backlogs. In any such situation, our dispatch desk monitors the consignment and coordinates directly with the courier hub to expedite delivery.
+          </p>
+        </div>
+
+        <!-- Section 7: Transit Damage & Replacement Guarantee -->
+        <div class="bg-white rounded-3xl p-8 border border-[#CEE1D5] shadow-xs space-y-4">
+          <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="font-heading font-bold text-xl text-stone-900">7. Damaged Parcels & Free Replacement Guarantee</h2>
+              <p class="text-xs text-stone-500">100% Purity and Arrival Security</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            All grains are vacuum-packed or sealed in heavy-duty food-grade poly bags and boxed securely. In the rare circumstance that your parcel arrives with physical courier damage or broken inner seals:
+          </p>
+          <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-emerald-950 space-y-2 text-xs sm:text-sm">
+            <h4 class="font-bold">Hassle-Free 48-Hour Replacement Process:</h4>
+            <ol class="space-y-1.5 pl-4 list-decimal text-emerald-900">
+              <li>Take 2–3 clear photos or a short video showing the outer damage and grain packaging.</li>
+              <li>Send the media to our WhatsApp hotline: <strong>+91 63797 90035</strong> within 48 hours of parcel receipt.</li>
+              <li>Our mill desk will immediately review and dispatch a fresh replacement packet at <strong>zero additional courier cost</strong> to your doorstep.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Section 8: Dispatch Assistance -->
+        <div class="bg-[#142E23] text-white rounded-3xl p-8 shadow-md flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="space-y-1">
+            <h3 class="font-heading font-bold text-lg">Have a Shipping or Tracking Query?</h3>
+            <p class="text-xs text-emerald-100">Our dispatch team in Theni is ready to verify your delivery PIN code and rates.</p>
+          </div>
+          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20have%20a%20query%20about%20shipping%20rates%20and%20delivery%20to%20my%20PIN%20code." 
+             target="_blank" 
+             class="px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black text-xs shadow transition-all flex items-center gap-2 shrink-0">
+            <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+            <span>Ask Shipping Desk on WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0E2218] text-stone-400 text-xs pt-12 pb-24 md:pb-12 border-t border-stone-800">
+    <div class="w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-stone-800">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
+              <i data-lucide="sprout" class="w-5 h-5"></i>
+            </div>
+            <span class="font-heading font-extrabold text-lg text-white">DEEPAN MILLS</span>
+          </div>
+          <p class="leading-relaxed text-stone-400">
+            MSME recognized agro-processing enterprise based in Theni, Tamil Nadu. Dedicated to native unpolished millets, heritage rice varieties, and sun-dried golden corns.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <a href="https://wa.me/916379790035" target="_blank" class="w-8 h-8 rounded-lg bg-stone-800 text-white flex items-center justify-center hover:bg-emerald-600 transition-colors" title="WhatsApp Support">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="tel:+916379790035" class="w-8 h-8 rounded-lg bg-stone-800 text-white flex items-center justify-center hover:bg-emerald-600 transition-colors" title="Call Hotline">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-heading font-bold text-sm mb-3">Harvest Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Traditional Rice (பாரம்பரிய அரிசி)</a></li>
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Native Millets (சிறுதானியங்கள்)</a></li>
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Golden Corns & Maize (நாட்டு மக்காச்சோளம்)</a></li>
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Stone Ground Flours (சத்து மாவு)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-heading font-bold text-sm mb-3">Quick Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#products" class="hover:text-white transition-colors">Heritage Catalogue</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors">About Our Theni Mill</a></li>
+            <li><a href="shipping-policy.html" class="hover:text-white transition-colors">Shipping Policy & Dispatch</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy & Protection</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact & Direct Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-heading font-bold text-sm mb-3">Theni Processing Facility</h4>
+          <p class="leading-relaxed text-stone-400">
+            Deepan Mills Facility<br>
+            Theni District, Tamil Nadu - 625531<br>
+            Direct: +91 63797 90035<br>
+            Email: deepanmills@gmail.com
+          </p>
+          <div class="mt-3 inline-block px-2.5 py-1 rounded bg-stone-800 text-stone-300 text-[11px] font-semibold border border-stone-700">
+            MSME Agro Unit • Direct Mill Dispatch
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-stone-500">
+        <p>© 2026 Deepan Mills. All Rights Reserved. Pure Theni Agro Processing.</p>
+        <div class="flex items-center gap-4">
+          <a href="privacy-policy.html" class="hover:text-stone-300 transition-colors">Privacy Policy</a>
+          <span>•</span>
+          <a href="shipping-policy.html" class="hover:text-stone-300 transition-colors">Shipping Policy</a>
+          <span>•</span>
+          <a href="about.html" class="hover:text-stone-300 transition-colors">About Us</a>
+          <span>•</span>
+          <a href="contact.html" class="hover:text-stone-300 transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-stone-950/60 z-50 opacity-0 pointer-events-none cart-drawer-overlay">
+    <div class="fixed inset-y-0 right-0 max-w-full flex">
+      <div id="cart-drawer-content" class="w-screen max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full cart-drawer-content">
+        
+        <!-- Cart Header -->
+        <div class="p-5 border-b border-[#CEE1D5] flex items-center justify-between bg-[#F0F6F2]">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-xl bg-[#142E23] text-amber-300 flex items-center justify-center">
+              <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 id="drawer-title" class="font-heading font-bold text-lg text-stone-900">Your WhatsApp Order List</h3>
+              <p class="text-xs text-stone-500"><span id="cart-drawer-count">0</span> item(s)</p>
+            </div>
+          </div>
+          <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-200 transition-colors" aria-label="Close cart">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 divide-y divide-stone-100">
+          <!-- Filled dynamically by app.js -->
+        </div>
+
+        <!-- Empty Cart Notice -->
+        <div id="cart-empty-message" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center text-stone-500">
+          <div class="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center text-stone-400 mb-4">
+            <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+          </div>
+          <h4 class="font-heading font-bold text-base text-stone-800">Your order list is empty</h4>
+          <p class="text-xs text-stone-500 mt-1 max-w-xs">Explore our unpolished native rice, millets, and whole grains.</p>
+          <a href="index.html#products" onclick="toggleCartDrawer(false)" class="mt-4 px-4 py-2 rounded-xl bg-[#142E23] text-white font-bold text-xs shadow hover:bg-emerald-800 transition-colors">
+            View Catalogue
+          </a>
+        </div>
+
+        <!-- Cart Footer -->
+        <div id="cart-footer" class="p-5 border-t border-stone-200 bg-stone-50 space-y-4">
+          <div class="flex items-center justify-between text-xs text-stone-600">
+            <span id="lbl-total">Total Selected Items:</span>
+            <span id="cart-total-items-count" class="font-bold text-stone-900">0 items</span>
+          </div>
+
+          <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-[11px] text-emerald-900 flex items-center gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+            <span>We confirm dispatch weight & actual courier charges directly on WhatsApp.</span>
+          </div>
+
+          <button onclick="openCheckoutModal()" 
+                  id="btn-checkout-submit"
+                  class="w-full py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
+            <span>Send Order via WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION SCRIPTS -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
