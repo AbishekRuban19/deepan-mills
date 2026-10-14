@@ -14,14 +14,14 @@
   --color-text-main: #18221D;
   --color-text-muted: #4F6156;
 
-  /* Glassmorphism Variables - Very Light Green Theme */
-  --glass-header-bg: rgba(240, 246, 242, 0.86);
-  --glass-header-scrolled: rgba(240, 246, 242, 0.96);
-  --glass-header-border: rgba(186, 214, 199, 0.65);
-  --glass-header-scrolled-border: rgba(162, 198, 178, 0.85);
-  --glass-shadow: 0 4px 20px -2px rgba(20, 46, 35, 0.05);
-  --glass-shadow-scrolled: 0 10px 30px -4px rgba(20, 46, 35, 0.10), 0 2px 6px -1px rgba(20, 46, 35, 0.04);
-  --glass-blur: 16px;
+  /* Glassmorphism Variables - Dark Frosted Model Bar with Increased Glass Effect */
+  --glass-header-bg: rgba(14, 34, 25, 0.80);
+  --glass-header-scrolled: rgba(10, 26, 19, 0.92);
+  --glass-header-border: rgba(255, 255, 255, 0.12);
+  --glass-header-scrolled-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.28), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  --glass-shadow-scrolled: 0 16px 40px -6px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+  --glass-blur: 24px;
 }
 
 * {
@@ -32,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 130px;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -90,37 +90,37 @@ h1, h2, h3, h4, .font-heading {
   background: var(--glass-header-scrolled);
   border-bottom-color: var(--glass-header-scrolled-border);
   box-shadow: var(--glass-shadow-scrolled);
+  backdrop-filter: blur(28px) saturate(210%);
+  -webkit-backdrop-filter: blur(28px) saturate(210%);
 }
 
-/* Frosted Sub-Navigation Strip */
-.glass-sub-bar {
-  background: rgba(235, 244, 239, 0.90) !important;
-  backdrop-filter: blur(14px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border-top: 1px solid rgba(195, 222, 207, 0.65) !important;
-  border-bottom: 1px solid rgba(195, 222, 207, 0.70) !important;
-  box-shadow: 0 4px 15px -3px rgba(20, 46, 35, 0.04) !important;
-}
-
-/* Nav Link Hover Micro-Underline */
+/* Nav Link Hover Micro-Underline & Capsule */
 #header-main-nav a {
   position: relative;
-  transition: color 0.2s ease;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 10px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#header-main-nav a:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
 }
 #header-main-nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 1px;
   left: 50%;
   width: 0;
   height: 2px;
-  background: #142E23;
+  background: #34D399;
   border-radius: 2px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
 }
 #header-main-nav a:hover::after {
-  width: 100%;
+  width: 55%;
 }
 
 /* Frosted Glass Search Input */
