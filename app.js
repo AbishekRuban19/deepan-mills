@@ -262,6 +262,51 @@ function handleLogout() {
   } catch (e) {}
 }
 
+// --- POLICIES MODAL LOGIC ---
+function openPoliciesModal(tab = 'shipping') {
+  const modal = document.getElementById('policies-modal');
+  if (modal) {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.classList.add('overflow-hidden');
+    switchPolicyTab(tab);
+    if (window.lucide) window.lucide.createIcons();
+  }
+}
+
+function closePoliciesModal() {
+  const modal = document.getElementById('policies-modal');
+  if (modal) {
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.classList.remove('overflow-hidden');
+  }
+}
+
+function switchPolicyTab(tab) {
+  const tabs = ['shipping', 'returns', 'terms', 'privacy'];
+  tabs.forEach(t => {
+    const content = document.getElementById(`policy-tab-${t}`);
+    const btn = document.getElementById(`policy-btn-${t}`);
+    if (content) {
+      if (t === tab) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    }
+    if (btn) {
+      if (t === tab) {
+        btn.classList.add('bg-[#142E23]', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-stone-100', 'text-stone-700');
+      } else {
+        btn.classList.remove('bg-[#142E23]', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-stone-100', 'text-stone-700');
+      }
+    }
+  });
+}
+
 // --- LANGUAGE SWITCHER LOGIC ---
 function changeLanguage(langKey) {
   if (!TRANSLATIONS[langKey]) return;
