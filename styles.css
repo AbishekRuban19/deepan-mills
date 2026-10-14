@@ -94,6 +94,17 @@ h1, h2, h3, h4, .font-heading {
   -webkit-backdrop-filter: blur(28px) saturate(210%);
 }
 
+/* Desktop Navigation Container */
+#header-main-nav {
+  display: flex !important;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  #header-main-nav {
+    display: none !important;
+  }
+}
+
 /* Nav Link Hover Micro-Underline & Capsule */
 #header-main-nav a {
   position: relative;
@@ -337,8 +348,8 @@ h1, h2, h3, h4, .font-heading {
   animation: slideDownFade 0.3s ease-out forwards;
 }
 
-/* Explicit display control */
-.hidden {
+/* Explicit display control for utility */
+[hidden] {
   display: none !important;
 }
 
