@@ -72,6 +72,7 @@
 
         <!-- DESKTOP NAVIGATION (CENTERED) -->
         <nav id="header-main-nav" class="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-3.5 text-xs lg:text-sm font-semibold">
+          <a href="#products" onclick="filterCategory('all')" id="nav-products">Products</a>
           <button type="button" onclick="openNavModal('about')" id="nav-about">About Us</button>
           <button type="button" onclick="openNavModal('privacy')" id="nav-privacy">Privacy Policy</button>
           <button type="button" onclick="openNavModal('shipping')" id="nav-shipping">Shipping Policy</button>
@@ -162,9 +163,9 @@
         </a>
       </div>
 
-      <a href="#products" onclick="filterCategory('all'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <a href="#products" onclick="filterCategory('all'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-products" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-400"></i>
-        <span>Catalogue</span>
+        <span>Products</span>
       </a>
       <button type="button" onclick="openNavModal('about'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-about" class="w-full text-left py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
