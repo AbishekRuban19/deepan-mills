@@ -306,22 +306,15 @@ h1, h2, h3, h4, .font-heading {
   background-color: #FAF7F2;
   background-image: 
     linear-gradient(to bottom, 
-      rgba(251, 249, 245, 0.45) 0%, 
-      rgba(251, 249, 245, 0.25) 40%, 
-      rgba(251, 249, 245, 0.40) 70%, 
-      rgba(251, 249, 245, 0.75) 100%
+      rgba(251, 249, 245, 0.72) 0%, 
+      rgba(251, 249, 245, 0.50) 38%, 
+      rgba(251, 249, 245, 0.68) 72%, 
+      rgba(251, 249, 245, 0.88) 100%
     ),
     url('images/hero-bg-crops.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-}
-
-/* Reduced motion accessibility fallback for canvas */
-@media (prefers-reduced-motion: reduce) {
-  #paddy-wind-canvas {
-    opacity: 0.65;
-  }
 }
 
 /* Toast animation */
