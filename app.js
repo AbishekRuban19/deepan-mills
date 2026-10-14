@@ -124,7 +124,9 @@ const selectedVariantMap = {};
 let currentQuickViewState = {
   productId: null,
   variantIdx: 0,
-  quantity: 1
+  quantity: 1,
+  isManual: false,
+  manualWeight: ''
 };
 
 // Initialize on page load with readyState check
@@ -459,11 +461,13 @@ function renderProducts() {
     const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                            currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
     const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
+    const activeVariantIdx = selectedVariantMap[prod.id] !== undefined ? selectedVariantMap[prod.id] : 0;
+    const activeVariant = prod.variants[activeVariantIdx] || prod.variants[0];
 
     return `
       <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
            data-product-id="${prod.id}"
-           onclick="openQuickView('${prod.id}', 0)">
+           onclick="openQuickView('${prod.id}', ${activeVariantIdx})">
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
@@ -510,30 +514,47 @@ function renderProducts() {
         </div>
 
         <div>
-          <!-- Available Pack Sizes -->
+          <!-- Available Pack Sizes & Manual Weight Selection -->
           <div class="mb-3.5">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Sizes:</span>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('${prod.id}')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
             <div class="flex flex-wrap gap-1.5">
-              ${prod.variants.map(v => `
-                <span class="text-xs font-semibold py-1 px-2.5 rounded-lg bg-stone-50 text-stone-700 border border-stone-200">
+              ${prod.variants.map((v, vIdx) => `
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('${prod.id}', ${vIdx})" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all ${
+                          vIdx === activeVariantIdx 
+                            ? 'bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400' 
+                            : 'bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200'
+                        }">
                   ${v.weight}
-                </span>
+                </button>
               `).join('')}
             </div>
           </div>
 
           <!-- Direct WhatsApp Order Action -->
           <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
-            <div class="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold">
-              <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i>
-              <span class="text-[11px]">Direct Mill Dispatch</span>
-            </div>
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('${prod.id}', ${activeVariantIdx})"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
 
             <button type="button"
-                    onclick="event.stopPropagation(); openQuickView('${prod.id}', 0)" 
-                    class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
-                    title="Order via WhatsApp">
-              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('${prod.id}')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
               <span>${t.btnViewDetails || 'Order on WhatsApp'}</span>
             </button>
           </div>
@@ -553,15 +574,29 @@ function selectProductVariant(productId, variantIdx) {
   renderProducts();
 }
 
+function orderProductOnWhatsApp(productId) {
+  const prod = PRODUCTS.find(p => p.id === productId);
+  if (!prod) return;
+  const activeIdx = selectedVariantMap[productId] !== undefined ? selectedVariantMap[productId] : 0;
+  const variant = prod.variants[activeIdx] || prod.variants[0];
+  const weight = variant.weight;
+  
+  const msg = `Hello Deepan Mills, I would like to order *${prod.name}* (${weight}). Please confirm availability and dispatch details.`;
+  const phoneNum = '916379790035';
+  const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
 // --- CART FUNCTIONALITY ---
-function addToCart(productId, variantIdx, quantity = 1) {
+function addToCart(productId, variantIdx, quantity = 1, customWeight = null) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
   const variant = product.variants[variantIdx] || product.variants[0];
+  const weight = customWeight && customWeight.trim() ? customWeight.trim() : variant.weight;
 
   const existingIdx = cart.findIndex(
-    item => item.productId === productId && item.weight === variant.weight
+    item => item.productId === productId && item.weight === weight
   );
 
   if (existingIdx > -1) {
@@ -571,7 +606,7 @@ function addToCart(productId, variantIdx, quantity = 1) {
       productId: product.id,
       name: product.name,
       tamilName: product.tamilName,
-      weight: variant.weight,
+      weight: weight,
       price: variant.price,
       mrp: variant.mrp,
       image: product.image,
@@ -582,7 +617,7 @@ function addToCart(productId, variantIdx, quantity = 1) {
   saveCart();
   updateCartUI();
 
-  showToast(`Added ${product.name} (${variant.weight}) to your basket.`, 'success');
+  showToast(`Added ${product.name} (${weight}) to your basket.`, 'success');
 
   const cartBtn = document.getElementById('cart-toggle-btn');
   if (cartBtn) {
@@ -925,7 +960,7 @@ function checkoutViaWhatsApp() {
   showToast('Opening WhatsApp with your order details...', 'success');
 }
 
-// --- QUICK VIEW MODAL (IN-DEPTH PRODUCT SPECIFICATION) ---
+// --- QUICK VIEW MODAL (IN-DEPTH PRODUCT SPECIFICATION & PACK SELECTOR) ---
 function openQuickView(productId, variantIdx = 0) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return;
@@ -933,7 +968,9 @@ function openQuickView(productId, variantIdx = 0) {
   currentQuickViewState = {
     productId: productId,
     variantIdx: variantIdx,
-    quantity: 1
+    quantity: 1,
+    isManual: false,
+    manualWeight: ''
   };
 
   renderQuickViewModal();
@@ -946,9 +983,84 @@ function openQuickView(productId, variantIdx = 0) {
   }
 }
 
+function openQuickViewWithManual(productId) {
+  const prod = PRODUCTS.find(p => p.id === productId);
+  if (!prod) return;
+
+  const activeIdx = selectedVariantMap[productId] !== undefined ? selectedVariantMap[productId] : 0;
+  openQuickView(productId, activeIdx);
+  currentQuickViewState.isManual = true;
+  if (!currentQuickViewState.manualWeight) {
+    currentQuickViewState.manualWeight = '10 Kg';
+  }
+  renderQuickViewModal();
+
+  setTimeout(() => {
+    const input = document.getElementById('manual-weight-input');
+    if (input) {
+      input.focus();
+      input.select();
+    }
+  }, 60);
+}
+
 function selectQuickViewVariant(variantIdx) {
+  currentQuickViewState.isManual = false;
   currentQuickViewState.variantIdx = variantIdx;
   renderQuickViewModal();
+}
+
+function toggleQuickViewManualWeight(enable, rerender = true) {
+  currentQuickViewState.isManual = enable;
+  if (enable && !currentQuickViewState.manualWeight) {
+    currentQuickViewState.manualWeight = '10 Kg';
+  }
+  if (rerender) {
+    renderQuickViewModal();
+    if (enable) {
+      setTimeout(() => {
+        const input = document.getElementById('manual-weight-input');
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }, 50);
+    }
+  } else {
+    updateQuickViewDisplays();
+  }
+}
+
+function handleQuickViewManualWeightChange(val) {
+  currentQuickViewState.manualWeight = val;
+  currentQuickViewState.isManual = true;
+  updateQuickViewDisplays();
+}
+
+function updateQuickViewDisplays() {
+  const prod = PRODUCTS.find(p => p.id === currentQuickViewState.productId);
+  if (!prod) return;
+
+  const activeVariant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
+  const displayWeight = (currentQuickViewState.isManual && currentQuickViewState.manualWeight && currentQuickViewState.manualWeight.trim()) 
+    ? currentQuickViewState.manualWeight.trim() 
+    : activeVariant.weight;
+
+  const packDisplayEl = document.getElementById('quickview-selected-pack-display');
+  if (packDisplayEl) {
+    packDisplayEl.innerText = displayWeight;
+  }
+
+  const totalDisplayEl = document.getElementById('quickview-total-weight-display');
+  if (totalDisplayEl) {
+    totalDisplayEl.innerText = `${displayWeight} × ${currentQuickViewState.quantity}`;
+  }
+
+  const waBtn = document.getElementById('quickview-wa-btn');
+  if (waBtn) {
+    const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}. Please confirm availability and dispatch details.`;
+    waBtn.href = `https://wa.me/916379790035?text=${encodeURIComponent(waOrderText)}`;
+  }
 }
 
 function changeQuickViewQty(delta) {
@@ -958,7 +1070,10 @@ function changeQuickViewQty(delta) {
 
 function addQuickViewToCart() {
   if (!currentQuickViewState.productId) return;
-  addToCart(currentQuickViewState.productId, currentQuickViewState.variantIdx, currentQuickViewState.quantity);
+  const customWeight = (currentQuickViewState.isManual && currentQuickViewState.manualWeight && currentQuickViewState.manualWeight.trim()) 
+    ? currentQuickViewState.manualWeight.trim() 
+    : null;
+  addToCart(currentQuickViewState.productId, currentQuickViewState.variantIdx, currentQuickViewState.quantity, customWeight);
   closeQuickView();
   toggleCartDrawer(true);
 }
@@ -968,8 +1083,13 @@ function renderQuickViewModal() {
   const content = document.getElementById('quickview-content');
   if (!prod || !content) return;
 
-  const currentVariant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
-  const savings = currentVariant.mrp - currentVariant.price;
+  const activeVariant = prod.variants[currentQuickViewState.variantIdx] || prod.variants[0];
+  const displayWeight = (currentQuickViewState.isManual && currentQuickViewState.manualWeight && currentQuickViewState.manualWeight.trim()) 
+    ? currentQuickViewState.manualWeight.trim() 
+    : activeVariant.weight;
+
+  const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}. Please confirm availability and dispatch details.`;
+  const waUrl = `https://wa.me/916379790035?text=${encodeURIComponent(waOrderText)}`;
 
   const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                          currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
@@ -1073,28 +1193,67 @@ function renderQuickViewModal() {
           </div>
         </div>
 
-        <!-- PACK WEIGHT SELECTOR -->
+        <!-- PACK WEIGHT & MANUAL KG SELECTOR -->
         <div class="pt-2 border-t border-stone-200">
           <div class="flex items-center justify-between mb-2">
             <label class="text-xs font-black uppercase tracking-wider text-stone-800 flex items-center gap-1.5">
               <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-700"></i>
-              <span>Select Pack Size:</span>
+              <span>Select Pack Size or Custom Kg:</span>
             </label>
-            <span class="text-[10px] text-stone-400 font-semibold">Live Mill Pricing</span>
+            <span class="text-[10px] text-stone-400 font-semibold">Direct Mill Dispatch</span>
           </div>
 
-          <div class="grid grid-cols-${prod.variants.length} gap-2">
+          <div class="grid grid-cols-${prod.variants.length + 1} gap-2">
             ${prod.variants.map((v, idx) => `
               <button type="button" 
                       onclick="selectQuickViewVariant(${idx})" 
-                      class="py-2 px-3 rounded-xl text-xs font-black text-center transition-all ${
-                        idx === currentQuickViewState.variantIdx 
+                      class="py-2 px-2.5 rounded-xl text-xs font-black text-center transition-all ${
+                        !currentQuickViewState.isManual && idx === currentQuickViewState.variantIdx 
                           ? 'bg-[#142E23] text-white shadow-md ring-2 ring-amber-400' 
                           : 'bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200'
                       }">
                 ${v.weight}
               </button>
             `).join('')}
+            <button type="button" 
+                    onclick="toggleQuickViewManualWeight(true)" 
+                    class="py-2 px-2 rounded-xl text-xs font-black text-center transition-all flex items-center justify-center gap-1 ${
+                      currentQuickViewState.isManual 
+                        ? 'bg-[#142E23] text-white shadow-md ring-2 ring-amber-400' 
+                        : 'bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300'
+                    }">
+              <i data-lucide="edit-3" class="w-3 h-3 text-amber-600"></i>
+              <span>Manual Kg</span>
+            </button>
+          </div>
+
+          <!-- Manual Weight Input Field -->
+          <div id="manual-weight-container" class="mt-2.5 p-3 rounded-2xl border transition-all ${
+            currentQuickViewState.isManual 
+              ? 'bg-amber-50/90 border-amber-300 shadow-sm' 
+              : 'bg-stone-50 border-stone-200'
+          }">
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="manual-weight-input" class="text-xs font-bold text-stone-800 flex items-center gap-1.5">
+                <i data-lucide="pencil" class="w-3.5 h-3.5 text-amber-700"></i>
+                <span>Manual Custom Weight / Bulk Quantity:</span>
+              </label>
+              ${currentQuickViewState.isManual ? `
+                <span class="text-[10px] font-bold text-amber-800 bg-amber-200/80 px-2 py-0.5 rounded-md">Active Selection</span>
+              ` : `
+                <button type="button" onclick="toggleQuickViewManualWeight(true)" class="text-[10px] font-bold text-amber-700 hover:text-amber-900 underline">Switch to Manual</button>
+              `}
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="text" 
+                     id="manual-weight-input" 
+                     value="${currentQuickViewState.manualWeight || ''}"
+                     placeholder="e.g. 10 Kg, 25 Kg, 50 Kg bag, 2.5 Litres" 
+                     class="flex-1 px-3 py-2 rounded-xl border border-stone-300 bg-white text-xs font-semibold text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#142E23]"
+                     onfocus="toggleQuickViewManualWeight(true, false)"
+                     oninput="handleQuickViewManualWeightChange(this.value)">
+            </div>
+            <p class="text-[10px] text-stone-500 mt-1">Specify custom weight or bulk sacks. We mill fresh and pack as per your exact requirement.</p>
           </div>
         </div>
 
@@ -1102,7 +1261,7 @@ function renderQuickViewModal() {
         <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200 shadow-sm space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-stone-700 uppercase tracking-wider">
-              Selected Pack: <strong class="text-[#142E23] text-sm">${currentVariant.weight}</strong>
+              Selected Pack: <strong id="quickview-selected-pack-display" class="text-[#142E23] text-sm">${displayWeight}</strong>
             </span>
             <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold flex items-center gap-1 shadow-sm">
               <i data-lucide="check" class="w-3 h-3 text-emerald-700"></i>
@@ -1123,7 +1282,7 @@ function renderQuickViewModal() {
 
             <div class="text-right">
               <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Pack Size</span>
-              <span class="text-sm font-black text-[#142E23]">${currentVariant.weight} × ${currentQuickViewState.quantity}</span>
+              <span id="quickview-total-weight-display" class="text-sm font-black text-[#142E23]">${displayWeight} × ${currentQuickViewState.quantity}</span>
             </div>
           </div>
 
@@ -1135,7 +1294,8 @@ function renderQuickViewModal() {
 
         <!-- WHATSAPP DIRECT ORDER ACTIONS -->
         <div class="space-y-2 pt-2">
-          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20${encodeURIComponent(prod.name)}%20(${currentVariant.weight})%20x%20${currentQuickViewState.quantity}.%20Please%20confirm%20availability%20and%20dispatch%20details."
+          <a id="quickview-wa-btn"
+             href="${waUrl}"
              target="_blank"
              class="w-full py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
             <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
