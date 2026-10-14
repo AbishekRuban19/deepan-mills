@@ -197,15 +197,15 @@ function initApp() {
   }
 
   // 6. Render immediately on page load (UNGATED)
-  updateAuthUI();
-  applyLanguage(currentLang);
-  renderProducts();
-  renderTestimonials();
-  updateCartUI();
-  setupEventListeners();
+  try { updateAuthUI(); } catch (e) { console.error('updateAuthUI error:', e); }
+  try { applyLanguage(currentLang); } catch (e) { console.error('applyLanguage error:', e); }
+  try { renderProducts(); } catch (e) { console.error('renderProducts error:', e); }
+  try { renderTestimonials(); } catch (e) { console.error('renderTestimonials error:', e); }
+  try { updateCartUI(); } catch (e) { console.error('updateCartUI error:', e); }
+  try { setupEventListeners(); } catch (e) { console.error('setupEventListeners error:', e); }
 
   if (window.lucide) {
-    window.lucide.createIcons();
+    try { window.lucide.createIcons(); } catch (e) {}
   }
 }
 
@@ -399,20 +399,36 @@ function renderProducts() {
   const emptyView = document.getElementById('no-products-view');
   if (!container) return;
 
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
   const prodList = window.PRODUCTS || PRODUCTS || [];
 
+  const q = (searchQuery || '').toLowerCase().trim();
+  const words = q ? q.split(/\s+/).filter(Boolean) : [];
+
   const filtered = prodList.filter(prod => {
-    const catMatch = currentCategory === 'all' || prod.category === currentCategory;
-    const q = searchQuery.toLowerCase().trim();
-    const searchMatch = !q || 
-      prod.name.toLowerCase().includes(q) || 
-      (prod.tamilName && prod.tamilName.toLowerCase().includes(q)) || 
-      (prod.hindiName && prod.hindiName.toLowerCase().includes(q)) || 
-      prod.shortDesc.toLowerCase().includes(q) ||
-      prod.tags.some(tg => tg.toLowerCase().includes(q));
+    // Multi-term search across title, native names, category, badge, description, benefits, tags, and weights
+    let searchMatch = true;
+    if (words.length > 0) {
+      const searchableText = [
+        prod.name,
+        prod.tamilName,
+        prod.hindiName,
+        prod.category,
+        prod.badge,
+        prod.shortDesc,
+        prod.healthBenefit,
+        ...(prod.tags || []),
+        ...(prod.variants ? prod.variants.map(v => v.weight) : [])
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      searchMatch = words.every(w => searchableText.includes(w));
+    }
+
+    // When actively searching, search across all products; otherwise respect category tab
+    const catMatch = words.length > 0 ? true : (currentCategory === 'all' || prod.category === currentCategory);
 
     const tagMatch = !currentDietTag || 
-      prod.tags.some(tag => tag.toLowerCase().includes(currentDietTag.toLowerCase()));
+      (prod.tags && prod.tags.some(tag => tag.toLowerCase().includes(currentDietTag.toLowerCase())));
 
     return catMatch && searchMatch && tagMatch;
   });
@@ -422,6 +438,14 @@ function renderProducts() {
     if (emptyView) {
       emptyView.style.display = 'block';
       emptyView.classList.remove('hidden');
+      const hint = document.getElementById('no-products-query-hint');
+      if (hint) {
+        if (q) {
+          hint.innerText = `No grains or oils matched "${searchQuery}". Try searching for "rice", "oil", "millet", or "ragi".`;
+        } else {
+          hint.innerText = 'Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset filters.';
+        }
+      }
     }
     return;
   }
@@ -1326,14 +1350,43 @@ function setupEventListeners() {
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
+      const trimmed = searchQuery.trim();
       if (clearSearchBtn) {
-        if (searchQuery.length > 0) {
+        if (trimmed.length > 0) {
           clearSearchBtn.classList.remove('hidden');
         } else {
           clearSearchBtn.classList.add('hidden');
         }
       }
+
+      // If user starts searching, ensure category pills visually reflect searching across all products
+      if (trimmed.length > 0 && currentCategory !== 'all') {
+        currentCategory = 'all';
+        document.querySelectorAll('.cat-pill').forEach(b => {
+          b.classList.remove('active', 'bg-[#142E23]', 'text-white');
+          b.classList.add('bg-white', 'text-stone-700');
+        });
+        const allBtn = document.querySelector('.cat-pill[data-category="all"]');
+        if (allBtn) {
+          allBtn.classList.add('active', 'bg-[#142E23]', 'text-white');
+          allBtn.classList.remove('bg-white', 'text-stone-700');
+        }
+      }
+
       renderProducts();
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        searchInput.blur();
+      } else if (e.key === 'Escape') {
+        searchInput.value = '';
+        searchQuery = '';
+        if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
+        renderProducts();
+        searchInput.blur();
+      }
     });
   }
 
@@ -1343,6 +1396,7 @@ function setupEventListeners() {
       searchQuery = '';
       clearSearchBtn.classList.add('hidden');
       renderProducts();
+      searchInput.focus();
     });
   }
 
@@ -1434,3 +1488,20 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
+
+// Quick Search Helper
+function focusSearch() {
+  const input = document.getElementById('product-search-input');
+  if (input) {
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 350);
+  }
+}
+window.focusSearch = focusSearch;
+

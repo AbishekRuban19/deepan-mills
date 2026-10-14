@@ -47,7 +47,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css?v=2.3">
+  <link rel="stylesheet" href="styles.css?v=2.4">
 </head>
 <body class="bg-[#FBF9F5] text-[#18221D] antialiased selection:bg-amber-100 selection:text-amber-900">
 
@@ -132,6 +132,14 @@
             <span id="btn-wa-header">WhatsApp</span>
           </a>
 
+          <!-- Header Quick Search Button -->
+          <button onclick="focusSearch()" 
+                  class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 text-stone-700 hover:text-[#142E23] border border-stone-200 font-bold text-xs transition-all shadow-sm"
+                  title="Search grains, millets, oils">
+            <i data-lucide="search" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span class="hidden md:inline">Search</span>
+          </button>
+
           <!-- Customer Account Button -->
           <div id="header-account-container">
             <button onclick="openAccountModal()" 
@@ -163,6 +171,10 @@
 
     <!-- Mobile Nav Dropdown -->
     <div id="mobile-nav-panel" class="hidden xl:hidden border-t border-stone-200 bg-[#FBF9F5] px-4 pt-3 pb-5 space-y-2 text-sm font-semibold text-stone-800">
+      <button onclick="focusSearch(); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-left font-bold text-xs text-stone-800 border border-stone-200 transition-colors">
+        <i data-lucide="search" class="w-4 h-4 text-amber-700"></i>
+        <span>Search Grains & Oils</span>
+      </button>
       <a href="#about-mill" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Heritage & Mill</a>
       <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Shop Grains & Oils</a>
       <a href="#nutrition-guide" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Cooking & Health Guide</a>
@@ -351,16 +363,27 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="relative w-full md:w-72">
-          <input type="text" 
-                 id="product-search-input" 
-                 autocomplete="off"
-                 placeholder="Search rice, millet, oil..." 
-                 class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#142E23] focus:border-transparent transition-all shadow-sm">
-          <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5"></i>
-          <button id="clear-search-btn" class="hidden absolute right-3 top-3 text-stone-400 hover:text-stone-600">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
+        <div class="relative w-full md:w-80">
+          <form onsubmit="event.preventDefault(); document.getElementById('product-search-input').blur();" role="search" class="relative w-full">
+            <input type="search" 
+                   id="product-search-input" 
+                   name="q"
+                   autocomplete="off"
+                   placeholder="Search rice, millet, oil, flour..." 
+                   class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#142E23] focus:border-transparent transition-all shadow-sm">
+            <button type="button" 
+                    onclick="document.getElementById('product-search-input').focus()" 
+                    class="absolute left-3.5 top-3.5 text-stone-400 hover:text-stone-700 transition-colors"
+                    aria-label="Search products">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </button>
+            <button type="button" 
+                    id="clear-search-btn" 
+                    class="hidden absolute right-3 top-3 text-stone-400 hover:text-stone-700 transition-colors"
+                    aria-label="Clear search query">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </form>
         </div>
       </div>
 
@@ -1515,7 +1538,7 @@
           <i data-lucide="search-x" class="w-8 h-8"></i>
         </div>
         <h3 class="font-heading font-bold text-xl text-stone-900">No grains matched your search</h3>
-        <p class="text-sm text-stone-500 mt-1 max-w-sm mx-auto">Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset filters.</p>
+        <p id="no-products-query-hint" class="text-sm text-stone-500 mt-1 max-w-sm mx-auto">Try searching for "Karuppu Kavuni", "Barnyard", "Millet", or reset filters.</p>
         <button onclick="resetAllFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#142E23] text-white text-xs font-bold shadow hover:bg-[#0E2218] transition-all">
           View All Products
         </button>
@@ -2174,7 +2197,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="products.js?v=2.3"></script>
-  <script src="app.js?v=2.3"></script>
+  <script src="products.js?v=2.4"></script>
+  <script src="app.js?v=2.4"></script>
 </body>
 </html>
