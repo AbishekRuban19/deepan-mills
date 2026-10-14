@@ -572,8 +572,9 @@ function orderProductOnWhatsApp(productId) {
   const activeIdx = selectedVariantMap[productId] !== undefined ? selectedVariantMap[productId] : 0;
   const variant = prod.variants[activeIdx] || prod.variants[0];
   const weight = variant.weight;
+  const priceText = variant.price ? ` - ₹${variant.price}` : '';
   
-  const msg = `Hello Deepan Mills, I would like to order *${prod.name}* (${weight}). Please confirm availability and dispatch details.`;
+  const msg = `Hello Deepan Mills, I would like to order *${prod.name}* (${weight})${priceText}. Please confirm availability and dispatch details.`;
   const phoneNum = '916379790035';
   const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
@@ -1038,6 +1039,45 @@ function updateQuickViewDisplays() {
     ? currentQuickViewState.manualWeight.trim() 
     : activeVariant.weight;
 
+  const unitPrice = activeVariant.price || 0;
+  const unitMrp = activeVariant.mrp || Math.round(unitPrice * 1.25);
+  let totalPrice = 0;
+  let priceDisplay = '';
+
+  if (currentQuickViewState.isManual && currentQuickViewState.manualWeight.trim()) {
+    const match = currentQuickViewState.manualWeight.match(/([0-9.]+)\s*(kg|kilo|l|litre)?/i);
+    if (match && !isNaN(parseFloat(match[1]))) {
+      const kgVal = parseFloat(match[1]);
+      const oneKgPrice = prod.variants.find(v => v.weight.includes('1 Kg'))?.price || (prod.variants[0].price * 2);
+      totalPrice = Math.round(oneKgPrice * kgVal * currentQuickViewState.quantity);
+      priceDisplay = `₹${totalPrice.toLocaleString('en-IN')}`;
+    } else {
+      priceDisplay = 'Custom Mill Quotation';
+    }
+  } else {
+    totalPrice = unitPrice * currentQuickViewState.quantity;
+    priceDisplay = `₹${totalPrice.toLocaleString('en-IN')}`;
+  }
+
+  const priceEl = document.getElementById('quickview-price-display');
+  if (priceEl) {
+    priceEl.innerText = priceDisplay;
+  }
+  const subtotalEl = document.getElementById('quickview-subtotal-display');
+  if (subtotalEl) {
+    subtotalEl.innerText = priceDisplay;
+  }
+
+  const mrpEl = document.getElementById('quickview-mrp-display');
+  if (mrpEl) {
+    if (!currentQuickViewState.isManual && unitMrp) {
+      mrpEl.style.display = 'inline';
+      mrpEl.innerText = `₹${(unitMrp * currentQuickViewState.quantity).toLocaleString('en-IN')}`;
+    } else {
+      mrpEl.style.display = 'none';
+    }
+  }
+
   const packDisplayEl = document.getElementById('quickview-selected-pack-display');
   if (packDisplayEl) {
     packDisplayEl.innerText = displayWeight;
@@ -1050,7 +1090,8 @@ function updateQuickViewDisplays() {
 
   const waBtn = document.getElementById('quickview-wa-btn');
   if (waBtn) {
-    const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}. Please confirm availability and dispatch details.`;
+    const priceText = totalPrice > 0 ? ` - ₹${totalPrice.toLocaleString('en-IN')}` : '';
+    const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}${priceText}. Please confirm availability and dispatch details.`;
     waBtn.href = `https://wa.me/916379790035?text=${encodeURIComponent(waOrderText)}`;
   }
 }
@@ -1080,7 +1121,28 @@ function renderQuickViewModal() {
     ? currentQuickViewState.manualWeight.trim() 
     : activeVariant.weight;
 
-  const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}. Please confirm availability and dispatch details.`;
+  const unitPrice = activeVariant.price || 0;
+  const unitMrp = activeVariant.mrp || Math.round(unitPrice * 1.25);
+  let totalPrice = 0;
+  let priceDisplay = '';
+
+  if (currentQuickViewState.isManual && currentQuickViewState.manualWeight.trim()) {
+    const match = currentQuickViewState.manualWeight.match(/([0-9.]+)\s*(kg|kilo|l|litre)?/i);
+    if (match && !isNaN(parseFloat(match[1]))) {
+      const kgVal = parseFloat(match[1]);
+      const oneKgPrice = prod.variants.find(v => v.weight.includes('1 Kg'))?.price || (prod.variants[0].price * 2);
+      totalPrice = Math.round(oneKgPrice * kgVal * currentQuickViewState.quantity);
+      priceDisplay = `₹${totalPrice.toLocaleString('en-IN')}`;
+    } else {
+      priceDisplay = 'Custom Mill Quotation';
+    }
+  } else {
+    totalPrice = unitPrice * currentQuickViewState.quantity;
+    priceDisplay = `₹${totalPrice.toLocaleString('en-IN')}`;
+  }
+
+  const priceText = totalPrice > 0 ? ` - ₹${totalPrice.toLocaleString('en-IN')}` : '';
+  const waOrderText = `Hello Deepan Mills, I would like to order *${prod.name}* (${displayWeight}) x ${currentQuickViewState.quantity}${priceText}. Please confirm availability and dispatch details.`;
   const waUrl = `https://wa.me/916379790035?text=${encodeURIComponent(waOrderText)}`;
 
   const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
@@ -1135,7 +1197,7 @@ function renderQuickViewModal() {
         </div>
       </div>
 
-      <!-- Right Column: Details, Nutrition, Weight & Add -->
+      <!-- Right Column: Details, Nutrition, Weight, Price & Add -->
       <div class="md:col-span-7 space-y-4">
         
         <!-- About the harvest -->
@@ -1199,23 +1261,27 @@ function renderQuickViewModal() {
             ${prod.variants.map((v, idx) => `
               <button type="button" 
                       onclick="selectQuickViewVariant(${idx})" 
-                      class="py-2 px-2.5 rounded-xl text-xs font-black text-center transition-all ${
+                      class="py-2.5 px-2 rounded-xl text-center transition-all ${
                         !currentQuickViewState.isManual && idx === currentQuickViewState.variantIdx 
                           ? 'bg-[#142E23] text-white shadow-md ring-2 ring-amber-400' 
                           : 'bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200'
                       }">
-                ${v.weight}
+                <span class="block text-xs font-black">${v.weight}</span>
+                <span class="block text-[11px] ${!currentQuickViewState.isManual && idx === currentQuickViewState.variantIdx ? 'text-amber-300' : 'text-emerald-800'} font-bold">₹${v.price}</span>
               </button>
             `).join('')}
             <button type="button" 
                     onclick="toggleQuickViewManualWeight(true)" 
-                    class="py-2 px-2 rounded-xl text-xs font-black text-center transition-all flex items-center justify-center gap-1 ${
+                    class="py-2.5 px-2 rounded-xl text-center transition-all flex flex-col items-center justify-center ${
                       currentQuickViewState.isManual 
                         ? 'bg-[#142E23] text-white shadow-md ring-2 ring-amber-400' 
                         : 'bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300'
                     }">
-              <i data-lucide="edit-3" class="w-3 h-3 text-amber-600"></i>
-              <span>Manual Kg</span>
+              <span class="flex items-center gap-1 text-xs font-black">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-600"></i>
+                <span>Manual</span>
+              </span>
+              <span class="text-[10px] ${currentQuickViewState.isManual ? 'text-amber-300' : 'text-amber-800'} font-semibold">Custom Kg</span>
             </button>
           </div>
 
@@ -1249,20 +1315,41 @@ function renderQuickViewModal() {
           </div>
         </div>
 
-        <!-- ORDER SELECTION CARD (NO PRICES DISPLAYED) -->
-        <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200 shadow-sm space-y-3">
+        <!-- PRICE & ORDER SELECTION CARD (INSIDE PRODUCT ONLY) -->
+        <div class="p-4 bg-emerald-50/80 rounded-2xl border border-emerald-200 shadow-sm space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-stone-700 uppercase tracking-wider">
+            <div>
+              <span class="text-[10px] text-stone-500 font-extrabold uppercase tracking-wider block">Price for Selected Pack</span>
+              <div class="flex items-baseline gap-2 mt-0.5">
+                <span id="quickview-price-display" class="text-2xl font-black text-[#142E23]">${priceDisplay}</span>
+                ${unitMrp && !currentQuickViewState.isManual ? `
+                  <span id="quickview-mrp-display" class="text-xs text-stone-400 line-through">₹${(unitMrp * currentQuickViewState.quantity).toLocaleString('en-IN')}</span>
+                  <span class="text-[10px] font-black text-emerald-800 bg-emerald-200/80 px-2 py-0.5 rounded-md">Save ₹${((unitMrp - unitPrice) * currentQuickViewState.quantity).toLocaleString('en-IN')}</span>
+                ` : ''}
+              </div>
+            </div>
+
+            <div class="text-right">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold flex items-center gap-1 shadow-sm">
+                <i data-lucide="check" class="w-3 h-3 text-emerald-700"></i>
+                <span>Fresh Theni Batch</span>
+              </span>
+              <span class="text-[10px] text-stone-500 font-semibold block mt-1">Direct Mill Dispatch</span>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-emerald-200/60 flex items-center justify-between text-xs">
+            <span class="font-bold text-stone-700 uppercase tracking-wider">
               Selected Pack: <strong id="quickview-selected-pack-display" class="text-[#142E23] text-sm">${displayWeight}</strong>
             </span>
-            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold flex items-center gap-1 shadow-sm">
-              <i data-lucide="check" class="w-3 h-3 text-emerald-700"></i>
-              <span>Fresh Theni Batch</span>
-            </span>
+            <div class="text-right">
+              <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Pack Size</span>
+              <span id="quickview-total-weight-display" class="text-xs font-black text-[#142E23]">${displayWeight} × ${currentQuickViewState.quantity}</span>
+            </div>
           </div>
 
           <!-- Quantity Selector -->
-          <div class="flex items-center justify-between pt-1">
+          <div class="flex items-center justify-between pt-2 border-t border-emerald-200/60">
             <div class="flex items-center gap-2">
               <span class="text-xs font-bold text-stone-700">Quantity:</span>
               <div class="flex items-center border border-stone-300 rounded-xl bg-white overflow-hidden shadow-sm">
@@ -1272,9 +1359,9 @@ function renderQuickViewModal() {
               </div>
             </div>
 
-            <div class="text-right">
-              <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Pack Size</span>
-              <span id="quickview-total-weight-display" class="text-sm font-black text-[#142E23]">${displayWeight} × ${currentQuickViewState.quantity}</span>
+            <div class="text-right text-xs font-bold text-emerald-900">
+              <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Amount</span>
+              <span id="quickview-subtotal-display" class="text-base font-black text-[#142E23]">${priceDisplay}</span>
             </div>
           </div>
 
