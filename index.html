@@ -47,7 +47,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css?v=2.6">
+  <link rel="stylesheet" href="styles.css?v=2.7">
 </head>
 <body class="bg-[#FBF9F5] text-[#18221D] antialiased selection:bg-amber-100 selection:text-amber-900">
 
@@ -336,22 +336,16 @@
       <!-- CATEGORY TABS -->
       <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
         <button class="cat-pill active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-[#142E23] text-white transition-all shadow-sm" data-category="all">
-          <span id="cat-all">All Products (12)</span>
+          <span id="cat-all">All Products (24)</span>
         </button>
         <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="rice">
-          <span id="cat-rice">Heritage Rice</span>
+          <span id="cat-rice">Heritage Rice (12)</span>
         </button>
         <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="millet">
-          <span id="cat-millet">Native Millets</span>
+          <span id="cat-millet">Native Millets (10)</span>
         </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="oil">
-          <span id="cat-oil">Cold-Pressed Oils</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="flour">
-          <span id="cat-flour">Stone-Ground Flours</span>
-        </button>
-        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="combos">
-          <span id="cat-combos">Value Combos</span>
+        <button class="cat-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-white text-stone-700 hover:bg-stone-100 border border-stone-200 transition-all" data-category="grain">
+          <span id="cat-grain">Other Grains & Corn (2)</span>
         </button>
       </div>
 
@@ -369,8 +363,11 @@
         <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Gluten Free">
           Gluten Free
         </button>
-        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Cold Pressed">
-          Cold Pressed Oils
+        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Antioxidant Rich">
+          Antioxidant Rich
+        </button>
+        <button class="diet-tag px-3 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium transition-colors" data-tag="Easy Digestion">
+          Easy Digestion
         </button>
         <button id="reset-filters-btn" class="hidden text-amber-700 underline font-semibold ml-2">
           Clear Filter
@@ -386,14 +383,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" 
-                 alt="Karuppu Kavuni Black Rice" 
+            <img src="images/thooyamalli-rice.jpg" 
+                 alt="Thooyamalli Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Heritage Harvest
+                Aromatic Heritage
               </span>
             </div>
 
@@ -407,14 +404,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பாரம்பரிய கருப்பு கவுனி அரிசி</span>
+                <span>தூயமல்லி பாரம்பரிய அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Karuppu Kavuni Black Rice
+              Thooyamalli Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Traditional unpolished black rice, slow-dehusked in Theni to preserve the intact dark purple-black bran layer.
+              Traditional white native rice, named after delicate jasmine buds (Thooya = Pure, Malli = Jasmine). Naturally pest-resistant and light on the palate.
             </p>
           </div>
 
@@ -422,11 +419,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Antioxidant Rich
+                Jasmine White Grain
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Low Glycemic Index
+                Easy Digestion
               </span>
             
           </div>
@@ -495,14 +492,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80" 
-                 alt="Mappillai Samba Red Rice" 
+            <img src="images/kerala-mattai-rice.jpg" 
+                 alt="Kerala Mattai Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Heritage Classic
+                Nutrient Parboiled
               </span>
             </div>
 
@@ -516,14 +513,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>மாப்பிள்ளை சம்பா அரிசி</span>
+                <span>கேரளா மட்டை அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Mappillai Samba Red Rice
+              Kerala Mattai Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Traditional unpolished red rice rich in zinc and dietary iron, traditionally enjoyed for sustained physical vitality.
+              Plump, reddish-brown indigenous parboiled rice from the Western Ghats belt. Unpolished with the nutrient-packed reddish pericarp retained.
             </p>
           </div>
 
@@ -531,11 +528,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Iron & Zinc
+                Hearty Texture
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Native Red Grain
+                High Magnesium
               </span>
             
           </div>
@@ -604,14 +601,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=800&q=80" 
-                 alt="Kuthiraivali (Barnyard Millet)" 
+            <img src="https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80" 
+                 alt="Kattuyanam Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                High Fiber
+                Diabetes Care
               </span>
             </div>
 
@@ -625,14 +622,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>நாட்டு குதிரைவாலி அரிசி</span>
+                <span>காட்டுயானம் பாரம்பரிய அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Kuthiraivali (Barnyard Millet)
+              Kattuyanam Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Unpolished Barnyard Millet. Light and easily digestible with over 10g of natural dietary fiber per 100g.
+              Legendary wild wetland rice (Kattu Yanam = wild elephant), growing tall in traditional wetlands. Known for unmatched stamina and glycemic control.
             </p>
           </div>
 
@@ -640,11 +637,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                High Dietary Fiber
+                Low Glycemic Index
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Low Glycemic Load
+                High Dietary Fiber
               </span>
             
           </div>
@@ -713,14 +710,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80" 
-                 alt="Thinai (Foxtail Millet)" 
+            <img src="images/kullakar-rice.jpg" 
+                 alt="Kullakar Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Native Millet
+                Women's Wellness
               </span>
             </div>
 
@@ -734,14 +731,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பாரம்பரிய தினை அரிசி</span>
+                <span>குள்ளக்கார் பாரம்பரிய அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Thinai (Foxtail Millet)
+              Kullakar Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Golden unpolished Foxtail millet. Ancient grain rich in dietary magnesium and natural plant proteins.
+              Ancient short-duration red rice, naturally resilient to climate variations. Rich in complex zinc, iron, and antioxidant bio-flavonoids.
             </p>
           </div>
 
@@ -749,11 +746,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Magnesium Rich
+                Antioxidant Rich
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Plant Protein
+                Postnatal Nutrition
               </span>
             
           </div>
@@ -822,14 +819,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80" 
-                 alt="Varagu (Kodo Millet)" 
+            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" 
+                 alt="Red Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Pure & Unpolished
+                Whole Grain Staple
               </span>
             </div>
 
@@ -843,14 +840,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>செறிவூட்டப்படாத வரகு அரிசி</span>
+                <span>நாட்டு சிவப்பு அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Varagu (Kodo Millet)
+              Red Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Wholesome grain with high polyphenols and fiber. A balanced traditional replacement for polished white rice.
+              Classic unpolished native red rice, slow-dehusked in Theni stone mills to preserve 100% of the reddish antioxidant bran layer.
             </p>
           </div>
 
@@ -858,11 +855,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Complex Carbs
+                100% Unpolished
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                High Fiber
+                Natural Bran Intact
               </span>
             
           </div>
@@ -931,14 +928,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=800&q=80" 
-                 alt="Poongar Traditional Rice" 
+            <img src="images/brown-rice.jpg" 
+                 alt="Brown Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Traditional Grain
+                Active Germ Bran
               </span>
             </div>
 
@@ -952,14 +949,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பெண்கள் நல பூங்கார் அரிசி</span>
+                <span>கைக்குத்தல் பழுப்பு அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Poongar Traditional Rice
+              Brown Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Cherished regional red rice variety traditionally prepared for nourishing maternal kanji and soft idlis.
+              Whole grain unpolished brown rice with the outer husk removed while the living germ and vitamin-rich aleurone layer remain untouched.
             </p>
           </div>
 
@@ -967,11 +964,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Traditional Grain
+                B-Complex Vitamins
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Mineral Rich
+                Complex Carbs
               </span>
             
           </div>
@@ -1040,14 +1037,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80" 
-                 alt="Wood-Pressed Sesame Oil (Gingelly)" 
+            <img src="images/black-rice.jpg" 
+                 alt="Black Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Vaagai Chekku
+                Superfood Anthocyanin
               </span>
             </div>
 
@@ -1061,14 +1058,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>மரச்செக்கு நாட்டு நல்லெண்ணெய்</span>
+                <span>பாரம்பரிய கருப்பு கவுனி அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Wood-Pressed Sesame Oil (Gingelly)
+              Black Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Slow-extracted in traditional Vaagai wooden chekkus using native black sesame seeds and pure palm jaggery.
+              The emperor grain of South India. Deep purple-black native rice packed with more anthocyanin antioxidants than blueberries.
             </p>
           </div>
 
@@ -1076,11 +1073,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Cold Pressed
+                Antioxidant Powerhouse
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Palm Jaggery Mixed
+                Anti-Inflammatory
               </span>
             
           </div>
@@ -1104,19 +1101,19 @@
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-7', 0)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
-                  500ml
+                  500g
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-7', 1)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  1 Litre
+                  1 Kg
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-7', 2)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  5 Litre Can
+                  5 Kg
                 </button>
               
             </div>
@@ -1149,14 +1146,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80" 
-                 alt="Wood-Pressed Groundnut Oil" 
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Bamboo Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Cold Pressed
+                Rare Forest Harvest
               </span>
             </div>
 
@@ -1170,14 +1167,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>மரச்செக்கு சுத்தமான கடலை எண்ணெய்</span>
+                <span>மூங்கில் அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Wood-Pressed Groundnut Oil
+              Bamboo Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Cold-pressed from sun-dried native Theni groundnuts. Characteristic nutty aroma with a high smoke point.
+              A rare ecological harvest obtained from the seeds of flowering wild bamboo shoots at the end of their lifespan in Western Ghats forests.
             </p>
           </div>
 
@@ -1185,11 +1182,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Heart Healthy
+                Joint & Bone Care
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Zero Cholesterol
+                High Plant Protein
               </span>
             
           </div>
@@ -1213,19 +1210,19 @@
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-8', 0)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
-                  500ml
+                  500g
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-8', 1)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  1 Litre
+                  1 Kg
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-8', 2)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  5 Litre Can
+                  5 Kg
                 </button>
               
             </div>
@@ -1258,14 +1255,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" 
-                 alt="Sprouted Ragi Flour (Stone Ground)" 
+            <img src="images/arubatham-kuruvai-rice.jpg" 
+                 alt="Arubatham Kuruvai Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Stone Milled
+                Short-Cycle Heritage
               </span>
             </div>
 
@@ -1279,14 +1276,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>முளைகட்டிய கேழ்வரகு மாவு</span>
+                <span>அறுபதாம் குறுவை அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Sprouted Ragi Flour (Stone Ground)
+              Arubatham Kuruvai Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Sprouted native finger millets, sun-dried and stone ground at low RPM to preserve dietary calcium and vitamins.
+              Quick-maturing 60-day heritage rice (Arubatham = sixty, Kuruvai = short term) prized for light digestion and quick rejuvenation.
             </p>
           </div>
 
@@ -1294,11 +1291,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Bioavailable Calcium
+                Post-Illness Recovery
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Family Friendly
+                Easy on Digestion
               </span>
             
           </div>
@@ -1367,14 +1364,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80" 
-                 alt="Traditional 24-Ingredient Health Mix" 
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" 
+                 alt="Karun Kuruvai Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Whole Grain Blend
+                Medicinal Heritage
               </span>
             </div>
 
@@ -1388,14 +1385,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பாரம்பரிய சத்து மாவு (24 தானியங்கள்)</span>
+                <span>கருங்குறுவை மூலிகை அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Traditional 24-Ingredient Health Mix
+              Karun Kuruvai Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Nourishing blend of 24 slow-roasted millets, pulses, almonds, cashews, cardamoms, and native grains.
+              Deeply pigmented dark-red medicinal rice celebrated in ancient Siddha medicine. Regarded as an elixir grain for building bodily resistance.
             </p>
           </div>
 
@@ -1403,11 +1400,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Balanced Nutrition
+                Siddha Medicinal Grain
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Zero Sugar Added
+                Detoxifying
               </span>
             
           </div>
@@ -1443,7 +1440,7 @@
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-10', 2)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  2 Kg Pack
+                  5 Kg
                 </button>
               
             </div>
@@ -1476,14 +1473,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" 
-                 alt="Theni Heritage Rice Starter Box" 
+            <img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=800&q=80" 
+                 alt="Ilupai Poo Samba Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Curated Bundle
+                Floral Fragrance
               </span>
             </div>
 
@@ -1497,14 +1494,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பாரம்பரிய அரிசி சிறப்பு காம்போ</span>
+                <span>இலுப்பைப்பூ சம்பா அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Theni Heritage Rice Starter Box
+              Ilupai Poo Samba Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              Curated 1kg pack each of Karuppu Kavuni, Mappillai Samba, and Poongar Rice. Complete kitchen grain introduction.
+              Fragrant heritage rice variety emitting the subtle, comforting aroma of native Mahua (Iluppai) tree flowers when steamed.
             </p>
           </div>
 
@@ -1512,11 +1509,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                3 Grains in 1
+                Aromatic Healing
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Heritage Rotation
+                Joint Mobility
               </span>
             
           </div>
@@ -1540,13 +1537,19 @@
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-11', 0)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
-                  3 Kg Box (1kg x 3)
+                  500g
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-11', 1)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  6 Kg Family Box (2kg x 3)
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-11', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
                 </button>
               
             </div>
@@ -1579,14 +1582,14 @@
         <div>
           <!-- Product Photography -->
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" 
-                 alt="Pancharatna 5-Millet Sampler Pack" 
+            <img src="images/kaikuthal-rice.jpg" 
+                 alt="Kaikuthal Rice" 
                  loading="lazy"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             
             <div class="absolute top-2.5 left-2.5">
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
-                Millet Sampler
+                Hand-Pounded Classic
               </span>
             </div>
 
@@ -1600,14 +1603,14 @@
           <div class="space-y-1 mb-2">
             
               <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>பஞ்சரத்ன 5 சிறுதானிய தொகுப்பு</span>
+                <span>கைக்குத்தல் பாரம்பரிய அரிசி</span>
               </div>
             
             <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
-              Pancharatna 5-Millet Sampler Pack
+              Kaikuthal Rice
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-              500g each of Barnyard (Kuthiraivali), Foxtail (Thinai), Kodo (Varagu), Little (Samai), and Finger Millet (Ragi).
+              Authentic stone-dehusked native grain milled without modern polishers, preserving 100% of the live germ and wholesome bran.
             </p>
           </div>
 
@@ -1615,11 +1618,11 @@
           <div class="flex flex-wrap gap-1.5 mb-3">
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                5 Millets in 1
+                Stone Dehusked
               </span>
             
               <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
-                Pure Theni Harvest
+                100% Unpolished
               </span>
             
           </div>
@@ -1643,13 +1646,19 @@
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-12', 0)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
-                  2.5 Kg Pack (500g x 5)
+                  500g
                 </button>
               
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('prod-12', 1)" 
                         class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
-                  5 Kg Pack (1kg x 5)
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-12', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
                 </button>
               
             </div>
@@ -1666,6 +1675,1314 @@
 
             <button type="button"
                     onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-12')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-13"
+           onclick="openQuickView('prod-13', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/foxtail-millet.jpg" 
+                 alt="Foxtail Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Nerve & Muscle Care
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு தினை</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Foxtail Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Golden yellow unpolished Foxtail grain, packed with plant protein and slow-digesting complex carbs.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                High Protein
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Magnesium Rich
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-13')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-13', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-13', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-13', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-13', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-13')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-14"
+           onclick="openQuickView('prod-14', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" 
+                 alt="Finger Millet (Ragi)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Calcium Powerhouse
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு கேழ்வரகு (கேப்பை)</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Finger Millet (Ragi)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Whole unpolished Finger Millet grains, rich in bioavailable calcium—offering over 340mg calcium per 100g.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                High Bioavailable Calcium
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Bone Health
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-14')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-14', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-14', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-14', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-14', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-14')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-15"
+           onclick="openQuickView('prod-15', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/kodo-millet.jpg" 
+                 alt="Kodo Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Fiber & Lecithin
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு வரகு</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Kodo Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Ancient unpolished Varagu grain, deep greyish-brown with high dietary fiber and rich plant lecithin.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Low Glycemic Index
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Nervous Support
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-15')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-15', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-15', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-15', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-15', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-15')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-16"
+           onclick="openQuickView('prod-16', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/little-millet.jpg" 
+                 alt="Little Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Gentle & Light
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு சாமை</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Little Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Dainty, micro-grained native Samai. Softest of all millets, incredibly easy on digestion and quick to prepare.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Fast Digesting
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Phosphorus Rich
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-16')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-16', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-16', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-16', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-16', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-16')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-17"
+           onclick="openQuickView('prod-17', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/barnyard-millet.jpg" 
+                 alt="Barnyard Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Highest Fiber Grain
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு குதிரைவாலி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Barnyard Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Creamy unpolished Kuthiraivali grain. Boasts the lowest carbohydrate content and fastest digestibility among all grains.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Ultra High Fiber
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Weight Management
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-17')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-17', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-17', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-17', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-17', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-17')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-18"
+           onclick="openQuickView('prod-18', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80" 
+                 alt="Proso Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                High Protein Millet
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு பனிவரகு</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Proso Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Nutrient-dense native Panivaragu grain, carrying the highest natural protein ratio (12.5%) and rich vitamin B3 (niacin).
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                12.5% Plant Protein
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Cardio Health
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-18')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-18', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-18', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-18', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-18', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-18')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-19"
+           onclick="openQuickView('prod-19', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Pearl Millet (Bajra)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Summer Cooling & Iron
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு கம்பு</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Pearl Millet (Bajra)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Traditional greyish-green Kambu grains. Celebrated in Tamil culture for the cooling, probiotic staple Kambu Koozh.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                High Dietary Iron
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Body Cooling
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-19')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-19', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-19', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-19', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-19', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-19')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-20"
+           onclick="openQuickView('prod-20', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" 
+                 alt="Brown Top Millet" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                The Detox Super-Grain
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>பழுப்பு தினை (பலவந்தம்)</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Brown Top Millet
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Rare positive millet grain packed with an extraordinary 12.5g of fiber per 100g. The premier digestive cleanser.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                12.5% Super Fiber
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Gut Cleansing
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-20')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-20', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-20', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-20', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-20', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-20')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-21"
+           onclick="openQuickView('prod-21', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/foxtail-millet.jpg" 
+                 alt="Thinai Rice (Foxtail Millet Rice)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Direct Table Grain
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>தினை அரிசி</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Thinai Rice (Foxtail Millet Rice)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Fully dehusked, cleaned Foxtail millet grain ready for direct boiling as a 100% wholesome substitute for white table rice.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Rice Substitute
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Low Glycemic Load
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-21')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-21', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-21', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-21', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-21', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-21')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-22"
+           onclick="openQuickView('prod-22', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="images/kodo-millet.jpg" 
+                 alt="Kodo Millet Semi Rice" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Coarse Milled Rava
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>வரகு அரிசி / ரவை</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Kodo Millet Semi Rice
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Specially crushed unpolished Kodo millet semolina, prepared for instant wholesome upma, kesari, and savory khichdi.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Quick Cooking
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Lecithin Rich
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-22')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-22', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-22', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-22', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-22', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-22')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-23"
+           onclick="openQuickView('prod-23', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80" 
+                 alt="Maize (Whole Dried Field Maize)" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Whole Field Corn
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>நாட்டு மக்காச்சோளம்</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Maize (Whole Dried Field Maize)
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Whole sun-dried heritage field corn kernels from Theni farmlands. Non-GMO, naturally dried for stone milling or roasting.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Non-GMO Whole Grain
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Lutein & Zeaxanthin
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-23')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-23', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-23', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-23', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-23', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-23')" 
+                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="Order selected pack on WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+              <span>Order on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="prod-24"
+           onclick="openQuickView('prod-24', 0)">
+        <div>
+          <!-- Product Photography -->
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+            <img src="https://images.unsplash.com/photo-1600336153113-d66c79de3e91?auto=format&fit=crop&w=800&q=80" 
+                 alt="Yellow Corn Kernels" 
+                 loading="lazy"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+                Cleaned Golden Grain
+              </span>
+            </div>
+
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
+            </div>
+          </div>
+
+          <!-- Product Titles & Heritage Info -->
+          <div class="space-y-1 mb-2">
+            
+              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
+                <span>மஞ்சள் மக்காச்சோள மணிகள்</span>
+              </div>
+            
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+              Yellow Corn Kernels
+            </h3>
+            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+              Carefully cleaned, sorted golden corn grains harvested fresh from local fields, sun-cured to lock in natural sweetness and fiber.
+            </p>
+          </div>
+
+          <!-- Dietary & Nutritional Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Sun-Dried Golden Grain
+              </span>
+            
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+                Carotenoids Rich
+              </span>
+            
+          </div>
+        </div>
+
+        <div>
+          <!-- Available Pack Sizes & Manual Weight Selection -->
+          <div class="mb-3.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
+              <button type="button" 
+                      onclick="event.stopPropagation(); openQuickViewWithManual('prod-24')" 
+                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      title="Need custom kg or bulk quantity?">
+                <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
+                <span>+ Manual Kg</span>
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-24', 0)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400">
+                  500g
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-24', 1)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  1 Kg
+                </button>
+              
+                <button type="button"
+                        onclick="event.stopPropagation(); selectProductVariant('prod-24', 2)" 
+                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200">
+                  5 Kg
+                </button>
+              
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Order Action -->
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('prod-24', 0)"
+                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
+              <span>Details</span>
+            </button>
+
+            <button type="button"
+                    onclick="event.stopPropagation(); orderProductOnWhatsApp('prod-24')" 
                     class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
                     title="Order selected pack on WhatsApp">
               <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
@@ -2293,7 +3610,7 @@
   </div>
 
   <!-- Application Scripts -->
-  <script src="products.js?v=2.6"></script>
-  <script src="app.js?v=2.6"></script>
+  <script src="products.js?v=2.7"></script>
+  <script src="app.js?v=2.7"></script>
 </body>
 </html>

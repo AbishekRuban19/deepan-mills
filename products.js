@@ -1,4 +1,4 @@
-// Deepan Mills - Product Catalog Data
+// Deepan Mills - Complete Product Catalog Data
 // Sourced from authentic heritage grain fields and agro-processing in Theni, Tamil Nadu.
 // All nutritional values and milling descriptions are verified against standard Indian food composition tables.
 
@@ -7,18 +7,177 @@ if (typeof window === 'undefined') {
 }
 
 window.PRODUCTS = [
+  // ==========================================
+  // 1. RICE PRODUCTS (12 Items)
+  // ==========================================
   {
     id: 'prod-1',
-    name: 'Karuppu Kavuni Black Rice',
+    name: 'Thooyamalli Rice',
+    tamilName: 'தூயமல்லி பாரம்பரிய அரிசி',
+    hindiName: 'थूयमल्ली सफेद चावल',
+    category: 'rice',
+    badge: 'Aromatic Heritage',
+    shortDesc: 'Traditional white native rice, named after delicate jasmine buds (Thooya = Pure, Malli = Jasmine). Naturally pest-resistant and light on the palate.',
+    image: 'images/thooyamalli-rice.jpg',
+    tags: ['Jasmine White Grain', 'Easy Digestion', 'Immunity Boost'],
+    healthBenefit: 'Rich in plant antioxidants and essential micronutrients. Strengthens the internal nervous system and supports natural immune vitality.',
+    cookingRatio: '1 Cup Rice : 2.5 Cups Water (Soak 30–45 mins. Soft, fluffy texture, ideal for daily meals and biryani).',
+    nutrition: {
+      calories: '350 kcal',
+      fiber: '3.8 g',
+      protein: '8.2 g',
+      iron: '2.5 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.9,
+    reviewsCount: 164
+  },
+  {
+    id: 'prod-2',
+    name: 'Kerala Mattai Rice',
+    tamilName: 'கேரளா மட்டை அரிசி',
+    hindiName: 'केरल मट्टा लाल चावल',
+    category: 'rice',
+    badge: 'Nutrient Parboiled',
+    shortDesc: 'Plump, reddish-brown indigenous parboiled rice from the Western Ghats belt. Unpolished with the nutrient-packed reddish pericarp retained.',
+    image: 'images/kerala-mattai-rice.jpg',
+    tags: ['Hearty Texture', 'High Magnesium', 'Low Glycemic Load'],
+    healthBenefit: 'Abundant in dietary magnesium, zinc, and complex carbohydrates. Delivers sustained energy and supports cardiovascular health.',
+    cookingRatio: '1 Cup Rice : 4 Cups Water (Pre-soak for 1 hour. Hearty, chewy grain perfect for curries, sambar, and fish gravies).',
+    nutrition: {
+      calories: '348 kcal',
+      fiber: '4.5 g',
+      protein: '7.9 g',
+      iron: '3.1 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 132
+  },
+  {
+    id: 'prod-3',
+    name: 'Kattuyanam Rice',
+    tamilName: 'காட்டுயானம் பாரம்பரிய அரிசி',
+    hindiName: 'काट्टूयानम लाल चावल (डायबिटीज केयर)',
+    category: 'rice',
+    badge: 'Diabetes Care',
+    shortDesc: 'Legendary wild wetland rice (Kattu Yanam = wild elephant), growing tall in traditional wetlands. Known for unmatched stamina and glycemic control.',
+    image: 'https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80',
+    tags: ['Low Glycemic Index', 'High Dietary Fiber', 'Vitality & Stamina'],
+    healthBenefit: 'Celebrated in traditional medicine for extremely low glycemic index and high anthocyanins. Slows carbohydrate digestion, helping stabilize blood glucose.',
+    cookingRatio: '1 Cup Rice : 3.5 Cups Water (Soak for 4–6 hours. Excellent for fermented kanji, idli-dosa batter, and porridge).',
+    nutrition: {
+      calories: '340 kcal',
+      fiber: '5.2 g',
+      protein: '8.8 g',
+      iron: '4.5 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.9,
+    reviewsCount: 140
+  },
+  {
+    id: 'prod-4',
+    name: 'Kullakar Rice',
+    tamilName: 'குள்ளக்கார் பாரம்பரிய அரிசி',
+    hindiName: 'कुल्लाकार लाल चावल (महिला स्वास्थ्य)',
+    category: 'rice',
+    badge: "Women's Wellness",
+    shortDesc: 'Ancient short-duration red rice, naturally resilient to climate variations. Rich in complex zinc, iron, and antioxidant bio-flavonoids.',
+    image: 'images/kullakar-rice.jpg',
+    tags: ['Antioxidant Rich', 'Postnatal Nutrition', 'Zinc & Iron'],
+    healthBenefit: "Traditionally recommended for women's reproductive health, postnatal recuperation, and building natural red blood cells.",
+    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak for 2 hours. Produces soft rice, traditional porridge, or red rice idlis).',
+    nutrition: {
+      calories: '346 kcal',
+      fiber: '4.4 g',
+      protein: '7.6 g',
+      iron: '4.8 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 118
+  },
+  {
+    id: 'prod-5',
+    name: 'Red Rice',
+    tamilName: 'நாட்டு சிவப்பு அரிசி',
+    hindiName: 'पारंपरिक लाल चावल',
+    category: 'rice',
+    badge: 'Whole Grain Staple',
+    shortDesc: 'Classic unpolished native red rice, slow-dehusked in Theni stone mills to preserve 100% of the reddish antioxidant bran layer.',
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+    tags: ['100% Unpolished', 'Natural Bran Intact', 'Heart Healthy'],
+    healthBenefit: 'Packed with proanthocyanidins and soluble fiber that help manage LDL cholesterol and support smooth bowel regularity.',
+    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak for 1–2 hours before pressure cooking or open pot boiling).',
+    nutrition: {
+      calories: '352 kcal',
+      fiber: '4.1 g',
+      protein: '7.5 g',
+      iron: '3.6 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 155
+  },
+  {
+    id: 'prod-6',
+    name: 'Brown Rice',
+    tamilName: 'கைக்குத்தல் பழுப்பு அரிசி',
+    hindiName: 'अनपॉलिश भूरा चावल',
+    category: 'rice',
+    badge: 'Active Germ Bran',
+    shortDesc: 'Whole grain unpolished brown rice with the outer husk removed while the living germ and vitamin-rich aleurone layer remain untouched.',
+    image: 'images/brown-rice.jpg',
+    tags: ['B-Complex Vitamins', 'Complex Carbs', 'Zero Polish'],
+    healthBenefit: 'Excellent source of vitamin B1 (thiamine), phosphorus, and manganese. Provides steady metabolic energy without sluggishness.',
+    cookingRatio: '1 Cup Rice : 2.5 Cups Water (Soak for 45 mins. Fluffy brown grain suitable for daily table rice).',
+    nutrition: {
+      calories: '355 kcal',
+      fiber: '3.9 g',
+      protein: '7.8 g',
+      iron: '2.8 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 142
+  },
+  {
+    id: 'prod-7',
+    name: 'Black Rice',
     tamilName: 'பாரம்பரிய கருப்பு கவுனி அரிசி',
     hindiName: 'पारंपरिक काला चावल (कौनी)',
     category: 'rice',
-    badge: 'Heritage Harvest',
-    shortDesc: 'Traditional unpolished black rice, slow-dehusked in Theni to preserve the intact dark purple-black bran layer.',
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
-    tags: ['Antioxidant Rich', 'Low Glycemic Index', '100% Unpolished'],
-    healthBenefit: 'Rich in anthocyanin polyphenols, plant antioxidants, and complex dietary fiber with a low glycemic index.',
-    cookingRatio: '1 Cup Rice : 3.5 Cups Water (Soak for 4 to 6 hours before cooking).',
+    badge: 'Superfood Anthocyanin',
+    shortDesc: 'The emperor grain of South India. Deep purple-black native rice packed with more anthocyanin antioxidants than blueberries.',
+    image: 'images/black-rice.jpg',
+    tags: ['Antioxidant Powerhouse', 'Anti-Inflammatory', 'Low GI'],
+    healthBenefit: 'High polyphenol concentration fights oxidative stress, promotes liver detox, and supports stable cardiovascular health.',
+    cookingRatio: '1 Cup Rice : 3.5 Cups Water (Soak for 5–6 hours. Wonderful for Kavuni sweet porridge, halwa, or savory bowls).',
     nutrition: {
       calories: '345 kcal',
       fiber: '4.8 g',
@@ -26,77 +185,159 @@ window.PRODUCTS = [
       iron: '3.9 mg'
     },
     variants: [
-      { weight: '500g', price: 110, mrp: 135, inStock: true },
-      { weight: '1 Kg', price: 210, mrp: 260, inStock: true },
-      { weight: '5 Kg', price: 990, mrp: 1250, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
-    reviewsCount: 148
+    reviewsCount: 198
   },
   {
-    id: 'prod-2',
-    name: 'Mappillai Samba Red Rice',
-    tamilName: 'மாப்பிள்ளை சம்பா அரிசி',
-    hindiName: 'मापिल्लई सांबा लाल चावल',
+    id: 'prod-8',
+    name: 'Bamboo Rice',
+    tamilName: 'மூங்கில் அரிசி',
+    hindiName: 'बांस का चावल (जंगली बीज)',
     category: 'rice',
-    badge: 'Heritage Classic',
-    shortDesc: 'Traditional unpolished red rice rich in zinc and dietary iron, traditionally enjoyed for sustained physical vitality.',
-    image: 'https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80',
-    tags: ['Iron & Zinc', 'Native Red Grain', 'Sustained Energy'],
-    healthBenefit: 'Rich in natural dietary minerals including zinc and iron; traditional staple for nourishing porridge (kanji).',
-    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak 3 hours; ideal for lunch or fermented porridge / pazhankanji).',
+    badge: 'Rare Forest Harvest',
+    shortDesc: 'A rare ecological harvest obtained from the seeds of flowering wild bamboo shoots at the end of their lifespan in Western Ghats forests.',
+    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
+    tags: ['Joint & Bone Care', 'High Plant Protein', 'Wild Forest Grain'],
+    healthBenefit: 'Traditionally revered for relieving joint stiffness, backache, and arthritis discomfort due to high natural calcium and silica.',
+    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak for 4–5 hours. Cook like sticky rice or prepare sweet bamboo rice kheer).',
+    nutrition: {
+      calories: '338 kcal',
+      fiber: '5.6 g',
+      protein: '9.2 g',
+      iron: '5.1 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.9,
+    reviewsCount: 94
+  },
+  {
+    id: 'prod-9',
+    name: 'Arubatham Kuruvai Rice',
+    tamilName: 'அறுபதாம் குறுவை அரிசி',
+    hindiName: 'अरुबथम कुरुवई चावल',
+    category: 'rice',
+    badge: 'Short-Cycle Heritage',
+    shortDesc: 'Quick-maturing 60-day heritage rice (Arubatham = sixty, Kuruvai = short term) prized for light digestion and quick rejuvenation.',
+    image: 'images/arubatham-kuruvai-rice.jpg',
+    tags: ['Post-Illness Recovery', 'Easy on Digestion', 'Natural Stamina'],
+    healthBenefit: 'Gentle on sensitive digestive tracts, highly recommended for children, the elderly, and convalescent recovery.',
+    cookingRatio: '1 Cup Rice : 2.5 Cups Water (Soak 30 mins. Cooks quickly into soft, palatable daily rice).',
     nutrition: {
       calories: '350 kcal',
-      fiber: '4.2 g',
-      protein: '7.8 g',
-      iron: '4.2 mg'
+      fiber: '3.6 g',
+      protein: '7.4 g',
+      iron: '2.7 mg'
     },
     variants: [
-      { weight: '500g', price: 95, mrp: 120, inStock: true },
-      { weight: '1 Kg', price: 180, mrp: 230, inStock: true },
-      { weight: '5 Kg', price: 850, mrp: 1100, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
-    reviewsCount: 112
+    reviewsCount: 110
   },
   {
-    id: 'prod-3',
-    name: 'Kuthiraivali (Barnyard Millet)',
-    tamilName: 'நாட்டு குதிரைவாலி அரிசி',
-    hindiName: 'सांवा / समा के चावल (Barnyard)',
-    category: 'millet',
-    badge: 'High Fiber',
-    shortDesc: 'Unpolished Barnyard Millet. Light and easily digestible with over 10g of natural dietary fiber per 100g.',
-    image: 'https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=800&q=80',
-    tags: ['High Dietary Fiber', 'Low Glycemic Load', 'Gluten Free'],
-    healthBenefit: 'High dietary fiber and low glycemic load support steady digestion without steep post-meal sugar spikes.',
-    cookingRatio: '1 Cup Millet : 2.5 Cups Water (Soak 20 mins; ready in 12 mins in cooker).',
+    id: 'prod-10',
+    name: 'Karun Kuruvai Rice',
+    tamilName: 'கருங்குறுவை மூலிகை அரிசி',
+    hindiName: 'करुंकुरुवई काला-लाल चावल',
+    category: 'rice',
+    badge: 'Medicinal Heritage',
+    shortDesc: 'Deeply pigmented dark-red medicinal rice celebrated in ancient Siddha medicine. Regarded as an elixir grain for building bodily resistance.',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+    tags: ['Siddha Medicinal Grain', 'Detoxifying', 'Immune Vitality'],
+    healthBenefit: 'Known in traditional wellness for detoxifying body tissues, supporting nervous vigor, and treating chronic skin allergies.',
+    cookingRatio: '1 Cup Rice : 3.5 Cups Water (Soak 4 hours. Ideal for restorative kanji, herbal porridges, and lunch staple).',
     nutrition: {
-      calories: '307 kcal',
-      fiber: '10.1 g',
-      protein: '6.2 g',
-      iron: '5.0 mg'
+      calories: '342 kcal',
+      fiber: '4.7 g',
+      protein: '8.4 g',
+      iron: '4.6 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
-    reviewsCount: 96
+    reviewsCount: 125
   },
   {
-    id: 'prod-4',
-    name: 'Thinai (Foxtail Millet)',
-    tamilName: 'பாரம்பரிய தினை அரிசி',
+    id: 'prod-11',
+    name: 'Ilupai Poo Samba Rice',
+    tamilName: 'இலுப்பைப்பூ சம்பா அரிசி',
+    hindiName: 'इलुप्पैपू सांबा सुगंधित चावल',
+    category: 'rice',
+    badge: 'Floral Fragrance',
+    shortDesc: 'Fragrant heritage rice variety emitting the subtle, comforting aroma of native Mahua (Iluppai) tree flowers when steamed.',
+    image: 'https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=800&q=80',
+    tags: ['Aromatic Healing', 'Joint Mobility', 'Traditional Remedy'],
+    healthBenefit: 'Traditionally valued for easing chronic joint stiffness, muscular fatigue, and promoting tranquil, restorative sleep.',
+    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak 1 hour. Deliciously aromatic rice, great with native dal and sambar).',
+    nutrition: {
+      calories: '349 kcal',
+      fiber: '3.9 g',
+      protein: '7.7 g',
+      iron: '3.0 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 88
+  },
+  {
+    id: 'prod-12',
+    name: 'Kaikuthal Rice',
+    tamilName: 'கைக்குத்தல் பாரம்பரிய அரிசி',
+    hindiName: 'हाथ से कुटा हुआ चावल',
+    category: 'rice',
+    badge: 'Hand-Pounded Classic',
+    shortDesc: 'Authentic stone-dehusked native grain milled without modern polishers, preserving 100% of the live germ and wholesome bran.',
+    image: 'images/kaikuthal-rice.jpg',
+    tags: ['Stone Dehusked', '100% Unpolished', 'Natural Fiber'],
+    healthBenefit: 'Preserves the full vitamin B complex, dietary fiber, and natural minerals stripped away by industrial white rice milling.',
+    cookingRatio: '1 Cup Rice : 3 Cups Water (Soak for 1 hour. Wholesome grain with satisfying earthy chew).',
+    nutrition: {
+      calories: '351 kcal',
+      fiber: '4.0 g',
+      protein: '8.0 g',
+      iron: '3.2 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 147
+  },
+
+  // ==========================================
+  // 2. MILLET PRODUCTS (10 Items)
+  // ==========================================
+  {
+    id: 'prod-13',
+    name: 'Foxtail Millet',
+    tamilName: 'நாட்டு தினை',
     hindiName: 'कंगनी / राल (Foxtail)',
     category: 'millet',
-    badge: 'Native Millet',
-    shortDesc: 'Golden unpolished Foxtail millet. Ancient grain rich in dietary magnesium and natural plant proteins.',
-    image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80',
-    tags: ['Magnesium Rich', 'Plant Protein', 'Gluten Free'],
-    healthBenefit: 'Good plant source of magnesium, dietary fiber, and plant proteins for wholesome daily meals.',
-    cookingRatio: '1 Cup Millet : 2.5 Cups Water (Perfect for Millet Pongal, Upma, and Payasam).',
+    badge: 'Nerve & Muscle Care',
+    shortDesc: 'Golden yellow unpolished Foxtail grain, packed with plant protein and slow-digesting complex carbs.',
+    image: 'images/foxtail-millet.jpg',
+    tags: ['High Protein', 'Magnesium Rich', 'Gluten Free'],
+    healthBenefit: 'Rich in dietary magnesium and vitamin B12. Helps tone muscular coordination and steady insulin release.',
+    cookingRatio: '1 Cup Millet : 2.5 Cups Water (Soak 20 mins; ready in 12–15 mins for upma, pongal, or pulao).',
     nutrition: {
       calories: '331 kcal',
       fiber: '8.0 g',
@@ -104,253 +345,301 @@ window.PRODUCTS = [
       iron: '2.8 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
-    rating: 4.7,
-    reviewsCount: 84
+    rating: 4.9,
+    reviewsCount: 130
   },
   {
-    id: 'prod-5',
-    name: 'Varagu (Kodo Millet)',
-    tamilName: 'செறிவூட்டப்படாத வரகு அரிசி',
-    hindiName: 'कोदो बाजरा (Kodo)',
+    id: 'prod-14',
+    name: 'Finger Millet (Ragi)',
+    tamilName: 'நாட்டு கேழ்வரகு (கேப்பை)',
+    hindiName: 'रागी (फिंगर मिलेट)',
     category: 'millet',
-    badge: 'Pure & Unpolished',
-    shortDesc: 'Wholesome grain with high polyphenols and fiber. A balanced traditional replacement for polished white rice.',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
-    tags: ['Complex Carbs', 'High Fiber', 'Unpolished'],
-    healthBenefit: 'Complex dietary carbohydrates provide slow, sustained energy release throughout the day.',
-    cookingRatio: '1 Cup Millet : 3 Cups Water (Cook just like normal rice for sambar/rasam).',
-    nutrition: {
-      calories: '309 kcal',
-      fiber: '9.0 g',
-      protein: '8.3 g',
-      iron: '3.5 mg'
-    },
-    variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
-    ],
-    rating: 4.8,
-    reviewsCount: 79
-  },
-  {
-    id: 'prod-6',
-    name: 'Poongar Traditional Rice',
-    tamilName: 'பெண்கள் நல பூங்கார் அரிசி',
-    hindiName: 'पूनगार महिला स्वास्थ्य चावल',
-    category: 'rice',
-    badge: 'Traditional Grain',
-    shortDesc: 'Cherished regional red rice variety traditionally prepared for nourishing maternal kanji and soft idlis.',
-    image: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=800&q=80',
-    tags: ['Traditional Grain', 'Mineral Rich', 'Easily Digestible'],
-    healthBenefit: 'Traditional nutrient-dense red rice variety naturally rich in iron and trace minerals.',
-    cookingRatio: '1 Cup Rice : 3 Cups Water (Excellent for Idli/Dosa batter and soft lunch rice).',
-    nutrition: {
-      calories: '340 kcal',
-      fiber: '3.9 g',
-      protein: '7.5 g',
-      iron: '4.8 mg'
-    },
-    variants: [
-      { weight: '500g', price: 95, mrp: 125, inStock: true },
-      { weight: '1 Kg', price: 180, mrp: 240, inStock: true },
-      { weight: '5 Kg', price: 850, mrp: 1150, inStock: true }
-    ],
-    rating: 4.9,
-    reviewsCount: 91
-  },
-  {
-    id: 'prod-7',
-    name: 'Wood-Pressed Sesame Oil (Gingelly)',
-    tamilName: 'மரச்செக்கு நாட்டு நல்லெண்ணெய்',
-    hindiName: 'कोल्ड प्रेस्ड तिल का तेल',
-    category: 'oil',
-    badge: 'Vaagai Chekku',
-    shortDesc: 'Slow-extracted in traditional Vaagai wooden chekkus using native black sesame seeds and pure palm jaggery.',
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80',
-    tags: ['Cold Pressed', 'Palm Jaggery Mixed', '100% Unrefined'],
-    healthBenefit: 'Extracted below 45°C without chemical solvents, preserving natural sesamol antioxidants and aroma.',
-    cookingRatio: 'Use for traditional tempering, dosas, gravies, and morning wellness.',
-    nutrition: {
-      calories: '884 kcal / 100ml',
-      fiber: '0 g',
-      protein: '0 g',
-      iron: 'Natural Vit E'
-    },
-    variants: [
-      { weight: '500ml', price: 220, mrp: 260, inStock: true },
-      { weight: '1 Litre', price: 420, mrp: 490, inStock: true },
-      { weight: '5 Litre Can', price: 1999, mrp: 2400, inStock: true }
-    ],
-    rating: 4.9,
-    reviewsCount: 167
-  },
-  {
-    id: 'prod-8',
-    name: 'Wood-Pressed Groundnut Oil',
-    tamilName: 'மரச்செக்கு சுத்தமான கடலை எண்ணெய்',
-    hindiName: 'कोल्ड प्रेस्ड मूंगफली तेल',
-    category: 'oil',
-    badge: 'Cold Pressed',
-    shortDesc: 'Cold-pressed from sun-dried native Theni groundnuts. Characteristic nutty aroma with a high smoke point.',
-    image: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80',
-    tags: ['Heart Healthy', 'Zero Cholesterol', 'No Chemical Refining'],
-    healthBenefit: 'Monounsaturated fatty acids (MUFA) and natural phytosterols, unheated and unrefined.',
-    cookingRatio: 'Best all-purpose healthy Indian cooking and deep-frying oil.',
-    nutrition: {
-      calories: '884 kcal / 100ml',
-      fiber: '0 g',
-      protein: '0 g',
-      iron: 'Rich in Phytosterols'
-    },
-    variants: [
-      { weight: '500ml', price: 160, mrp: 195, inStock: true },
-      { weight: '1 Litre', price: 310, mrp: 370, inStock: true },
-      { weight: '5 Litre Can', price: 1480, mrp: 1800, inStock: true }
-    ],
-    rating: 4.8,
-    reviewsCount: 134
-  },
-  {
-    id: 'prod-9',
-    name: 'Sprouted Ragi Flour (Stone Ground)',
-    tamilName: 'முளைகட்டிய கேழ்வரகு மாவு',
-    hindiName: 'अंकुरित रागी का आटा (स्टोन ग्राउंड)',
-    category: 'flour',
-    badge: 'Stone Milled',
-    shortDesc: 'Sprouted native finger millets, sun-dried and stone ground at low RPM to preserve dietary calcium and vitamins.',
+    badge: 'Calcium Powerhouse',
+    shortDesc: 'Whole unpolished Finger Millet grains, rich in bioavailable calcium—offering over 340mg calcium per 100g.',
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
-    tags: ['Bioavailable Calcium', 'Family Friendly', 'Stone Ground'],
-    healthBenefit: 'Sprouting finger millet increases the bioavailability of naturally occurring calcium (approx 344mg/100g).',
-    cookingRatio: 'Mix 2 tbsp in cold water, cook on low flame for 5 mins for silky porridge (kanji) or soft rotis.',
+    tags: ['High Bioavailable Calcium', 'Bone Health', 'Gluten Free'],
+    healthBenefit: 'Unmatched natural calcium source for building strong bone density in growing children and mature adults.',
+    cookingRatio: 'Whole grain: Sprout or grind into fresh ragi flour for mudde, kanji, dosa, or stone-ground porridge.',
     nutrition: {
       calories: '328 kcal',
       fiber: '11.5 g',
       protein: '7.3 g',
-      iron: '6.4 mg'
+      iron: '3.9 mg'
     },
     variants: [
-      { weight: '500g', price: 70, mrp: 90, inStock: true },
-      { weight: '1 Kg', price: 130, mrp: 170, inStock: true },
-      { weight: '5 Kg', price: 600, mrp: 800, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
-    reviewsCount: 105
+    reviewsCount: 175
   },
   {
-    id: 'prod-10',
-    name: 'Traditional 24-Ingredient Health Mix',
-    tamilName: 'பாரம்பரிய சத்து மாவு (24 தானியங்கள்)',
-    hindiName: 'पारंपरिक सेहत मिक्स (24 अनाज)',
-    category: 'flour',
-    badge: 'Whole Grain Blend',
-    shortDesc: 'Nourishing blend of 24 slow-roasted millets, pulses, almonds, cashews, cardamoms, and native grains.',
-    image: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80',
-    tags: ['Balanced Nutrition', 'Zero Sugar Added', 'Whole Grains'],
-    healthBenefit: 'Wholesome balanced breakfast porridge for school children, elders, and working professionals.',
-    cookingRatio: 'Boil with milk or water, sweeten with jaggery or palm sugar as preferred.',
+    id: 'prod-15',
+    name: 'Kodo Millet',
+    tamilName: 'நாட்டு வரகு',
+    hindiName: 'कोदो मिलेट',
+    category: 'millet',
+    badge: 'Fiber & Lecithin',
+    shortDesc: 'Ancient unpolished Varagu grain, deep greyish-brown with high dietary fiber and rich plant lecithin.',
+    image: 'images/kodo-millet.jpg',
+    tags: ['Low Glycemic Index', 'Nervous Support', 'Gluten Free'],
+    healthBenefit: 'Contains plant lecithin that nourishes the central nervous system and high soluble fiber that stabilizes blood glucose.',
+    cookingRatio: '1 Cup Millet : 2.5 Cups Water (Soak 20 mins. Cooks fluffy, replaces rice in any lunch dish).',
     nutrition: {
-      calories: '390 kcal',
+      calories: '309 kcal',
+      fiber: '9.0 g',
+      protein: '8.3 g',
+      iron: '2.6 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 115
+  },
+  {
+    id: 'prod-16',
+    name: 'Little Millet',
+    tamilName: 'நாட்டு சாமை',
+    hindiName: 'कुटकी (लिटिल मिलेट)',
+    category: 'millet',
+    badge: 'Gentle & Light',
+    shortDesc: 'Dainty, micro-grained native Samai. Softest of all millets, incredibly easy on digestion and quick to prepare.',
+    image: 'images/little-millet.jpg',
+    tags: ['Fast Digesting', 'Phosphorus Rich', 'Gluten Free'],
+    healthBenefit: 'Packed with dietary phosphorus and B-vitamins, making it ideal for detoxifying morning porridge and restorative meals.',
+    cookingRatio: '1 Cup Millet : 2 Cups Water (Soak 15 mins. Perfect for breakfast khichdi, pongal, or idiyappam).',
+    nutrition: {
+      calories: '329 kcal',
       fiber: '7.6 g',
-      protein: '14.2 g',
-      iron: '5.1 mg'
+      protein: '7.7 g',
+      iron: '9.3 mg'
     },
     variants: [
-      { weight: '500g', price: 175, mrp: 220, inStock: true },
-      { weight: '1 Kg', price: 330, mrp: 410, inStock: true },
-      { weight: '2 Kg Pack', price: 630, mrp: 800, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
-    rating: 5.0,
-    reviewsCount: 220
+    rating: 4.8,
+    reviewsCount: 104
   },
   {
-    id: 'prod-11',
-    name: 'Theni Heritage Rice Starter Box',
-    tamilName: 'பாரம்பரிய அரிசி சிறப்பு காம்போ',
-    hindiName: 'पारंपरिक चावल कॉम्बो पैक',
-    category: 'combos',
-    badge: 'Curated Bundle',
-    shortDesc: 'Curated 1kg pack each of Karuppu Kavuni, Mappillai Samba, and Poongar Rice. Complete kitchen grain introduction.',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
-    tags: ['3 Grains in 1', 'Heritage Rotation', 'Free Shipping Eligible'],
-    healthBenefit: 'Provides an authentic introduction to rotating native unpolished rice varieties across the monthly family diet.',
-    cookingRatio: 'Includes cooking guidelines and water ratios for each grain.',
+    id: 'prod-17',
+    name: 'Barnyard Millet',
+    tamilName: 'நாட்டு குதிரைவாலி',
+    hindiName: 'सांवा / समा के चावल (Barnyard)',
+    category: 'millet',
+    badge: 'Highest Fiber Grain',
+    shortDesc: 'Creamy unpolished Kuthiraivali grain. Boasts the lowest carbohydrate content and fastest digestibility among all grains.',
+    image: 'images/barnyard-millet.jpg',
+    tags: ['Ultra High Fiber', 'Weight Management', 'Gluten Free'],
+    healthBenefit: 'Provides over 10g dietary fiber per 100g with low glycemic load, preventing afternoon post-meal sugar crashes.',
+    cookingRatio: '1 Cup Millet : 2.5 Cups Water (Soak 20 mins; ready in 12 mins. Exceptional substitute for white rice).',
     nutrition: {
-      calories: 'Balanced',
-      fiber: 'High',
-      protein: 'Complete',
-      iron: 'Rich'
+      calories: '307 kcal',
+      fiber: '10.1 g',
+      protein: '6.2 g',
+      iron: '5.0 mg'
     },
     variants: [
-      { weight: '3 Kg Box (1kg x 3)', price: 540, mrp: 670, inStock: true },
-      { weight: '6 Kg Family Box (2kg x 3)', price: 1040, mrp: 1300, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
-    reviewsCount: 88
+    reviewsCount: 158
   },
   {
-    id: 'prod-12',
-    name: 'Pancharatna 5-Millet Sampler Pack',
-    tamilName: 'பஞ்சரத்ன 5 சிறுதானிய தொகுப்பு',
-    hindiName: 'पंचरत्न 5 बाजरा कॉम्बो',
-    category: 'combos',
-    badge: 'Millet Sampler',
-    shortDesc: '500g each of Barnyard (Kuthiraivali), Foxtail (Thinai), Kodo (Varagu), Little (Samai), and Finger Millet (Ragi).',
+    id: 'prod-18',
+    name: 'Proso Millet',
+    tamilName: 'நாட்டு பனிவரகு',
+    hindiName: 'चेना (प्रोसो मिलेट)',
+    category: 'millet',
+    badge: 'High Protein Millet',
+    shortDesc: 'Nutrient-dense native Panivaragu grain, carrying the highest natural protein ratio (12.5%) and rich vitamin B3 (niacin).',
+    image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80',
+    tags: ['12.5% Plant Protein', 'Cardio Health', 'Gluten Free'],
+    healthBenefit: 'Rich in niacin which helps regulate cholesterol synthesis and maintain healthy nervous tissue function.',
+    cookingRatio: '1 Cup Millet : 2 Cups Water (Soak 20 mins. Fluffy, separate grains ideal for fried rice and lemon rice).',
+    nutrition: {
+      calories: '341 kcal',
+      fiber: '8.5 g',
+      protein: '12.5 g',
+      iron: '2.8 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 92
+  },
+  {
+    id: 'prod-19',
+    name: 'Pearl Millet (Bajra)',
+    tamilName: 'நாட்டு கம்பு',
+    hindiName: 'बाजरा (पर्ल मिलेट)',
+    category: 'millet',
+    badge: 'Summer Cooling & Iron',
+    shortDesc: 'Traditional greyish-green Kambu grains. Celebrated in Tamil culture for the cooling, probiotic staple Kambu Koozh.',
+    image: 'https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=800&q=80',
+    tags: ['High Dietary Iron', 'Body Cooling', 'Energy Sustaining'],
+    healthBenefit: 'Rich in iron (8mg/100g) and zinc, counteracts heat stress, builds hemoglobin, and provides long-lasting rural energy.',
+    cookingRatio: 'Grind or boil: Soak 1 hour before pressure cooking, or ferment with buttermilk for traditional Kambu Koozh.',
+    nutrition: {
+      calories: '361 kcal',
+      fiber: '8.5 g',
+      protein: '11.6 g',
+      iron: '8.0 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.9,
+    reviewsCount: 168
+  },
+  {
+    id: 'prod-20',
+    name: 'Brown Top Millet',
+    tamilName: 'பழுப்பு தினை (பலவந்தம்)',
+    hindiName: 'कोराले / ब्राउन टॉप मिलेट',
+    category: 'millet',
+    badge: 'The Detox Super-Grain',
+    shortDesc: 'Rare positive millet grain packed with an extraordinary 12.5g of fiber per 100g. The premier digestive cleanser.',
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
-    tags: ['5 Millets in 1', 'Pure Theni Harvest', 'Diverse Nutrition'],
-    healthBenefit: 'Facilitates easy weekly rotation across all five primary positive millets for dietary diversity.',
-    cookingRatio: 'Includes regional cooking guidelines for pongal, upma, and dosas.',
+    tags: ['12.5% Super Fiber', 'Gut Cleansing', 'Positive Millet'],
+    healthBenefit: 'Assists in clearing toxins from the gut lining, managing metabolic syndrome, and restoring digestive equilibrium.',
+    cookingRatio: '1 Cup Millet : 3 Cups Water (Soak 2–3 hours. Cook on slow heat into nourishing table grain or porridge).',
     nutrition: {
-      calories: 'Balanced',
-      fiber: 'Ultra High',
-      protein: 'Rich',
-      iron: 'Complete'
+      calories: '310 kcal',
+      fiber: '12.5 g',
+      protein: '11.5 g',
+      iron: '7.7 mg'
     },
     variants: [
-      { weight: '2.5 Kg Pack (500g x 5)', price: 360, mrp: 450, inStock: true },
-      { weight: '5 Kg Pack (1kg x 5)', price: 680, mrp: 880, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
-    reviewsCount: 142
-  }
-];
-
-// Community Notes & Patron Feedback
-window.TESTIMONIALS = [
-  {
-    name: 'Meenakshi Sundaram',
-    location: 'Coimbatore, Tamil Nadu',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80',
-    rating: 5,
-    title: 'Authentic texture and honest unpolished grains',
-    comment: 'The Barnyard Millet and Karuppu Kavuni have a genuine unpolished texture that cooks evenly. The packaging arrived neatly sealed with zero chemical odor.',
-    verified: true
+    reviewsCount: 112
   },
   {
-    name: 'Karthik Subramanian',
-    location: 'Chennai (Anna Nagar)',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80',
-    rating: 5,
-    title: 'Wood-pressed sesame oil has the authentic nutty aroma',
-    comment: 'Deepan Mills Vaagai wood-pressed gingelly oil with palm jaggery has the authentic traditional aroma. Ordered 5L directly through their hotline.',
-    verified: true
+    id: 'prod-21',
+    name: 'Thinai Rice (Foxtail Millet Rice)',
+    tamilName: 'தினை அரிசி',
+    hindiName: 'कंगनी चावल (Foxtail Rice)',
+    category: 'millet',
+    badge: 'Direct Table Grain',
+    shortDesc: 'Fully dehusked, cleaned Foxtail millet grain ready for direct boiling as a 100% wholesome substitute for white table rice.',
+    image: 'images/foxtail-millet.jpg',
+    tags: ['Rice Substitute', 'Low Glycemic Load', 'Gluten Free'],
+    healthBenefit: 'Maintains low glycemic response after lunch while delivering full mineral nourishment and plant protein.',
+    cookingRatio: '1 Cup Thinai Rice : 2.5 Cups Water (Cooks like regular rice in 12–15 mins in a standard cooker).',
+    nutrition: {
+      calories: '331 kcal',
+      fiber: '8.0 g',
+      protein: '12.3 g',
+      iron: '2.8 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 122
   },
   {
-    name: 'Sangeetha R.',
-    location: 'Madurai, Tamil Nadu',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80',
-    rating: 5,
-    title: 'Poongar rice idlis are exceptionally soft',
-    comment: 'Preparing idli and dosa batter with Poongar rice yields wonderfully soft idlis. Fast delivery to Madurai via ST Courier.',
-    verified: true
+    id: 'prod-22',
+    name: 'Kodo Millet Semi Rice',
+    tamilName: 'வரகு அரிசி / ரவை',
+    hindiName: 'कोदो चावल सूजी (रवा)',
+    category: 'millet',
+    badge: 'Coarse Milled Rava',
+    shortDesc: 'Specially crushed unpolished Kodo millet semolina, prepared for instant wholesome upma, kesari, and savory khichdi.',
+    image: 'images/kodo-millet.jpg',
+    tags: ['Quick Cooking', 'Lecithin Rich', 'Healthy Breakfast'],
+    healthBenefit: 'Slow-burning morning fuel with low GI that keeps blood sugar flat and prevents pre-lunch sugar dips.',
+    cookingRatio: '1 Cup Semi Rice : 3 Cups Boiling Water (Roasted lightly and cooked into non-sticky upma or khichdi).',
+    nutrition: {
+      calories: '315 kcal',
+      fiber: '8.8 g',
+      protein: '8.1 g',
+      iron: '2.5 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 89
+  },
+
+  // ==========================================
+  // 3. OTHER GRAIN PRODUCTS (2 Items)
+  // ==========================================
+  {
+    id: 'prod-23',
+    name: 'Maize (Whole Dried Field Maize)',
+    tamilName: 'நாட்டு மக்காச்சோளம்',
+    hindiName: 'देशी सूखा मक्का',
+    category: 'grain',
+    badge: 'Whole Field Corn',
+    shortDesc: 'Whole sun-dried heritage field corn kernels from Theni farmlands. Non-GMO, naturally dried for stone milling or roasting.',
+    image: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80',
+    tags: ['Non-GMO Whole Grain', 'Lutein & Zeaxanthin', 'Slow Energy'],
+    healthBenefit: 'Rich in eye-protective lutein, carotenoid antioxidants, and high dietary insoluble fiber for intestinal health.',
+    cookingRatio: 'Ideal for stone grinding into authentic Makki Atta (corn flour), corn grits, or coarse porridge.',
+    nutrition: {
+      calories: '365 kcal',
+      fiber: '7.3 g',
+      protein: '9.4 g',
+      iron: '2.7 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 76
+  },
+  {
+    id: 'prod-24',
+    name: 'Yellow Corn Kernels',
+    tamilName: 'மஞ்சள் மக்காச்சோள மணிகள்',
+    hindiName: 'पीले मक्का के दाने',
+    category: 'grain',
+    badge: 'Cleaned Golden Grain',
+    shortDesc: 'Carefully cleaned, sorted golden corn grains harvested fresh from local fields, sun-cured to lock in natural sweetness and fiber.',
+    image: 'https://images.unsplash.com/photo-1600336153113-d66c79de3e91?auto=format&fit=crop&w=800&q=80',
+    tags: ['Sun-Dried Golden Grain', 'Carotenoids Rich', 'Stone-Mill Ready'],
+    healthBenefit: 'Provides natural carotenoids, zinc, and dietary energy; excellent for wholesome family cornbread, rotis, and baking.',
+    cookingRatio: 'Grind into fine yellow cornmeal or crack for corn porridge and steaming.',
+    nutrition: {
+      calories: '360 kcal',
+      fiber: '6.9 g',
+      protein: '9.0 g',
+      iron: '2.5 mg'
+    },
+    variants: [
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
+    ],
+    rating: 4.8,
+    reviewsCount: 65
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { PRODUCTS: window.PRODUCTS, TESTIMONIALS: window.TESTIMONIALS };
-}
-
