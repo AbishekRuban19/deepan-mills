@@ -518,6 +518,7 @@ function applyLanguage(langKey) {
     'nav-privacy': t.navPrivacy,
     'nav-shipping': t.navShipping,
     'nav-contact': t.navContact,
+    'mobile-nav-home': t.navHome,
     'mobile-nav-about': t.navAbout,
     'mobile-nav-privacy': t.navPrivacy,
     'mobile-nav-shipping': t.navShipping,
