@@ -29,9 +29,9 @@ window.PRODUCTS = [
       iron: '2.5 mg'
     },
     variants: [
-      { weight: '500g', price: 85, mrp: 110, inStock: true },
-      { weight: '1 Kg', price: 160, mrp: 200, inStock: true },
-      { weight: '5 Kg', price: 750, mrp: 950, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 164
@@ -55,9 +55,9 @@ window.PRODUCTS = [
       iron: '3.1 mg'
     },
     variants: [
-      { weight: '500g', price: 65, mrp: 85, inStock: true },
-      { weight: '1 Kg', price: 120, mrp: 160, inStock: true },
-      { weight: '5 Kg', price: 560, mrp: 750, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 132
@@ -81,9 +81,9 @@ window.PRODUCTS = [
       iron: '4.5 mg'
     },
     variants: [
-      { weight: '500g', price: 105, mrp: 135, inStock: true },
-      { weight: '1 Kg', price: 200, mrp: 250, inStock: true },
-      { weight: '5 Kg', price: 950, mrp: 1200, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 140
@@ -107,9 +107,9 @@ window.PRODUCTS = [
       iron: '4.8 mg'
     },
     variants: [
-      { weight: '500g', price: 95, mrp: 125, inStock: true },
-      { weight: '1 Kg', price: 180, mrp: 230, inStock: true },
-      { weight: '5 Kg', price: 850, mrp: 1100, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 118
@@ -133,9 +133,9 @@ window.PRODUCTS = [
       iron: '3.6 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 660, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 155
@@ -159,9 +159,9 @@ window.PRODUCTS = [
       iron: '2.8 mg'
     },
     variants: [
-      { weight: '500g', price: 70, mrp: 90, inStock: true },
-      { weight: '1 Kg', price: 130, mrp: 170, inStock: true },
-      { weight: '5 Kg', price: 620, mrp: 800, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 142
@@ -185,9 +185,9 @@ window.PRODUCTS = [
       iron: '3.9 mg'
     },
     variants: [
-      { weight: '500g', price: 110, mrp: 140, inStock: true },
-      { weight: '1 Kg', price: 210, mrp: 260, inStock: true },
-      { weight: '5 Kg', price: 990, mrp: 1250, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 198
@@ -211,9 +211,9 @@ window.PRODUCTS = [
       iron: '5.1 mg'
     },
     variants: [
-      { weight: '500g', price: 220, mrp: 280, inStock: true },
-      { weight: '1 Kg', price: 420, mrp: 520, inStock: true },
-      { weight: '5 Kg', price: 1990, mrp: 2500, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 94
@@ -237,9 +237,9 @@ window.PRODUCTS = [
       iron: '2.7 mg'
     },
     variants: [
-      { weight: '500g', price: 85, mrp: 110, inStock: true },
-      { weight: '1 Kg', price: 160, mrp: 200, inStock: true },
-      { weight: '5 Kg', price: 750, mrp: 950, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 110
@@ -263,9 +263,9 @@ window.PRODUCTS = [
       iron: '4.6 mg'
     },
     variants: [
-      { weight: '500g', price: 115, mrp: 145, inStock: true },
-      { weight: '1 Kg', price: 220, mrp: 280, inStock: true },
-      { weight: '5 Kg', price: 1050, mrp: 1350, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 125
@@ -289,9 +289,9 @@ window.PRODUCTS = [
       iron: '3.0 mg'
     },
     variants: [
-      { weight: '500g', price: 100, mrp: 130, inStock: true },
-      { weight: '1 Kg', price: 190, mrp: 240, inStock: true },
-      { weight: '5 Kg', price: 890, mrp: 1150, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 88
@@ -315,9 +315,9 @@ window.PRODUCTS = [
       iron: '3.2 mg'
     },
     variants: [
-      { weight: '500g', price: 80, mrp: 105, inStock: true },
-      { weight: '1 Kg', price: 150, mrp: 190, inStock: true },
-      { weight: '5 Kg', price: 710, mrp: 900, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 147
@@ -345,9 +345,9 @@ window.PRODUCTS = [
       iron: '2.8 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 130
@@ -371,9 +371,9 @@ window.PRODUCTS = [
       iron: '3.9 mg'
     },
     variants: [
-      { weight: '500g', price: 45, mrp: 60, inStock: true },
-      { weight: '1 Kg', price: 85, mrp: 110, inStock: true },
-      { weight: '5 Kg', price: 400, mrp: 520, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 175
@@ -397,9 +397,9 @@ window.PRODUCTS = [
       iron: '2.6 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 115
@@ -423,9 +423,9 @@ window.PRODUCTS = [
       iron: '9.3 mg'
     },
     variants: [
-      { weight: '500g', price: 80, mrp: 105, inStock: true },
-      { weight: '1 Kg', price: 150, mrp: 190, inStock: true },
-      { weight: '5 Kg', price: 700, mrp: 900, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 104
@@ -434,7 +434,7 @@ window.PRODUCTS = [
     id: 'prod-17',
     name: 'Barnyard Millet',
     tamilName: 'நாட்டு குதிரைவாலி',
-    hindiName: 'सांவா / समा के चावल (Barnyard)',
+    hindiName: 'सांवा / समा के चावल (Barnyard)',
     category: 'millet',
     badge: 'Highest Fiber Grain',
     shortDesc: 'Creamy unpolished Kuthiraivali grain. Boasts the lowest carbohydrate content and fastest digestibility among all grains.',
@@ -449,9 +449,9 @@ window.PRODUCTS = [
       iron: '5.0 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 158
@@ -475,9 +475,9 @@ window.PRODUCTS = [
       iron: '2.8 mg'
     },
     variants: [
-      { weight: '500g', price: 80, mrp: 105, inStock: true },
-      { weight: '1 Kg', price: 150, mrp: 190, inStock: true },
-      { weight: '5 Kg', price: 700, mrp: 900, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 92
@@ -501,9 +501,9 @@ window.PRODUCTS = [
       iron: '8.0 mg'
     },
     variants: [
-      { weight: '500g', price: 45, mrp: 60, inStock: true },
-      { weight: '1 Kg', price: 85, mrp: 110, inStock: true },
-      { weight: '5 Kg', price: 400, mrp: 520, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 168
@@ -527,9 +527,9 @@ window.PRODUCTS = [
       iron: '7.7 mg'
     },
     variants: [
-      { weight: '500g', price: 120, mrp: 150, inStock: true },
-      { weight: '1 Kg', price: 230, mrp: 290, inStock: true },
-      { weight: '5 Kg', price: 1090, mrp: 1400, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.9,
     reviewsCount: 112
@@ -553,9 +553,9 @@ window.PRODUCTS = [
       iron: '2.8 mg'
     },
     variants: [
-      { weight: '500g', price: 80, mrp: 105, inStock: true },
-      { weight: '1 Kg', price: 150, mrp: 190, inStock: true },
-      { weight: '5 Kg', price: 700, mrp: 900, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 122
@@ -579,9 +579,9 @@ window.PRODUCTS = [
       iron: '2.5 mg'
     },
     variants: [
-      { weight: '500g', price: 75, mrp: 95, inStock: true },
-      { weight: '1 Kg', price: 140, mrp: 180, inStock: true },
-      { weight: '5 Kg', price: 650, mrp: 850, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 89
@@ -609,9 +609,9 @@ window.PRODUCTS = [
       iron: '2.7 mg'
     },
     variants: [
-      { weight: '500g', price: 40, mrp: 55, inStock: true },
-      { weight: '1 Kg', price: 75, mrp: 100, inStock: true },
-      { weight: '5 Kg', price: 350, mrp: 460, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 76
@@ -635,9 +635,9 @@ window.PRODUCTS = [
       iron: '2.5 mg'
     },
     variants: [
-      { weight: '500g', price: 40, mrp: 55, inStock: true },
-      { weight: '1 Kg', price: 75, mrp: 100, inStock: true },
-      { weight: '5 Kg', price: 350, mrp: 460, inStock: true }
+      { weight: '500g', inStock: true },
+      { weight: '1 Kg', inStock: true },
+      { weight: '5 Kg', inStock: true }
     ],
     rating: 4.8,
     reviewsCount: 65
