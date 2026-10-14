@@ -237,75 +237,22 @@ function saveCustomerOrder(order) {
   } catch (e) {}
 }
 
-// --- CUSTOMER ACCOUNT & AUTHENTICATION LOGIC ---
+// --- CUSTOMER PROFILE & AUTHENTICATION (REMOVED - DIRECT WHATSAPP ORDERING) ---
 function updateAuthUI() {
-  const userNameEl = document.getElementById('header-user-name');
-  const loggedOutView = document.getElementById('account-logged-out-view');
-  const loggedInView = document.getElementById('account-logged-in-view');
-  const dispName = document.getElementById('acc-display-name');
-  const dispPhone = document.getElementById('acc-display-phone');
-  const dispCity = document.getElementById('acc-display-city');
-
-  if (currentUser && currentUser.name) {
-    if (userNameEl) userNameEl.innerText = currentUser.name.split(' ')[0] || 'My Account';
-    if (loggedOutView) loggedOutView.classList.add('hidden');
-    if (loggedInView) loggedInView.classList.remove('hidden');
-    if (dispName) dispName.innerText = currentUser.name;
-    if (dispPhone) dispPhone.innerText = currentUser.phone ? `Ph: ${currentUser.phone}` : '';
-    if (dispCity) dispCity.innerText = currentUser.city ? `City: ${currentUser.city}` : '';
-  } else {
-    if (userNameEl) userNameEl.innerText = 'My Account';
-    if (loggedOutView) loggedOutView.classList.remove('hidden');
-    if (loggedInView) loggedInView.classList.add('hidden');
-  }
-
-  if (window.lucide) window.lucide.createIcons();
+  // Login removed in favor of direct friction-free WhatsApp ordering
 }
 
 function openAccountModal() {
-  const modal = document.getElementById('account-modal');
-  if (modal) {
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100', 'pointer-events-auto');
-    document.body.classList.add('overflow-hidden');
-  }
+  // Customer login removed - redirect to WhatsApp inquiry if called
+  window.open('https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20inquire%20about%20ordering%20traditional%20rice%20and%20millets.', '_blank');
 }
 
 function closeAccountModal() {
-  const modal = document.getElementById('account-modal');
-  if (modal) {
-    modal.classList.remove('opacity-100', 'pointer-events-auto');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    document.body.classList.remove('overflow-hidden');
-  }
+  // No-op
 }
 
 function handleSaveCustomerAccount() {
-  const nameInput = document.getElementById('acc-input-name');
-  const phoneInput = document.getElementById('acc-input-phone');
-  const cityInput = document.getElementById('acc-input-city');
-
-  const name = nameInput ? nameInput.value.trim() : '';
-  const phone = phoneInput ? phoneInput.value.trim() : '';
-  const city = cityInput ? cityInput.value.trim() : '';
-
-  if (!name || name.length < 2) {
-    showToast('Please enter your full name.', 'error');
-    return;
-  }
-  if (!phone || phone.length < 10) {
-    showToast('Please enter a valid 10-digit mobile number.', 'error');
-    return;
-  }
-
-  currentUser = { name, phone, city };
-  try {
-    localStorage.setItem('deepan_customer_profile', JSON.stringify(currentUser));
-  } catch (e) {}
-
-  updateAuthUI();
-  closeAccountModal();
-  showToast(`Welcome, ${name}! Your profile is saved.`, 'success');
+  // No-op
 }
 
 function handleLogout() {
@@ -313,10 +260,6 @@ function handleLogout() {
   try {
     localStorage.removeItem('deepan_customer_profile');
   } catch (e) {}
-
-  updateAuthUI();
-  closeAccountModal();
-  showToast('Logged out of customer profile.', 'info');
 }
 
 // --- LANGUAGE SWITCHER LOGIC ---
