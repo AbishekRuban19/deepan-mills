@@ -200,7 +200,7 @@ window.PRODUCTS = [
     category: 'rice',
     badge: 'Rare Forest Harvest',
     shortDesc: 'A rare ecological harvest obtained from the seeds of flowering wild bamboo shoots at the end of their lifespan in Western Ghats forests.',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80',
+    image: 'images/bamboo-rice.jpg',
     tags: ['Joint & Bone Care', 'High Plant Protein', 'Wild Forest Grain'],
     healthBenefit: 'Traditionally revered for relieving joint stiffness, backache, and arthritis discomfort due to high natural calcium and silica.',
     cookingRatio: '1 Cup Rice : 3 Cups Water (Soak for 4–5 hours. Cook like sticky rice or prepare sweet bamboo rice kheer).',
