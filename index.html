@@ -112,13 +112,13 @@
         </a>
 
         <!-- DESKTOP NAVIGATION -->
-        <nav id="header-main-nav" class="hidden xl:flex items-center gap-7 text-sm font-semibold text-stone-700">
-          <a href="#about-mill" id="nav-home" class="hover:text-[#142E23] transition-colors">Heritage</a>
-          <a href="#products" id="nav-shop" class="hover:text-[#142E23] transition-colors">Shop Grains & Oils</a>
-          <a href="#nutrition-guide" id="nav-guide" class="hover:text-[#142E23] transition-colors">Cooking & Health</a>
-          <a href="#heritage" id="nav-awards" class="hover:text-[#142E23] transition-colors">Milling Craft</a>
-          <a href="#reviews" id="nav-reviews" class="hover:text-[#142E23] transition-colors">Patron Notes</a>
-          <a href="#contact" id="nav-contact" class="hover:text-[#142E23] transition-colors">Contact</a>
+        <nav id="header-main-nav" class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-bold text-stone-700">
+          <a href="#about-mill" id="nav-home" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Heritage</a>
+          <a href="#products" id="nav-shop" onclick="filterCategory('all')" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Shop Grains (24)</a>
+          <a href="#nutrition-guide" id="nav-guide" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Cooking Ratios</a>
+          <a href="#heritage" id="nav-awards" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Milling Craft</a>
+          <a href="#reviews" id="nav-reviews" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Patron Notes</a>
+          <a href="#contact" id="nav-contact" class="hover:text-[#142E23] transition-colors py-1.5 border-b-2 border-transparent hover:border-[#142E23]">Contact</a>
         </nav>
 
         <!-- HEADER ACTIONS -->
@@ -126,7 +126,7 @@
           
           <!-- Direct WhatsApp Dispatch Quick Link -->
           <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20traditional%20grains%20and%20oils." 
-             target="_blank"
+             target="_blank" 
              class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold text-xs transition-all shadow-sm">
             <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-700"></i>
             <span id="btn-wa-header">WhatsApp</span>
@@ -152,24 +152,86 @@
           </button>
 
           <!-- Mobile menu toggle -->
-          <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200" aria-label="Toggle navigation">
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl text-stone-700 hover:bg-stone-200 transition-colors" aria-label="Toggle navigation">
             <i data-lucide="menu" class="w-6 h-6"></i>
           </button>
         </div>
       </div>
     </div>
 
+    <!-- DEDICATED CATEGORY & QUICK-JUMP NAVIGATION BAR STRIP -->
+    <div id="sub-navigation-bar" class="border-t border-stone-200/80 bg-[#FAF7F2]/95 backdrop-blur-md shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Product categories and quick navigation" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 text-xs font-bold text-stone-700">
+          <a href="#hero" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl hover:bg-stone-200/80 text-stone-800 transition-colors shrink-0">
+            <i data-lucide="home" class="w-3.5 h-3.5 text-emerald-800"></i>
+            <span>Home</span>
+          </a>
+          <span class="text-stone-300">|</span>
+          <a href="#products" onclick="filterCategory('all')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-900 border border-stone-200 transition-colors shrink-0">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>All Products (24)</span>
+          </a>
+          <a href="#products" onclick="filterCategory('rice')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-200 transition-colors shrink-0">
+            <span>🍚 Heritage Rice (12)</span>
+          </a>
+          <a href="#products" onclick="filterCategory('millet')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-950 border border-emerald-200 transition-colors shrink-0">
+            <span>🌾 Native Millets (10)</span>
+          </a>
+          <a href="#products" onclick="filterCategory('grain')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-yellow-50 hover:bg-yellow-100 text-yellow-950 border border-yellow-200 transition-colors shrink-0">
+            <span>🌽 Other Grains & Corn (2)</span>
+          </a>
+          <span class="text-stone-300 hidden sm:inline">|</span>
+          <a href="#nutrition-guide" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl hover:bg-stone-200/80 text-stone-800 transition-colors shrink-0">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-stone-600"></i>
+            <span>Cooking Ratios</span>
+          </a>
+          <a href="#about-mill" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl hover:bg-stone-200/80 text-stone-800 transition-colors shrink-0">
+            <i data-lucide="factory" class="w-3.5 h-3.5 text-stone-600"></i>
+            <span>Our Theni Mill</span>
+          </a>
+          <a href="#contact" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl hover:bg-stone-200/80 text-stone-800 transition-colors shrink-0">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-stone-600"></i>
+            <span>Contact</span>
+          </a>
+          
+          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20traditional%20rice%20and%20millets." 
+             target="_blank" 
+             class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black transition-all shrink-0 ml-auto shadow-xs">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
+            <span>WhatsApp Orders</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
     <!-- Mobile Nav Dropdown -->
-    <div id="mobile-nav-panel" class="hidden xl:hidden border-t border-stone-200 bg-[#FBF9F5] px-4 pt-3 pb-5 space-y-2 text-sm font-semibold text-stone-800">
+    <div id="mobile-nav-panel" class="hidden lg:hidden border-t border-stone-200 bg-[#FBF9F5] px-4 pt-3 pb-5 space-y-2 text-sm font-semibold text-stone-800">
       <button onclick="focusSearch(); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-left font-bold text-xs text-stone-800 border border-stone-200 transition-colors">
         <i data-lucide="search" class="w-4 h-4 text-amber-700"></i>
-        <span>Search Grains & Oils</span>
+        <span>Search Grains & Millets</span>
       </button>
-      <a href="#about-mill" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Heritage & Mill</a>
-      <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Shop Grains & Oils</a>
-      <a href="#nutrition-guide" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Cooking & Health Guide</a>
-      <a href="#heritage" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Milling Craft</a>
-      <a href="#contact" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Contact Us</a>
+
+      <div class="grid grid-cols-2 gap-1.5 py-1 text-xs">
+        <a href="#products" onclick="filterCategory('all'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="py-2 px-2.5 rounded-lg bg-stone-100 font-bold text-stone-800 flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-stone-600"></i> All Products (24)
+        </a>
+        <a href="#products" onclick="filterCategory('rice'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="py-2 px-2.5 rounded-lg bg-amber-50 font-bold text-amber-900 border border-amber-200 flex items-center gap-1.5">
+          🍚 Heritage Rice (12)
+        </a>
+        <a href="#products" onclick="filterCategory('millet'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="py-2 px-2.5 rounded-lg bg-emerald-50 font-bold text-emerald-900 border border-emerald-200 flex items-center gap-1.5">
+          🌾 Native Millets (10)
+        </a>
+        <a href="#products" onclick="filterCategory('grain'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="py-2 px-2.5 rounded-lg bg-yellow-50 font-bold text-yellow-900 border border-yellow-200 flex items-center gap-1.5">
+          🌽 Other Grains (2)
+        </a>
+      </div>
+
+      <a href="#about-mill" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Heritage & Mill</a>
+      <a href="#products" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Shop Grains & Millets</a>
+      <a href="#nutrition-guide" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Cooking & Health Guide</a>
+      <a href="#heritage" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Milling Craft</a>
+      <a href="#contact" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-stone-100">Contact Us</a>
       
       <div class="pt-2 border-t border-stone-200">
         <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20inquire%20about%20ordering%20traditional%20rice%20and%20millets." 
@@ -3247,7 +3309,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[#0E2218] text-stone-400 text-xs py-12 border-t border-stone-800">
+  <footer class="bg-[#0E2218] text-stone-400 text-xs pt-12 pb-24 md:pb-12 border-t border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-stone-800">
         
@@ -3544,8 +3606,39 @@
     <!-- Toasts injected dynamically -->
   </div>
 
+  <!-- MOBILE STICKY BOTTOM NAVIGATION BAR (APP-LIKE DOCK) -->
+  <nav aria-label="Mobile Navigation Bar" class="md:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-xl border-t border-stone-200 z-40 py-2 px-3 shadow-2xl">
+    <div class="flex items-center justify-around text-[10px] font-bold text-stone-600">
+      <a href="#hero" class="flex flex-col items-center gap-0.5 hover:text-[#142E23] transition-colors">
+        <i data-lucide="home" class="w-5 h-5 text-stone-700"></i>
+        <span>Home</span>
+      </a>
+      <a href="#products" onclick="filterCategory('all')" class="flex flex-col items-center gap-0.5 hover:text-[#142E23] transition-colors">
+        <i data-lucide="layout-grid" class="w-5 h-5 text-stone-700"></i>
+        <span>Products</span>
+      </a>
+      <button onclick="focusSearch()" class="flex flex-col items-center gap-0.5 hover:text-[#142E23] transition-colors">
+        <div class="w-9 h-9 rounded-full bg-stone-100 flex items-center justify-center -mt-3 shadow-md border border-stone-200 text-amber-700">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </div>
+        <span>Search</span>
+      </button>
+      <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20traditional%20rice%20and%20millets." target="_blank" class="flex flex-col items-center gap-0.5 text-[#25D366] hover:text-[#1EBE5D] transition-colors">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <span>WhatsApp</span>
+      </a>
+      <button onclick="toggleCartDrawer(true)" class="relative flex flex-col items-center gap-0.5 hover:text-[#142E23] transition-colors">
+        <div class="relative">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-stone-700"></i>
+          <span id="mobile-cart-count" class="absolute -top-1 -right-2 bg-amber-500 text-stone-950 text-[9px] font-black px-1 rounded-full min-w-[15px] text-center">0</span>
+        </div>
+        <span>Order List</span>
+      </button>
+    </div>
+  </nav>
+
   <!-- Application Scripts -->
-  <script src="products.js?v=3.3"></script>
-  <script src="app.js?v=3.3"></script>
+  <script src="products.js?v=3.4"></script>
+  <script src="app.js?v=3.4"></script>
 </body>
 </html>
