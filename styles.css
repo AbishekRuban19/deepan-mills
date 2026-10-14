@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
 :root {
-  --color-forest: #19382B;
-  --color-forest-dark: #11271E;
+  --color-forest: #142E23;
+  --color-forest-dark: #0E2218;
   --color-forest-light: #244C3B;
   --color-gold: #C27A1A;
   --color-gold-light: #FDF3E7;
@@ -11,8 +11,17 @@
   --color-cream: #FAF7F2;
   --color-card-bg: #FFFFFF;
   --color-border: #EADBCC;
-  --color-text-main: #1C241F;
+  --color-text-main: #18221D;
   --color-text-muted: #5C6A61;
+
+  /* Glassmorphism Variables */
+  --glass-header-bg: rgba(251, 249, 245, 0.82);
+  --glass-header-scrolled: rgba(251, 249, 245, 0.94);
+  --glass-header-border: rgba(224, 212, 196, 0.65);
+  --glass-header-scrolled-border: rgba(206, 190, 172, 0.85);
+  --glass-shadow: 0 4px 20px -2px rgba(20, 46, 35, 0.04);
+  --glass-shadow-scrolled: 0 10px 30px -4px rgba(20, 46, 35, 0.09), 0 2px 6px -1px rgba(20, 46, 35, 0.04);
+  --glass-blur: 16px;
 }
 
 * {
@@ -60,30 +69,204 @@ h1, h2, h3, h4, .font-heading {
   background: var(--color-forest);
 }
 
-/* Glassmorphism Header */
+/* ========================================================================= */
+/* GLASSMORPHISM EFFECTS                                                     */
+/* ========================================================================= */
+
+/* Frosted Glass Sticky Header */
 .glass-header {
-  background: rgba(250, 247, 242, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(234, 219, 204, 0.8);
+  background: var(--glass-header-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-bottom: 1px solid var(--glass-header-border);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Smooth product card lift */
-.product-card {
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid var(--color-border);
+.glass-header.glass-header-scrolled {
+  background: var(--glass-header-scrolled);
+  border-bottom-color: var(--glass-header-scrolled-border);
+  box-shadow: var(--glass-shadow-scrolled);
 }
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(25, 56, 43, 0.12);
+
+/* Frosted Sub-Navigation Strip */
+.glass-sub-bar {
+  background: rgba(250, 247, 242, 0.84) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border-top: 1px solid rgba(234, 219, 204, 0.6) !important;
+  border-bottom: 1px solid rgba(234, 219, 204, 0.65) !important;
+  box-shadow: 0 4px 15px -3px rgba(20, 46, 35, 0.03) !important;
+}
+
+/* Nav Link Hover Micro-Underline */
+#header-main-nav a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+#header-main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #142E23;
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+}
+#header-main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Frosted Glass Search Input */
+.glass-search-input {
+  background: rgba(255, 255, 255, 0.78) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(215, 202, 186, 0.85) !important;
+  box-shadow: 0 2px 8px -2px rgba(20, 46, 35, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.glass-search-input:focus {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: #142E23 !important;
+  box-shadow: 0 0 0 3px rgba(20, 46, 35, 0.12), 0 8px 24px -4px rgba(20, 46, 35, 0.08) !important;
+}
+
+/* Category Filter Tabs with Glassmorphism */
+.cat-pill {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cat-pill:not(.active) {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(226, 215, 201, 0.85) !important;
+  color: #38423B !important;
+}
+.cat-pill:not(.active):hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(184, 134, 11, 0.6) !important;
+  color: #142E23 !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px -2px rgba(20, 46, 35, 0.08);
+}
+.cat-pill.active {
+  background: #142E23 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 18px -3px rgba(20, 46, 35, 0.28);
+}
+
+/* Dietary Filter Tags with Subtle Glass */
+.diet-tag {
+  background: rgba(246, 241, 234, 0.8) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border: 1px solid rgba(224, 214, 199, 0.8) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.diet-tag:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #C59B27 !important;
+  transform: translateY(-1px);
+}
+.diet-tag.active {
+  background: #142E23 !important;
+  color: #FFFFFF !important;
+  border-color: #142E23 !important;
+}
+
+/* Mobile Sticky Bottom Navigation Dock (Frosted Glass) */
+.glass-dock {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+  border-top: 1px solid rgba(225, 215, 200, 0.75) !important;
+  box-shadow: 0 -8px 25px -4px rgba(20, 46, 35, 0.07) !important;
+}
+
+/* Glass Card Component */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 220, 208, 0.8);
+  box-shadow: 0 4px 20px -3px rgba(20, 46, 35, 0.05);
+}
+
+/* ========================================================================= */
+/* SCROLL & ENTRANCE ANIMATIONS                                              */
+/* ========================================================================= */
+
+/* Hero Entrance Animations */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroFadeSlide 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroFadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.2s; }
+.hero-delay-3 { animation-delay: 0.3s; }
+.hero-delay-4 { animation-delay: 0.4s; }
+.hero-delay-5 { animation-delay: 0.5s; }
+
+/* Major Section Scroll Reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth Product Card Animation & Hover Lift */
+.product-card {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease;
+  transition-delay: calc(var(--card-index, 0) * 60ms);
+  will-change: opacity, transform;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 10px -2px rgba(20, 46, 35, 0.04);
+}
+
+.product-card.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-card.reveal-visible:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -8px rgba(20, 46, 35, 0.12), 0 4px 10px -2px rgba(20, 46, 35, 0.04);
   border-color: #D2C3B0;
 }
 
 /* Badge Styling */
 .badge-eco {
-  background: rgba(25, 56, 43, 0.08);
+  background: rgba(20, 46, 35, 0.08);
   color: var(--color-forest);
-  border: 1px solid rgba(25, 56, 43, 0.15);
+  border: 1px solid rgba(20, 46, 35, 0.15);
 }
 
 .badge-gold {
@@ -155,7 +338,29 @@ h1, h2, h3, h4, .font-heading {
   transform: translateY(-2px);
 }
 
-/* Print Invoice Styles */
+/* ========================================================================= */
+/* ACCESSIBILITY: PREFERS-REDUCED-MOTION                                    */
+/* ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-reveal,
+  .scroll-reveal,
+  .product-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ========================================================================= */
+/* PRINT INVOICE STYLES                                                      */
+/* ========================================================================= */
 @media print {
   body * {
     visibility: hidden;
@@ -176,4 +381,3 @@ h1, h2, h3, h4, .font-heading {
     display: none !important;
   }
 }
-

@@ -199,6 +199,8 @@ function initApp() {
   try { renderTestimonials(); } catch (e) { console.error('renderTestimonials error:', e); }
   try { updateCartUI(); } catch (e) { console.error('updateCartUI error:', e); }
   try { setupEventListeners(); } catch (e) { console.error('setupEventListeners error:', e); }
+  try { initHeaderScrollEffect(); } catch (e) { console.error('initHeaderScrollEffect error:', e); }
+  try { initScrollAnimations(); } catch (e) { console.error('initScrollAnimations error:', e); }
 
   if (window.lucide) {
     try { window.lucide.createIcons(); } catch (e) {}
@@ -260,6 +262,72 @@ function handleLogout() {
   try {
     localStorage.removeItem('deepan_customer_profile');
   } catch (e) {}
+}
+
+// --- GLASSMORPHISM HEADER SCROLL & VIEWPORT INTERSECTION ANIMATIONS ---
+let scrollObserver = null;
+
+function initHeaderScrollEffect() {
+  const header = document.querySelector('header');
+  if (!header) return;
+
+  let ticking = false;
+  const updateHeaderState = () => {
+    if (window.scrollY > 20) {
+      header.classList.add('glass-header-scrolled');
+    } else {
+      header.classList.remove('glass-header-scrolled');
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderState);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateHeaderState();
+}
+
+function initScrollAnimations() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.scroll-reveal, .product-card').forEach(el => {
+      el.classList.add('reveal-visible');
+    });
+    return;
+  }
+
+  if (!scrollObserver) {
+    scrollObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05
+    });
+  }
+
+  // Observe unrevealed product cards with staggered index
+  const cards = document.querySelectorAll('.product-card:not(.reveal-visible)');
+  cards.forEach((card, idx) => {
+    card.style.setProperty('--card-index', idx % 4);
+    scrollObserver.observe(card);
+  });
+
+  // Observe major section containers
+  const sections = document.querySelectorAll('.scroll-reveal:not(.reveal-visible)');
+  sections.forEach(sec => {
+    scrollObserver.observe(sec);
+  });
 }
 
 // --- POLICIES MODAL LOGIC ---
@@ -547,6 +615,7 @@ function renderProducts() {
   if (window.lucide) {
     window.lucide.createIcons();
   }
+  try { initScrollAnimations(); } catch (e) {}
 }
 
 function selectProductVariant(productId, variantIdx) {
