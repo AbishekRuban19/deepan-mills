@@ -15,14 +15,14 @@ const TRANSLATIONS = {
     navReviews: 'Patron Notes',
     navContact: 'Contact',
     btnWaHeader: 'WhatsApp',
-    btnCartHeader: 'Cart',
+    btnCartHeader: 'Order List',
     heroBadge1: 'MSME Recognized Agro Processing Unit',
     heroBadge2: 'Theni Western Ghats Agro Cluster',
     heroHeadline: 'Deepan Mills <br><span class="font-serif italic text-amber-700">Native Grains</span> & Wood-Pressed Oils.',
     heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving authentic unpolished native millets, traditional Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and pure cold-extracted Vaagai oils.',
     catalogEyebrow: 'Direct From Our Mill',
     catalogTitle: 'Heritage Grains, Millets & Cold-Pressed Oils',
-    catalogSub: 'Explore our unpolished native grains and cold-pressed oils. Click any product to view pack sizes, pricing, and nutritional details.',
+    catalogSub: 'Explore our unpolished native grains and cold-pressed oils. Select pack sizes and order directly via WhatsApp hotline.',
     catAll: 'All Products (12)',
     catRice: 'Heritage Rice',
     catMillet: 'Native Millets',
@@ -30,14 +30,14 @@ const TRANSLATIONS = {
     catFlour: 'Stone-Ground Flours',
     catCombos: 'Value Combos',
     labelFilterBy: 'Filter by Need:',
-    btnAdd: 'Add',
-    btnViewDetails: 'View Details & Price',
-    drawerTitle: 'Your Basket',
-    lblSubtotal: 'Items Subtotal:',
-    lblDelivery: 'Shipping:',
-    lblTotal: 'Total Payable:',
-    btnCheckoutSubmit: 'Proceed to Checkout',
-    btnCheckoutWa: 'Order via WhatsApp Hotline'
+    btnAdd: 'Add to List',
+    btnViewDetails: 'Order on WhatsApp',
+    drawerTitle: 'Your WhatsApp Order List',
+    lblSubtotal: 'Selected Items:',
+    lblDelivery: 'Dispatch Mode:',
+    lblTotal: 'Total Items:',
+    btnCheckoutSubmit: 'Send Order via WhatsApp',
+    btnCheckoutWa: 'Send Order via WhatsApp Hotline'
   },
   ta: {
     langName: 'தமிழ்',
@@ -51,14 +51,14 @@ const TRANSLATIONS = {
     navReviews: 'வாடிக்கையாளர் குறிப்புகள்',
     navContact: 'தொடர்பு',
     btnWaHeader: 'வாட்ஸ்அப்',
-    btnCartHeader: 'கூடை',
+    btnCartHeader: 'ஆர்டர் பட்டியல்',
     heroBadge1: 'MSME அங்கீகாரம் பெற்ற விவசாய நிறுவனம்',
     heroBadge2: 'தேனி மேற்கு தொடர்ச்சி மலை நவதானியங்கள்',
     heroHeadline: 'தீபன் மில்ஸ் <br><span class="font-serif italic text-amber-700">பாரம்பரிய நவதானியங்கள்</span> & மரச்செக்கு எண்ணெய்கள்.',
     heroSubtitle: 'தேனியின் வளமான மண்ணில் விளைந்த பாரம்பரிய நவதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, கல் செக்கு மற்றும் மரச்செக்கு எண்ணெய்கள். ரசாயனங்கள் அற்ற ஆரோக்கியமான உணவை உங்கள் இல்லத்திற்கு சேர்க்கிறோம்.',
     catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
     catalogTitle: 'பாரம்பரிய தானியங்கள், சிறுதானியங்கள் & மரச்செக்கு',
-    catalogSub: 'எங்கள் ஆலை பாரம்பரிய தானியங்கள் & எண்ணெய்கள். எடைகள், விலை மற்றும் நன்மைகளை அறிய பொருளைத் தேர்ந்தெடுக்கவும்.',
+    catalogSub: 'எங்கள் பாரம்பரிய நவதானியங்கள் & மரச்செக்கு எண்ணெய்கள். எடையைத் தேர்ந்தெடுத்து வாட்ஸ்அப் மூலம் உடனடியாக ஆர்டர் செய்யுங்கள்.',
     catAll: 'அனைத்து பொருட்கள் (12)',
     catRice: 'பாரம்பரிய அரிசி',
     catMillet: 'நாட்டுச் சிறுதானியங்கள்',
@@ -66,13 +66,13 @@ const TRANSLATIONS = {
     catFlour: 'சத்து மாவு வகைகள்',
     catCombos: 'சிறப்பு காம்போ',
     labelFilterBy: 'தேவைக்கேற்ப:',
-    btnAdd: 'சேர்',
-    btnViewDetails: 'விலை & விவரம்',
-    drawerTitle: 'உங்கள் கூடை',
-    lblSubtotal: 'பொருட்களின் மொத்த விலை:',
-    lblDelivery: 'டெலிவரி கட்டணம்:',
-    lblTotal: 'செலுத்த வேண்டிய தொகை:',
-    btnCheckoutSubmit: 'ஆர்டர் செய்ய தொடர்க',
+    btnAdd: 'பட்டியலில் சேர்',
+    btnViewDetails: 'வாட்ஸ்அப் ஆர்டர்',
+    drawerTitle: 'உங்கள் வாட்ஸ்அப் ஆர்டர் பட்டியல்',
+    lblSubtotal: 'தேர்ந்தெடுத்த பொருட்கள்:',
+    lblDelivery: 'அனுப்பும் முறை:',
+    lblTotal: 'மொத்த பொருட்கள்:',
+    btnCheckoutSubmit: 'வாட்ஸ்அப்பில் அனுப்ப',
     btnCheckoutWa: 'வாட்ஸ்அப் மூலம் உடனடி ஆர்டர்'
   },
   hi: {
@@ -87,14 +87,14 @@ const TRANSLATIONS = {
     navReviews: 'ग्राहक अनुभव',
     navContact: 'संपर्क',
     btnWaHeader: 'व्हाट्सएप',
-    btnCartHeader: 'कार्ट',
+    btnCartHeader: 'ऑर्डर सूची',
     heroBadge1: 'MSME मान्यता प्राप्त कृषि प्रसंस्करण इकाई',
     heroBadge2: 'थेनी पश्चिमी घाट कृषि समूह',
     heroHeadline: 'दीपन मिल्स <br><span class="font-serif italic text-amber-700">पारंपरिक अनाज</span> और कोल्ड प्रेस्ड तेल।',
     heroSubtitle: 'थेनी, तमिलनाडु की उपजाऊ भूमि से सीधे प्राप्त पारंपरिक बाजरा, काला व लाल चावल, पत्थर की चक्की का आटा और लकड़ी कोल्हू का शुद्ध तेल। बिना किसी पॉलिश या रसायन के।',
     catalogEyebrow: 'सीधे हमारी मिल से',
     catalogTitle: 'पारंपरिक अनाज, बाजरा और शुद्ध तेल',
-    catalogSub: 'हमारे पारंपरिक अनाज और कोल्ड प्रेस्ड तेल। पैक के आकार, मूल्य और पोषण संबंधी विवरण देखने के लिए किसी भी उत्पाद पर क्लिक करें।',
+    catalogSub: 'पारंपरिक अनाज और कोल्ड प्रेस्ड तेल। पैक का आकार चुनें और सीधे व्हाट्सएप पर ऑर्डर करें।',
     catAll: 'सभी उत्पाद (12)',
     catRice: 'पारंपरिक चावल',
     catMillet: 'बाजरा / मिलेट्स',
@@ -102,14 +102,14 @@ const TRANSLATIONS = {
     catFlour: 'पारंपरिक आटा व सत्तू',
     catCombos: 'विशेष कॉम्बो',
     labelFilterBy: 'आवश्यकता अनुसार:',
-    btnAdd: 'जोड़ें',
-    btnViewDetails: 'विवरण व मूल्य',
-    drawerTitle: 'आपकी टोकरी',
-    lblSubtotal: 'सामग्रियों का मूल्य:',
-    lblDelivery: 'शिपिंग शुल्क:',
-    lblTotal: 'कुल देय राशि:',
-    btnCheckoutSubmit: 'सुरक्षित चेकआउट करें',
-    btnCheckoutWa: 'व्हाट्सएप पर ऑर्डर करें'
+    btnAdd: 'सूची में जोड़ें',
+    btnViewDetails: 'व्हाट्सएप पर ऑर्डर करें',
+    drawerTitle: 'आपकी व्हाट्सएप ऑर्डर सूची',
+    lblSubtotal: 'चुनी गई वस्तुएं:',
+    lblDelivery: 'भेजने का प्रकार:',
+    lblTotal: 'कुल वस्तुएं:',
+    btnCheckoutSubmit: 'व्हाट्सएप पर भेजें',
+    btnCheckoutWa: 'व्हाट्सएप पर तत्काल ऑर्डर'
   }
 };
 
@@ -479,8 +479,8 @@ function renderProducts() {
             </div>
 
             <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
-              <i data-lucide="eye" class="w-3 h-3 text-amber-700"></i>
-              <span>View Details</span>
+              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
+              <span>Order Now</span>
             </div>
           </div>
 
@@ -522,19 +522,19 @@ function renderProducts() {
             </div>
           </div>
 
-          <!-- Price Hidden - Action button to view details & price inside -->
+          <!-- Direct WhatsApp Order Action -->
           <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
-            <div class="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
-              <i data-lucide="tag" class="w-3.5 h-3.5 text-amber-700"></i>
-              <span class="text-[11px]">Pricing inside</span>
+            <div class="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold">
+              <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span class="text-[11px]">Direct Mill Dispatch</span>
             </div>
 
             <button type="button"
                     onclick="event.stopPropagation(); openQuickView('${prod.id}', 0)" 
                     class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
-                    title="View details and live pricing">
-              <span>${t.btnViewDetails || 'View Details & Price'}</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-300"></i>
+                    title="Order via WhatsApp">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>${t.btnViewDetails || 'Order on WhatsApp'}</span>
             </button>
           </div>
         </div>
@@ -629,11 +629,6 @@ function updateCartUI() {
   });
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  
-  const isFreeDelivery = subtotal >= 799;
-  const deliveryFee = subtotal === 0 ? 0 : (isFreeDelivery ? 0 : 60);
-  const totalAmount = subtotal === 0 ? 0 : (subtotal + deliveryFee);
 
   // Header badges
   const badge = document.getElementById('cart-count-badge');
@@ -642,44 +637,17 @@ function updateCartUI() {
   const mobileCount = document.getElementById('mobile-cart-count');
 
   if (badge) badge.innerText = totalItems;
-  if (headerTotal) headerTotal.innerText = subtotal > 0 ? `• ₹${totalAmount}` : '• Empty';
+  if (headerTotal) headerTotal.innerText = totalItems > 0 ? `• ${totalItems} ${totalItems === 1 ? 'item' : 'items'}` : '';
   if (drawerCount) drawerCount.innerText = totalItems;
   if (mobileCount) mobileCount.innerText = totalItems;
-
-  // Free shipping tracker
-  const trackerText = document.getElementById('shipping-tracker-text');
-  const progressBar = document.getElementById('shipping-progress-bar');
-  const freeBadge = document.getElementById('shipping-free-badge');
-
-  if (trackerText && progressBar && freeBadge) {
-    if (subtotal === 0) {
-      trackerText.innerText = 'Add items for FREE Shipping over ₹799';
-      progressBar.style.width = '0%';
-      freeBadge.classList.add('hidden');
-    } else if (subtotal >= 799) {
-      trackerText.innerText = 'Congratulations! Free standard shipping unlocked.';
-      progressBar.style.width = '100%';
-      freeBadge.classList.remove('hidden');
-    } else {
-      const remaining = 799 - subtotal;
-      trackerText.innerText = `Add ₹${remaining} more for FREE Shipping!`;
-      const percent = Math.min(100, Math.round((subtotal / 799) * 100));
-      progressBar.style.width = `${percent}%`;
-      freeBadge.classList.add('hidden');
-    }
-  }
 
   // Cart Drawer Items List
   const itemsContainer = document.getElementById('cart-items-container');
   const emptyMsg = document.getElementById('cart-empty-message');
   const cartFooter = document.getElementById('cart-footer');
-  const subtotalEl = document.getElementById('cart-subtotal');
-  const deliveryEl = document.getElementById('cart-delivery-fee');
-  const totalEl = document.getElementById('cart-total-amount');
+  const countEl = document.getElementById('cart-total-items-count');
 
-  if (subtotalEl) subtotalEl.innerText = `₹${subtotal}`;
-  if (deliveryEl) deliveryEl.innerText = isFreeDelivery ? 'FREE' : `₹${deliveryFee}`;
-  if (totalEl) totalEl.innerText = `₹${totalAmount}`;
+  if (countEl) countEl.innerText = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
 
   if (!itemsContainer) return;
 
@@ -700,7 +668,7 @@ function updateCartUI() {
         <div>
           <h4 class="font-heading font-bold text-xs text-stone-900 leading-tight">${item.name}</h4>
           <p class="text-[10px] text-amber-800 font-semibold">${item.weight}</p>
-          <div class="text-xs font-extrabold text-[#142E23] mt-0.5">₹${item.price} <span class="text-[10px] text-stone-400 font-normal">each</span></div>
+          <div class="text-xs font-bold text-emerald-800 mt-0.5">Selected Pack: ${item.weight}</div>
         </div>
       </div>
 
@@ -753,23 +721,12 @@ function openCheckoutModal() {
   toggleCartDrawer(false);
 
   const modal = document.getElementById('checkout-modal');
-  const totalElem = document.getElementById('checkout-modal-total');
   const summaryList = document.getElementById('checkout-items-summary-list');
   const countBadge = document.getElementById('checkout-items-count-badge');
-  const subtotalDisp = document.getElementById('checkout-subtotal-display');
-  const shippingDisp = document.getElementById('checkout-shipping-display');
 
-  // Authoritative calculations
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const isFreeDelivery = subtotal >= 799;
-  const delivery = isFreeDelivery ? 0 : 60;
-  const total = subtotal + delivery;
 
-  if (totalElem) totalElem.innerText = `₹${total}`;
   if (countBadge) countBadge.innerText = `${totalItems} Item${totalItems > 1 ? 's' : ''}`;
-  if (subtotalDisp) subtotalDisp.innerText = `₹${subtotal}`;
-  if (shippingDisp) shippingDisp.innerText = isFreeDelivery ? 'FREE Delivery' : `₹${delivery}`;
 
   if (summaryList) {
     summaryList.innerHTML = cart.map(item => `
@@ -778,7 +735,7 @@ function openCheckoutModal() {
           <span class="font-bold text-stone-900">${item.name}</span>
           <span class="text-stone-500 text-[11px] block">${item.weight} × ${item.quantity}</span>
         </div>
-        <span class="font-black text-[#142E23]">₹${item.price * item.quantity}</span>
+        <span class="font-bold text-emerald-800">Pack: ${item.weight}</span>
       </div>
     `).join('');
   }
@@ -809,23 +766,11 @@ function closeCheckoutModal() {
   }
 }
 
-function togglePaymentTab(method) {
-  document.querySelectorAll('.pay-option').forEach(el => {
-    el.classList.remove('border-emerald-600', 'bg-emerald-50/50');
-    el.classList.add('border-stone-200');
-  });
-
-  const selectedRadio = document.querySelector(`input[name="payment_method"][value="${method}"]`);
-  if (selectedRadio) {
-    selectedRadio.closest('.pay-option').classList.add('border-emerald-600', 'bg-emerald-50/50');
-  }
-}
-
 function handlePlaceOrder(e) {
   e.preventDefault();
 
   if (cart.length === 0) {
-    showToast('Your shopping basket is empty. Please select products first.', 'error');
+    showToast('Your order list is empty. Please select products first.', 'error');
     return;
   }
 
@@ -834,7 +779,6 @@ function handlePlaceOrder(e) {
   const address = document.getElementById('cust-address').value.trim();
   const city = document.getElementById('cust-city').value.trim();
   const pincode = document.getElementById('cust-pincode').value.trim();
-  const paymentMethod = document.querySelector('input[name="payment_method"]:checked')?.value || 'whatsapp_direct';
 
   if (!name || name.length < 2) {
     showToast('Please enter your full name.', 'error');
@@ -858,28 +802,10 @@ function handlePlaceOrder(e) {
     return;
   }
 
-  // Authoritative server-like price recalculation from PRODUCTS
-  let authoritativeSubtotal = 0;
-  const verifiedItems = cart.map(item => {
-    const canonical = PRODUCTS.find(p => p.id === item.productId);
-    let unitPrice = item.price;
-    if (canonical) {
-      const v = canonical.variants.find(varItem => varItem.weight === item.weight) || canonical.variants[0];
-      unitPrice = v.price;
-    }
-    const lineTotal = unitPrice * item.quantity;
-    authoritativeSubtotal += lineTotal;
-    return {
-      ...item,
-      price: unitPrice,
-      lineTotal: lineTotal
-    };
-  });
-
-  const subtotal = authoritativeSubtotal;
-  const isFreeDelivery = subtotal >= 799;
-  const delivery = isFreeDelivery ? 0 : 60;
-  const total = subtotal + delivery;
+  const verifiedItems = cart.map(item => ({
+    ...item,
+    lineItems: `${item.name} (${item.weight}) × ${item.quantity}`
+  }));
 
   // Update customer profile
   currentUser = { name, phone, city };
@@ -895,7 +821,7 @@ function handlePlaceOrder(e) {
     year: 'numeric'
   });
 
-  // Construct real order record
+  // Construct order record
   const orderRecord = {
     id: orderId,
     date: dateFormatted,
@@ -905,62 +831,50 @@ function handlePlaceOrder(e) {
     address: `${address}, ${city} - ${pincode}`,
     items: verifiedItems.map(i => `${i.name} (${i.weight}) x ${i.quantity}`).join(', '),
     itemDetails: [...verifiedItems],
-    subtotal: `₹${subtotal}`,
-    shipping: delivery === 0 ? 'FREE' : `₹${delivery}`,
-    total: `₹${total}`,
-    payment: paymentMethod === 'whatsapp_direct' ? 'WhatsApp Direct Dispatch' : 'Cash on Delivery (Pending)',
-    status: 'Pending Mill Confirmation'
+    payment: 'WhatsApp Direct Hotline',
+    status: 'Sent to Mill via WhatsApp'
   };
 
-  // Save to persistent customer orders list
   saveCustomerOrder(orderRecord);
+
+  // Send directly to WhatsApp
+  let msg = `*Deepan Mills - Customer Order Request*\n`;
+  msg += `--------------------------------------\n`;
+  msg += `Order Reference: *${orderId}*\n`;
+  msg += `Customer Name: *${name}*\n`;
+  msg += `Phone: *${phone}*\n`;
+  msg += `Delivery Address: ${address}, ${city} - ${pincode}\n`;
+  msg += `--------------------------------------\n`;
+  msg += `*Ordered Items:*\n`;
+  verifiedItems.forEach((item, idx) => {
+    msg += `${idx + 1}. ${item.name} (${item.weight}) × ${item.quantity}\n`;
+  });
+  msg += `--------------------------------------\n`;
+  msg += `Please confirm product availability and dispatch details. Thank you!`;
+
+  const phoneNum = '916379790035';
+  const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
 
   // Update success modal
   const successOrderId = document.getElementById('success-order-id');
   const successCustInfo = document.getElementById('success-customer-info');
   const successDate = document.getElementById('success-date');
-  const successTotal = document.getElementById('success-total-paid');
   const successStatus = document.getElementById('success-status');
   const successList = document.getElementById('success-items-list');
 
   if (successOrderId) successOrderId.innerText = orderId;
   if (successCustInfo) successCustInfo.innerText = `${name}, ${address}, ${city} - ${pincode} (Ph: ${phone})`;
   if (successDate) successDate.innerText = dateFormatted;
-  if (successTotal) successTotal.innerText = `₹${total}`;
-  if (successStatus) successStatus.innerText = paymentMethod === 'whatsapp_direct' ? 'Dispatched to Mill WhatsApp' : 'Pending Courier Confirmation';
+  if (successStatus) successStatus.innerText = 'Dispatched to Deepan Mills WhatsApp';
 
   if (successList) {
     successList.innerHTML = verifiedItems.map(item => `
       <div class="flex justify-between py-1 text-xs">
-        <span>${item.name} (${item.weight}) × ${item.quantity}</span>
-        <span class="font-bold text-[#142E23]">₹${item.lineTotal}</span>
+        <span class="font-bold text-stone-800">${item.name}</span>
+        <span class="text-emerald-800 font-semibold">${item.weight} × ${item.quantity}</span>
       </div>
     `).join('');
-  }
-
-  // If WhatsApp direct chosen, also trigger the WhatsApp order dispatch
-  if (paymentMethod === 'whatsapp_direct') {
-    let msg = `*Deepan Mills - Verified Customer Order Request*\n`;
-    msg += `--------------------------------------\n`;
-    msg += `Order Reference: *${orderId}*\n`;
-    msg += `Customer Name: *${name}*\n`;
-    msg += `Phone: *${phone}*\n`;
-    msg += `Delivery Address: ${address}, ${city} - ${pincode}\n`;
-    msg += `--------------------------------------\n`;
-    msg += `*Ordered Items:*\n`;
-    verifiedItems.forEach((item, idx) => {
-      msg += `${idx + 1}. ${item.name} (${item.weight}) × ${item.quantity} = ₹${item.lineTotal}\n`;
-    });
-    msg += `--------------------------------------\n`;
-    msg += `Items Subtotal: ₹${subtotal}\n`;
-    msg += `Shipping: ${delivery === 0 ? 'FREE Delivery' : '₹60 Delivery Fee'}\n`;
-    msg += `*Grand Total Payable:* ₹${total}\n`;
-    msg += `--------------------------------------\n`;
-    msg += `Please confirm my order and share estimated dispatch date. Thank you!`;
-
-    const phoneNum = '916379790035';
-    const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
   }
 
   // Close checkout modal & clear cart
@@ -976,7 +890,7 @@ function handlePlaceOrder(e) {
     successModal.classList.add('opacity-100', 'pointer-events-auto');
   }
 
-  showToast(`Order ${orderId} recorded! Dispatch confirmation pending with mill.`, 'success');
+  showToast(`Order request ${orderId} sent to WhatsApp!`, 'success');
 }
 
 function closeSuccessModal() {
@@ -991,10 +905,24 @@ function closeSuccessModal() {
 // WhatsApp instant order helper from header or cart
 function checkoutViaWhatsApp() {
   if (cart.length === 0) {
-    showToast('Your basket is empty. Please add grains first.', 'error');
+    showToast('Your order list is empty. Please select products first.', 'error');
     return;
   }
-  openCheckoutModal();
+
+  let msg = `*Deepan Mills - Customer Order Request*\n`;
+  msg += `--------------------------------------\n`;
+  msg += `*Ordered Items:*\n`;
+  cart.forEach((item, idx) => {
+    msg += `${idx + 1}. ${item.name} (${item.weight}) × ${item.quantity}\n`;
+  });
+  msg += `--------------------------------------\n`;
+  msg += `Please confirm product availability, shipping charges to my delivery address, and payment details.\n\nThank you!`;
+
+  const phoneNum = '916379790035';
+  const url = `https://wa.me/${phoneNum}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+
+  showToast('Opening WhatsApp with your order details...', 'success');
 }
 
 // --- QUICK VIEW MODAL (IN-DEPTH PRODUCT SPECIFICATION) ---
@@ -1170,60 +1098,56 @@ function renderQuickViewModal() {
           </div>
         </div>
 
-        <!-- REVEALED PRICE CARD -->
-        <div class="p-3.5 bg-gradient-to-r from-emerald-50 to-amber-50/50 rounded-2xl border border-emerald-300 shadow-sm space-y-1">
+        <!-- ORDER SELECTION CARD (NO PRICES DISPLAYED) -->
+        <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200 shadow-sm space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[11px] font-bold text-stone-500 uppercase tracking-wider">
-              Selected: <strong class="text-stone-900">${currentVariant.weight}</strong>
+            <span class="text-xs font-bold text-stone-700 uppercase tracking-wider">
+              Selected Pack: <strong class="text-[#142E23] text-sm">${currentVariant.weight}</strong>
             </span>
-            <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider shadow-sm">
-              Save ₹${savings}
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold flex items-center gap-1 shadow-sm">
+              <i data-lucide="check" class="w-3 h-3 text-emerald-700"></i>
+              <span>Fresh Theni Batch</span>
             </span>
           </div>
 
-          <div class="flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-[#142E23]">₹${currentVariant.price}</span>
-            <span class="text-sm text-stone-400 line-through">₹${currentVariant.mrp}</span>
-            <span class="text-xs text-stone-500 font-medium">/ ${currentVariant.weight}</span>
-          </div>
+          <!-- Quantity Selector -->
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-stone-700">Quantity:</span>
+              <div class="flex items-center border border-stone-300 rounded-xl bg-white overflow-hidden shadow-sm">
+                <button type="button" onclick="changeQuickViewQty(-1)" class="px-3 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">-</button>
+                <span class="px-3.5 py-1 text-xs font-black text-stone-900">${currentQuickViewState.quantity}</span>
+                <button type="button" onclick="changeQuickViewQty(1)" class="px-3 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">+</button>
+              </div>
+            </div>
 
-          <div class="flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold">
-            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-700"></i>
-            <span>Freshly Milled in Theni • Ready to Dispatch</span>
-          </div>
-        </div>
-
-        <!-- QUANTITY & TOTAL CALCULATION -->
-        <div class="flex items-center justify-between pt-1">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold text-stone-700">Quantity:</span>
-            <div class="flex items-center border border-stone-300 rounded-xl bg-white overflow-hidden shadow-sm">
-              <button onclick="changeQuickViewQty(-1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">-</button>
-              <span class="px-3 py-1 text-xs font-black text-stone-900">${currentQuickViewState.quantity}</span>
-              <button onclick="changeQuickViewQty(1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100 font-bold text-sm transition-colors">+</button>
+            <div class="text-right">
+              <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Pack Size</span>
+              <span class="text-sm font-black text-[#142E23]">${currentVariant.weight} × ${currentQuickViewState.quantity}</span>
             </div>
           </div>
 
-          <div class="text-right">
-            <span class="text-[10px] text-stone-400 block uppercase font-bold">Total Amount</span>
-            <span class="text-xl font-black text-[#142E23]">₹${currentVariant.price * currentQuickViewState.quantity}</span>
+          <div class="flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold pt-1 border-t border-emerald-200/60">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i>
+            <span>100% Unpolished & Traditional Cold Processed in Theni</span>
           </div>
         </div>
 
-        <!-- ACTION BUTTONS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-          <button onclick="addQuickViewToCart()" 
-                  class="py-3 px-4 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white font-bold text-xs shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
-            <i data-lucide="plus" class="w-4 h-4 text-amber-300"></i>
-            <span>Add to Basket (₹${currentVariant.price * currentQuickViewState.quantity})</span>
-          </button>
-
-          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20inquiring%20about%20${encodeURIComponent(prod.name)}%20(${currentVariant.weight})%20x%20${currentQuickViewState.quantity}."
+        <!-- WHATSAPP DIRECT ORDER ACTIONS -->
+        <div class="space-y-2 pt-2">
+          <a href="https://wa.me/916379790035?text=Hello%20Deepan%20Mills,%20I%20would%20like%20to%20order%20${encodeURIComponent(prod.name)}%20(${currentVariant.weight})%20x%20${currentQuickViewState.quantity}.%20Please%20confirm%20availability%20and%20dispatch%20details."
              target="_blank"
-             class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Inquire on WhatsApp</span>
+             class="w-full py-3.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-95">
+            <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
+            <span>Order via WhatsApp (+91 63797 90035)</span>
           </a>
+
+          <button type="button"
+                  onclick="addQuickViewToCart()" 
+                  class="w-full py-2.5 px-4 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs border border-stone-200 flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="plus" class="w-4 h-4 text-emerald-800"></i>
+            <span>Add to Multi-Item Order List</span>
+          </button>
         </div>
 
       </div>
