@@ -306,13 +306,14 @@ h1, h2, h3, h4, .font-heading {
   background-color: #FAF7F2;
   background-image: 
     linear-gradient(to bottom, 
-      rgba(251, 249, 245, 0.90) 0%, 
-      rgba(251, 249, 245, 0.80) 45%, 
-      rgba(251, 249, 245, 0.94) 100%
+      rgba(251, 249, 245, 0.72) 0%, 
+      rgba(251, 249, 245, 0.50) 38%, 
+      rgba(251, 249, 245, 0.68) 72%, 
+      rgba(251, 249, 245, 0.88) 100%
     ),
     url('images/hero-bg-crops.jpg');
   background-size: cover;
-  background-position: center 30%;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
