@@ -331,15 +331,95 @@ function initScrollAnimations() {
 }
 
 // --- POLICIES MODAL LOGIC ---
-function openPoliciesModal(tab = 'shipping') {
-  const modal = document.getElementById('policies-modal');
-  if (modal) {
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100', 'pointer-events-auto');
-    document.body.classList.add('overflow-hidden');
-    switchPolicyTab(tab);
-    if (window.lucide) window.lucide.createIcons();
+const POLICY_CONFIG = {
+  shipping: {
+    title: 'Shipping & Delivery Policy',
+    subtitle: 'Direct Mill-to-Doorstep Pan-India Courier Terms • Theni, Tamil Nadu',
+    icon: 'truck',
+    iconBg: 'bg-emerald-700 text-white',
+    badge: 'Pan-India Delivery',
+    badgeClass: 'bg-emerald-100 text-emerald-900 border border-emerald-300',
+    waText: 'Hello Deepan Mills, I have a question regarding Shipping and Delivery for my order.'
+  },
+  returns: {
+    title: 'Returns & Guarantee Policy',
+    subtitle: '100% Unpolished Purity Guarantee & Transit Replacement • Theni, Tamil Nadu',
+    icon: 'badge-check',
+    iconBg: 'bg-amber-600 text-white',
+    badge: '100% Quality Assurance',
+    badgeClass: 'bg-amber-100 text-amber-900 border border-amber-300',
+    waText: 'Hello Deepan Mills, I have a query regarding your Returns and Purity Guarantee.'
+  },
+  terms: {
+    title: 'Order Terms & Conditions',
+    subtitle: 'Direct Mill WhatsApp Quotation & Transparent Billing • Theni, Tamil Nadu',
+    icon: 'file-text',
+    iconBg: 'bg-[#142E23] text-amber-300',
+    badge: 'Direct Mill Order',
+    badgeClass: 'bg-stone-100 text-stone-800 border border-stone-300',
+    waText: 'Hello Deepan Mills, I have a question about Order Terms and bulk dispatch.'
+  },
+  privacy: {
+    title: 'Customer Privacy Policy',
+    subtitle: 'Strict Confidentiality & Zero Telemarketing Spam Promise • Theni, Tamil Nadu',
+    icon: 'lock',
+    iconBg: 'bg-blue-700 text-white',
+    badge: '100% Data Confidentiality',
+    badgeClass: 'bg-blue-100 text-blue-900 border border-blue-300',
+    waText: 'Hello Deepan Mills, I have a question about Customer Privacy and my contact details.'
   }
+};
+
+function openPoliciesModal(key = 'shipping') {
+  const modal = document.getElementById('policies-modal');
+  if (!modal) return;
+
+  const validKey = POLICY_CONFIG[key] ? key : 'shipping';
+  const cfg = POLICY_CONFIG[validKey];
+
+  // Update header elements to match the clicked policy
+  const titleEl = document.getElementById('policy-modal-title');
+  const subEl = document.getElementById('policy-modal-subtitle');
+  const badgeEl = document.getElementById('policy-modal-badge');
+  const iconHolder = document.getElementById('policy-modal-icon-holder');
+  const iconContainer = document.getElementById('policy-modal-icon-container');
+  const waBtn = document.getElementById('policy-modal-wa-btn');
+
+  if (titleEl) titleEl.textContent = cfg.title;
+  if (subEl) subEl.textContent = cfg.subtitle;
+  if (badgeEl) {
+    badgeEl.textContent = cfg.badge;
+    badgeEl.className = `hidden sm:inline-flex text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${cfg.badgeClass}`;
+  }
+  if (iconContainer) {
+    iconContainer.className = `w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-colors ${cfg.iconBg}`;
+  }
+  if (iconHolder) {
+    iconHolder.innerHTML = `<i data-lucide="${cfg.icon}" class="w-5 h-5"></i>`;
+  }
+  if (waBtn) {
+    waBtn.href = `https://wa.me/916379790035?text=${encodeURIComponent(cfg.waText)}`;
+  }
+
+  // Show ONLY the single selected policy panel; keep all other 3 panels hidden
+  const tabs = ['shipping', 'returns', 'terms', 'privacy'];
+  tabs.forEach(t => {
+    const content = document.getElementById(`policy-tab-${t}`);
+    if (content) {
+      if (t === validKey) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    }
+  });
+
+  // Display modal
+  modal.classList.remove('opacity-0', 'pointer-events-none');
+  modal.classList.add('opacity-100', 'pointer-events-auto');
+  document.body.classList.add('overflow-hidden');
+
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function closePoliciesModal() {
@@ -352,27 +432,7 @@ function closePoliciesModal() {
 }
 
 function switchPolicyTab(tab) {
-  const tabs = ['shipping', 'returns', 'terms', 'privacy'];
-  tabs.forEach(t => {
-    const content = document.getElementById(`policy-tab-${t}`);
-    const btn = document.getElementById(`policy-btn-${t}`);
-    if (content) {
-      if (t === tab) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-    }
-    if (btn) {
-      if (t === tab) {
-        btn.classList.add('bg-[#142E23]', 'text-white', 'shadow-sm');
-        btn.classList.remove('bg-stone-100', 'text-stone-700');
-      } else {
-        btn.classList.remove('bg-[#142E23]', 'text-white', 'shadow-sm');
-        btn.classList.add('bg-stone-100', 'text-stone-700');
-      }
-    }
-  });
+  openPoliciesModal(tab);
 }
 
 // --- LANGUAGE SWITCHER LOGIC ---
@@ -1546,6 +1606,16 @@ function setupEventListeners() {
       }
     });
   }
+
+  // Escape key listener to dismiss open modals gracefully
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closePoliciesModal();
+      closeQuickView();
+      if (typeof closeSuccessModal === 'function') closeSuccessModal();
+      toggleCartDrawer(false);
+    }
+  });
 }
 
 function resetAllFilters() {
