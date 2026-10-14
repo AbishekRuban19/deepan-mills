@@ -573,7 +573,7 @@ function renderProducts() {
     const activeVariant = prod.variants[activeVariantIdx] || prod.variants[0];
 
     return `
-      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#CEE1D5] cursor-pointer" 
            data-product-id="${prod.id}"
            onclick="openQuickView('${prod.id}', ${activeVariantIdx})">
         <div>
@@ -1434,7 +1434,7 @@ function renderTestimonials() {
   if (!container || list.length === 0) return;
 
   container.innerHTML = list.map(t => `
-    <div class="p-6 rounded-3xl bg-[#FBF9F5] border border-stone-200 flex flex-col justify-between space-y-4 shadow-sm">
+    <div class="p-6 rounded-3xl bg-white border border-[#CEE1D5] flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md hover:border-emerald-400 transition-all">
       <div class="space-y-3">
         <div class="flex items-center gap-1 text-amber-600">
           <i data-lucide="quote" class="w-5 h-5 text-amber-700"></i>
