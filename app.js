@@ -8,11 +8,10 @@ const TRANSLATIONS = {
     announcement: 'Direct from Theni Soil • 100% Unpolished & Traditional Cold Processed',
     announcementSub: 'Tamil Nadu MSME Award Recognized Unit',
     brandTagline: 'Tradition • Purity • Health',
-    navHome: 'Heritage',
-    navShop: 'Shop Rice, Millets & Corn',
-    navGuide: 'Cooking & Health',
-    navAwards: 'Milling Craft',
-    navReviews: 'Patron Notes',
+    navHome: 'Home',
+    navShop: 'Catalogue',
+    navAbout: 'About Us',
+    navPolicies: 'Policy',
     navContact: 'Contact',
     btnWaHeader: 'WhatsApp',
     btnCartHeader: 'Order List',
@@ -42,11 +41,10 @@ const TRANSLATIONS = {
     announcement: 'தேனி மண்ணிலிருந்து நேரடியாக • 100% தீட்டப்படாத நவதானியங்கள்',
     announcementSub: 'தமிழ்நாடு MSME அங்கீகாரம் பெற்ற ஆலை',
     brandTagline: 'பாரம்பரியம் • தூய்மை • நல்வாழ்வு',
-    navHome: 'ஆலை அறிமுகம்',
-    navShop: 'அரிசி, சிறுதானியங்கள் & சோளம்',
-    navGuide: 'சமையல் வழிகாட்டி',
-    navAwards: 'ஆலை பாரம்பரியம்',
-    navReviews: 'வாடிக்கையாளர் குறிப்புகள்',
+    navHome: 'முகப்பு',
+    navShop: 'தானியங்கள்',
+    navAbout: 'எங்களைப் பற்றி',
+    navPolicies: 'கொள்கை',
     navContact: 'தொடர்பு',
     btnWaHeader: 'வாட்ஸ்அப்',
     btnCartHeader: 'ஆர்டர் பட்டியல்',
@@ -76,11 +74,10 @@ const TRANSLATIONS = {
     announcement: 'थेनी की मिट्टी से सीधे • 100% बिना पॉलिश व प्राकृतिक अनाज',
     announcementSub: 'तमिलनाडु MSME मान्यता प्राप्त इकाई',
     brandTagline: 'परंपरा • शुद्धता • स्वास्थ्य',
-    navHome: 'मिल परिचय',
-    navShop: 'चावल, बाजरा व मक्का',
-    navGuide: 'स्वास्थ्य व विधि',
-    navAwards: 'मिल शिल्प',
-    navReviews: 'ग्राहक अनुभव',
+    navHome: 'होम',
+    navShop: 'उत्पाद सूची',
+    navAbout: 'हमारे बारे में',
+    navPolicies: 'नीति व नियम',
     navContact: 'संपर्क',
     btnWaHeader: 'व्हाट्सएप',
     btnCartHeader: 'ऑर्डर सूची',
@@ -405,11 +402,19 @@ function openPoliciesModal(key = 'shipping') {
   const tabs = ['shipping', 'returns', 'terms', 'privacy'];
   tabs.forEach(t => {
     const content = document.getElementById(`policy-tab-${t}`);
+    const tabBtn = document.getElementById(`policy-btn-${t}`);
     if (content) {
       if (t === validKey) {
         content.classList.remove('hidden');
       } else {
         content.classList.add('hidden');
+      }
+    }
+    if (tabBtn) {
+      if (t === validKey) {
+        tabBtn.className = 'px-3 py-1.5 rounded-xl bg-[#142E23] text-white font-bold text-xs whitespace-nowrap shadow-xs';
+      } else {
+        tabBtn.className = 'px-3 py-1.5 rounded-xl bg-stone-100 text-stone-600 hover:bg-stone-200 font-semibold text-xs whitespace-nowrap transition-colors';
       }
     }
   });
@@ -465,9 +470,8 @@ function applyLanguage(langKey) {
     'brand-tagline': t.brandTagline,
     'nav-home': t.navHome,
     'nav-shop': t.navShop,
-    'nav-guide': t.navGuide,
-    'nav-awards': t.navAwards,
-    'nav-reviews': t.navReviews,
+    'nav-about': t.navAbout,
+    'nav-policies': t.navPolicies,
     'nav-contact': t.navContact,
     'btn-wa-header': t.btnWaHeader,
     'btn-cart-header': t.btnCartHeader,
