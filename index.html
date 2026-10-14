@@ -72,10 +72,10 @@
 
         <!-- DESKTOP NAVIGATION (CENTERED) -->
         <nav id="header-main-nav" class="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-3.5 text-xs lg:text-sm font-semibold">
-          <a href="about.html" id="nav-about">About Us</a>
-          <a href="privacy-policy.html" id="nav-privacy">Privacy Policy</a>
-          <a href="shipping-policy.html" id="nav-shipping">Shipping Policy</a>
-          <a href="contact.html" id="nav-contact">Contact</a>
+          <button type="button" onclick="openNavModal('about')" id="nav-about">About Us</button>
+          <button type="button" onclick="openNavModal('privacy')" id="nav-privacy">Privacy Policy</button>
+          <button type="button" onclick="openNavModal('shipping')" id="nav-shipping">Shipping Policy</button>
+          <button type="button" onclick="openNavModal('contact')" id="nav-contact">Contact</button>
         </nav>
 
         <!-- RIGHT ACTIONS: LANGUAGE + PHONE + SEARCH + CART -->
@@ -162,26 +162,26 @@
         </a>
       </div>
 
-      <a href="index.html#products" onclick="document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <a href="#products" onclick="filterCategory('all'); document.getElementById('mobile-nav-panel').classList.add('hidden');" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-400"></i>
         <span>Home / Catalogue</span>
       </a>
-      <a href="about.html" id="mobile-nav-about" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      <button type="button" onclick="openNavModal('about'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-about" class="w-full text-left py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
         <span>About Us</span>
-      </a>
-      <a href="privacy-policy.html" id="mobile-nav-privacy" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      </button>
+      <button type="button" onclick="openNavModal('privacy'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-privacy" class="w-full text-left py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
         <span>Privacy Policy</span>
-      </a>
-      <a href="shipping-policy.html" id="mobile-nav-shipping" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      </button>
+      <button type="button" onclick="openNavModal('shipping'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-shipping" class="w-full text-left py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="truck" class="w-4 h-4 text-emerald-400"></i>
         <span>Shipping Policy</span>
-      </a>
-      <a href="contact.html" id="mobile-nav-contact" class="block py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
+      </button>
+      <button type="button" onclick="openNavModal('contact'); document.getElementById('mobile-nav-panel').classList.add('hidden');" id="mobile-nav-contact" class="w-full text-left py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white">
         <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
         <span>Contact</span>
-      </a>
+      </button>
       
       <div class="pt-2 border-t border-white/10 space-y-2">
         <a href="tel:+916379790035" 
@@ -3487,12 +3487,12 @@
         <div>
           <h4 class="text-white font-heading font-bold text-sm mb-3">Quick Navigation</h4>
           <ul class="space-y-2">
-            <li><a href="index.html#products" class="hover:text-white transition-colors">Heritage Catalogue</a></li>
-            <li><a href="about.html" class="hover:text-white transition-colors">About Our Theni Mill</a></li>
-            <li><a href="index.html#nutrition-guide" class="hover:text-white transition-colors">Grain Cooking Ratios</a></li>
-            <li><a href="shipping-policy.html" class="hover:text-white transition-colors">Shipping Policy & Dispatch</a></li>
-            <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy & Protection</a></li>
-            <li><a href="contact.html" class="hover:text-white transition-colors">Contact & Direct Inquiries</a></li>
+            <li><a href="#products" onclick="filterCategory('all')" class="hover:text-white transition-colors">Heritage Catalogue</a></li>
+            <li><button type="button" onclick="openNavModal('about')" class="hover:text-white transition-colors text-left">About Our Theni Mill</button></li>
+            <li><a href="#nutrition-guide" class="hover:text-white transition-colors">Grain Cooking Ratios</a></li>
+            <li><button type="button" onclick="openNavModal('shipping')" class="hover:text-white transition-colors text-left">Shipping Policy & Dispatch</button></li>
+            <li><button type="button" onclick="openNavModal('privacy')" class="hover:text-white transition-colors text-left">Privacy Policy & Protection</button></li>
+            <li><button type="button" onclick="openNavModal('contact')" class="hover:text-white transition-colors text-left">Contact & Direct Inquiries</button></li>
           </ul>
         </div>
 
@@ -3514,13 +3514,13 @@
       <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-stone-500">
         <p>© 2026 Deepan Mills. All Rights Reserved. Pure Theni Agro Processing.</p>
         <div class="flex items-center gap-4">
-          <a href="privacy-policy.html" class="hover:text-stone-300 transition-colors">Privacy Policy</a>
+          <button type="button" onclick="openNavModal('privacy')" class="hover:text-stone-300 transition-colors">Privacy Policy</button>
           <span>•</span>
-          <a href="shipping-policy.html" class="hover:text-stone-300 transition-colors">Shipping Policy</a>
+          <button type="button" onclick="openNavModal('shipping')" class="hover:text-stone-300 transition-colors">Shipping Policy</button>
           <span>•</span>
-          <a href="about.html" class="hover:text-stone-300 transition-colors">About Us</a>
+          <button type="button" onclick="openNavModal('about')" class="hover:text-stone-300 transition-colors">About Us</button>
           <span>•</span>
-          <a href="contact.html" class="hover:text-stone-300 transition-colors">Contact</a>
+          <button type="button" onclick="openNavModal('contact')" class="hover:text-stone-300 transition-colors">Contact</button>
         </div>
       </div>
     </div>
@@ -3760,17 +3760,52 @@
         </button>
       </div>
 
-      <!-- Policy Tab Switcher Buttons -->
-      <div class="flex items-center gap-1.5 pt-3 pb-2 border-b border-stone-200 overflow-x-auto text-xs font-bold">
-        <button id="policy-btn-shipping" onclick="openPoliciesModal('shipping')" class="px-3 py-1.5 rounded-xl transition-all whitespace-nowrap">Shipping & Delivery</button>
-        <button id="policy-btn-returns" onclick="openPoliciesModal('returns')" class="px-3 py-1.5 rounded-xl transition-all whitespace-nowrap">Purity & Returns</button>
-        <button id="policy-btn-terms" onclick="openPoliciesModal('terms')" class="px-3 py-1.5 rounded-xl transition-all whitespace-nowrap">Order Terms</button>
-        <button id="policy-btn-privacy" onclick="openPoliciesModal('privacy')" class="px-3 py-1.5 rounded-xl transition-all whitespace-nowrap">Privacy Policy</button>
-      </div>
-
       <!-- Policy Content Panels -->
-      <div class="py-5 space-y-4 text-xs sm:text-sm text-stone-700 leading-relaxed overflow-y-auto max-h-[50vh]">
-        
+      <div class="py-5 space-y-4 text-xs sm:text-sm text-stone-700 leading-relaxed overflow-y-auto max-h-[60vh]">
+
+        <!-- Tab 0: About Deepan Mills -->
+        <div id="policy-tab-about" class="space-y-4 hidden">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-950 flex items-start gap-3">
+            <i data-lucide="sprout" class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5"></i>
+            <div>
+              <h4 class="font-bold text-sm">Western Ghats Agro Heritage • Theni, Tamil Nadu</h4>
+              <p class="text-xs text-emerald-800 mt-1">Sustaining pure unpolished grain heritage without industrial chemical stripping, bleaching, or paraffin polishing.</p>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <h5 class="font-bold text-stone-900 text-sm">1. Our Roots & Mill Mission</h5>
+            <p>Situated in the fertile agricultural valleys of Theni, Tamil Nadu, flanked by the Western Ghats, Deepan Mills specializes in traditional agro-processing. We work directly with dryland farmer clusters to revive nutrient-dense traditional rice varieties (Karuppu Kavuni, Kattuyanam, Mappillai Samba, Poongar) and native whole millets (Thinai, Samai, Varagu, Kuthiraivali, Kambu, Ragi).</p>
+          </div>
+
+          <div class="space-y-2">
+            <h5 class="font-bold text-stone-900 text-sm">2. Four Pillars of Pure Processing</h5>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              <div class="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                <span class="font-bold text-stone-900 text-xs flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> Zero Chemical Polish</span>
+                <p class="text-[11px] text-stone-600 mt-1">100% natural bran layer and living germ retained. Zero talc, zero paraffin wax coating, zero artificial colors.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                <span class="font-bold text-stone-900 text-xs flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-600"></i> Low-RPM Stone De-Husking</span>
+                <p class="text-[11px] text-stone-600 mt-1">Slow friction stone processing prevents heat buildup, safeguarding vital vitamins, minerals, and essential oils.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                <span class="font-bold text-stone-900 text-xs flex items-center gap-1.5"><i data-lucide="wind" class="w-3.5 h-3.5 text-emerald-600"></i> Gravity Airflow Winnowing</span>
+                <p class="text-[11px] text-stone-600 mt-1">Aspirators remove husk and field impurities cleanly with air streams. Zero chemical fumigants used.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                <span class="font-bold text-stone-900 text-xs flex items-center gap-1.5"><i data-lucide="sun" class="w-3.5 h-3.5 text-emerald-600"></i> Natural Sun-Curing</span>
+                <p class="text-[11px] text-stone-600 mt-1">Cured under natural sunlight before milling, locking in authentic harvest aroma and low glycemic benefits.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <h5 class="font-bold text-stone-900 text-sm">3. Facility Credentials & Direct Dispatch</h5>
+            <p>MSME Registered Agro-Processing Unit operating directly out of Theni District, Tamil Nadu (PIN: 625531). Freshly packed upon order and dispatched directly to your doorstep with zero middleman markups.</p>
+          </div>
+        </div>
+
         <!-- Tab 1: Shipping -->
         <div id="policy-tab-shipping" class="space-y-4">
           <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-950 flex items-start gap-3">
@@ -3872,6 +3907,67 @@
           <div class="space-y-2">
             <h5 class="font-bold text-stone-900 text-sm">3. Contact for Data Removal</h5>
             <p>If you wish to have your contact details removed from our dispatch records at any time, simply message our mill team on WhatsApp.</p>
+          </div>
+        </div>
+
+        <!-- Tab 5: Contact Deepan Mills -->
+        <div id="policy-tab-contact" class="space-y-4 hidden">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-950 flex items-start gap-3">
+            <i data-lucide="phone-call" class="w-5 h-5 text-emerald-700 shrink-0 mt-0.5"></i>
+            <div>
+              <h4 class="font-bold text-sm">Deepan Mills Facility • Theni, Tamil Nadu</h4>
+              <p class="text-xs text-emerald-800 mt-1">Direct mill hotline, WhatsApp order desk, and customer support.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Facility Address</span>
+              <p class="text-xs font-semibold text-stone-900 leading-snug">
+                Deepan Mills Agro Facility<br>
+                Theni District, Tamil Nadu - 625531<br>
+                <span class="text-stone-500 text-[11px]">Western Ghats Foothills</span>
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Working Hours</span>
+              <p class="text-xs font-semibold text-stone-900 leading-snug">
+                Mon – Sat: 10:00 AM – 6:00 PM IST<br>
+                Sunday: Weekly Maintenance<br>
+                <span class="text-emerald-700 text-[11px] font-bold">● Mill Open for WhatsApp Inquiries</span>
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Phone Hotlines</span>
+              <div class="text-xs font-bold text-stone-900 space-y-0.5">
+                <a href="tel:+916379790035" class="block hover:text-emerald-700 transition-colors">📞 +91 63797 90035 (Primary)</a>
+                <a href="tel:+919159990812" class="block hover:text-emerald-700 transition-colors">📞 +91 91599 90812 (Desk)</a>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-stone-500">Email & Online</span>
+              <div class="text-xs font-bold text-stone-900 space-y-0.5">
+                <a href="mailto:deepanmills@gmail.com" class="block hover:text-emerald-700 transition-colors">✉️ deepanmills@gmail.com</a>
+                <a href="https://wa.me/916379790035" target="_blank" class="block text-emerald-700 hover:underline">💬 WhatsApp Direct Support</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick WhatsApp Inquiry Builder -->
+          <div class="p-4 rounded-2xl bg-[#F0F6F2] border border-[#CEE1D5] space-y-2.5">
+            <h5 class="font-bold text-stone-900 text-xs">Direct WhatsApp Inquiry</h5>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <input type="text" id="modal-cp-name" placeholder="Your Name" class="px-3 py-2 text-xs rounded-xl border border-stone-300 bg-white focus:outline-none focus:border-emerald-600">
+              <input type="text" id="modal-cp-city" placeholder="Your City / PIN" class="px-3 py-2 text-xs rounded-xl border border-stone-300 bg-white focus:outline-none focus:border-emerald-600">
+            </div>
+            <textarea id="modal-cp-req" rows="2" placeholder="Tell us what grains or quantities you need..." class="w-full px-3 py-2 text-xs rounded-xl border border-stone-300 bg-white focus:outline-none focus:border-emerald-600"></textarea>
+            <button type="button" onclick="handleModalContactSubmit()" class="w-full py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+              <span>Send Inquiry to WhatsApp Desk</span>
+            </button>
           </div>
         </div>
 

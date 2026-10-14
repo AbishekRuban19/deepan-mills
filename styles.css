@@ -105,8 +105,9 @@ h1, h2, h3, h4, .font-heading {
   }
 }
 
-/* Nav Link Hover Micro-Underline & Capsule */
-#header-main-nav a {
+/* Nav Link & Button Hover Micro-Underline & Capsule */
+#header-main-nav a,
+#header-main-nav button {
   position: relative;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
@@ -114,14 +115,22 @@ h1, h2, h3, h4, .font-heading {
   border-radius: 10px;
   white-space: nowrap;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 #header-main-nav a:hover,
-#header-main-nav a.nav-active {
+#header-main-nav button:hover,
+#header-main-nav a.nav-active,
+#header-main-nav button.nav-active {
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.12);
 }
-#header-main-nav a::after {
+#header-main-nav a::after,
+#header-main-nav button::after {
   content: '';
   position: absolute;
   bottom: 1px;
@@ -134,7 +143,9 @@ h1, h2, h3, h4, .font-heading {
   transform: translateX(-50%);
 }
 #header-main-nav a:hover::after,
-#header-main-nav a.nav-active::after {
+#header-main-nav button:hover::after,
+#header-main-nav a.nav-active::after,
+#header-main-nav button.nav-active::after {
   width: 60%;
 }
 

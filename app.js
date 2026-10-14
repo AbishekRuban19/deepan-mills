@@ -330,8 +330,26 @@ function initScrollAnimations() {
   });
 }
 
-// --- POLICIES MODAL LOGIC ---
+// --- MODAL POPUP LOGIC (NO PAGE RELOADS, DEDICATED TOPIC POPUPS) ---
 const POLICY_CONFIG = {
+  about: {
+    title: 'About Deepan Mills',
+    subtitle: '100% Unpolished Traditional Grain Processors • Theni, Tamil Nadu',
+    icon: 'sprout',
+    iconBg: 'bg-emerald-700 text-white',
+    badge: 'MSME Agro Unit',
+    badgeClass: 'bg-emerald-100 text-emerald-900 border border-emerald-300',
+    waText: 'Hello Deepan Mills, I would like to learn more about your traditional unpolished milling process.'
+  },
+  privacy: {
+    title: 'Customer Privacy Policy',
+    subtitle: 'Strict Confidentiality & Zero Telemarketing Spam Promise • Theni, Tamil Nadu',
+    icon: 'lock',
+    iconBg: 'bg-blue-700 text-white',
+    badge: '100% Data Confidentiality',
+    badgeClass: 'bg-blue-100 text-blue-900 border border-blue-300',
+    waText: 'Hello Deepan Mills, I have a question about Customer Privacy and my contact details.'
+  },
   shipping: {
     title: 'Shipping & Delivery Policy',
     subtitle: 'Direct Mill-to-Doorstep Pan-India Courier Terms • Theni, Tamil Nadu',
@@ -341,8 +359,17 @@ const POLICY_CONFIG = {
     badgeClass: 'bg-emerald-100 text-emerald-900 border border-emerald-300',
     waText: 'Hello Deepan Mills, I have a question regarding Shipping and Delivery for my order.'
   },
+  contact: {
+    title: 'Contact Deepan Mills',
+    subtitle: 'Theni Processing Facility • Direct Miller Desks & Hotlines',
+    icon: 'phone-call',
+    iconBg: 'bg-[#142E23] text-amber-300',
+    badge: 'Direct Mill Support',
+    badgeClass: 'bg-amber-100 text-amber-900 border border-amber-300',
+    waText: 'Hello Deepan Mills, I would like to make an inquiry regarding your traditional grains.'
+  },
   returns: {
-    title: 'Returns & Guarantee Policy',
+    title: 'Purity & Guarantee Policy',
     subtitle: '100% Unpolished Purity Guarantee & Transit Replacement • Theni, Tamil Nadu',
     icon: 'badge-check',
     iconBg: 'bg-amber-600 text-white',
@@ -358,26 +385,17 @@ const POLICY_CONFIG = {
     badge: 'Direct Mill Order',
     badgeClass: 'bg-stone-100 text-stone-800 border border-stone-300',
     waText: 'Hello Deepan Mills, I have a question about Order Terms and bulk dispatch.'
-  },
-  privacy: {
-    title: 'Customer Privacy Policy',
-    subtitle: 'Strict Confidentiality & Zero Telemarketing Spam Promise • Theni, Tamil Nadu',
-    icon: 'lock',
-    iconBg: 'bg-blue-700 text-white',
-    badge: '100% Data Confidentiality',
-    badgeClass: 'bg-blue-100 text-blue-900 border border-blue-300',
-    waText: 'Hello Deepan Mills, I have a question about Customer Privacy and my contact details.'
   }
 };
 
-function openPoliciesModal(key = 'shipping') {
+function openNavModal(key = 'about') {
   const modal = document.getElementById('policies-modal');
   if (!modal) return;
 
-  const validKey = POLICY_CONFIG[key] ? key : 'shipping';
+  const validKey = POLICY_CONFIG[key] ? key : 'about';
   const cfg = POLICY_CONFIG[validKey];
 
-  // Update header elements to match the clicked policy
+  // Update header elements to match the clicked topic
   const titleEl = document.getElementById('policy-modal-title');
   const subEl = document.getElementById('policy-modal-subtitle');
   const badgeEl = document.getElementById('policy-modal-badge');
@@ -401,23 +419,15 @@ function openPoliciesModal(key = 'shipping') {
     waBtn.href = `https://wa.me/916379790035?text=${encodeURIComponent(cfg.waText)}`;
   }
 
-  // Show ONLY the single selected policy panel; keep all other 3 panels hidden
-  const tabs = ['shipping', 'returns', 'terms', 'privacy'];
-  tabs.forEach(t => {
+  // Show ONLY the single selected topic panel; keep all other panels hidden
+  const allPanels = ['about', 'privacy', 'shipping', 'contact', 'returns', 'terms'];
+  allPanels.forEach(t => {
     const content = document.getElementById(`policy-tab-${t}`);
-    const tabBtn = document.getElementById(`policy-btn-${t}`);
     if (content) {
       if (t === validKey) {
         content.classList.remove('hidden');
       } else {
         content.classList.add('hidden');
-      }
-    }
-    if (tabBtn) {
-      if (t === validKey) {
-        tabBtn.className = 'px-3 py-1.5 rounded-xl bg-[#142E23] text-white font-bold text-xs whitespace-nowrap shadow-xs';
-      } else {
-        tabBtn.className = 'px-3 py-1.5 rounded-xl bg-stone-100 text-stone-600 hover:bg-stone-200 font-semibold text-xs whitespace-nowrap transition-colors';
       }
     }
   });
@@ -429,6 +439,8 @@ function openPoliciesModal(key = 'shipping') {
 
   if (window.lucide) window.lucide.createIcons();
 }
+window.openNavModal = openNavModal;
+window.openPoliciesModal = openNavModal; // backward-compatible alias
 
 function closePoliciesModal() {
   const modal = document.getElementById('policies-modal');
@@ -438,10 +450,39 @@ function closePoliciesModal() {
     document.body.classList.remove('overflow-hidden');
   }
 }
+window.closePoliciesModal = closePoliciesModal;
+window.closeNavModal = closePoliciesModal;
 
 function switchPolicyTab(tab) {
-  openPoliciesModal(tab);
+  openNavModal(tab);
 }
+window.switchPolicyTab = switchPolicyTab;
+
+function handleModalContactSubmit() {
+  const nameInput = document.getElementById('modal-cp-name');
+  const cityInput = document.getElementById('modal-cp-city');
+  const reqInput = document.getElementById('modal-cp-req');
+
+  const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Customer';
+  const city = cityInput && cityInput.value.trim() ? cityInput.value.trim() : 'India';
+  const req = reqInput && reqInput.value.trim() ? reqInput.value.trim() : 'General Inquiry on unpolished grains';
+
+  const msg = `*Deepan Mills Inquiry*\n` +
+              `--------------------------------------\n` +
+              `*Customer:* ${name}\n` +
+              `*City/PIN:* ${city}\n` +
+              `*Requirement:* ${req}\n` +
+              `--------------------------------------\n` +
+              `Please share current availability, pricing, and courier charges.`;
+
+  const url = `https://wa.me/916379790035?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  closePoliciesModal();
+  if (typeof showToast === 'function') {
+    showToast('Opening WhatsApp with your inquiry...', 'success');
+  }
+}
+window.handleModalContactSubmit = handleModalContactSubmit;
 
 // --- LANGUAGE SWITCHER LOGIC ---
 function changeLanguage(langKey) {
