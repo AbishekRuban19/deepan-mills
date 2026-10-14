@@ -70,7 +70,7 @@ window.PRODUCTS = [
     category: 'rice',
     badge: 'Diabetes Care',
     shortDesc: 'Legendary wild wetland rice (Kattu Yanam = wild elephant), growing tall in traditional wetlands. Known for unmatched stamina and glycemic control.',
-    image: 'https://images.unsplash.com/photo-1550989460-0adc9554f529?auto=format&fit=crop&w=800&q=80',
+    image: 'images/kattuyanam-rice.jpg',
     tags: ['Low Glycemic Index', 'High Dietary Fiber', 'Vitality & Stamina'],
     healthBenefit: 'Celebrated in traditional medicine for extremely low glycemic index and high anthocyanins. Slows carbohydrate digestion, helping stabilize blood glucose.',
     cookingRatio: '1 Cup Rice : 3.5 Cups Water (Soak for 4–6 hours. Excellent for fermented kanji, idli-dosa batter, and porridge).',
