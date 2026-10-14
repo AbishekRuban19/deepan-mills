@@ -22,7 +22,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'Situated in the agricultural heartlands of Theni, Tamil Nadu, Deepan Mills specializes in reviving authentic unpolished native millets, traditional Karuppu Kavuni and Mappillai Samba rice, slow stone-ground flours, and pure cold-extracted Vaagai oils.',
     catalogEyebrow: 'Direct From Our Mill',
     catalogTitle: 'Heritage Grains, Millets & Cold-Pressed Oils',
-    catalogSub: 'Select your preferred pack size (500g, 1 Kg, 5 Kg), view verified nutritional breakdown, and add directly to your shopping basket.',
+    catalogSub: 'Explore our unpolished native grains and cold-pressed oils. Click any product to view pack sizes, pricing, and nutritional details.',
     catAll: 'All Products (12)',
     catRice: 'Heritage Rice',
     catMillet: 'Native Millets',
@@ -31,7 +31,7 @@ const TRANSLATIONS = {
     catCombos: 'Value Combos',
     labelFilterBy: 'Filter by Need:',
     btnAdd: 'Add',
-    btnViewDetails: 'Quick Details',
+    btnViewDetails: 'View Details & Price',
     drawerTitle: 'Your Basket',
     lblSubtotal: 'Items Subtotal:',
     lblDelivery: 'Shipping:',
@@ -58,7 +58,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'தேனியின் வளமான மண்ணில் விளைந்த பாரம்பரிய நவதானியங்கள், கருப்பு கவுனி, மாப்பிள்ளை சம்பா அரிசி, கல் செக்கு மற்றும் மரச்செக்கு எண்ணெய்கள். ரசாயனங்கள் அற்ற ஆரோக்கியமான உணவை உங்கள் இல்லத்திற்கு சேர்க்கிறோம்.',
     catalogEyebrow: 'எங்கள் ஆலை தயாரிப்புகள்',
     catalogTitle: 'பாரம்பரிய தானியங்கள், சிறுதானியங்கள் & மரச்செக்கு',
-    catalogSub: 'தேவையான எடையைத் தேர்ந்தெடுத்து (500g, 1kg, 5kg) நேரடியாக உங்கள் கூடையில் சேர்க்கவும்.',
+    catalogSub: 'எங்கள் ஆலை பாரம்பரிய தானியங்கள் & எண்ணெய்கள். எடைகள், விலை மற்றும் நன்மைகளை அறிய பொருளைத் தேர்ந்தெடுக்கவும்.',
     catAll: 'அனைத்து பொருட்கள் (12)',
     catRice: 'பாரம்பரிய அரிசி',
     catMillet: 'நாட்டுச் சிறுதானியங்கள்',
@@ -67,7 +67,7 @@ const TRANSLATIONS = {
     catCombos: 'சிறப்பு காம்போ',
     labelFilterBy: 'தேவைக்கேற்ப:',
     btnAdd: 'சேர்',
-    btnViewDetails: 'விவரம்',
+    btnViewDetails: 'விலை & விவரம்',
     drawerTitle: 'உங்கள் கூடை',
     lblSubtotal: 'பொருட்களின் மொத்த விலை:',
     lblDelivery: 'டெலிவரி கட்டணம்:',
@@ -94,7 +94,7 @@ const TRANSLATIONS = {
     heroSubtitle: 'थेनी, तमिलनाडु की उपजाऊ भूमि से सीधे प्राप्त पारंपरिक बाजरा, काला व लाल चावल, पत्थर की चक्की का आटा और लकड़ी कोल्हू का शुद्ध तेल। बिना किसी पॉलिश या रसायन के।',
     catalogEyebrow: 'सीधे हमारी मिल से',
     catalogTitle: 'पारंपरिक अनाज, बाजरा और शुद्ध तेल',
-    catalogSub: 'पैकेट का वजन चुनें (500g, 1kg, 5kg) और सीधे अपनी टोकरी में जोड़ें।',
+    catalogSub: 'हमारे पारंपरिक अनाज और कोल्ड प्रेस्ड तेल। पैक के आकार, मूल्य और पोषण संबंधी विवरण देखने के लिए किसी भी उत्पाद पर क्लिक करें।',
     catAll: 'सभी उत्पाद (12)',
     catRice: 'पारंपरिक चावल',
     catMillet: 'बाजरा / मिलेट्स',
@@ -103,7 +103,7 @@ const TRANSLATIONS = {
     catCombos: 'विशेष कॉम्बो',
     labelFilterBy: 'आवश्यकता अनुसार:',
     btnAdd: 'जोड़ें',
-    btnViewDetails: 'विवरण',
+    btnViewDetails: 'विवरण व मूल्य',
     drawerTitle: 'आपकी टोकरी',
     lblSubtotal: 'सामग्रियों का मूल्य:',
     lblDelivery: 'शिपिंग शुल्क:',
@@ -432,21 +432,17 @@ function renderProducts() {
   }
 
   container.innerHTML = filtered.map(prod => {
-    const activeVarIdx = selectedVariantMap[prod.id] || 0;
-    const currentVariant = prod.variants[activeVarIdx] || prod.variants[0];
-    const savings = currentVariant.mrp - currentVariant.price;
-
     const localizedTitle = currentLang === 'ta' && prod.tamilName ? prod.tamilName :
                            currentLang === 'hi' && prod.hindiName ? prod.hindiName : prod.name;
     const subTitle = currentLang === 'en' ? (prod.tamilName || '') : prod.name;
 
     return `
-      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200" 
-           data-product-id="${prod.id}">
+      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200 cursor-pointer" 
+           data-product-id="${prod.id}"
+           onclick="openQuickView('${prod.id}', 0)">
         <div>
           <!-- Product Photography -->
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5 cursor-pointer" 
-               onclick="openQuickView('${prod.id}', ${activeVarIdx})">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
             <img src="${prod.image}" 
                  alt="${prod.name}" 
                  loading="lazy"
@@ -459,8 +455,8 @@ function renderProducts() {
             </div>
 
             <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
-              <i data-lucide="info" class="w-3 h-3 text-amber-700"></i>
-              <span>Details</span>
+              <i data-lucide="eye" class="w-3 h-3 text-amber-700"></i>
+              <span>View Details</span>
             </div>
           </div>
 
@@ -471,8 +467,7 @@ function renderProducts() {
                 <span>${subTitle}</span>
               </div>
             ` : ''}
-            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug cursor-pointer group-hover:text-emerald-900 transition-colors"
-                onclick="openQuickView('${prod.id}', ${activeVarIdx})">
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
               ${localizedTitle}
             </h3>
             <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
@@ -491,48 +486,32 @@ function renderProducts() {
         </div>
 
         <div>
-          <!-- Interactive Weight Selector on Card -->
-          <div class="mb-3">
-            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Weight:</span>
-            <div class="grid grid-cols-${prod.variants.length} gap-1.5">
-              ${prod.variants.map((v, idx) => `
-                <button type="button" 
-                        onclick="selectProductVariant('${prod.id}', ${idx})" 
-                        class="text-xs font-bold py-1 px-2 rounded-xl border text-center transition-all ${
-                          idx === activeVarIdx 
-                            ? 'bg-[#142E23] text-white border-[#142E23] shadow-sm' 
-                            : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-stone-400'
-                        }">
+          <!-- Available Pack Sizes -->
+          <div class="mb-3.5">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-1.5">Pack Sizes:</span>
+            <div class="flex flex-wrap gap-1.5">
+              ${prod.variants.map(v => `
+                <span class="text-xs font-semibold py-1 px-2.5 rounded-lg bg-stone-50 text-stone-700 border border-stone-200">
                   ${v.weight}
-                </button>
+                </span>
               `).join('')}
             </div>
           </div>
 
-          <!-- Accurate Transparent Price & Add Actions -->
+          <!-- Price Hidden - Action button to view details & price inside -->
           <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
-            <div>
-              <div class="flex items-baseline gap-1.5">
-                <span class="text-lg font-black text-[#142E23]">₹${currentVariant.price}</span>
-                <span class="text-xs text-stone-400 line-through">₹${currentVariant.mrp}</span>
-              </div>
-              <span class="text-[10px] text-emerald-800 font-semibold">Save ₹${savings}</span>
+            <div class="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
+              <i data-lucide="tag" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span class="text-[11px]">Pricing inside</span>
             </div>
 
-            <div class="flex items-center gap-1.5">
-              <button onclick="addToCart('${prod.id}', ${activeVarIdx}, 1)" 
-                      class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1 shadow-sm transition-all hover:scale-105 active:scale-95"
-                      title="Add to shopping basket">
-                <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-300"></i>
-                <span>${t.btnAdd}</span>
-              </button>
-              
-              <button onclick="openQuickView('${prod.id}', ${activeVarIdx})" 
-                      class="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold shadow-sm transition-all"
-                      title="View Full Nutritional Details & Preparation Guide">
-                <i data-lucide="info" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
+            <button type="button"
+                    onclick="event.stopPropagation(); openQuickView('${prod.id}', 0)" 
+                    class="px-3.5 py-2 rounded-xl bg-[#142E23] hover:bg-[#0E2218] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    title="View details and live pricing">
+              <span>${t.btnViewDetails || 'View Details & Price'}</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-300"></i>
+            </button>
           </div>
         </div>
 
