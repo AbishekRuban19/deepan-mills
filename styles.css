@@ -9,8 +9,6 @@
   --color-gold-light: #FDF3E7;
   --color-amber: #D97706;
   --color-cream: #F0F6F2;
-  --color-beige: #DCC7A5;
-  --color-beige-border: #C5AD88;
   --color-card-bg: #FFFFFF;
   --color-border: #D2E2D7;
   --color-text-main: #18221D;
@@ -438,14 +436,3 @@ h1, h2, h3, h4, .font-heading {
     display: none !important;
   }
 }
-
-/* ========================================================================= */
-/* BEIGE HARVEST ACCENTS & BACKGROUNDS (#DCC7A5)                             */
-/* ========================================================================= */
-.bg-beige-harvest {
-  background-color: #DCC7A5 !important;
-}
-.border-beige-harvest {
-  border-color: #C5AD88 !important;
-}
-
