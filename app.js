@@ -334,12 +334,12 @@ function initScrollAnimations() {
 const POLICY_CONFIG = {
   about: {
     title: 'About Deepan Mills',
-    subtitle: '100% Unpolished Traditional Grain Processors • Theni, Tamil Nadu',
+    subtitle: 'Celebrating 40+ Years of Organic Grain Processing • Theni, Tamil Nadu',
     icon: 'sprout',
     iconBg: 'bg-emerald-700 text-white',
-    badge: 'MSME Agro Unit',
+    badge: 'ISO 22000:2018 Certified',
     badgeClass: 'bg-emerald-100 text-emerald-900 border border-emerald-300',
-    waText: 'Hello Deepan Mills, I would like to learn more about your traditional unpolished milling process.'
+    waText: 'Hello Deepan Mills, I would like to learn more about your millets and traditional rice varieties.'
   },
   privacy: {
     title: 'Customer Privacy Policy',
