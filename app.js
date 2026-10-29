@@ -205,6 +205,15 @@ function initApp() {
   if (window.lucide) {
     try { window.lucide.createIcons(); } catch (e) {}
   }
+
+  // Deep-link support for inspecting product quickview
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qvProduct = urlParams.get('product');
+    if (qvProduct) {
+      setTimeout(() => openQuickView(qvProduct, 0), 50);
+    }
+  } catch (e) {}
 }
 
 // Guarantee execution whether script runs before or after DOMContentLoaded
@@ -1259,34 +1268,66 @@ function renderQuickViewModal() {
     <!-- Modal Body: 2 Columns on Desktop -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-start">
       
-      <!-- Left Column: Visual & Authenticity -->
+      <!-- Left Column: Visual, Nutrition & Preparation -->
       <div class="md:col-span-5 space-y-3">
         <div class="rounded-2xl overflow-hidden aspect-square bg-stone-100 border border-stone-200 relative shadow-inner">
           <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-cover">
-          <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold flex items-center justify-between">
+          <div class="absolute bottom-2 left-2 right-2 px-2.5 py-1 rounded-xl bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold flex items-center justify-between">
             <span>Direct Mill Sourced</span>
             <span class="text-amber-300 font-bold">100% Unpolished</span>
           </div>
         </div>
 
+        <!-- Nutritional Profile & Benefits (Short & Compact) -->
+        <div class="p-2.5 bg-emerald-50/70 rounded-xl border border-emerald-200 space-y-0.5">
+          <div class="flex items-center gap-1.5 text-[10px] font-extrabold text-emerald-950 uppercase tracking-wider">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700 shrink-0"></i>
+            <span>Nutritional Profile & Benefits</span>
+          </div>
+          <p class="text-xs text-emerald-900 leading-snug">${prod.healthBenefit}</p>
+        </div>
+
+        <!-- Preparation & Water Ratio (Short & Compact) -->
+        <div class="p-2.5 bg-amber-50/70 rounded-xl border border-amber-200 space-y-0.5">
+          <div class="flex items-center gap-1.5 text-[10px] font-extrabold text-amber-950 uppercase tracking-wider">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-amber-700 shrink-0"></i>
+            <span>Preparation & Water Ratio</span>
+          </div>
+          <p class="text-xs text-amber-900 leading-snug">${prod.cookingRatio}</p>
+        </div>
+
+        <!-- Nutritional Composition (Per 100g) (Short & Compact) -->
+        <div>
+          <span class="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400 mb-1">Nutritional Composition (Per 100g)</span>
+          <div class="grid grid-cols-4 gap-1.5 text-center">
+            <div class="bg-stone-50 p-1.5 rounded-lg border border-stone-200">
+              <span class="text-[9px] text-stone-400 block font-semibold leading-tight">Calories</span>
+              <span class="text-xs font-black text-stone-800">${prod.nutrition.calories}</span>
+            </div>
+            <div class="bg-stone-50 p-1.5 rounded-lg border border-stone-200">
+              <span class="text-[9px] text-stone-400 block font-semibold leading-tight">Fiber</span>
+              <span class="text-xs font-black text-emerald-800">${prod.nutrition.fiber}</span>
+            </div>
+            <div class="bg-stone-50 p-1.5 rounded-lg border border-stone-200">
+              <span class="text-[9px] text-stone-400 block font-semibold leading-tight">Protein</span>
+              <span class="text-xs font-black text-stone-800">${prod.nutrition.protein}</span>
+            </div>
+            <div class="bg-stone-50 p-1.5 rounded-lg border border-stone-200">
+              <span class="text-[9px] text-stone-400 block font-semibold leading-tight">Iron</span>
+              <span class="text-xs font-black text-amber-800">${prod.nutrition.iron}</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Mill Trust Checklist -->
-        <div class="bg-stone-50 rounded-2xl p-3.5 border border-stone-200 space-y-2 text-xs text-stone-700">
-          <div class="flex items-center gap-2">
-            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-            <span>Naturally grown in Theni soil</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-            <span>Slow stone de-husking retains bran</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-            <span>Zero paraffin, chemical wax or bleach</span>
-          </div>
+        <div class="bg-stone-50 rounded-xl p-2.5 border border-stone-200 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-stone-600">
+          <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-600 shrink-0"></i> Theni Soil</span>
+          <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-600 shrink-0"></i> Slow Stone Milling</span>
+          <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-600 shrink-0"></i> Zero Wax/Polish</span>
         </div>
       </div>
 
-      <!-- Right Column: Details, Nutrition, Weight, Price & Add -->
+      <!-- Right Column: Details, Pack Size, Custom Kg & WhatsApp Order -->
       <div class="md:col-span-7 space-y-4">
         
         <!-- About the harvest -->
@@ -1410,47 +1451,6 @@ function renderQuickViewModal() {
             <i data-lucide="plus" class="w-4 h-4 text-emerald-800"></i>
             <span>Add to Multi-Item Order List</span>
           </button>
-        </div>
-
-        <!-- Health Benefits -->
-        <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 space-y-1">
-          <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-950 uppercase tracking-wider">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i>
-            <span>Nutritional Profile & Benefits</span>
-          </div>
-          <p class="text-xs text-emerald-900 leading-normal">${prod.healthBenefit}</p>
-        </div>
-
-        <!-- Cooking Ratio -->
-        <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-1">
-          <div class="flex items-center gap-1.5 text-[11px] font-extrabold text-amber-950 uppercase tracking-wider">
-            <i data-lucide="book-open" class="w-3.5 h-3.5 text-amber-700"></i>
-            <span>Preparation & Water Ratio</span>
-          </div>
-          <p class="text-xs text-amber-900 leading-normal">${prod.cookingRatio}</p>
-        </div>
-
-        <!-- Nutrition Facts (Per 100g) -->
-        <div>
-          <span class="block text-[10px] font-extrabold uppercase tracking-wider text-stone-400 mb-1.5">Nutritional Composition (Per 100g)</span>
-          <div class="grid grid-cols-4 gap-2 text-center">
-            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-              <span class="text-[10px] text-stone-400 block font-semibold">Calories</span>
-              <span class="text-xs font-black text-stone-800">${prod.nutrition.calories}</span>
-            </div>
-            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-              <span class="text-[10px] text-stone-400 block font-semibold">Fiber</span>
-              <span class="text-xs font-black text-emerald-800">${prod.nutrition.fiber}</span>
-            </div>
-            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-              <span class="text-[10px] text-stone-400 block font-semibold">Protein</span>
-              <span class="text-xs font-black text-stone-800">${prod.nutrition.protein}</span>
-            </div>
-            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200">
-              <span class="text-[10px] text-stone-400 block font-semibold">Iron/Minerals</span>
-              <span class="text-xs font-black text-amber-800">${prod.nutrition.iron}</span>
-            </div>
-          </div>
         </div>
 
       </div>
