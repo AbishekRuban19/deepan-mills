@@ -628,74 +628,72 @@ function renderProducts() {
     const activeVariant = prod.variants[activeVariantIdx] || prod.variants[0];
 
     return `
-      <div class="product-card bg-white rounded-3xl p-4 flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 border border-[#CEE1D5] cursor-pointer" 
+      <div class="product-card bg-white rounded-2xl p-4 flex flex-col justify-between group cursor-pointer" 
            data-product-id="${prod.id}"
            onclick="openQuickView('${prod.id}', ${activeVariantIdx})">
-        <div>
+        <div class="flex flex-col flex-grow">
           <!-- Product Photography -->
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-100 mb-3.5">
             <img src="${prod.image}" 
                  alt="${prod.name}" 
                  loading="lazy"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                 class="w-full h-full object-cover group-hover:scale-[1.025] transition-transform duration-500 ease-out">
             
             <div class="absolute top-2.5 left-2.5">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-sm">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#142E23] text-amber-200 shadow-xs">
                 ${prod.badge}
               </span>
             </div>
 
-            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-sm text-stone-800 text-[10px] font-bold flex items-center gap-1 shadow">
-              <i data-lucide="message-circle" class="w-3 h-3 text-emerald-700"></i>
-              <span>Order Now</span>
+            <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-sm text-stone-700 text-[10px] font-semibold flex items-center gap-1 shadow-xs border border-stone-200/60">
+              <i data-lucide="info" class="w-3 h-3 text-emerald-800"></i>
+              <span>Details</span>
             </div>
           </div>
 
           <!-- Product Titles & Heritage Info -->
-          <div class="space-y-1 mb-2">
-            ${subTitle ? `
-              <div class="flex items-center gap-1 text-[11px] font-semibold text-amber-800">
-                <span>${subTitle}</span>
-              </div>
-            ` : ''}
-            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors">
+          <div class="mb-2">
+            <div class="text-[11px] font-semibold text-amber-800 tracking-wide mb-0.5 line-clamp-1 h-4">
+              ${subTitle || '&nbsp;'}
+            </div>
+            <h3 class="font-heading font-bold text-base text-stone-900 leading-snug group-hover:text-emerald-900 transition-colors line-clamp-1 h-6">
               ${localizedTitle}
             </h3>
-            <p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">
+            <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed mt-1.5 h-9">
               ${prod.shortDesc}
             </p>
           </div>
 
           <!-- Dietary & Nutritional Tags -->
-          <div class="flex flex-wrap gap-1.5 mb-3">
+          <div class="flex flex-wrap gap-1.5 mb-3 h-6 overflow-hidden">
             ${prod.tags.slice(0, 2).map(tag => `
-              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200">
+              <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 border border-stone-200/70">
                 ${tag}
               </span>
             `).join('')}
           </div>
         </div>
 
-        <div>
+        <div class="mt-auto pt-3 border-t border-stone-100">
           <!-- Available Pack Sizes & Manual Weight Selection -->
-          <div class="mb-3.5">
+          <div class="mb-3">
             <div class="flex items-center justify-between mb-1.5">
               <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Select Pack:</span>
               <button type="button" 
                       onclick="event.stopPropagation(); openQuickViewWithManual('${prod.id}')" 
-                      class="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors"
+                      class="text-[11px] font-semibold text-amber-800 hover:text-amber-950 flex items-center gap-1 transition-colors shrink-0"
                       title="Need custom kg or bulk quantity?">
                 <i data-lucide="edit-3" class="w-3 h-3 text-amber-700"></i>
-                <span>+ Manual Kg</span>
+                <span>Custom Kg</span>
               </button>
             </div>
             <div class="flex flex-wrap gap-1.5">
               ${prod.variants.map((v, vIdx) => `
                 <button type="button"
                         onclick="event.stopPropagation(); selectProductVariant('${prod.id}', ${vIdx})" 
-                        class="text-xs font-bold py-1 px-2.5 rounded-lg transition-all ${
+                        class="text-xs font-semibold py-1 px-2.5 rounded-lg transition-all ${
                           vIdx === activeVariantIdx 
-                            ? 'bg-[#142E23] text-white shadow-sm ring-1 ring-amber-400' 
+                            ? 'bg-[#142E23] text-white shadow-xs' 
                             : 'bg-stone-50 hover:bg-stone-100 text-stone-700 border border-stone-200'
                         }">
                   ${v.weight}
@@ -705,20 +703,20 @@ function renderProducts() {
           </div>
 
           <!-- Direct WhatsApp Order Action -->
-          <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+          <div class="flex items-center justify-between gap-2 pt-1">
             <button type="button"
                     onclick="event.stopPropagation(); openQuickView('${prod.id}', ${activeVariantIdx})"
-                    class="text-xs font-bold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1 px-1.5 rounded-lg hover:bg-stone-100 transition-colors">
+                    class="text-xs font-semibold text-stone-600 hover:text-stone-900 flex items-center gap-1 py-1.5 px-2 rounded-lg hover:bg-stone-100 transition-colors shrink-0">
               <i data-lucide="info" class="w-3.5 h-3.5 text-stone-400"></i>
               <span>Details</span>
             </button>
 
             <button type="button"
                     onclick="event.stopPropagation(); orderProductOnWhatsApp('${prod.id}')" 
-                    class="px-3.5 py-2 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95"
+                    class="btn-order-wa flex-1 sm:flex-initial justify-center"
                     title="Order selected pack on WhatsApp">
-              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-slate-950"></i>
-              <span>${t.btnViewDetails || 'Order on WhatsApp'}</span>
+              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+              <span class="whitespace-nowrap text-xs font-bold">${t.btnViewDetails || 'Order on WhatsApp'}</span>
             </button>
           </div>
         </div>
